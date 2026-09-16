@@ -28,7 +28,8 @@ export { MOONS, MOON_BY_ID };
 
 /**
  * Returns detailed curated MoonBody if available, otherwise synthesizes
- * a compliant MoonBody representation from the catalogue record.
+ * a scientifically honest MoonBody representation from the catalogue record.
+ * Unknown values remain undefined rather than populated with placeholder constants.
  */
 export function anyMoonById(id: string): MoonBody | undefined {
   const curated = MOON_BY_ID[id];
@@ -37,35 +38,52 @@ export function anyMoonById(id: string): MoonBody | undefined {
   const entry = SATELLITE_BY_ID[id];
   if (!entry) return undefined;
 
-  // Synthesize lightweight MoonBody from catalogue entry
-  const diamKm = entry.physical?.diameterKm ?? 5.0;
-  const radiusKm = entry.physical?.meanRadiusKm ?? diamKm / 2;
+  // Use sourced physical dimensions if established in catalogue, otherwise leave undefined
+  const diamKm = entry.physical?.diameterKm;
+  const radiusKm = entry.physical?.meanRadiusKm ?? (diamKm !== undefined ? diamKm / 2 : undefined);
+
+  // Map fidelity to standard 3-tier hierarchy: 1 = major, 2 = regular, 3 = irregular
+  const tier: 1 | 2 | 3 =
+    entry.fidelity === "major" ? 1 : entry.fidelity === "regular" ? 2 : 3;
+
+  const category = entry.fidelity === "irregular" ? "Minor moon" : "Moon";
+
+  const parentName = entry.parentId.charAt(0).toUpperCase() + entry.parentId.slice(1);
+  const designationStr = entry.designation ? ` (${entry.designation})` : "";
+  const groupStr = entry.family ? ` belonging to the ${entry.family}` : "";
 
   return {
     identity: {
       id: entry.id,
       name: entry.name,
-      epithet: entry.designation ?? (entry.provisional ? "Provisional satellite" : "Irregular satellite"),
+      epithet:
+        entry.designation ??
+        (entry.provisional
+          ? "Provisional satellite"
+          : entry.fidelity === "irregular"
+          ? "Irregular satellite"
+          : "Natural satellite"),
       kind: "moon",
-      category: "Moon",
+      category,
       parentId: entry.parentId,
       color: "#88827c",
       discovery: entry.discovery
         ? {
             year: entry.discovery.year ?? "Recent",
-            discoverer: entry.discovery.discoverer ?? "Automated Survey",
+            discoverer: entry.discovery.discoverer ?? "Astronomical Survey",
           }
         : undefined,
     },
-    tier: entry.fidelity === "major" ? 1 : 2,
+    tier,
+    fidelity: entry.fidelity,
     physical: {
       meanRadiusKm: radiusKm,
       diameterKm: diamKm,
       massKg24: undefined,
       massEarths: undefined,
-      gravityG: 0.001,
-      escapeVelocityKmS: 0.01,
-      densityGCm3: 1.5,
+      gravityG: undefined,
+      escapeVelocityKmS: undefined,
+      densityGCm3: undefined,
     },
     orbit: {
       semiMajorAxisKm: entry.orbit.semiMajorAxisKm,
@@ -73,19 +91,26 @@ export function anyMoonById(id: string): MoonBody | undefined {
       inclinationDeg: entry.orbit.inclinationDeg,
       eccentricity: entry.orbit.eccentricity,
       retrograde: entry.orbit.retrograde,
-      tidallyLocked: entry.fidelity === "major",
+      tidallyLocked: entry.fidelity === "major" ? true : undefined,
     },
     rotation: {
-      periodHours: entry.orbit.periodDays * 24,
-      axialTiltDeg: 0,
+      periodHours: undefined,
+      axialTiltDeg: undefined,
+      tidallyLocked: entry.fidelity === "major" ? true : undefined,
     },
     temperature: {
-      meanC: -180,
+      meanC: undefined,
     },
-    blurb: `${entry.name} is a ${entry.orbit.retrograde ? "retrograde" : "prograde"} natural satellite of ${entry.parentId.charAt(0).toUpperCase() + entry.parentId.slice(1)} belonging to the ${entry.family ?? "outer irregular group"}.`,
+    blurb: `${entry.name}${designationStr} is a ${
+      entry.orbit.retrograde ? "retrograde" : "prograde"
+    } natural satellite of ${parentName}${groupStr}.`,
     notes: {
-      surface: "Small, low-albedo irregular satellite likely captured from the primordial planetesimal disk.",
-      exploration: `Identified in institutional surveys with discovery credited to ${entry.discovery?.discoverer ?? "astronomical surveys"}${entry.discovery?.year ? ` (${entry.discovery.year})` : ""}.`,
+      surface: entry.physical?.diameterKm
+        ? `Estimated diameter approximately ${entry.physical.diameterKm} km. Surface composition uncharacterized by in-situ spectroscopy.`
+        : "Unresolved physical dimensions; surface composition and albedo uncharacterized in current institutional catalogue.",
+      exploration: `Identified via telescopic survey. Discovery credited to ${
+        entry.discovery?.discoverer ?? "astronomical surveys"
+      }${entry.discovery?.year ? ` (${entry.discovery.year})` : ""}.`,
     },
     sources: entry.sourceIds.map((s) => ({ id: s })),
     retrieved: entry.asOf,

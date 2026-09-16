@@ -44,20 +44,20 @@ export type RingSystem = {
 export type AtmosphereBand = { name: string; share: string };
 
 export type PhysicalData = {
-  /** Mean radius, kilometres (IAU/NASA factsheet convention). */
-  meanRadiusKm: number;
-  /** Equatorial diameter, kilometres. */
-  diameterKm: number;
+  /** Equatorial or volumetric diameter in km; optional for unmeasured sparse satellites. */
+  diameterKm?: number;
+  /** Volumetric mean radius in km; optional when unmeasured. */
+  meanRadiusKm?: number;
   /** kg × 10²⁴ (or relative multiples, see `massEarths`). */
   massKg24?: number;
   /** Mass relative to Earth = 1. */
   massEarths?: number;
   /** Surface (or 1-bar) gravity relative to Earth = 1. */
-  gravityG: number;
+  gravityG?: number;
   /** Escape velocity, km/s. */
-  escapeVelocityKmS: number;
+  escapeVelocityKmS?: number;
   /** Mean density, g/cm³. */
-  densityGCm3: number;
+  densityGCm3?: number;
 };
 
 export type OrbitData = {
@@ -81,9 +81,9 @@ export type OrbitData = {
 
 export type RotationData = {
   /** Sidereal rotation period, hours. Negative = retrograde. */
-  periodHours: number;
+  periodHours?: number;
   /** Axial tilt to orbit, degrees. */
-  axialTiltDeg: number;
+  axialTiltDeg?: number;
   /** True when the body is synchronously tidally locked to its parent. */
   tidallyLocked?: boolean;
 };
@@ -91,7 +91,7 @@ export type RotationData = {
 
 export type TemperatureData = {
   /** Mean surface (or 1-bar level) temperature, °C. */
-  meanC: number;
+  meanC?: number;
   /** Range note, e.g. Mercury's day/night extremes. */
   noteC?: { min: number; max: number };
 };

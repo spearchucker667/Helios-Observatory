@@ -115,11 +115,13 @@ export function validateData(): DataIssue[] {
       issues.push({ kind: "error", message: `body ${b.identity.id}: ${parsed.error.issues[0]?.message}` });
       continue;
     }
-    if (Math.abs(b.physical.diameterKm - b.physical.meanRadiusKm * 2) > b.physical.diameterKm * 0.02) {
-      issues.push({
-        kind: "warning",
-        message: `body ${b.identity.id}: diameter/radius inconsistent beyond 2%`,
-      });
+    if (b.physical.diameterKm !== undefined && b.physical.meanRadiusKm !== undefined) {
+      if (Math.abs(b.physical.diameterKm - b.physical.meanRadiusKm * 2) > b.physical.diameterKm * 0.02) {
+        issues.push({
+          kind: "warning",
+          message: `body ${b.identity.id}: diameter/radius inconsistent beyond 2%`,
+        });
+      }
     }
     if (b.orbit) {
       const orbitParsed = orbitSchema.safeParse(b.orbit);

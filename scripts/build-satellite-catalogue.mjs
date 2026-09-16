@@ -593,11 +593,18 @@ const snapshotPath = resolve(OUT_DIR, "snapshot.json");
 writeFileSync(snapshotPath, JSON.stringify(satellites, null, 2) + "\n", "utf8");
 
 // 2. Write snapshot.meta.json
+const fidelityCounts = {
+  major: satellites.filter((s) => s.fidelity === "major").length,
+  regular: satellites.filter((s) => s.fidelity === "regular").length,
+  irregular: satellites.filter((s) => s.fidelity === "irregular").length,
+};
+
 const meta = {
   asOf: AS_OF,
   generator: "scripts/build-satellite-catalogue.mjs",
   sources: SOURCES,
   counts,
+  fidelityCounts,
   totalPlanetary,
   totalAll,
   note: "Canonical natural satellite counts from NASA Solar System Exploration (August 2026). Total 456 planetary moons orbiting the 8 major planets, plus 5 moons of dwarf planet Pluto.",

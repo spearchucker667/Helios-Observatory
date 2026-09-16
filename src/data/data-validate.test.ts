@@ -55,9 +55,9 @@ describe("astronomical data integrity", () => {
 
   it("all radii, periods and gravities are positive", () => {
     for (const b of [...BODIES, ...MOONS]) {
-      assert.ok(b.physical.meanRadiusKm > 0, `${b.identity.id} radius`);
-      assert.ok(b.physical.gravityG > 0, `${b.identity.id} gravity`);
-      assert.ok(b.physical.densityGCm3 > 0, `${b.identity.id} density`);
+      assert.ok((b.physical.meanRadiusKm ?? 0) > 0, `${b.identity.id} radius`);
+      assert.ok((b.physical.gravityG ?? 0) > 0, `${b.identity.id} gravity`);
+      assert.ok((b.physical.densityGCm3 ?? 0) > 0, `${b.identity.id} density`);
       assert.ok(b.orbit ? b.orbit.periodDays > 0 : true, `${b.identity.id} period`);
       assert.ok(b.rotation.periodHours !== 0, `${b.identity.id} rotation`);
     }
@@ -115,7 +115,10 @@ describe("astronomical data integrity", () => {
 
   it("temperature means are physically plausible", () => {
     for (const b of [...BODIES, ...MOONS]) {
-      assert.ok(b.temperature.meanC > -300 && b.temperature.meanC < 6000, `${b.identity.id} meanC`);
+      assert.ok(
+        (b.temperature.meanC ?? 0) > -300 && (b.temperature.meanC ?? 0) < 6000,
+        `${b.identity.id} meanC`
+      );
     }
   });
 });

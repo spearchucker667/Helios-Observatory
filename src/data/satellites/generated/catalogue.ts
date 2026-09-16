@@ -22,6 +22,11 @@ export const SATELLITE_METADATA = {
     "neptune": 16,
     "pluto": 5
   },
+  "fidelityCounts": {
+    "major": 21,
+    "regular": 38,
+    "irregular": 402
+  },
   "totalPlanetary": 456,
   "totalAll": 461,
   "note": "Canonical natural satellite counts from NASA Solar System Exploration (August 2026). Total 456 planetary moons orbiting the 8 major planets, plus 5 moons of dwarf planet Pluto."

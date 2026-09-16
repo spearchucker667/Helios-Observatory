@@ -45,7 +45,7 @@ const RELATIVE_RADIUS_SCALE = 0.34 / 6371; // scene units per km
 const SUN_RADIUS_CAP = 5.2;
 
 export function sceneRadius(body: AnyBody, mode: ScaleMode): number {
-  const km = body.physical.meanRadiusKm;
+  const km = body.physical.meanRadiusKm ?? (body.physical.diameterKm ? body.physical.diameterKm / 2 : 2.5);
   if (mode === "relative-size") {
     if (body.identity.kind === "star") return SUN_RADIUS_CAP;
     return Math.max(km * RELATIVE_RADIUS_SCALE, 0.05);
@@ -74,7 +74,7 @@ export function sceneMoonOrbit(moon: AnyBody, parentRadius: number): number {
 }
 
 export function sceneMoonRadius(moon: AnyBody, parentRadius: number): number {
-  const km = moon.physical.meanRadiusKm;
+  const km = moon.physical.meanRadiusKm ?? (moon.physical.diameterKm ? moon.physical.diameterKm / 2 : 2.5);
   // Cap so Ganymede never dwarfs its planet on screen.
   return Math.max(Math.min(km * RELATIVE_RADIUS_SCALE, parentRadius * 0.38), 0.035);
 }

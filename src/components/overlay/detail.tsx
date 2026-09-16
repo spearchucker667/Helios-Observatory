@@ -553,14 +553,35 @@ export function BodyDetail({
         {active === "physical" ? (
           <>
             <DataGroup title="Dimensions & mass">
-              <Row label="Mean radius" value={`${body.physical.meanRadiusKm.toLocaleString()} km`} />
+              <Row
+                label="Mean radius"
+                value={
+                  body.physical.meanRadiusKm !== undefined
+                    ? `${body.physical.meanRadiusKm.toLocaleString()} km`
+                    : "Unknown / unmeasured"
+                }
+              />
               <Row label="Diameter" value={formatDiameter(body.physical.diameterKm, units)} />
               <Row label="Mass" value={formatMass(body.physical.massEarths, body.physical.massKg24, units)} />
-              <Row label="Density" value={`${body.physical.densityGCm3} g/cm³`} />
+              <Row
+                label="Density"
+                value={
+                  body.physical.densityGCm3 !== undefined
+                    ? `${body.physical.densityGCm3} g/cm³`
+                    : "Unknown / unmeasured"
+                }
+              />
             </DataGroup>
             <DataGroup title="Gravity">
               <Row label="Surface gravity" value={formatGravity(body.physical.gravityG, units)} />
-              <Row label="Escape velocity" value={`${body.physical.escapeVelocityKmS} km/s`} />
+              <Row
+                label="Escape velocity"
+                value={
+                  body.physical.escapeVelocityKmS !== undefined
+                    ? `${body.physical.escapeVelocityKmS} km/s`
+                    : "Unknown"
+                }
+              />
             </DataGroup>
             <DataGroup title="Rotation & tilt">
               <Row label="Day (sidereal)" value={formatDayLength(body.rotation.periodHours)} />

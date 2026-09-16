@@ -9,6 +9,7 @@ import {
   anyMoonById,
   MOONS,
 } from "./index.ts";
+import { SOURCES } from "../sources.ts";
 
 describe("Natural Satellite Catalogue", () => {
   it("contains the complete pinned planetary satellite snapshot (456 planetary + 5 Pluto = 461 total)", () => {
@@ -67,13 +68,58 @@ describe("Natural Satellite Catalogue", () => {
     assert.equal(satelliteCountOf("mercury"), 0);
   });
 
-  it("synthesizes valid MoonBody records for irregular satellites", () => {
+  it("reconciles fidelity counts deterministically to 461 objects", () => {
+    const meta = SATELLITE_METADATA as {
+      totalAll: number;
+      fidelityCounts: { major: number; regular: number; irregular: number };
+    };
+    assert.ok(meta.fidelityCounts);
+    assert.equal(meta.fidelityCounts.major, 21);
+    assert.equal(meta.fidelityCounts.regular, 38);
+    assert.equal(meta.fidelityCounts.irregular, 402);
+    assert.equal(
+      meta.fidelityCounts.major + meta.fidelityCounts.regular + meta.fidelityCounts.irregular,
+      meta.totalAll,
+    );
+    assert.equal(meta.totalAll, SATELLITES.length);
+  });
+
+  it("verifies all 461 satellites reference valid sources and ISO asOf dates", () => {
+    const validParents = new Set(["earth", "mars", "jupiter", "saturn", "uranus", "neptune", "pluto"]);
+    const isoDateRegex = /^\d{4}-\d{2}-\d{2}$/;
+    for (const s of SATELLITES) {
+      assert.ok(validParents.has(s.parentId), `${s.id}: parent ${s.parentId} must be valid planet/pluto`);
+      assert.ok(s.sourceIds.length > 0, `${s.id}: must have at least one source`);
+      for (const src of s.sourceIds) {
+        assert.ok(SOURCES[src], `${s.id}: source ${src} must resolve in SOURCES registry`);
+      }
+      assert.match(s.asOf, isoDateRegex, `${s.id}: asOf must be valid ISO yyyy-mm-dd`);
+      assert.ok(s.asOf <= "2026-09-16", `${s.id}: asOf date cannot be in the future`);
+    }
+  });
+
+  it("rejects fabricated scientific constants for sparse irregular satellites", () => {
     const irregular = anyMoonById("s-2003-j-2");
     assert.ok(irregular);
     assert.equal(irregular.identity.kind, "moon");
-    assert.ok(irregular.orbit);
-    assert.ok(irregular.orbit.periodDays > 0);
-    assert.ok(irregular.physical.diameterKm && irregular.physical.diameterKm > 0);
+    assert.equal(irregular.tier, 3, "Irregular satellite must map to Tier 3");
+    assert.equal(irregular.identity.category, "Minor moon");
+    assert.equal(irregular.fidelity, "irregular");
 
+    // Scientific integrity: unmeasured quantities must remain undefined
+    assert.equal(irregular.physical.gravityG, undefined, "gravityG must NOT be a magic constant");
+    assert.equal(irregular.physical.escapeVelocityKmS, undefined, "escape velocity must NOT be a magic constant");
+    assert.equal(irregular.physical.densityGCm3, undefined, "density must NOT be a magic constant");
+    assert.equal(irregular.rotation.periodHours, undefined, "rotation period must NOT be fabricated from orbit");
+    assert.equal(irregular.rotation.axialTiltDeg, undefined, "axial tilt must NOT be arbitrarily set to 0");
+    assert.equal(irregular.temperature.meanC, undefined, "temperature must NOT be arbitrarily set to -180");
+  });
+
+  it("correctly maps regular non-curated satellites to Tier 2", () => {
+    const regular = anyMoonById("metis");
+    assert.ok(regular);
+    assert.equal(regular.tier, 2, "Metis (regular satellite) must map to Tier 2");
+    assert.equal(regular.identity.category, "Moon");
+    assert.equal(regular.fidelity, "regular");
   });
 });

@@ -17,7 +17,8 @@ function fmt(n: number, d: Intl.NumberFormat): string {
 }
 
 /** Diameter/distance in km with an Earth-relative companion when asked. */
-export function formatDiameter(km: number, units: UnitSystem): string {
+export function formatDiameter(km: number | undefined, units: UnitSystem): string {
+  if (km === undefined) return "Unknown / unmeasured";
   if (units === "earth") {
     return `${fmt(km / 12_742, nf2)} Earth diameters`;
   }
@@ -45,22 +46,26 @@ export function formatDistance(
 }
 
 /** Surface gravity, Earth-relative by nature. */
-export function formatGravity(g: number, units: UnitSystem): string {
+export function formatGravity(g: number | undefined, units: UnitSystem): string {
+  if (g === undefined) return "Unknown";
   if (units === "metric") return `${fmt(g * 9.807, nf1)} m/s²`;
   return `${fmt(g, nf2)} g`;
 }
 
 /** Temperature in °C; °F companion available for accessibility. */
-export function formatTemperature(c: number): string {
+export function formatTemperature(c: number | undefined): string {
+  if (c === undefined) return "Unknown";
   return `${fmt(c, nf0)} °C`;
 }
 
-export function formatTemperatureF(c: number): string {
+export function formatTemperatureF(c: number | undefined): string {
+  if (c === undefined) return "Unknown";
   return `${fmt((c * 9) / 5 + 32, nf0)} °F`;
 }
 
 /** Rotation/sidereal day from hours: handles retrograde and sub-hour bodies. */
-export function formatDayLength(hours: number): string {
+export function formatDayLength(hours: number | undefined): string {
+  if (hours === undefined) return "Unknown";
   const sign = hours < 0 ? "−" : "";
   const h = Math.abs(hours);
   if (h < 1) return `${sign}${fmt(h * 60, nf0)} min`;
@@ -76,7 +81,8 @@ export function formatDayLength(hours: number): string {
 }
 
 /** Orbital period in natural units. */
-export function formatYearLength(days: number): string {
+export function formatYearLength(days: number | undefined): string {
+  if (days === undefined) return "Unknown";
   if (days < 400) return `${fmt(days, nf1)} days`;
   return `${fmt(days / 365.25, nf1)} years`;
 }
@@ -97,17 +103,20 @@ export function formatMass(
 /**
  * Escape velocity in km/s; adds a friendly comparison above 10 km/s.
  */
-export function formatEscapeVelocity(kmS: number): string {
+export function formatEscapeVelocity(kmS: number | undefined): string {
+  if (kmS === undefined) return "Unknown";
   return `${fmt(kmS, nf2)} km/s`;
 }
 
 /** Density in g/cm³. */
-export function formatDensity(gCm3: number): string {
+export function formatDensity(gCm3: number | undefined): string {
+  if (gCm3 === undefined) return "Unknown";
   return `${fmt(gCm3, nf2)} g/cm³`;
 }
 
 /** Axial tilt in degrees. */
-export function formatTilt(deg: number): string {
+export function formatTilt(deg: number | undefined): string {
+  if (deg === undefined) return "Unknown";
   return `${fmt(deg, nf1)}°`;
 }
 
