@@ -163,7 +163,15 @@ export const SOURCES: Record<string, SourceRecord> = {
     organization: "NASA/JPL/APL",
     url: "https://science.nasa.gov/mission/new-horizons/",
     retrieved: "2026-09-16",
-    scope: "Kuiper Belt and Pluto system (deferred scope)",
+    scope: "Kuiper Belt and Pluto system exploration",
+  },
+  "nasa-dawn": {
+    id: "nasa-dawn",
+    title: "Dawn Mission",
+    organization: "NASA/JPL",
+    url: "https://science.nasa.gov/mission/dawn/",
+    retrieved: "2026-09-16",
+    scope: "Asteroid belt, Ceres and Vesta exploration",
   },
 };
 

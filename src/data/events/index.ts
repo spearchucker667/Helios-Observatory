@@ -8,6 +8,7 @@ import { SATURN_EVENTS, SATURN_MOON_EVENTS } from "./saturn.ts";
 import { URANUS_EVENTS } from "./uranus.ts";
 import { NEPTUNE_EVENTS, TRITON_EVENTS } from "./neptune.ts";
 import { SOLAR_EVENTS } from "./sun.ts";
+import { DWARF_PLANET_EVENTS } from "./dwarf-planets.ts";
 
 export const EVENTS: AstronomicalEvent[] = [
   ...SOLAR_EVENTS,
@@ -16,6 +17,7 @@ export const EVENTS: AstronomicalEvent[] = [
   ...EARTH_EVENTS,
   ...LUNAR_EVENTS,
   ...MARS_EVENTS,
+  ...DWARF_PLANET_EVENTS,
   ...JUPITER_EVENTS,
   ...GALILEAN_EVENTS,
   ...SATURN_EVENTS,

@@ -21,6 +21,7 @@ export type BodyCategory =
   | "Terrestrial"
   | "Gas giant"
   | "Ice giant"
+  | "Dwarf planet"
   | "Moon"
   /** Captured/irregular small moon, rendered at reduced fidelity. */
   | "Minor moon";

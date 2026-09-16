@@ -107,6 +107,20 @@ function duWrap(u: number, cu: number): number {
   return Math.min(d, 1 - d);
 }
 
+/** Ellipse patch helper: distance field for spots/storms/craters. */
+function patch(
+  u: number,
+  v: number,
+  cu: number,
+  cv: number,
+  ru: number,
+  rv: number,
+): number {
+  const du = duWrap(u, cu) / ru;
+  const dv = (v - cv) / rv;
+  return Math.sqrt(du * du + dv * dv);
+}
+
 /* ------------------------------------------------------------------ */
 /* LOW tier (as shipped — distant LOD and fallback)                    */
 /* ------------------------------------------------------------------ */
@@ -222,6 +236,52 @@ function iceGiant(seed: number, a: RGB, b: RGB) {
   });
 }
 
+function ceresMap() {
+  return canvasTexture((ctx, w, h) => {
+    paintPixels(ctx, w, h, (u, v) => {
+      const n = fbm(u * 12, v * 6, 91, 5);
+      const n2 = fbm(u * 24, v * 12, 95, 4);
+      const crater = Math.pow(Math.max(0, 0.6 - n2), 2);
+      let col = mix([68, 64, 60], [132, 126, 118], n);
+      col = mix(col, [36, 34, 32], crater * 1.5);
+      const occator = patch(u, v, 0.665, 0.39, 0.04, 0.03);
+      if (occator < 1) {
+        const core = Math.exp(-Math.pow(occator * 3.5, 2));
+        col = mix(col, [248, 250, 255], core * 0.92);
+      }
+      return [col[0], col[1], col[2], 255];
+    });
+  });
+}
+
+function plutoMap() {
+  return canvasTexture((ctx, w, h) => {
+    paintPixels(ctx, w, h, (u, v) => {
+      const lat = v * 2 - 1;
+      const n = fbm(u * 8, v * 4, 115, 5);
+      const n2 = fbm(u * 18, v * 9, 119, 4);
+      let col = mix([138, 80, 52], [205, 166, 130], n);
+      col = mix(col, [92, 54, 38], Math.pow(n2, 2));
+      const eqDist = Math.abs(v - 0.53);
+      const cthulhuLon = duWrap(u, 0.3);
+      if (eqDist < 0.14 && cthulhuLon < 0.22) {
+        const dark = (1 - eqDist / 0.14) * (1 - cthulhuLon / 0.22);
+        col = mix(col, [44, 24, 18], dark * 0.85);
+      }
+      const lobe1 = patch(u, v, 0.47, 0.38, 0.055, 0.05);
+      const lobe2 = patch(u, v, 0.53, 0.38, 0.055, 0.05);
+      const heartBase = patch(u, v, 0.5, 0.44, 0.045, 0.045);
+      const heart = Math.min(lobe1, lobe2, heartBase);
+      if (heart < 1) {
+        col = mix(col, [246, 240, 230], (1 - heart) * 0.92);
+      }
+      const pole = Math.pow(Math.abs(lat), 6);
+      col = mix(col, [226, 218, 202], pole * 0.45);
+      return [col[0], col[1], col[2], 255];
+    });
+  });
+}
+
 function ringMap() {
   return canvasTexture(
     (ctx, w, h) => {
@@ -266,20 +326,6 @@ function glowMap() {
 /* ------------------------------------------------------------------ */
 /* HIGH inspection tier — body-specific structure at 2048×1024         */
 /* ------------------------------------------------------------------ */
-
-/** Ellipse patch helper: distance field for spots/storms/craters. */
-function patch(
-  u: number,
-  v: number,
-  cu: number,
-  cv: number,
-  ru: number,
-  rv: number,
-): number {
-  const du = duWrap(u, cu) / ru;
-  const dv = (v - cv) / rv;
-  return Math.sqrt(du * du + dv * dv);
-}
 
 function mercuryHigh() {
   return canvasTexture((ctx, w, h) => {
@@ -506,6 +552,67 @@ function neptuneHigh() {
   }, 2048, 1024);
 }
 
+function ceresHigh() {
+  return canvasTexture((ctx, w, h) => {
+    paintPixels(ctx, w, h, (u, v) => {
+      const n = fbm(u * 16, v * 8, 91, 6);
+      const n2 = fbm(u * 36, v * 18, 95, 5);
+      const crater = Math.pow(Math.max(0, 0.6 - n2), 2);
+      let col = mix([64, 60, 56], [138, 132, 124], n);
+      col = mix(col, [32, 30, 28], crater * 1.6);
+      const occator = patch(u, v, 0.665, 0.39, 0.045, 0.035);
+      if (occator < 1.2) {
+        col = mix(col, [48, 46, 44], (1 - Math.min(1, occator)) * 0.4);
+        const core = Math.exp(-Math.pow(occator * 4.2, 2));
+        col = mix(col, [252, 254, 255], core * 0.95);
+        const secondary = patch(u, v, 0.675, 0.385, 0.015, 0.012);
+        if (secondary < 1) {
+          col = mix(col, [235, 240, 250], (1 - secondary) * 0.8);
+        }
+      }
+      const ahuna = patch(u, v, 0.878, 0.558, 0.018, 0.015);
+      if (ahuna < 1) {
+        col = mix(col, [190, 195, 205], (1 - ahuna) * 0.7);
+      }
+      return [col[0], col[1], col[2], 255];
+    });
+  }, 2048, 1024);
+}
+
+function plutoHigh() {
+  return canvasTexture((ctx, w, h) => {
+    paintPixels(ctx, w, h, (u, v) => {
+      const lat = v * 2 - 1;
+      const n = fbm(u * 10, v * 5, 115, 6);
+      const n2 = fbm(u * 28, v * 14, 119, 5);
+      let col = mix([130, 72, 46], [212, 172, 134], n);
+      col = mix(col, [88, 48, 34], Math.pow(n2, 2));
+      const eqDist = Math.abs(v - 0.53);
+      const cthulhuLon = duWrap(u, 0.3);
+      if (eqDist < 0.16 && cthulhuLon < 0.24) {
+        const dark = (1 - eqDist / 0.16) * (1 - cthulhuLon / 0.24);
+        col = mix(col, [38, 20, 14], dark * 0.92);
+      }
+      const lobe1 = patch(u, v, 0.47, 0.37, 0.058, 0.052);
+      const lobe2 = patch(u, v, 0.535, 0.37, 0.058, 0.052);
+      const heartBase = patch(u, v, 0.5, 0.45, 0.048, 0.048);
+      const heart = Math.min(lobe1, lobe2, heartBase);
+      if (heart < 1) {
+        const cellNoise = noise2(u * 80, v * 80, 131) * 0.06;
+        const iceCol = mix([246, 242, 234], [236, 230, 220], cellNoise);
+        col = mix(col, iceCol, (1 - heart) * 0.96);
+      }
+      const mountainBorder = patch(u, v, 0.44, 0.42, 0.02, 0.03);
+      if (mountainBorder < 1) {
+        col = mix(col, [168, 148, 138], (1 - mountainBorder) * 0.6);
+      }
+      const pole = Math.pow(Math.abs(lat), 5.5);
+      col = mix(col, [232, 226, 210], pole * 0.5);
+      return [col[0], col[1], col[2], 255];
+    });
+  }, 2048, 1024);
+}
+
 /* ------------------------------------------------------------------ */
 /* Moon textures                                                       */
 /* ------------------------------------------------------------------ */
@@ -581,10 +688,12 @@ const LOW_FACTORIES: Record<string, () => THREE.CanvasTexture> = {
   venus: () => venusMap(),
   earth: () => earthMap(),
   mars: () => marsMap(),
+  ceres: () => ceresMap(),
   jupiter: () => banded(55, [150, 108, 70], [228, 206, 168], { u: 0.72, v: 0.58, r: 0.12, color: [176, 72, 48] }),
   saturn: () => banded(61, [176, 150, 100], [232, 218, 178]),
   uranus: () => iceGiant(71, [72, 154, 162], [186, 226, 228]),
   neptune: () => iceGiant(83, [28, 62, 148], [96, 140, 214]),
+  pluto: () => plutoMap(),
   // Moons: LOW tier shares the cratered generator with body-tuned palettes.
   moon: () => moonTexture(101, [176, 172, 166], [216, 212, 204], { maria: [{ u: 0.32, v: 0.4, r: 0.16 }, { u: 0.55, v: 0.32, r: 0.1 }] }),
   phobos: () => moonTexture(103, [122, 110, 98], [150, 138, 124], { craters: 1.8 }),
@@ -613,10 +722,12 @@ const HIGH_FACTORIES: Record<string, () => THREE.CanvasTexture> = {
   venus: venusHigh,
   earth: earthHigh,
   mars: marsHigh,
+  ceres: ceresHigh,
   jupiter: jupiterHigh,
   saturn: saturnHigh,
   uranus: uranusHigh,
   neptune: neptuneHigh,
+  pluto: plutoHigh,
 };
 
 /** Specialised secondary maps, generated once, shared. */

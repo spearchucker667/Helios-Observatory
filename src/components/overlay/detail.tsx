@@ -9,6 +9,8 @@ import {
   Orbit,
   Sparkles,
   Thermometer,
+  Share2,
+  Check,
 } from "lucide-react";
 import { bodyById, eventsForBody, moonsOf } from "@/data/registry";
 import type { AnyBody, AstronomicalEvent, MoonBody, SourceRef, SourceRecord } from "@/data/types";
@@ -25,7 +27,7 @@ import {
   formatTilt,
   formatYearLength,
 } from "@/lib/format";
-import { useSim } from "@/lib/sim-store";
+import { buildDeepLink, useSim } from "@/lib/sim-store";
 import { cn } from "@/lib/utils";
 
 type TabId = "overview" | "physical" | "orbit" | "surface" | "moons" | "events";
@@ -41,8 +43,11 @@ const TABS: { id: TabId; label: string; icon: typeof Globe2 }[] = [
 
 function tabsFor(body: AnyBody): TabId[] {
   const tabs: TabId[] = ["overview", "physical", "orbit"];
-  const isPlanet = body.identity.kind === "planet";
-  if (isPlanet || body.identity.kind === "moon") tabs.push("surface");
+  const hasSurface =
+    body.identity.kind === "planet" ||
+    body.identity.kind === "dwarf-planet" ||
+    body.identity.kind === "moon";
+  if (hasSurface) tabs.push("surface");
   if (moonsOf(body.identity.id).length > 0) tabs.push("moons");
   tabs.push("events");
   return tabs;
@@ -163,11 +168,21 @@ export function BodyDetail({
   const select = useSim((s) => s.select);
   const available = tabsFor(body);
   const [tab, setTab] = useState<TabId>("overview");
+  const [copied, setCopied] = useState(false);
   const active = available.includes(tab) ? tab : "overview";
   const id = body.identity.id;
   const events = useMemo(() => eventsForBody(id), [id]);
   const moons = useMemo(() => moonsOf(id), [id]);
   const parent = body.identity.parentId ? bodyById(body.identity.parentId) : undefined;
+
+  const copyLink = () => {
+    if (typeof window === "undefined") return;
+    const url = window.location.origin + buildDeepLink(id);
+    navigator.clipboard.writeText(url).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
+  };
 
   return (
     <div className="flex min-h-0 flex-col gap-3">
@@ -189,12 +204,24 @@ export function BodyDetail({
       </nav>
 
       {/* Header */}
-      <div>
-        <p className="font-sans text-xs font-medium tracking-widest text-muted uppercase">{body.identity.category}</p>
-        <h2 className="mt-0.5 font-display text-3xl font-medium leading-tight tracking-tight text-fg">
-          {body.identity.name}
-        </h2>
-        <p className="mt-0.5 text-sm text-muted">{body.identity.epithet}</p>
+      <div className="flex items-start justify-between gap-2">
+        <div>
+          <p className="font-sans text-xs font-medium tracking-widest text-muted uppercase">{body.identity.category}</p>
+          <h2 className="mt-0.5 font-display text-3xl font-medium leading-tight tracking-tight text-fg">
+            {body.identity.name}
+          </h2>
+          <p className="mt-0.5 text-sm text-muted">{body.identity.epithet}</p>
+        </div>
+        <button
+          type="button"
+          onClick={copyLink}
+          className="mt-1 flex shrink-0 items-center gap-1.5 rounded-xl bg-fg/6 px-2.5 py-1.5 text-xs text-muted transition-colors hover:bg-fg/12 hover:text-fg"
+          title="Copy shareable deep link"
+          aria-label="Copy shareable deep link"
+        >
+          {copied ? <Check className="size-3.5 text-emerald-400" /> : <Share2 className="size-3.5" />}
+          <span>{copied ? "Copied" : "Share"}</span>
+        </button>
       </div>
 
       {/* Tabs */}

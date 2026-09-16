@@ -1,9 +1,41 @@
 import { create } from "zustand";
 import type { ScaleMode, UnitSystem } from "@/lib/format";
+import { dateToJ2000Days, formatEpochIso } from "@/lib/ephemeris";
+import { bodyById } from "@/data/registry";
 
 export const simClock = {
-  days: 0,
+  days: dateToJ2000Days(Date.now()),
 };
+
+export function buildDeepLink(selectedId: string | null, dateIso?: string): string {
+  if (!selectedId) {
+    return dateIso ? `/?date=${encodeURIComponent(dateIso)}` : "/";
+  }
+  const body = bodyById(selectedId);
+  const params = new URLSearchParams();
+  if (body?.identity.kind === "moon" && body.identity.parentId) {
+    params.set("body", body.identity.parentId);
+    params.set("moon", selectedId);
+  } else {
+    params.set("body", selectedId);
+  }
+  if (dateIso) {
+    params.set("date", dateIso);
+  }
+  return `/?${params.toString()}`;
+}
+
+export function syncDeepLinkToUrl(selectedId: string | null, includeDate?: boolean) {
+  if (typeof window === "undefined") return;
+  const currentParams = new URLSearchParams(window.location.search);
+  const hasExistingDate = currentParams.has("date");
+  const dateIso =
+    includeDate || hasExistingDate ? formatEpochIso(simClock.days) : undefined;
+  const nextUrl = buildDeepLink(selectedId, dateIso);
+  if (window.location.pathname + window.location.search !== nextUrl) {
+    window.history.replaceState(null, "", nextUrl);
+  }
+}
 
 type SimState = {
   paused: boolean;
@@ -12,10 +44,11 @@ type SimState = {
   showOrbits: boolean;
   /** Moon-system visibility: auto (on parent focus), always, or never. */
   moonMode: "auto" | "always" | "hidden";
-  /** Selected body id — planets and moons alike. */
+  /** Selected body id — planets, dwarf planets, sun, and moons alike. */
   selectedId: string | null;
   hoverId: string | null;
   resetNonce: number;
+  dateNonce: number;
   /** UI preferences */
   units: UnitSystem;
   scaleMode: ScaleMode;
@@ -28,6 +61,7 @@ type SimState = {
   setShowOrbits: (show: boolean) => void;
   setMoonMode: (mode: SimState["moonMode"]) => void;
   select: (id: string | null) => void;
+  setDate: (dateOrDays: string | number | Date) => void;
   setHover: (id: string | null) => void;
   setUnits: (units: UnitSystem) => void;
   setScaleMode: (mode: ScaleMode) => void;
@@ -84,6 +118,7 @@ export const useSim = create<SimState>((set) => ({
   selectedId: null,
   hoverId: null,
   resetNonce: 0,
+  dateNonce: 0,
   units: "metric",
   scaleMode: "presentation",
   detailOpen: true,
@@ -93,22 +128,72 @@ export const useSim = create<SimState>((set) => ({
   setShowLabels: (showLabels) => set({ showLabels }),
   setShowOrbits: (showOrbits) => set({ showOrbits }),
   setMoonMode: (moonMode) => set({ moonMode }),
-  select: (selectedId) => set({ selectedId, detailOpen: true }),
+  select: (selectedId) => {
+    set({ selectedId, detailOpen: true });
+    syncDeepLinkToUrl(selectedId);
+  },
+  setDate: (dateOrDays) => {
+    const days =
+      typeof dateOrDays === "number" ? dateOrDays : dateToJ2000Days(dateOrDays);
+    simClock.days = days;
+    set((s) => ({ dateNonce: s.dateNonce + 1 }));
+    syncDeepLinkToUrl(useSim.getState().selectedId, true);
+  },
   setHover: (hoverId) => set({ hoverId }),
   setUnits: (units) => set({ units }),
   setScaleMode: (scaleMode) => set({ scaleMode }),
   setDetailOpen: (detailOpen) => set({ detailOpen }),
-  resetView: () =>
+  resetView: () => {
     set((s) => ({
       selectedId: null,
       resetNonce: s.resetNonce + 1,
-    })),
+    }));
+    syncDeepLinkToUrl(null);
+  },
 }));
+
+export function parseDeepLinkParams(): { targetId: string | null; dateDays: number | null } {
+  if (typeof window === "undefined") return { targetId: null, dateDays: null };
+  try {
+    const params = new URLSearchParams(window.location.search);
+    const body = params.get("body")?.toLowerCase().trim();
+    const moon = params.get("moon")?.toLowerCase().trim();
+    const date = params.get("date")?.trim();
+
+    let targetId: string | null = null;
+    if (moon && bodyById(moon)) {
+      targetId = moon;
+    } else if (body && bodyById(body)) {
+      targetId = body;
+    }
+
+    let dateDays: number | null = null;
+    if (date) {
+      const parsed = dateToJ2000Days(date);
+      if (!Number.isNaN(parsed)) {
+        dateDays = parsed;
+      }
+    }
+
+    return { targetId, dateDays };
+  } catch {
+    return { targetId: null, dateDays: null };
+  }
+}
 
 export function hydrateSimSettings() {
   const loaded = loadSettings();
   if (Object.values(loaded).some((v) => v !== undefined)) {
     useSim.setState(loaded);
+  }
+
+  // Restore deep link target and date on initial load
+  const { targetId, dateDays } = parseDeepLinkParams();
+  if (dateDays !== null) {
+    simClock.days = dateDays;
+  }
+  if (targetId) {
+    useSim.setState({ selectedId: targetId, detailOpen: true });
   }
 }
 

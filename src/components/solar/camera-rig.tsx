@@ -32,10 +32,12 @@ export function CameraRig({
   const resetNonce = useSim((s) => s.resetNonce);
   const scaleMode = useSim((s) => s.scaleMode);
   const defaultPos = useRef(homePosition(scaleMode));
+  const initialSnap = useRef(true);
 
   useEffect(() => {
     returning.current = true;
     tracking.current = false;
+    initialSnap.current = false;
   }, [resetNonce]);
 
   // Keep the home position in sync with scale mode.
@@ -62,14 +64,7 @@ export function CameraRig({
       returning.current = false;
       const node = bodyRefs.current[selectedId]!;
       node.getWorldPosition(tmpWorld);
-      if (tracking.current) {
-        tmpDelta.copy(tmpWorld).sub(lastTarget.current);
-        camera.position.add(tmpDelta);
-      }
-      // Moons orbit in seconds of wall time — a lerped target lags them out
-      // of frame. Track them exactly; the camera-delta follow keeps it smooth.
-      const isMoon = body.identity.kind === "moon";
-      controls.target.lerp(tmpWorld, isMoon ? 1 : k);
+
       const parent =
         body.identity.kind === "moon" && body.identity.parentId
           ? bodyById(body.identity.parentId)
@@ -79,6 +74,27 @@ export function CameraRig({
         body.identity.kind === "star"
           ? sceneR * 7.2
           : Math.max(sceneR * 8.4, 0.9);
+
+      if (initialSnap.current) {
+        controls.target.copy(tmpWorld);
+        tmpDir.set(0.2, 0.35, 1).normalize().multiplyScalar(desired);
+        camera.position.copy(tmpWorld).add(tmpDir);
+        controls.minDistance = Math.max(sceneR * 1.6, 0.12);
+        lastTarget.current.copy(tmpWorld);
+        tracking.current = true;
+        initialSnap.current = false;
+        controls.update();
+        return;
+      }
+
+      if (tracking.current) {
+        tmpDelta.copy(tmpWorld).sub(lastTarget.current);
+        camera.position.add(tmpDelta);
+      }
+      // Moons orbit in seconds of wall time — a lerped target lags them out
+      // of frame. Track them exactly; the camera-delta follow keeps it smooth.
+      const isMoon = body.identity.kind === "moon";
+      controls.target.lerp(tmpWorld, isMoon ? 1 : k);
       tmpDir.copy(camera.position).sub(controls.target);
       if (tmpDir.lengthSq() < 1e-8) tmpDir.set(0.2, 0.35, 1);
       const dist = THREE.MathUtils.lerp(tmpDir.length(), desired, k);

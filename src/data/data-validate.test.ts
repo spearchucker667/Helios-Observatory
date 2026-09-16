@@ -16,9 +16,11 @@ describe("astronomical data integrity", () => {
     assert.equal(new Set(ids).size, ids.length);
   });
 
-  it("has exactly 9 core bodies (sun + 8 planets)", () => {
-    assert.equal(BODIES.length, 9);
+  it("has 11 core bodies (sun + 8 planets + 2 dwarf planets)", () => {
+    assert.equal(BODIES.length, 11);
     assert.equal(BODIES[0].identity.kind, "star");
+    assert.equal(BODIES.filter((b) => b.identity.kind === "planet").length, 8);
+    assert.equal(BODIES.filter((b) => b.identity.kind === "dwarf-planet").length, 2);
   });
 
   it("has all 20 tier-1 moons selectable", () => {
@@ -33,16 +35,19 @@ describe("astronomical data integrity", () => {
     );
   });
 
-  it("moons reference valid planet parents", () => {
+  it("moons reference valid parents", () => {
     for (const m of MOONS) {
       const parent = bodyById(m.identity.parentId);
       assert.ok(parent, `moon ${m.identity.id} parent missing`);
-      assert.equal(parent.identity.kind, "planet", `moon ${m.identity.id} parent is not a planet`);
+      assert.ok(
+        parent.identity.kind === "planet" || parent.identity.kind === "dwarf-planet",
+        `moon ${m.identity.id} parent is not a planet or dwarf planet`,
+      );
     }
   });
 
-  it("planets reference the sun as parent", () => {
-    for (const p of BODIES.filter((b) => b.identity.kind === "planet")) {
+  it("planets and dwarf planets reference the sun as parent", () => {
+    for (const p of BODIES.filter((b) => b.identity.kind === "planet" || b.identity.kind === "dwarf-planet")) {
       assert.equal(p.identity.parentId, "sun");
     }
   });

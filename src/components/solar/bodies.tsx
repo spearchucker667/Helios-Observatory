@@ -21,6 +21,8 @@ import {
 } from "@/components/solar/textures";
 import { createRingTexture } from "@/components/solar/ring-systems";
 import { MoonSystem } from "@/components/solar/moons";
+import { computeEphemerisPosition, computeOrbitPath } from "@/lib/ephemeris";
+import { AsteroidBelt } from "@/components/solar/asteroid-belt";
 import { cn } from "@/lib/utils";
 
 const TRAIL_LEN = 72;
@@ -368,10 +370,10 @@ function Planet({
   const clouds = useRef<THREE.Mesh>(null);
   const showOrbits = useSim((s) => s.showOrbits);
   const scaleMode = useSim((s) => s.scaleMode);
+  const dateNonce = useSim((s) => s.dateNonce);
   const pick = usePick(body.identity.id);
   const id = body.identity.id;
   const sceneR = sceneRadius(body, scaleMode);
-  const orbitR = sceneOrbitRadius(body, scaleMode);
 
   // LOD: HIGH inspection texture only when the camera is close.
   const tier = useLodTier(mover, sceneR, id);
@@ -382,19 +384,22 @@ function Planet({
   const lowMap = useMemo(() => tex.get(id, "low"), [tex, id]);
   const map = highMap ?? lowMap;
 
-  const ringPts = useMemo(() => orbitPoints(orbitR), [orbitR]);
+  const ringPts = useMemo(
+    () => computeOrbitPath(id, simClock.days, scaleMode),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [id, scaleMode, dateNonce],
+  );
   const hitRadius = Math.max(sceneR * 2.6, 0.6);
   const isGas = body.identity.category === "Gas giant" || body.identity.category === "Ice giant";
-
-  // Position comes from circular-orbit approximation (educational sim).
-  const phase = useMemo(() => hashPhase(id), [id]);
 
   useFrame((_, delta) => {
     const node = mover.current;
     if (!node) return;
     const { paused, speed } = useSim.getState();
-    const theta = (simClock.days / (body.orbit?.periodDays ?? 365)) * Math.PI * 2 + phase;
-    node.position.set(Math.cos(theta) * orbitR, 0, Math.sin(theta) * orbitR);
+    const pos = computeEphemerisPosition(id, simClock.days, scaleMode);
+    if (pos) {
+      node.position.set(pos.x, pos.y, pos.z);
+    }
     if (paused || !spin.current) return;
     const visualDay = 11;
     const rel = 24 / Math.max(Math.abs(body.rotation.periodHours), 4);
@@ -406,7 +411,7 @@ function Planet({
   });
 
   return (
-    <group rotation={[0, 0, ((body.orbit?.inclinationDeg ?? 0) * Math.PI) / 180]}>
+    <group>
       {showOrbits ? (
         <Line points={ringPts} color={body.identity.color} transparent opacity={0.28} lineWidth={1} />
       ) : null}
@@ -524,58 +529,18 @@ function useLodTier(
   return tier;
 }
 
-const HIGH_CAPABLE = new Set(["mercury", "venus", "earth", "mars", "jupiter", "saturn", "uranus", "neptune"]);
-
-function AsteroidBelt() {
-  const mesh = useRef<THREE.InstancedMesh>(null);
-  const dummy = useMemo(() => new THREE.Object3D(), []);
-  const count = 640;
-  const scaleMode = useSim((s) => s.scaleMode);
-  const data = useMemo(
-    () =>
-      Array.from({ length: count }, () => ({
-        a: Math.random() * Math.PI * 2,
-        r: 18.4 + Math.random() * 3.4,
-        y: (Math.random() - 0.5) * 0.65,
-        s: 0.018 + Math.random() * 0.046,
-        spin: 0.03 + Math.random() * 0.04,
-      })),
-    [],
-  );
-
-  useFrame((_, delta) => {
-    const inst = mesh.current;
-    if (!inst) return;
-    const { paused, speed } = useSim.getState();
-    const dd = Math.min(delta, 0.1);
-    const sp = paused ? 0 : speed;
-    // Belt only in presentation mode; distance mode pushes it out.
-    const rBase = scaleMode === "distance" ? 20.5 : 18.4;
-    for (let i = 0; i < count; i++) {
-      const ast = data[i];
-      ast.a += ast.spin * sp * dd * 0.18;
-      const r = rBase + (ast.r - 18.4);
-      dummy.position.set(Math.cos(ast.a) * r, ast.y, Math.sin(ast.a) * r);
-      dummy.rotation.set(ast.a, ast.a * 0.4, ast.y);
-      dummy.scale.setScalar(ast.s);
-      dummy.updateMatrix();
-      inst.setMatrixAt(i, dummy.matrix);
-    }
-    inst.instanceMatrix.needsUpdate = true;
-  });
-
-  return (
-    <instancedMesh
-      ref={mesh}
-      args={[undefined, undefined, count]}
-      frustumCulled={false}
-      raycast={skipRaycast}
-    >
-      <icosahedronGeometry args={[1, 0]} />
-      <meshStandardMaterial color="#6d675f" roughness={0.96} metalness={0.08} />
-    </instancedMesh>
-  );
-}
+const HIGH_CAPABLE = new Set([
+  "mercury",
+  "venus",
+  "earth",
+  "mars",
+  "ceres",
+  "jupiter",
+  "saturn",
+  "uranus",
+  "neptune",
+  "pluto",
+]);
 
 export function SolarSystem({
   bodyRefs,
@@ -594,7 +559,9 @@ export function SolarSystem({
       <ambientLight intensity={0.07} />
       <hemisphereLight args={["#8ea0b8", "#07080c", 0.18]} />
       <Sun tex={tex} bodyRefs={bodyRefs} />
-      {BODIES.filter((b) => b.identity.kind === "planet").map((p) => (
+      {BODIES.filter(
+        (b) => b.identity.kind === "planet" || b.identity.kind === "dwarf-planet",
+      ).map((p) => (
         <Planet key={p.identity.id} body={p} tex={tex} bodyRefs={bodyRefs} />
       ))}
       <AsteroidBelt />

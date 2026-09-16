@@ -150,20 +150,20 @@ export function validateData(): DataIssue[] {
     }
   }
 
-  // Moons must reference a planet, not another moon or the sun.
+  // Moons must reference a planet or dwarf planet, not another moon or the sun.
   for (const m of MOONS) {
     const parent = allBodies.find((b) => b.identity.id === m.identity.parentId);
     if (!parent) {
       issues.push({ kind: "error", message: `moon ${m.identity.id}: missing parent` });
-    } else if (parent.identity.kind !== "planet") {
-      issues.push({ kind: "error", message: `moon ${m.identity.id}: parent is not a planet` });
+    } else if (parent.identity.kind !== "planet" && parent.identity.kind !== "dwarf-planet") {
+      issues.push({ kind: "error", message: `moon ${m.identity.id}: parent is not a planet or dwarf planet` });
     }
   }
 
-  // Planets reference the sun as parent.
-  for (const p of BODIES.filter((b) => b.identity.kind === "planet")) {
+  // Planets and dwarf planets reference the sun as parent.
+  for (const p of BODIES.filter((b) => b.identity.kind === "planet" || b.identity.kind === "dwarf-planet")) {
     if (p.identity.parentId !== "sun") {
-      issues.push({ kind: "error", message: `planet ${p.identity.id}: parent must be "sun"` });
+      issues.push({ kind: "error", message: `${p.identity.kind} ${p.identity.id}: parent must be "sun"` });
     }
   }
 

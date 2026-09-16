@@ -18,10 +18,12 @@ const PRESENTATION_ORBIT: Record<string, number> = {
   venus: 8.6,
   earth: 11.6,
   mars: 15.4,
+  ceres: 19.8,
   jupiter: 24.8,
   saturn: 33.4,
   uranus: 41.6,
   neptune: 49.2,
+  pluto: 56.4,
 };
 
 const PRESENTATION_RADIUS: Record<string, number> = {
@@ -30,10 +32,12 @@ const PRESENTATION_RADIUS: Record<string, number> = {
   venus: 0.32,
   earth: 0.34,
   mars: 0.22,
+  ceres: 0.12,
   jupiter: 1.28,
   saturn: 1.08,
   uranus: 0.58,
   neptune: 0.56,
+  pluto: 0.15,
 };
 
 /** True relative radii (Earth = 0.34 scene units), Sun compressed 4×. */
@@ -51,7 +55,7 @@ export function sceneRadius(body: AnyBody, mode: ScaleMode): number {
 
 /** True-ratio orbital radii: 1 AU = 5.2 scene units (Neptune ≈ 156). */
 export function sceneOrbitRadius(body: AnyBody, mode: ScaleMode): number {
-  if (body.identity.kind !== "planet") return 0;
+  if (body.identity.kind !== "planet" && body.identity.kind !== "dwarf-planet") return 0;
   const au = body.orbit?.semiMajorAxisAu ?? 0;
   if (mode === "distance") return au * 5.2;
   return PRESENTATION_ORBIT[body.identity.id] ?? au * 5.2;

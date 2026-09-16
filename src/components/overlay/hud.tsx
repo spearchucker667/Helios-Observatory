@@ -9,6 +9,9 @@ import {
   Tag,
   Orbit as OrbitIcon,
   GitCompareArrows,
+  Calendar,
+  Share2,
+  Check,
   X,
 } from "lucide-react";
 import { Command } from "cmdk";
@@ -18,7 +21,8 @@ import { cn } from "@/lib/utils";
 import { BODIES, MOONS, bodyById, eventsForBody } from "@/data/registry";
 import { formatSimClock, formatYearPace, sliderToSpeed, speedToSlider, YEAR_SECONDS } from "@/lib/planets";
 import { SCALE_MODE_LABELS, type ScaleMode, type UnitSystem } from "@/lib/format";
-import { simClock, useSim } from "@/lib/sim-store";
+import { buildDeepLink, simClock, useSim } from "@/lib/sim-store";
+import { formatEpochDisplay, formatEpochIso, EPOCH_PRESETS } from "@/lib/ephemeris";
 import { BodyDetail } from "@/components/overlay/detail";
 
 function useSimDays() {
@@ -97,7 +101,14 @@ function buildSearchIndex(): SearchHit[] {
     hits.push({
       id: `body-${b.identity.id}`,
       label: b.identity.name,
-      group: b.identity.kind === "moon" ? "Moons" : b.identity.kind === "star" ? "Star" : "Planets",
+      group:
+        b.identity.kind === "moon"
+          ? "Moons"
+          : b.identity.kind === "star"
+            ? "Star"
+            : b.identity.kind === "dwarf-planet"
+              ? "Dwarf Planets"
+              : "Planets",
       target: b.identity.id,
     });
     for (const f of b.features ?? []) {
@@ -109,14 +120,10 @@ function buildSearchIndex(): SearchHit[] {
       });
     }
   }
-  for (const e of eventsForBody("jupiter")) {
-    hits.push({ id: `event-${e.id}`, label: e.title, group: "Events", target: e.bodyIds[0] });
-  }
-  for (const e of eventsForBody("saturn")) {
-    hits.push({ id: `event-${e.id}`, label: e.title, group: "Events", target: e.bodyIds[0] });
-  }
-  for (const e of eventsForBody("mars")) {
-    hits.push({ id: `event-${e.id}`, label: e.title, group: "Events", target: e.bodyIds[0] });
+  for (const id of ["jupiter", "saturn", "mars", "ceres", "pluto", "earth"]) {
+    for (const e of eventsForBody(id)) {
+      hits.push({ id: `event-${e.id}`, label: e.title, group: "Events", target: e.bodyIds[0] });
+    }
   }
   return hits;
 }
@@ -126,7 +133,7 @@ function SearchPalette({ open, onClose }: { open: boolean; onClose: () => void }
   const index = useMemo(buildSearchIndex, []);
   if (!open) return null;
   return (
-    <div className="fixed inset-0 z-50 flex items-start justify-center bg-bg/60 p-4 pt-[12vh] backdrop-blur-sm" onClick={onClose}>
+    <div className="pointer-events-auto fixed inset-0 z-50 flex items-start justify-center bg-bg/60 p-4 pt-[12vh] backdrop-blur-sm" onClick={onClose}>
       <Command
         label="Search the observatory"
         className="w-full max-w-lg overflow-hidden rounded-2xl bg-surface shadow-[var(--shadow-border),0_24px_80px_rgba(0,0,0,0.5)]"
@@ -147,7 +154,21 @@ function SearchPalette({ open, onClose }: { open: boolean; onClose: () => void }
           <Command.Empty className="px-3 py-6 text-center text-sm text-muted">
             Nothing found in the catalogue.
           </Command.Empty>
-          {["Star", "Planets", "Moons", "Features · Jupiter", "Features · Mars", "Features · Saturn", "Features · Mercury", "Features · Moon", "Features · Enceladus", "Events"].map(
+          {[
+            "Star",
+            "Planets",
+            "Dwarf Planets",
+            "Moons",
+            "Features · Ceres",
+            "Features · Pluto",
+            "Features · Jupiter",
+            "Features · Mars",
+            "Features · Saturn",
+            "Features · Mercury",
+            "Features · Moon",
+            "Features · Enceladus",
+            "Events",
+          ].map(
             (group) => (
               <Command.Group
                 key={group}
@@ -212,7 +233,7 @@ function CompareDialog({ open, onClose }: { open: boolean; onClose: () => void }
   void units;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-bg/60 p-4 backdrop-blur-sm" onClick={onClose}>
+    <div className="pointer-events-auto fixed inset-0 z-50 flex items-center justify-center bg-bg/60 p-4 backdrop-blur-sm" onClick={onClose}>
       <Panel className="max-h-[85vh] w-full max-w-2xl overflow-y-auto" >
         <div onClick={(e) => e.stopPropagation()}>
           <div className="mb-3 flex items-center justify-between">
@@ -269,6 +290,196 @@ function CompareDialog({ open, onClose }: { open: boolean; onClose: () => void }
           <p className="mt-3 text-xs text-muted">
             Pick up to four bodies. Figures are canonical values (see the Events & sources tabs).
           </p>
+        </div>
+      </Panel>
+    </div>
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/* Epoch date control dialog                                           */
+/* ------------------------------------------------------------------ */
+
+function EpochDialog({ open, onClose }: { open: boolean; onClose: () => void }) {
+  const setDate = useSim((s) => s.setDate);
+  const selectedId = useSim((s) => s.selectedId);
+  const days = useSimDays();
+  const [copied, setCopied] = useState(false);
+  const [inputVal, setInputVal] = useState(formatEpochIso(simClock.days));
+
+  useEffect(() => {
+    setInputVal(formatEpochIso(days));
+  }, [days]);
+
+  if (!open) return null;
+
+  const handleStep = (stepDays: number) => {
+    setDate(simClock.days + stepDays);
+  };
+
+  const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const val = e.target.value;
+    setInputVal(val);
+    if (val) {
+      setDate(val);
+    }
+  };
+
+  const handleCopyLink = () => {
+    if (typeof window === "undefined") return;
+    const url =
+      window.location.origin +
+      buildDeepLink(selectedId, formatEpochIso(simClock.days));
+    navigator.clipboard.writeText(url).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
+  };
+
+  const daysSinceJ2000 = Math.round(simClock.days);
+
+  return (
+    <div
+      className="pointer-events-auto fixed inset-0 z-50 flex items-center justify-center bg-bg/60 p-4 backdrop-blur-sm"
+      onClick={onClose}
+    >
+      <Panel className="w-full max-w-lg space-y-4">
+        <div onClick={(e) => e.stopPropagation()}>
+          <div className="flex items-center justify-between border-b border-fg/10 pb-3">
+            <div className="flex items-center gap-2">
+              <Calendar className="size-5 text-muted" />
+              <h3 className="font-display text-xl text-fg">Epoch Date Control</h3>
+            </div>
+            <Button
+              variant="ghost"
+              size="icon"
+              aria-label="Close date control"
+              onClick={onClose}
+            >
+              <X className="size-4" />
+            </Button>
+          </div>
+
+          <div className="mt-4 space-y-4">
+            {/* Active date card */}
+            <div className="rounded-2xl bg-fg/5 p-4">
+              <div className="flex items-baseline justify-between">
+                <span className="text-xs font-medium tracking-wide text-muted uppercase">
+                  Ephemeris Date
+                </span>
+                <span className="text-xs text-muted tabular-nums">
+                  {daysSinceJ2000 >= 0 ? `+${daysSinceJ2000}` : daysSinceJ2000} days from J2000.0
+                </span>
+              </div>
+              <div className="mt-1 flex flex-wrap items-center justify-between gap-3">
+                <p className="font-display text-2xl text-fg tabular-nums">
+                  {formatEpochDisplay(simClock.days)}
+                </p>
+                <input
+                  type="date"
+                  value={inputVal}
+                  onChange={handleDateChange}
+                  className="rounded-xl border border-fg/15 bg-surface px-3 py-1.5 font-sans text-xs text-fg shadow-sm outline-none transition-colors hover:border-fg/30 focus:border-fg/50"
+                  aria-label="Pick simulation date"
+                />
+              </div>
+            </div>
+
+            {/* Step scrubbers */}
+            <div>
+              <p className="mb-1.5 text-xs font-medium tracking-wide text-muted uppercase">
+                Step Simulation Date
+              </p>
+              <div className="grid grid-cols-6 gap-1.5">
+                <button
+                  type="button"
+                  onClick={() => handleStep(-365.25)}
+                  className="rounded-xl bg-fg/8 py-2 text-xs font-medium text-fg/80 transition-colors hover:bg-fg/15 hover:text-fg"
+                >
+                  -1 yr
+                </button>
+                <button
+                  type="button"
+                  onClick={() => handleStep(-30)}
+                  className="rounded-xl bg-fg/8 py-2 text-xs font-medium text-fg/80 transition-colors hover:bg-fg/15 hover:text-fg"
+                >
+                  -30 d
+                </button>
+                <button
+                  type="button"
+                  onClick={() => handleStep(-1)}
+                  className="rounded-xl bg-fg/8 py-2 text-xs font-medium text-fg/80 transition-colors hover:bg-fg/15 hover:text-fg"
+                >
+                  -1 d
+                </button>
+                <button
+                  type="button"
+                  onClick={() => handleStep(1)}
+                  className="rounded-xl bg-fg/8 py-2 text-xs font-medium text-fg/80 transition-colors hover:bg-fg/15 hover:text-fg"
+                >
+                  +1 d
+                </button>
+                <button
+                  type="button"
+                  onClick={() => handleStep(30)}
+                  className="rounded-xl bg-fg/8 py-2 text-xs font-medium text-fg/80 transition-colors hover:bg-fg/15 hover:text-fg"
+                >
+                  +30 d
+                </button>
+                <button
+                  type="button"
+                  onClick={() => handleStep(365.25)}
+                  className="rounded-xl bg-fg/8 py-2 text-xs font-medium text-fg/80 transition-colors hover:bg-fg/15 hover:text-fg"
+                >
+                  +1 yr
+                </button>
+              </div>
+            </div>
+
+            {/* Curated Presets */}
+            <div>
+              <p className="mb-1.5 text-xs font-medium tracking-wide text-muted uppercase">
+                Historical & Scientific Epochs
+              </p>
+              <div className="flex flex-wrap gap-1.5">
+                {EPOCH_PRESETS.map((p) => (
+                  <button
+                    key={p.label}
+                    type="button"
+                    onClick={() => setDate(p.getDays())}
+                    className="rounded-full bg-fg/8 px-3 py-1.5 text-xs text-fg/85 transition-colors hover:bg-fg/15 hover:text-fg"
+                  >
+                    {p.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Share Deep Link */}
+            <div className="border-t border-fg/10 pt-3">
+              <p className="mb-1 text-xs font-medium tracking-wide text-muted uppercase">
+                Shareable Deep Link
+              </p>
+              <div className="flex items-center justify-between gap-3 rounded-xl bg-fg/5 p-2.5">
+                <p className="truncate font-mono text-xs text-fg/80">
+                  {buildDeepLink(selectedId, formatEpochIso(simClock.days))}
+                </p>
+                <Button
+                  variant="subtle"
+                  size="sm"
+                  onClick={handleCopyLink}
+                  className="shrink-0 rounded-xl"
+                >
+                  {copied ? (
+                    <Check className="size-3.5 text-emerald-400" />
+                  ) : (
+                    <Share2 className="size-3.5" />
+                  )}
+                  <span>{copied ? "Copied!" : "Copy link"}</span>
+                </Button>
+              </div>
+            </div>
+          </div>
         </div>
       </Panel>
     </div>
@@ -447,9 +658,15 @@ export function ObservatoryHud() {
   const setDetailOpen = useSim((s) => s.setDetailOpen);
   const [searchOpen, setSearchOpen] = useState(false);
   const [compareOpen, setCompareOpen] = useState(false);
+  const [epochOpen, setEpochOpen] = useState(false);
+  const [headerCopied, setHeaderCopied] = useState(false);
   const days = useSimDays();
   const clock = formatSimClock(days);
   const selected = selectedId ? bodyById(selectedId) : null;
+
+  const starBody = useMemo(() => BODIES.find((b) => b.identity.kind === "star"), []);
+  const planetBodies = useMemo(() => BODIES.filter((b) => b.identity.kind === "planet"), []);
+  const dwarfBodies = useMemo(() => BODIES.filter((b) => b.identity.kind === "dwarf-planet"), []);
 
   const moonChildren = useMemo(() => {
     const map: Record<string, { id: string; name: string; color: string }[]> = {};
@@ -493,6 +710,8 @@ export function ObservatoryHud() {
         s.setMoonMode(s.moonMode === "auto" ? "always" : s.moonMode === "always" ? "hidden" : "auto");
       } else if (e.code === "KeyC") {
         setCompareOpen((o) => !o);
+      } else if (e.code === "KeyT") {
+        setEpochOpen((o) => !o);
       } else if (e.code === "KeyR") {
         useSim.getState().resetView();
       } else if (e.code === "Backspace") {
@@ -558,6 +777,39 @@ export function ObservatoryHud() {
             <GitCompareArrows className="size-5" strokeWidth={1.75} />
           </Button>
           <Button
+            variant={epochOpen ? "primary" : "ghost"}
+            size="icon"
+            aria-label="Epoch date control (T)"
+            onClick={(e) => {
+              e.stopPropagation();
+              setEpochOpen(true);
+            }}
+          >
+            <Calendar className="size-5" strokeWidth={1.75} />
+          </Button>
+          <Button
+            variant={headerCopied ? "primary" : "ghost"}
+            size="icon"
+            aria-label="Share observatory view"
+            onClick={(e) => {
+              e.stopPropagation();
+              if (typeof window === "undefined") return;
+              const url =
+                window.location.origin +
+                buildDeepLink(selectedId, formatEpochIso(simClock.days));
+              navigator.clipboard.writeText(url).then(() => {
+                setHeaderCopied(true);
+                setTimeout(() => setHeaderCopied(false), 2000);
+              });
+            }}
+          >
+            {headerCopied ? (
+              <Check className="size-5 text-emerald-400" strokeWidth={1.75} />
+            ) : (
+              <Share2 className="size-5" strokeWidth={1.75} />
+            )}
+          </Button>
+          <Button
             variant={paused ? "primary" : "ghost"}
             size="icon"
             aria-label={paused ? "Resume simulation" : "Pause simulation"}
@@ -595,8 +847,22 @@ export function ObservatoryHud() {
           <p className="px-3 pt-2 pb-1 font-sans text-xs font-medium tracking-widest text-muted uppercase">
             Worlds
           </p>
-          <div className="helios-scroll flex flex-1 flex-col gap-0.5 overflow-y-auto">
-            {BODIES.map((body) => (
+          <div className="helios-scroll flex flex-1 flex-col gap-0.5 overflow-y-auto pr-0.5">
+            {starBody ? (
+              <BodyButton
+                key={starBody.identity.id}
+                id={starBody.identity.id}
+                name={starBody.identity.name}
+                color={starBody.identity.color}
+                selected={selectedId === starBody.identity.id}
+                moons={moonChildren[starBody.identity.id]}
+                onSelect={select}
+              />
+            ) : null}
+            <p className="px-3 pt-2 pb-0.5 font-sans text-[11px] font-medium tracking-wider text-muted uppercase">
+              Planets
+            </p>
+            {planetBodies.map((body) => (
               <BodyButton
                 key={body.identity.id}
                 id={body.identity.id}
@@ -607,6 +873,24 @@ export function ObservatoryHud() {
                 onSelect={select}
               />
             ))}
+            {dwarfBodies.length > 0 ? (
+              <>
+                <p className="px-3 pt-2 pb-0.5 font-sans text-[11px] font-medium tracking-wider text-muted uppercase">
+                  Dwarf Planets
+                </p>
+                {dwarfBodies.map((body) => (
+                  <BodyButton
+                    key={body.identity.id}
+                    id={body.identity.id}
+                    name={body.identity.name}
+                    color={body.identity.color}
+                    selected={selectedId === body.identity.id}
+                    moons={moonChildren[body.identity.id]}
+                    onSelect={select}
+                  />
+                ))}
+              </>
+            ) : null}
           </div>
           <div className="border-t border-fg/8 pt-2">
             <SettingsRow />
@@ -708,17 +992,23 @@ export function ObservatoryHud() {
               </span>
             </div>
             <PaceSlider />
-            <div className="flex items-center justify-between gap-4 md:flex-col md:items-end md:justify-center">
+            <div className="flex items-center justify-between gap-2 md:flex-col md:items-end md:justify-center">
               <span className="font-sans text-xs text-muted tabular-nums">{formatYearPace(speed)}</span>
-              <span className="font-sans text-xs text-muted tabular-nums">
-                Y{clock.years} · D{clock.day}
-                {paused ? " · Paused" : ""}
-              </span>
+              <button
+                type="button"
+                onClick={() => setEpochOpen(true)}
+                className="flex items-center gap-1.5 rounded-lg px-2 py-0.5 font-sans text-xs text-fg/90 transition-colors hover:bg-fg/10 hover:text-fg"
+                title="Open Epoch Date Control (T)"
+              >
+                <Calendar className="size-3 text-muted" />
+                <span className="font-medium tabular-nums">{formatEpochDisplay(days)}</span>
+                {paused ? <span className="font-medium text-amber-400/90">· Paused</span> : null}
+              </button>
             </div>
           </Panel>
           <div className="flex items-center justify-center gap-2">
             <p className="hidden text-center font-sans text-xs text-muted md:block">
-              Drag to orbit · scroll to zoom · click a world · ⌘K search · backspace to parent
+              Drag to orbit · scroll to zoom · click a world · ⌘K search · T date control · backspace to parent
             </p>
             <p className="text-center font-sans text-xs text-muted/80 md:hidden">
               {SCALE_MODE_LABELS[scaleMode]}
@@ -749,6 +1039,7 @@ export function ObservatoryHud() {
 
       <SearchPalette open={searchOpen} onClose={() => setSearchOpen(false)} />
       <CompareDialog open={compareOpen} onClose={() => setCompareOpen(false)} />
+      <EpochDialog open={epochOpen} onClose={() => setEpochOpen(false)} />
     </div>
   );
 }
