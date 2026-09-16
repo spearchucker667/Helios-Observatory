@@ -1,7 +1,12 @@
 import { create } from "zustand";
-import type { ScaleMode, UnitSystem } from "@/lib/format";
-import { dateToJ2000Days, formatEpochIso, tryDateToJ2000Days } from "@/lib/ephemeris";
-import { bodyById } from "@/data/registry";
+import type { ScaleMode, UnitSystem } from "./format.ts";
+import {
+  dateToJ2000Days,
+  formatEpochIso,
+  isSupportedEphemerisDay,
+  trySupportedEphemerisDate,
+} from "./ephemeris.ts";
+import { bodyById } from "../data/registry.ts";
 
 
 export const simClock = {
@@ -173,8 +178,13 @@ export const useSim = create<SimState>((set) => ({
     syncDeepLinkToUrl(selectedId);
   },
   setDate: (dateOrDays) => {
-    const days =
-      typeof dateOrDays === "number" ? dateOrDays : dateToJ2000Days(dateOrDays);
+    let days: number | null = null;
+    if (typeof dateOrDays === "number") {
+      days = isSupportedEphemerisDay(dateOrDays) ? dateOrDays : null;
+    } else {
+      days = trySupportedEphemerisDate(dateOrDays);
+    }
+    if (days === null) return;
     simClock.days = days;
     set((s) => ({ dateNonce: s.dateNonce + 1 }));
     syncDeepLinkToUrl(useSim.getState().selectedId, true);
@@ -192,13 +202,23 @@ export const useSim = create<SimState>((set) => ({
   },
 }));
 
-export function parseDeepLinkParams(): { targetId: string | null; dateDays: number | null } {
-  if (typeof window === "undefined") return { targetId: null, dateDays: null };
+export function parseDeepLinkParams(searchQuery?: string): {
+  targetId: string | null;
+  dateDays: number | null;
+  date?: string;
+} {
+  const search =
+    searchQuery !== undefined
+      ? searchQuery
+      : typeof window !== "undefined"
+      ? window.location.search
+      : "";
+  if (!search) return { targetId: null, dateDays: null };
   try {
-    const params = new URLSearchParams(window.location.search);
+    const params = new URLSearchParams(search);
     const body = params.get("body")?.toLowerCase().trim();
     const moon = params.get("moon")?.toLowerCase().trim();
-    const date = params.get("date")?.trim();
+    const rawDate = params.get("date")?.trim();
 
     let targetId: string | null = null;
     if (moon && bodyById(moon)) {
@@ -208,12 +228,15 @@ export function parseDeepLinkParams(): { targetId: string | null; dateDays: numb
     }
 
     let dateDays: number | null = null;
-    if (date) {
-      dateDays = tryDateToJ2000Days(date);
+    let validatedDate: string | undefined = undefined;
+    if (rawDate) {
+      dateDays = trySupportedEphemerisDate(rawDate);
+      if (dateDays !== null) {
+        validatedDate = rawDate;
+      }
     }
 
-    return { targetId, dateDays };
-
+    return { targetId, dateDays, date: validatedDate };
   } catch {
     return { targetId: null, dateDays: null };
   }

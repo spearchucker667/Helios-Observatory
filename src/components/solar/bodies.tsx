@@ -21,7 +21,12 @@ import {
 } from "@/components/solar/textures";
 import { createRingTexture } from "@/components/solar/ring-systems";
 import { MoonSystem } from "@/components/solar/moons";
-import { computeEphemerisPosition, computeOrbitPath } from "@/lib/ephemeris";
+import {
+  computeEphemerisPosition,
+  computeOrbitPath,
+  EPHEMERIS_MIN_DAYS,
+  EPHEMERIS_MAX_DAYS,
+} from "@/lib/ephemeris";
 import { AsteroidBelt } from "@/components/solar/asteroid-belt";
 import { KuiperBelt } from "@/components/solar/kuiper-belt";
 import { OortCloud } from "@/components/solar/oort-cloud";
@@ -111,7 +116,16 @@ function SimulationDriver() {
     const { paused, speed } = useSim.getState();
     if (paused) return;
     const d = Math.min(delta, 0.1);
-    simClock.days += (d * speed * 365.25) / YEAR_SECONDS;
+    const nextDays = simClock.days + (d * speed * 365.25) / YEAR_SECONDS;
+    if (nextDays >= EPHEMERIS_MAX_DAYS) {
+      simClock.days = EPHEMERIS_MAX_DAYS;
+      useSim.getState().setPaused(true);
+    } else if (nextDays <= EPHEMERIS_MIN_DAYS) {
+      simClock.days = EPHEMERIS_MIN_DAYS;
+      useSim.getState().setPaused(true);
+    } else {
+      simClock.days = nextDays;
+    }
   });
   return null;
 }
@@ -422,8 +436,9 @@ function Planet({
     }
     if (paused || !spin.current) return;
     const visualDay = 11;
-    const rel = 24 / Math.max(Math.abs(body.rotation.periodHours), 4);
-    const dir = body.rotation.periodHours < 0 ? -1 : 1;
+    const periodHours = body.rotation.periodHours ?? 24;
+    const rel = 24 / Math.max(Math.abs(periodHours), 4);
+    const dir = periodHours < 0 ? -1 : 1;
     spin.current.rotation.y += (dir * (Math.PI * 2 * rel * speed * d(delta))) / visualDay;
     if (clouds.current) {
       clouds.current.rotation.y += (Math.PI * 2 * speed * d(delta)) / (visualDay * 0.72);
@@ -442,7 +457,7 @@ function Planet({
           bodyRefs.current[id] = n;
         }}
       >
-        <group rotation={[((body.rotation.axialTiltDeg) * Math.PI) / 180, 0, 0]}>
+        <group rotation={[(((body.rotation.axialTiltDeg ?? 0) * Math.PI) / 180), 0, 0]}>
           <group ref={spin}>
             <mesh {...pick}>
               <sphereGeometry args={[sceneR, 48, 48]} />

@@ -206,15 +206,20 @@ export const KEPLER_TABLE: Record<string, KeplerElements> = {
  */
 export const EPHEMERIS_VALID_MIN_YEAR = 1800;
 export const EPHEMERIS_VALID_MAX_YEAR = 2050;
-export const EPHEMERIS_MIN_DAYS = -73050; // 1800-01-01
-export const EPHEMERIS_MAX_DAYS = 18628;  // 2050-12-31
+export const EPHEMERIS_VALID_MIN_DATE = "1800-01-01";
+export const EPHEMERIS_VALID_MAX_DATE = "2050-12-31";
+export const EPHEMERIS_MIN_DAYS = -73048.5; // 1800-01-01T00:00:00Z
+export const EPHEMERIS_MAX_DAYS = 18627.0;  // 2050-12-31T12:00:00Z (through 2050-12-31)
 
 /** Check if given J2000 days fall within authoritative ephemeris accuracy window */
 export function isSupportedEphemerisDay(days: number): boolean {
   return Number.isFinite(days) && days >= EPHEMERIS_MIN_DAYS && days <= EPHEMERIS_MAX_DAYS;
 }
 
-/** Safely convert any date representation to J2000 days, returning null if invalid */
+/**
+ * Safely parse any date representation to J2000 days without boundary checking.
+ * Returns null if unparseable or non-finite.
+ */
 export function tryDateToJ2000Days(input: unknown): number | null {
   if (input === null || input === undefined) return null;
   let ms: number;
@@ -231,6 +236,18 @@ export function tryDateToJ2000Days(input: unknown): number | null {
   }
   if (Number.isNaN(ms) || !Number.isFinite(ms)) return null;
   return (ms - J2000_EPOCH_MS) / MS_PER_DAY;
+}
+
+/**
+ * Parse and validate date representation to J2000 days, enforcing the supported
+ * ephemeris domain (1800-01-01 through 2050-12-31 UTC).
+ * Returns null if unparseable or outside the supported domain.
+ */
+export function trySupportedEphemerisDate(input: unknown): number | null {
+  const days = tryDateToJ2000Days(input);
+  if (days === null) return null;
+  if (!isSupportedEphemerisDay(days)) return null;
+  return days;
 }
 
 /** Convert a Date, ISO string, or timestamp to days since J2000.0 with optional fallback */

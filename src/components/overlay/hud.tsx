@@ -41,7 +41,16 @@ import {
   type UnitSystem,
 } from "@/lib/format";
 import { buildDeepLink, simClock, useSim } from "@/lib/sim-store";
-import { formatEpochDisplay, formatEpochIso, EPOCH_PRESETS } from "@/lib/ephemeris";
+import {
+  formatEpochDisplay,
+  formatEpochIso,
+  EPOCH_PRESETS,
+  EPHEMERIS_MIN_DAYS,
+  EPHEMERIS_MAX_DAYS,
+  EPHEMERIS_VALID_MIN_DATE,
+  EPHEMERIS_VALID_MAX_DATE,
+  trySupportedEphemerisDate,
+} from "@/lib/ephemeris";
 import { BodyDetail } from "@/components/overlay/detail";
 import { MeasurementPanel } from "@/components/overlay/measurement-panel";
 
@@ -354,22 +363,36 @@ function EpochDialog({ open, onClose }: { open: boolean; onClose: () => void }) 
   const days = useSimDays();
   const [copied, setCopied] = useState(false);
   const [inputVal, setInputVal] = useState(formatEpochIso(simClock.days));
+  const [validationError, setValidationError] = useState<string | null>(null);
 
   useEffect(() => {
     setInputVal(formatEpochIso(days));
+    setValidationError(null);
   }, [days]);
 
   if (!open) return null;
 
   const handleStep = (stepDays: number) => {
-    setDate(simClock.days + stepDays);
+    const nextDays = simClock.days + stepDays;
+    const clamped = Math.max(EPHEMERIS_MIN_DAYS, Math.min(EPHEMERIS_MAX_DAYS, nextDays));
+    setDate(clamped);
   };
 
   const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const val = e.target.value;
     setInputVal(val);
     if (val) {
-      setDate(val);
+      const parsedDays = trySupportedEphemerisDate(val);
+      if (parsedDays !== null) {
+        setValidationError(null);
+        setDate(parsedDays);
+      } else {
+        setValidationError(
+          `Date must be between ${EPHEMERIS_VALID_MIN_DATE} and ${EPHEMERIS_VALID_MAX_DATE}.`
+        );
+      }
+    } else {
+      setValidationError(null);
     }
   };
 
@@ -426,11 +449,18 @@ function EpochDialog({ open, onClose }: { open: boolean; onClose: () => void }) 
                 <input
                   type="date"
                   value={inputVal}
+                  min={EPHEMERIS_VALID_MIN_DATE}
+                  max={EPHEMERIS_VALID_MAX_DATE}
                   onChange={handleDateChange}
                   className="rounded-xl border border-fg/15 bg-surface px-3 py-1.5 font-sans text-xs text-fg shadow-sm outline-none transition-colors hover:border-fg/30 focus:border-fg/50"
                   aria-label="Pick simulation date"
                 />
               </div>
+              {validationError ? (
+                <p className="mt-2 text-xs font-medium text-rose-400" role="alert">
+                  {validationError}
+                </p>
+              ) : null}
             </div>
 
             {/* Step scrubbers */}

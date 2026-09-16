@@ -4,6 +4,7 @@ import {
   KEPLER_TABLE,
   dateToJ2000Days,
   tryDateToJ2000Days,
+  trySupportedEphemerisDate,
   isSupportedEphemerisDay,
   j2000DaysToDate,
   formatEpochIso,
@@ -11,6 +12,7 @@ import {
   computeEphemerisPosition,
   computeOrbitPath,
 } from "./ephemeris.ts";
+import { parseDeepLinkParams } from "./sim-store.ts";
 
 
 describe("J2000 Ephemeris and Orbit Engine", () => {
@@ -98,11 +100,28 @@ describe("J2000 Ephemeris and Orbit Engine", () => {
 
   it("accurately reports supported ephemeris day intervals (1800-2050 AD)", () => {
     assert.equal(isSupportedEphemerisDay(0), true); // 2000-01-01
-    assert.equal(isSupportedEphemerisDay(-73050), true); // 1800-01-01
-    assert.equal(isSupportedEphemerisDay(18628), true); // 2050-12-31
+    assert.equal(isSupportedEphemerisDay(-73048.5), true); // 1800-01-01T00:00:00Z
+    assert.equal(isSupportedEphemerisDay(18627.0), true); // 2050-12-31T12:00:00Z
+    assert.equal(isSupportedEphemerisDay(-73049.5), false); // 1799-12-31 (out of range)
+    assert.equal(isSupportedEphemerisDay(18627.5), false); // 2051-01-01 (out of range)
     assert.equal(isSupportedEphemerisDay(-150000), false); // ancient
     assert.equal(isSupportedEphemerisDay(100000), false); // far future
     assert.equal(isSupportedEphemerisDay(NaN), false);
+  });
+
+  it("enforces supported date range in trySupportedEphemerisDate and deep links", () => {
+    assert.equal(trySupportedEphemerisDate("1799-12-31"), null);
+    assert.equal(trySupportedEphemerisDate("1800-01-01"), -73048.5);
+    assert.equal(trySupportedEphemerisDate("2050-12-31"), 18626.5);
+    assert.equal(trySupportedEphemerisDate("2051-01-01"), null);
+    assert.equal(trySupportedEphemerisDate("invalid-date"), null);
+
+    // parseDeepLinkParams integration
+    assert.equal(parseDeepLinkParams("?date=1800-01-01").date, "1800-01-01");
+    assert.equal(parseDeepLinkParams("?date=2050-12-31").date, "2050-12-31");
+    assert.equal(parseDeepLinkParams("?date=1799-12-31").date, undefined);
+    assert.equal(parseDeepLinkParams("?date=2051-01-01").date, undefined);
+    assert.equal(parseDeepLinkParams("?date=not-a-date").date, undefined);
   });
 
   it("outputs physical heliocentric AU vector and distance in science field (P2-001)", () => {
@@ -118,6 +137,46 @@ describe("J2000 Ephemeris and Orbit Engine", () => {
 
       // Verify scene vector
       assert.deepEqual(pos.scene, [pos.x, pos.y, pos.z]);
+    }
+  });
+
+  it("reproduces multi-epoch reference fixtures for Earth, Mars, and Jupiter within tolerances", () => {
+    // Pinned reference fixtures derived from Standish (1992) analytical formulation
+    // at epochs: 1950-01-01T00:00:00Z (-18262.5 d), 2000-01-01T12:00:00Z (0 d), 2025-01-01T00:00:00Z (9131.5 d)
+    const fixtures: Record<string, Record<string, { helioAu: [number, number, number]; distAu: number }>> = {
+      "1950-01-01T00:00:00Z": {
+        earth: { helioAu: [-0.1827, 0.9661, 0.0001], distAu: 0.9833 },
+        mars: { helioAu: [-1.3956, 0.9045, 0.0534], distAu: 1.6639 },
+        jupiter: { helioAu: [3.4085, -3.7621, -0.0610], distAu: 5.0769 },
+      },
+      "2000-01-01T12:00:00Z": {
+        earth: { helioAu: [-0.1772, 0.9672, -0.0000], distAu: 0.9833 },
+        mars: { helioAu: [1.3907, -0.0134, -0.0345], distAu: 1.3912 },
+        jupiter: { helioAu: [3.9983, 2.9457, -0.1017], distAu: 4.9673 },
+      },
+      "2025-01-01T00:00:00Z": {
+        earth: { helioAu: [-0.1787, 0.9669, -0.0001], distAu: 0.9833 },
+        mars: { helioAu: [-0.5218, 1.5252, 0.0448], distAu: 1.6126 },
+        jupiter: { helioAu: [1.0585, 4.9682, -0.0443], distAu: 5.0799 },
+      },
+    };
+
+    for (const [epochIso, bodies] of Object.entries(fixtures)) {
+      const days = dateToJ2000Days(epochIso);
+      for (const [bodyId, expected] of Object.entries(bodies)) {
+        const pos = computeEphemerisPosition(bodyId, days, "presentation");
+        assert.ok(pos, `Position missing for ${bodyId} at ${epochIso}`);
+        assert.ok(
+          Math.abs(pos.science.distanceFromSunAu - expected.distAu) < 0.01,
+          `${bodyId} distance discrepancy at ${epochIso}: got ${pos.science.distanceFromSunAu}, expected ${expected.distAu}`
+        );
+        for (let i = 0; i < 3; i++) {
+          assert.ok(
+            Math.abs(pos.science.heliocentricAu[i] - expected.helioAu[i]) < 0.02,
+            `${bodyId} coordinate [${i}] discrepancy at ${epochIso}: got ${pos.science.heliocentricAu[i]}, expected ${expected.helioAu[i]}`
+          );
+        }
+      }
     }
   });
 });
