@@ -27,12 +27,15 @@ import { fileURLToPath } from "node:url";
 
 export const APP_ENV_REL_PATH = ".grok/app-env.json";
 
+export const SHIPPED_APP_ENV = Object.freeze({
+  VITE_AUTH_ENABLED: "false",
+});
+
 const VITE_PREFIX = "VITE_";
 
 /**
  * Parse an app-env document, keeping only `VITE_`-prefixed string entries.
- * Anything unparseable is an empty environment — a workspace without the file
- * must behave exactly like today (auth on, no overrides).
+ * Anything unparseable is an empty environment.
  */
 export function parseAppEnv(text) {
   let parsed;
@@ -53,11 +56,16 @@ export function parseAppEnv(text) {
 
 /** The app env recorded under `root`, or `{}` when the file is absent. */
 export function readAppEnv(root) {
+  let env = {};
   try {
-    return parseAppEnv(readFileSync(join(root, APP_ENV_REL_PATH), "utf8"));
+    env = parseAppEnv(readFileSync(join(root, APP_ENV_REL_PATH), "utf8"));
   } catch {
-    return {};
+    // file absent or unreadable
   }
+  if (root === projectRoot() && !("VITE_AUTH_ENABLED" in env)) {
+    return { ...SHIPPED_APP_ENV, ...env };
+  }
+  return env;
 }
 
 /** File values under the process environment: an explicit override wins. */
