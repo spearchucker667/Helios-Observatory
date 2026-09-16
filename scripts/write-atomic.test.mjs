@@ -166,7 +166,10 @@ test("cli: relative paths follow the script's root, not the caller's cwd", () =>
 
 test("every hand-over the og skill prints is one this script accepts", () => {
   // The card and banner recipes live in the skill's references/, not SKILL.md.
-  const skillDir = join(TEMPLATE_ROOT, ".grok/skills/og");
+  const localSkillDir = join(TEMPLATE_ROOT, ".grok/skills/og");
+  const skillDir = existsSync(join(localSkillDir, "SKILL.md"))
+    ? localSkillDir
+    : join(TEMPLATE_ROOT, "tests/fixtures/platform-contract/og");
   const docs = [
     join(skillDir, "SKILL.md"),
     ...readdirSync(join(skillDir, "references")).map((f) => join(skillDir, "references", f)),

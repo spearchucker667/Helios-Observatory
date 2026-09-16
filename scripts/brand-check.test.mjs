@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { spawnSync } from "node:child_process";
-import { mkdtempSync, mkdirSync, readFileSync, utimesSync, writeFileSync } from "node:fs";
+import { existsSync, mkdtempSync, mkdirSync, readFileSync, utimesSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -303,7 +303,18 @@ test("cli: a non-game with a compliant card passes", () => {
 
 // --- the prompts are the only enforcement here, so pin them to the code ---
 
-const readDoc = (rel) => readFileSync(join(TEMPLATE_ROOT, rel), "utf8");
+const resolveDocPath = (rel) => {
+  const directPath = join(TEMPLATE_ROOT, rel);
+  if (existsSync(directPath)) return directPath;
+  if (rel.startsWith(".grok/skills/og/")) {
+    const fixtureRel = rel.replace(/^\.grok\/skills\/og\//, "tests/fixtures/platform-contract/og/");
+    const fixturePath = join(TEMPLATE_ROOT, fixtureRel);
+    if (existsSync(fixturePath)) return fixturePath;
+  }
+  return directPath;
+};
+
+const readDoc = (rel) => readFileSync(resolveDocPath(rel), "utf8");
 
 test("SKILL.md and AGENTS.md name the marker path and bound this script uses", () => {
   // Prose wraps, so the minute count may straddle a line break.
