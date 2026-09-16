@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+<title id="title">Helios Miku Orbit Mark</title><desc id="desc">Original twin-tail comet and orbital mark for Helios Observatory; unofficial and not affiliated with NASA or Crypton Future Media.</desc>
+
+<defs>
+  <linearGradient id="tealGlow" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#78FFF1"/><stop offset=".46" stop-color="#39C5BB"/><stop offset="1" stop-color="#22E6FF"/></linearGradient>
+  <linearGradient id="spaceFade" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#050816"/><stop offset="1" stop-color="#0B1220"/></linearGradient>
+  <linearGradient id="magentaGlow" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#E653A7"/><stop offset="1" stop-color="#FF5B6E"/></linearGradient>
+  <radialGradient id="halo"><stop stop-color="#39C5BB" stop-opacity=".42"/><stop offset="1" stop-color="#39C5BB" stop-opacity="0"/></radialGradient>
+  <filter id="softGlow" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="7" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  <filter id="tinyGlow" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<g>
+<circle cx="256" cy="256" r="179.8" fill="url(#halo)"/>
+<ellipse cx="256" cy="256" rx="173.6" ry="72.85000000000001" fill="none" stroke="#9DB0C4" stroke-opacity=".34" stroke-width="3.4100000000000006" transform="rotate(-18 256 256)"/>
+<ellipse cx="256" cy="256" rx="147.25" ry="58.9" fill="none" stroke="url(#tealGlow)" stroke-opacity=".68" stroke-width="4.960000000000001" stroke-dasharray="18.6 13.950000000000001" transform="rotate(28 256 256)"/>
+<path d="M 212.6 221.9 C 144.39999999999998 144.39999999999998, 73.1 144.39999999999998, 60.69999999999999 262.2 C 82.4 221.9, 114.94999999999999 235.85, 159.89999999999998 282.35 C 114.94999999999999 331.95, 85.5 380.0, 101.0 428.05 C 169.2 355.2, 209.5 322.65, 234.3 283.9 Z" fill="url(#tealGlow)" opacity=".94"/>
+<path d="M 299.4 221.9 C 367.6 144.39999999999998, 438.9 144.39999999999998, 451.3 262.2 C 429.6 221.9, 397.05 235.85, 352.1 282.35 C 397.05 331.95, 426.5 380.0, 411.0 428.05 C 342.8 355.2, 302.5 322.65, 277.7 283.9 Z" fill="url(#tealGlow)" opacity=".94"/>
+<circle cx="256" cy="251.35" r="54.25" fill="#101923" stroke="#78FFF1" stroke-width="4.65"/>
+<path d="M 209.5 235.85 Q 256 190.89999999999998 302.5 235.85" fill="none" stroke="url(#tealGlow)" stroke-width="18.6" stroke-linecap="round"/>
+<path d="M 232.75 263.75 Q 256 277.7 279.25 263.75" fill="none" stroke="#F5FBFF" stroke-opacity=".9" stroke-width="3.1" stroke-linecap="round"/>
+<circle cx="235.85" cy="251.35" r="5.27" fill="#22E6FF"/><circle cx="276.15" cy="251.35" r="5.27" fill="#22E6FF"/>
+<path d="M 395.5 166.1 l 7.75 18.6 l 20.150000000000002 1.55 l -15.5 12.4 l 4.65 20.150000000000002 l -17.05 -10.85 l -17.05 10.85 l 4.65 -20.150000000000002 l -15.5 -12.4 l 20.150000000000002 -1.55 z" fill="#FFD166" filter="url(#tinyGlow)"/>
+<circle cx="108.75" cy="353.65" r="7.75" fill="#E653A7" filter="url(#tinyGlow)"/>
+</g>
+</svg>

@@ -1,0 +1,13 @@
+Helios Observatory
+Copyright 2026 Helios Observatory Contributors
+
+This product includes software developed by the Helios Observatory project
+(https://github.com/spearchucker667/Helios-Observatory).
+
+This project incorporates astronomical ephemeris algorithms, orbital elements,
+and planetary constants derived from public domain and open access data published by:
+- National Aeronautics and Space Administration (NASA)
+- Jet Propulsion Laboratory (JPL) Solar System Dynamics Group
+- International Astronomical Union (IAU) Minor Planet Center (MPC)
+- NASA Horizons System and Planetary Data System (PDS)
+- New Horizons Science Team (Pluto and Charon encounter datasets)

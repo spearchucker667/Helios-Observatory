@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 240" role="img" aria-labelledby="caliper-title caliper-desc">
+  <title id="caliper-title">Helios Scientific Distance Caliper</title>
+  <desc id="caliper-desc">Diagram showing Euclidean heliocentric distance calculation between two celestial bodies with AU, km, and light travel time readouts.</desc>
+  <rect width="600" height="240" fill="#07080c"/>
+  <defs>
+    <linearGradient id="caliperLaser" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="50%" stop-color="#818cf8"/>
+      <stop offset="100%" stop-color="#c084fc"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Title -->
+  <text x="24" y="32" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#f4f5f8">Scientific Caliper Engine</text>
+  <text x="24" y="48" font-family="system-ui, sans-serif" font-size="11" fill="#8e939e">3D Euclidean measurement vector in heliocentric astronomical units</text>
+
+  <!-- Caliper endpoints and line -->
+  <g transform="translate(40, 110)">
+    <!-- Origin (Earth) -->
+    <circle cx="60" cy="0" r="14" fill="#3b82f6" fill-opacity="0.2" stroke="#38bdf8" stroke-width="1.5"/>
+    <circle cx="60" cy="0" r="7" fill="#60a5fa"/>
+    <text x="60" y="-22" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#f4f5f8" text-anchor="middle">Earth</text>
+    <text x="60" y="32" font-family="system-ui, sans-serif" font-size="10" fill="#8e939e" text-anchor="middle">Origin A</text>
+
+    <!-- Caliper Laser Line -->
+    <line x1="80" y1="0" x2="440" y2="0" stroke="url(#caliperLaser)" stroke-width="2" stroke-dasharray="6 4"/>
+
+    <!-- Caliper HUD Midpoint Badge -->
+    <g transform="translate(260, 0)">
+      <rect x="-90" y="-30" width="180" height="60" rx="10" fill="#12151e" stroke="#38bdf8" stroke-width="1.2" stroke-opacity="0.6"/>
+      <text x="0" y="-10" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#38bdf8" text-anchor="middle">4.204 AU</text>
+      <text x="0" y="7" font-family="system-ui, sans-serif" font-size="11" fill="#f4f5f8" text-anchor="middle">628,913,000 km</text>
+      <text x="0" y="22" font-family="system-ui, sans-serif" font-size="10" fill="#a5b4fc" text-anchor="middle">34.96 light minutes</text>
+    </g>
+
+    <!-- Target (Jupiter) -->
+    <circle cx="460" cy="0" r="18" fill="#f59e0b" fill-opacity="0.2" stroke="#fbbf24" stroke-width="1.5"/>
+    <circle cx="460" cy="0" r="10" fill="#fcd34d"/>
+    <text x="460" y="-26" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#f4f5f8" text-anchor="middle">Jupiter</text>
+    <text x="460" y="34" font-family="system-ui, sans-serif" font-size="10" fill="#8e939e" text-anchor="middle">Target B</text>
+  </g>
+</svg>

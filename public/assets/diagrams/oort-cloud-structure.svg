@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 360" role="img" aria-labelledby="oort-title oort-desc">
+  <title id="oort-title">Oort Cloud and Deep Space Architecture</title>
+  <desc id="oort-desc">Schematic diagram showing the solar system planetary realm, Kuiper Belt, inner toroidal Hills cloud, and outer spherical Oort cloud extending to 100,000 AU.</desc>
+  <rect width="700" height="360" fill="#07080c"/>
+  <defs>
+    <radialGradient id="oortGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#4f46e5" stop-opacity="0.2"/>
+      <stop offset="60%" stop-color="#1e1b4b" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#07080c" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <text x="24" y="32" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#f4f5f8">Deep-Space Architecture &amp; Oort Cloud Scale</text>
+  <text x="24" y="48" font-family="system-ui, sans-serif" font-size="11" fill="#8e939e">Logarithmic continuum from planetary realm (30 AU) to outer gravitational boundary (~100,000 AU)</text>
+
+  <g transform="translate(350, 195)">
+    <!-- Outer spherical cloud -->
+    <circle cx="0" cy="0" r="140" fill="url(#oortGlow)"/>
+    <circle cx="0" cy="0" r="140" fill="none" stroke="#6366f1" stroke-width="1.2" stroke-dasharray="4 4" stroke-opacity="0.4"/>
+    <text x="0" y="-146" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#a5b4fc" text-anchor="middle">Outer Oort Cloud (~20,000 – 100,000 AU · Isotropic Shell)</text>
+
+    <!-- Inner Hills cloud (toroidal) -->
+    <ellipse cx="0" cy="0" rx="85" ry="50" fill="none" stroke="#818cf8" stroke-width="1.4" stroke-opacity="0.55"/>
+    <text x="0" y="-56" font-family="system-ui, sans-serif" font-size="10" font-weight="500" fill="#818cf8" text-anchor="middle">Hills Cloud (~2,000 – 20,000 AU · Toroidal)</text>
+
+    <!-- Kuiper Belt -->
+    <ellipse cx="0" cy="0" rx="42" ry="24" fill="none" stroke="#38bdf8" stroke-width="1.5" stroke-dasharray="2 3" stroke-opacity="0.7"/>
+    <text x="0" y="-28" font-family="system-ui, sans-serif" font-size="10" fill="#38bdf8" text-anchor="middle">Kuiper Belt (30 – 55 AU)</text>
+
+    <!-- Planetary Core & Sun -->
+    <circle cx="0" cy="0" r="10" fill="#ffedd5" fill-opacity="0.3"/>
+    <circle cx="0" cy="0" r="4" fill="#fbbf24"/>
+    <text x="0" y="16" font-family="system-ui, sans-serif" font-size="9" fill="#fef3c7" text-anchor="middle">Sun &amp; Planets</text>
+  </g>
+
+  <!-- Model disclaimer note -->
+  <text x="350" y="344" font-family="system-ui, sans-serif" font-size="10" fill="#71717a" text-anchor="middle">Note: The Oort Cloud is a theoretically inferred dynamical reservoir of long-period comets; not directly imaged.</text>
+</svg>

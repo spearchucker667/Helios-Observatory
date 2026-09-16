@@ -1,4 +1,5 @@
 import type { CelestialBody } from "../types.ts";
+import { satelliteCountOf } from "../satellites/index.ts";
 
 /** Canonical figures: NASA planetary fact sheets (retrieved 2026-09-16). */
 export const URANUS: CelestialBody = {
@@ -60,8 +61,10 @@ export const URANUS: CelestialBody = {
     ],
   },
   moonSystem: {
-    confirmedCount: 28,
-    note: "Five major moons named for Shakespeare and Pope characters; 21 smaller inner and irregular satellites (tally retrieved 2026-09-16).",
+    confirmedCount: satelliteCountOf("uranus"),
+    asOf: "2026-08-15",
+    sourceIds: ["nasa-solar-system-exploration", "jpl-ssd", "iau-mpc"],
+    note: "29 recognized natural satellites (NASA August 2026 baseline), comprising 13 inner ring moons, 5 major classical satellites (Miranda, Ariel, Umbriel, Titania, Oberon), and 11 outer irregulars including S/2023 U 1.",
   },
   features: [
     {

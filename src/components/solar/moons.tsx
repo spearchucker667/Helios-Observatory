@@ -7,16 +7,26 @@ import type { AnyBody } from "@/data/types";
 import { sceneMoonOrbit, sceneMoonRadius } from "@/lib/scene-scale";
 import { simClock, useSim } from "@/lib/sim-store";
 import type { TextureCache } from "@/components/solar/textures";
+import { FeatureMarkers } from "@/components/solar/feature-markers";
 
-const tmpV = new THREE.Vector3();
-void tmpV;
+function moonLocalPosition(
+  theta: number,
+  orbitR: number,
+  inclinationRad = 0,
+): [number, number, number] {
+  return [
+    Math.cos(theta) * orbitR,
+    Math.sin(theta) * Math.sin(inclinationRad) * orbitR * 0.3,
+    Math.sin(theta) * orbitR,
+  ];
+}
 
-function MoonLabel({ name, radius }: { name: string; radius: number }) {
+function MoonLabel({ id, name, radius }: { id: string; name: string; radius: number }) {
   const show = useSim((s) => s.showLabels);
   const selectedId = useSim((s) => s.selectedId);
   if (!show) return null;
   // Selected body's own label is redundant with the detail panel.
-  if (selectedId === name.toLowerCase()) return null;
+  if (selectedId === id) return null;
   return (
     <Html
       position={[0, radius + 0.12, 0]}
@@ -52,6 +62,7 @@ function MoonBody({
   const mover = useRef<THREE.Group>(null);
   const spin = useRef<THREE.Group>(null);
   const select = useSim((s) => s.select);
+  const selectedId = useSim((s) => s.selectedId);
   const setHover = useSim((s) => s.setHover);
   const showOrbits = useSim((s) => s.showOrbits);
   const map = useMemo(() => tex.get(moon.identity.id, "low"), [tex, moon.identity.id]);
@@ -66,10 +77,10 @@ function MoonBody({
     const pts: [number, number, number][] = [];
     for (let i = 0; i <= 96; i++) {
       const a = (i / 96) * Math.PI * 2;
-      pts.push([Math.cos(a) * orbitR, 0, Math.sin(a) * orbitR]);
+      pts.push(moonLocalPosition(a, orbitR, inclination));
     }
     return pts;
-  }, [orbitR]);
+  }, [orbitR, inclination]);
 
   useFrame((_, delta) => {
     const node = mover.current;
@@ -77,16 +88,17 @@ function MoonBody({
     const { paused, speed } = useSim.getState();
     const theta =
       (simClock.days / periodDays) * Math.PI * 2 * (retrograde ? -1 : 1);
-    node.position.set(
-      Math.cos(theta) * orbitR,
-      Math.sin(theta) * Math.sin(inclination) * orbitR * 0.3,
-      Math.sin(theta) * orbitR,
-    );
+    const [x, y, z] = moonLocalPosition(theta, orbitR, inclination);
+    node.position.set(x, y, z);
     if (spin.current && !paused) {
-      // Tidal locking: rotation period equals orbit period.
-      spin.current.rotation.y = theta;
-      void delta;
-      void speed;
+      if (moon.rotation?.tidallyLocked !== false) {
+        // Tidal locking: rotation matches synchronous orbital position.
+        spin.current.rotation.y = theta;
+      } else {
+        const periodHours = moon.rotation.periodHours || 24;
+        const d = Math.min(delta, 0.1);
+        spin.current.rotation.y += ((Math.PI * 2) / (periodHours / 24)) * d * speed * 0.05;
+      }
     }
   });
 
@@ -105,8 +117,18 @@ function MoonBody({
           <mesh
             onClick={(e) => {
               e.stopPropagation();
+              const state = useSim.getState();
+              if (state.measurement.active) {
+                if (!state.measurement.sourceId) {
+                  state.setMeasurementSource(moon.identity.id);
+                } else if (state.measurement.sourceId !== moon.identity.id) {
+                  state.setMeasurementTarget(moon.identity.id);
+                }
+                return;
+              }
               select(moon.identity.id);
             }}
+
             onPointerOver={(e) => {
               e.stopPropagation();
               setHover(moon.identity.id);
@@ -120,12 +142,18 @@ function MoonBody({
             <sphereGeometry args={[radius, 24, 24]} />
             <meshStandardMaterial map={map} roughness={0.9} metalness={0.02} />
           </mesh>
-          <MoonLabel name={moon.identity.name} radius={radius} />
+          <FeatureMarkers
+            features={moon.features}
+            radius={radius}
+            visible={selectedId === moon.identity.id}
+          />
+          <MoonLabel id={moon.identity.id} name={moon.identity.name} radius={radius} />
         </group>
       </group>
     </group>
   );
 }
+
 
 /**
  * Renders the parent planet's moon system. Mounted inside the planet's

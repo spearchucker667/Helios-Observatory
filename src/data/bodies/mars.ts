@@ -1,4 +1,5 @@
 import type { CelestialBody } from "../types.ts";
+import { satelliteCountOf } from "../satellites/index.ts";
 
 /** Canonical figures: NASA planetary fact sheets (retrieved 2026-09-16). */
 export const MARS: CelestialBody = {
@@ -52,8 +53,10 @@ export const MARS: CelestialBody = {
   interior: "Iron-sulfur core (partially liquid, per InSight seismic data), basaltic mantle, thin crust.",
   magneticField: "No global field today; ancient crustal magnetisation records an early dynamo that died ~4 Gyr ago.",
   moonSystem: {
-    confirmedCount: 2,
-    note: "Phobos and Deimos — likely captured asteroids or reaccreted impact debris.",
+    confirmedCount: satelliteCountOf("mars"),
+    asOf: "2026-08-15",
+    sourceIds: ["nasa-solar-system-exploration", "jpl-ssd"],
+    note: "2 small irregularly shaped natural satellites, Phobos and Deimos — likely captured carbonaceous asteroids or impact-ejected debris.",
   },
   features: [
     {

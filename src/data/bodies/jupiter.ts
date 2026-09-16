@@ -1,4 +1,5 @@
 import type { CelestialBody } from "../types.ts";
+import { satelliteCountOf } from "../satellites/index.ts";
 
 /** Canonical figures: NASA planetary fact sheets (retrieved 2026-09-16). */
 export const JUPITER: CelestialBody = {
@@ -58,8 +59,10 @@ export const JUPITER: CelestialBody = {
     divisions: [{ name: "Main ring", atPlanetaryRadius: 1.8, note: "A ~6,500 km annulus of dark dust, discovered by Voyager 1 in 1979." }],
   },
   moonSystem: {
-    confirmedCount: 95,
-    note: "Four Galilean moons beyond comparison; the rest are small inner shepherds and captured irregulars. Tally per NASA, 2023 (retrieved 2026-09-16).",
+    confirmedCount: satelliteCountOf("jupiter"),
+    asOf: "2026-08-15",
+    sourceIds: ["nasa-solar-system-exploration", "jpl-ssd", "iau-mpc"],
+    note: "115 officially recognized natural satellites (NASA August 2026 baseline), including the 4 Galilean moons and numerous outer irregular retrograde and prograde swarms.",
   },
   features: [
     {

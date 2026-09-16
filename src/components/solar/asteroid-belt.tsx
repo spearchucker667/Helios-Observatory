@@ -1,12 +1,21 @@
 import { useEffect, useMemo, useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
-import { simClock, useSim } from "@/lib/sim-store";
+import { useSim } from "@/lib/sim-store";
 
 const ASTEROID_COUNT = 2400;
 
 function skipRaycast() {
   /* disable picking for asteroid belt particles */
+}
+
+function mulberry32(seed: number) {
+  return function () {
+    let t = (seed += 0x6d2b79f5);
+    t = Math.imul(t ^ (t >>> 15), t | 1);
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
 }
 
 // Kirkwood gaps: dips in distribution at resonances with Jupiter (2.50, 2.82, 2.95, 3.27 AU)
@@ -35,7 +44,8 @@ export function AsteroidBelt() {
   }, [scaleMode]);
 
   // Generate asteroid orbital parameters and colors once
-  const { geometry, colors, orbitData, tiltData, sizeData } = useMemo(() => {
+  const { geometry, colors } = useMemo(() => {
+
     // Craggy low-poly rock geometry
     const baseGeo = new THREE.IcosahedronGeometry(1, 0);
     const posAttr = baseGeo.attributes.position;
@@ -59,30 +69,31 @@ export function AsteroidBelt() {
     const sType = new THREE.Color("#7e6e5e");
     const mType = new THREE.Color("#9e9b94");
     const tmpCol = new THREE.Color();
+    const prng = mulberry32(0x41535445); // "ASTE"
 
     let i = 0;
     while (i < ASTEROID_COUNT) {
       // Semi-major axis between 2.06 and 3.32 AU
-      const au = 2.06 + Math.random() * 1.26;
-      if (inKirkwoodGap(au) && Math.random() < 0.75) {
+      const au = 2.06 + prng() * 1.26;
+      if (inKirkwoodGap(au) && prng() < 0.75) {
         continue; // create authentic Kirkwood gap dip
       }
 
       // Map to presentation distance (~17.0 to ~23.5)
       const t = (au - 2.06) / 1.26;
-      const rPres = 17.0 + t * 6.5 + (Math.random() - 0.5) * 0.4;
+      const rPres = 17.0 + t * 6.5 + (prng() - 0.5) * 0.4;
       const rDist = au * 5.2;
 
-      const initAngle = Math.random() * Math.PI * 2;
+      const initAngle = prng() * Math.PI * 2;
       // Keplerian speed: inner asteroids move faster (speed ~ 1 / sqrt(r^3))
-      const speed = 0.08 * Math.pow(2.7 / au, 1.5) * (0.95 + Math.random() * 0.1);
+      const speed = 0.08 * Math.pow(2.7 / au, 1.5) * (0.95 + prng() * 0.1);
 
       // Orbital inclination: typical 0° to 12°
-      const inclination = (Math.random() * 12 * Math.PI) / 180 * (Math.random() < 0.5 ? -1 : 1);
-      const nodeAngle = Math.random() * Math.PI * 2;
+      const inclination = (prng() * 12 * Math.PI) / 180 * (prng() < 0.5 ? -1 : 1);
+      const nodeAngle = prng() * Math.PI * 2;
 
       // Power-law size distribution (mostly small rocks, few larger ones)
-      const sizePower = Math.pow(Math.random(), 3.5);
+      const sizePower = Math.pow(prng(), 3.5);
       const size = 0.018 + sizePower * 0.065;
 
       orbitArr[i * 4] = rPres;
@@ -96,16 +107,16 @@ export function AsteroidBelt() {
       sizeArr[i] = size;
 
       // Color assignment based on taxonomic types
-      const typeRand = Math.random();
+      const typeRand = prng();
       if (typeRand < 0.72) {
         // C-type
-        tmpCol.copy(cType).offsetHSL((Math.random() - 0.5) * 0.04, (Math.random() - 0.5) * 0.05, (Math.random() - 0.5) * 0.08);
+        tmpCol.copy(cType).offsetHSL((prng() - 0.5) * 0.04, (prng() - 0.5) * 0.05, (prng() - 0.5) * 0.08);
       } else if (typeRand < 0.9) {
         // S-type
-        tmpCol.copy(sType).offsetHSL((Math.random() - 0.5) * 0.05, (Math.random() - 0.5) * 0.06, (Math.random() - 0.5) * 0.06);
+        tmpCol.copy(sType).offsetHSL((prng() - 0.5) * 0.05, (prng() - 0.5) * 0.06, (prng() - 0.5) * 0.06);
       } else {
         // M-type
-        tmpCol.copy(mType).offsetHSL((Math.random() - 0.5) * 0.02, (Math.random() - 0.5) * 0.04, (Math.random() - 0.5) * 0.06);
+        tmpCol.copy(mType).offsetHSL((prng() - 0.5) * 0.02, (prng() - 0.5) * 0.04, (prng() - 0.5) * 0.06);
       }
 
       colorArr[i * 3] = tmpCol.r;
@@ -122,11 +133,9 @@ export function AsteroidBelt() {
     return {
       geometry: baseGeo,
       colors: colorArr,
-      orbitData: orbitArr,
-      tiltData: tiltArr,
-      sizeData: sizeArr,
     };
   }, []);
+
 
   // Material with onBeforeCompile for GPU-accelerated orbital motion
   const material = useMemo(() => {

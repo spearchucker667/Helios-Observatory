@@ -10,6 +10,21 @@ import { NEPTUNE_EVENTS, TRITON_EVENTS } from "./neptune.ts";
 import { SOLAR_EVENTS } from "./sun.ts";
 import { DWARF_PLANET_EVENTS } from "./dwarf-planets.ts";
 
+export function compareEvents(a: AstronomicalEvent, b: AstronomicalEvent): number {
+  if (a.year !== b.year) {
+    return a.year - b.year;
+  }
+  if (a.date && b.date) {
+    const diff = a.date.localeCompare(b.date);
+    if (diff !== 0) return diff;
+  } else if (a.date && !b.date) {
+    return -1;
+  } else if (!a.date && b.date) {
+    return 1;
+  }
+  return a.title.localeCompare(b.title);
+}
+
 export const EVENTS: AstronomicalEvent[] = [
   ...SOLAR_EVENTS,
   ...MERCURY_EVENTS,
@@ -25,9 +40,10 @@ export const EVENTS: AstronomicalEvent[] = [
   ...URANUS_EVENTS,
   ...NEPTUNE_EVENTS,
   ...TRITON_EVENTS,
-];
+].sort(compareEvents);
 
-/** Events that mention a given body (planet or moon), chronological. */
+/** Events that mention a given body (planet or moon), strictly chronological. */
 export function eventsForBody(bodyId: string): AstronomicalEvent[] {
-  return EVENTS.filter((e) => e.bodyIds.includes(bodyId)).sort((a, b) => a.year - b.year);
+  return EVENTS.filter((e) => e.bodyIds.includes(bodyId)).sort(compareEvents);
 }
+

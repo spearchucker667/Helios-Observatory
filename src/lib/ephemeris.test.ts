@@ -3,12 +3,15 @@ import assert from "node:assert/strict";
 import {
   KEPLER_TABLE,
   dateToJ2000Days,
+  tryDateToJ2000Days,
+  isSupportedEphemerisDay,
   j2000DaysToDate,
   formatEpochIso,
   solveKepler,
   computeEphemerisPosition,
   computeOrbitPath,
 } from "./ephemeris.ts";
+
 
 describe("J2000 Ephemeris and Orbit Engine", () => {
   it("converts J2000.0 epoch exactly to 0 days", () => {
@@ -80,4 +83,42 @@ describe("J2000 Ephemeris and Orbit Engine", () => {
     const dist = Math.hypot(first[0] - last[0], first[1] - last[1], first[2] - last[2]);
     assert.ok(dist < 1e-4, `Orbit loop not closed: dist = ${dist}`);
   });
+
+  it("safely handles arbitrary epoch input with tryDateToJ2000Days", () => {
+    assert.equal(tryDateToJ2000Days(null), null);
+    assert.equal(tryDateToJ2000Days(undefined), null);
+    assert.equal(tryDateToJ2000Days("not-a-date"), null);
+    assert.equal(tryDateToJ2000Days(""), null);
+    assert.equal(tryDateToJ2000Days({}), null);
+
+    const valid = tryDateToJ2000Days("2026-09-16");
+    assert.ok(typeof valid === "number" && Number.isFinite(valid));
+    assert.ok(valid > 9000); // 26+ years after 2000
+  });
+
+  it("accurately reports supported ephemeris day intervals (1800-2050 AD)", () => {
+    assert.equal(isSupportedEphemerisDay(0), true); // 2000-01-01
+    assert.equal(isSupportedEphemerisDay(-73050), true); // 1800-01-01
+    assert.equal(isSupportedEphemerisDay(18628), true); // 2050-12-31
+    assert.equal(isSupportedEphemerisDay(-150000), false); // ancient
+    assert.equal(isSupportedEphemerisDay(100000), false); // far future
+    assert.equal(isSupportedEphemerisDay(NaN), false);
+  });
+
+  it("outputs physical heliocentric AU vector and distance in science field (P2-001)", () => {
+    for (const id of Object.keys(KEPLER_TABLE)) {
+      const pos = computeEphemerisPosition(id, 0, "presentation");
+      assert.ok(pos);
+      assert.ok(pos.science, `Missing science object for ${id}`);
+      assert.equal(pos.science.heliocentricAu.length, 3);
+      const [xAu, yAu, zAu] = pos.science.heliocentricAu;
+      const magAu = Math.hypot(xAu, yAu, zAu);
+      assert.ok(Math.abs(magAu - pos.science.distanceFromSunAu) < 1e-6);
+      assert.ok(Math.abs(pos.distanceAu - pos.science.distanceFromSunAu) < 1e-6);
+
+      // Verify scene vector
+      assert.deepEqual(pos.scene, [pos.x, pos.y, pos.z]);
+    }
+  });
 });
+

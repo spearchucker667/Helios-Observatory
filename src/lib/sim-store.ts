@@ -1,7 +1,8 @@
 import { create } from "zustand";
 import type { ScaleMode, UnitSystem } from "@/lib/format";
-import { dateToJ2000Days, formatEpochIso } from "@/lib/ephemeris";
+import { dateToJ2000Days, formatEpochIso, tryDateToJ2000Days } from "@/lib/ephemeris";
 import { bodyById } from "@/data/registry";
+
 
 export const simClock = {
   days: dateToJ2000Days(Date.now()),
@@ -54,7 +55,18 @@ type SimState = {
   scaleMode: ScaleMode;
   /** Detail panel open state (progressive disclosure). */
   detailOpen: boolean;
+  /** Scientific distance measurement system (P1-004) */
+  measurement: {
+    active: boolean;
+    sourceId: string | null;
+    targetId: string | null;
+  };
+  toggleMeasurement: () => void;
+  setMeasurementSource: (id: string | null) => void;
+  setMeasurementTarget: (id: string | null) => void;
+  clearMeasurement: () => void;
   setPaused: (paused: boolean) => void;
+
   togglePaused: () => void;
   setSpeed: (speed: number) => void;
   setShowLabels: (show: boolean) => void;
@@ -122,7 +134,35 @@ export const useSim = create<SimState>((set) => ({
   units: "metric",
   scaleMode: "presentation",
   detailOpen: true,
+  measurement: {
+    active: false,
+    sourceId: null,
+    targetId: null,
+  },
+  toggleMeasurement: () =>
+    set((s) => ({
+      measurement: {
+        ...s.measurement,
+        active: !s.measurement.active,
+        sourceId: !s.measurement.active
+          ? (s.measurement.sourceId ?? s.selectedId ?? "earth")
+          : s.measurement.sourceId,
+      },
+    })),
+  setMeasurementSource: (sourceId) =>
+    set((s) => ({
+      measurement: { ...s.measurement, sourceId },
+    })),
+  setMeasurementTarget: (targetId) =>
+    set((s) => ({
+      measurement: { ...s.measurement, targetId },
+    })),
+  clearMeasurement: () =>
+    set({
+      measurement: { active: false, sourceId: null, targetId: null },
+    }),
   setPaused: (paused) => set({ paused }),
+
   togglePaused: () => set((s) => ({ paused: !s.paused })),
   setSpeed: (speed) => set({ speed }),
   setShowLabels: (showLabels) => set({ showLabels }),
@@ -169,13 +209,11 @@ export function parseDeepLinkParams(): { targetId: string | null; dateDays: numb
 
     let dateDays: number | null = null;
     if (date) {
-      const parsed = dateToJ2000Days(date);
-      if (!Number.isNaN(parsed)) {
-        dateDays = parsed;
-      }
+      dateDays = tryDateToJ2000Days(date);
     }
 
     return { targetId, dateDays };
+
   } catch {
     return { targetId: null, dateDays: null };
   }

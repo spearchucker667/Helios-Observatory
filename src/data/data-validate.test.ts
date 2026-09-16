@@ -23,17 +23,18 @@ describe("astronomical data integrity", () => {
     assert.equal(BODIES.filter((b) => b.identity.kind === "dwarf-planet").length, 2);
   });
 
-  it("has all 20 tier-1 moons selectable", () => {
+  it("has all 21 curated tier-1 moons selectable", () => {
     const expected = [
       "moon", "phobos", "deimos", "io", "europa", "ganymede", "callisto",
       "titan", "enceladus", "rhea", "iapetus", "dione", "tethys", "mimas",
-      "titania", "oberon", "ariel", "umbriel", "miranda", "triton",
+      "titania", "oberon", "ariel", "umbriel", "miranda", "triton", "charon",
     ];
     assert.deepEqual(
       MOONS.map((m) => m.identity.id).sort(),
       [...expected].sort(),
     );
   });
+
 
   it("moons reference valid parents", () => {
     for (const m of MOONS) {

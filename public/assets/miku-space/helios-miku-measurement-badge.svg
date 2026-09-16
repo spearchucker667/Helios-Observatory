@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 260" role="img" aria-labelledby="title desc">
+<title id="title">Helios Miku Distance Lab Badge</title><desc id="desc">Measurement-system badge for AU, kilometre and light-time tooling.</desc>
+
+<defs>
+  <linearGradient id="tealGlow" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#78FFF1"/><stop offset=".46" stop-color="#39C5BB"/><stop offset="1" stop-color="#22E6FF"/></linearGradient>
+  <linearGradient id="spaceFade" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#050816"/><stop offset="1" stop-color="#0B1220"/></linearGradient>
+  <linearGradient id="magentaGlow" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#E653A7"/><stop offset="1" stop-color="#FF5B6E"/></linearGradient>
+  <radialGradient id="halo"><stop stop-color="#39C5BB" stop-opacity=".42"/><stop offset="1" stop-color="#39C5BB" stop-opacity="0"/></radialGradient>
+  <filter id="softGlow" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="7" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  <filter id="tinyGlow" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs><rect width="640" height="260" rx="42" fill="#050816" stroke="#39C5BB" stroke-opacity=".45" stroke-width="3"/>
+<g transform="translate(40 26)"><circle cx="104" cy="104" r="78" fill="none" stroke="#9DB0C4" stroke-opacity=".4" stroke-width="2"/><circle cx="104" cy="104" r="54" fill="none" stroke="#39C5BB" stroke-width="3" stroke-dasharray="8 7"/><path d="M104 12v184M12 104h184" stroke="#F5FBFF" stroke-opacity=".22"/><circle cx="104" cy="104" r="9" fill="#39C5BB"/><circle cx="158" cy="104" r="7" fill="#E653A7"/><path d="M104 104h54" stroke="#F5FBFF" stroke-width="3" stroke-linecap="round"/><path d="M115 95v18M129 98v12M143 95v18" stroke="#F5FBFF" stroke-opacity=".75"/></g>
+<g transform="translate(250 68)"><text fill="#F5FBFF" font-family="Inter,Arial,sans-serif" font-weight="800" font-size="38" letter-spacing="2">DISTANCE LAB</text><text y="42" fill="#39C5BB" font-family="Inter,Arial,sans-serif" font-weight="700" font-size="18" letter-spacing="4">AU · KM · LIGHT-TIME</text><text y="90" fill="#9DB0C4" font-family="Inter,Arial,sans-serif" font-size="16">Scientific-space measurement UI identifier</text></g>
+</svg>

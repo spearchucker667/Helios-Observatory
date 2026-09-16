@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 260" role="img" aria-labelledby="title desc">
+<title id="title">Helios Miku Moon Catalog Badge</title><desc id="desc">Moon catalogue identifier for complete satellite coverage.</desc>
+
+<defs>
+  <linearGradient id="tealGlow" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#78FFF1"/><stop offset=".46" stop-color="#39C5BB"/><stop offset="1" stop-color="#22E6FF"/></linearGradient>
+  <linearGradient id="spaceFade" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#050816"/><stop offset="1" stop-color="#0B1220"/></linearGradient>
+  <linearGradient id="magentaGlow" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#E653A7"/><stop offset="1" stop-color="#FF5B6E"/></linearGradient>
+  <radialGradient id="halo"><stop stop-color="#39C5BB" stop-opacity=".42"/><stop offset="1" stop-color="#39C5BB" stop-opacity="0"/></radialGradient>
+  <filter id="softGlow" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="7" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  <filter id="tinyGlow" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs><rect width="640" height="260" rx="42" fill="#050816" stroke="#39C5BB" stroke-opacity=".45" stroke-width="3"/>
+<g transform="translate(38 28)"><circle cx="104" cy="104" r="72" fill="url(#halo)"/><circle cx="104" cy="104" r="54" fill="#C7D4DF"/><circle cx="85" cy="87" r="12" fill="#8094A6" opacity=".55"/><circle cx="126" cy="118" r="16" fill="#8094A6" opacity=".48"/><ellipse cx="104" cy="104" rx="92" ry="34" fill="none" stroke="#39C5BB" stroke-width="3" transform="rotate(-18 104 104)"/><circle cx="188" cy="78" r="7" fill="#E653A7"/></g>
+<g transform="translate(250 68)"><text fill="#F5FBFF" font-family="Inter,Arial,sans-serif" font-weight="800" font-size="38" letter-spacing="2">MOON CATALOG</text><text y="42" fill="#39C5BB" font-family="Inter,Arial,sans-serif" font-weight="700" font-size="18" letter-spacing="4">COMPLETE SATELLITE INDEX</text><text y="90" fill="#9DB0C4" font-family="Inter,Arial,sans-serif" font-size="16">Major, inner, irregular and provisional objects</text></g>
+</svg>

@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="diagram-title diagram-desc">
+  <title id="diagram-title">Solar System Orbits Schematic Diagram</title>
+  <desc id="diagram-desc">Scientific scale schematic illustrating elliptical coplanar planetary paths from Mercury through Neptune, Ceres, and Pluto.</desc>
+  <rect width="800" height="500" fill="#07080c"/>
+  <defs>
+    <radialGradient id="diagSunGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fff5db"/>
+      <stop offset="35%" stop-color="#ffb84d" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#ff7b25" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Title & Legend -->
+  <text x="32" y="44" font-family="system-ui, sans-serif" font-size="20" font-weight="600" fill="#f4f5f8">Helios Planetary Orbits</text>
+  <text x="32" y="66" font-family="system-ui, sans-serif" font-size="12" fill="#8e939e">Coplanar J2000 Keplerian projection (Logarithmic distance scaling)</text>
+
+  <!-- Orbits group centered at (400, 270) -->
+  <g transform="translate(400, 270)">
+    <!-- Sun -->
+    <circle cx="0" cy="0" r="32" fill="url(#diagSunGlow)"/>
+    <circle cx="0" cy="0" r="10" fill="#ffc857"/>
+
+    <!-- Mercury: 0.387 AU -->
+    <ellipse cx="-2" cy="0" rx="30" ry="29" fill="none" stroke="#a09b93" stroke-width="1.2" stroke-opacity="0.5"/>
+    <circle cx="28" cy="-5" r="2.5" fill="#a09b93"/>
+    <text x="34" y="-8" font-family="system-ui, sans-serif" font-size="10" fill="#a09b93">Mercury (0.39 AU)</text>
+
+    <!-- Venus: 0.723 AU -->
+    <ellipse cx="0" cy="0" rx="52" ry="52" fill="none" stroke="#d6b070" stroke-width="1.2" stroke-opacity="0.5"/>
+    <circle cx="-46" cy="24" r="3.5" fill="#d6b070"/>
+    <text x="-124" y="32" font-family="system-ui, sans-serif" font-size="10" fill="#d6b070">Venus (0.72 AU)</text>
+
+    <!-- Earth: 1.000 AU -->
+    <ellipse cx="0" cy="0" rx="76" ry="76" fill="none" stroke="#4da6ff" stroke-width="1.4" stroke-opacity="0.6"/>
+    <circle cx="68" cy="34" r="4" fill="#4da6ff"/>
+    <text x="76" y="42" font-family="system-ui, sans-serif" font-size="10" fill="#4da6ff">Earth (1.00 AU)</text>
+
+    <!-- Mars: 1.524 AU -->
+    <ellipse cx="-5" cy="0" rx="104" ry="103" fill="none" stroke="#e0664d" stroke-width="1.2" stroke-opacity="0.5"/>
+    <circle cx="-92" cy="-44" r="3" fill="#e0664d"/>
+    <text x="-170" y="-48" font-family="system-ui, sans-serif" font-size="10" fill="#e0664d">Mars (1.52 AU)</text>
+
+    <!-- Asteroid Belt (Ceres): 2.77 AU -->
+    <ellipse cx="0" cy="0" rx="142" ry="140" fill="none" stroke="#8e939e" stroke-width="1" stroke-dasharray="3 4" stroke-opacity="0.4"/>
+    <circle cx="120" cy="-74" r="2.5" fill="#b0b5be"/>
+    <text x="128" y="-76" font-family="system-ui, sans-serif" font-size="10" fill="#b0b5be">Ceres (2.77 AU)</text>
+
+    <!-- Jupiter: 5.204 AU -->
+    <ellipse cx="-7" cy="0" rx="192" ry="190" fill="none" stroke="#e6a86c" stroke-width="1.5" stroke-opacity="0.6"/>
+    <circle cx="140" cy="128" r="7" fill="#e6a86c"/>
+    <text x="154" y="138" font-family="system-ui, sans-serif" font-size="11" font-weight="500" fill="#e6a86c">Jupiter (5.20 AU)</text>
+
+    <!-- Saturn: 9.582 AU -->
+    <ellipse cx="-11" cy="0" rx="246" ry="243" fill="none" stroke="#d4c08e" stroke-width="1.4" stroke-opacity="0.55"/>
+    <circle cx="-210" cy="120" r="6" fill="#d4c08e"/>
+    <text x="-295" y="130" font-family="system-ui, sans-serif" font-size="11" font-weight="500" fill="#d4c08e">Saturn (9.58 AU)</text>
+
+    <!-- Uranus: 19.20 AU -->
+    <ellipse cx="-8" cy="0" rx="300" ry="297" fill="none" stroke="#7be3e0" stroke-width="1.3" stroke-opacity="0.5"/>
+    <circle cx="-160" cy="-250" r="5" fill="#7be3e0"/>
+    <text x="-245" y="-255" font-family="system-ui, sans-serif" font-size="11" fill="#7be3e0">Uranus (19.2 AU)</text>
+
+    <!-- Neptune: 30.05 AU -->
+    <ellipse cx="-2" cy="0" rx="352" ry="350" fill="none" stroke="#4d79ff" stroke-width="1.3" stroke-opacity="0.5"/>
+    <circle cx="280" cy="-210" r="5" fill="#4d79ff"/>
+    <text x="292" y="-212" font-family="system-ui, sans-serif" font-size="11" fill="#4d79ff">Neptune (30.1 AU)</text>
+
+    <!-- Pluto (eccentric dwarf): 39.48 AU -->
+    <ellipse cx="-22" cy="0" rx="382" ry="364" fill="none" stroke="#b0a293" stroke-width="1.1" stroke-dasharray="5 3" stroke-opacity="0.45" transform="rotate(17 0 0)"/>
+    <circle cx="340" cy="140" r="2.5" fill="#b0a293"/>
+    <text x="350" y="145" font-family="system-ui, sans-serif" font-size="10" fill="#b0a293">Pluto (39.5 AU)</text>
+  </g>
+</svg>

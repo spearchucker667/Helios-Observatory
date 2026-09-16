@@ -1,4 +1,5 @@
 import type { CelestialBody } from "../types.ts";
+import { satelliteCountOf } from "../satellites/index.ts";
 
 /** Canonical figures: NASA planetary fact sheets (retrieved 2026-09-16). */
 export const NEPTUNE: CelestialBody = {
@@ -60,8 +61,10 @@ export const NEPTUNE: CelestialBody = {
     ],
   },
   moonSystem: {
-    confirmedCount: 16,
-    note: "Triton dominates — a captured Kuiper-belt object in a retrograde orbit — with Proteus, Nereid, and 13 smaller attendants (retrieved 2026-09-16).",
+    confirmedCount: satelliteCountOf("neptune"),
+    asOf: "2026-08-15",
+    sourceIds: ["nasa-solar-system-exploration", "jpl-ssd", "iau-mpc"],
+    note: "16 recognized natural satellites (NASA August 2026 baseline), dominated by the large retrograde captured Kuiper Belt dwarf Triton, along with Proteus, Nereid, and 13 smaller inner and irregular companions.",
   },
   features: [
     {

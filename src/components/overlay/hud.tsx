@@ -18,12 +18,33 @@ import { Command } from "cmdk";
 import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
 import { cn } from "@/lib/utils";
-import { BODIES, MOONS, bodyById, eventsForBody } from "@/data/registry";
-import { formatSimClock, formatYearPace, sliderToSpeed, speedToSlider, YEAR_SECONDS } from "@/lib/planets";
-import { SCALE_MODE_LABELS, type ScaleMode, type UnitSystem } from "@/lib/format";
+import {
+  BODIES,
+  MOONS,
+  SATELLITES,
+  REGIONS,
+  EVENTS,
+  bodyById,
+} from "@/data/registry";
+import { formatYearPace, sliderToSpeed, speedToSlider, YEAR_SECONDS } from "@/lib/planets";
+import {
+  SCALE_MODE_LABELS,
+  formatDiameter,
+  formatMass,
+  formatGravity,
+  formatDensity,
+  formatTemperature,
+  formatDayLength,
+  formatYearLength,
+  formatTilt,
+  type ScaleMode,
+  type UnitSystem,
+} from "@/lib/format";
 import { buildDeepLink, simClock, useSim } from "@/lib/sim-store";
 import { formatEpochDisplay, formatEpochIso, EPOCH_PRESETS } from "@/lib/ephemeris";
 import { BodyDetail } from "@/components/overlay/detail";
+import { MeasurementPanel } from "@/components/overlay/measurement-panel";
+
 
 function useSimDays() {
   const [days, setDays] = useState(0);
@@ -103,7 +124,7 @@ function buildSearchIndex(): SearchHit[] {
       label: b.identity.name,
       group:
         b.identity.kind === "moon"
-          ? "Moons"
+          ? "Curated Moons"
           : b.identity.kind === "star"
             ? "Star"
             : b.identity.kind === "dwarf-planet"
@@ -114,16 +135,37 @@ function buildSearchIndex(): SearchHit[] {
     for (const f of b.features ?? []) {
       hits.push({
         id: `feature-${f.id}`,
-        label: f.name,
+        label: `${f.name} (${f.kind})`,
         group: `Features · ${b.identity.name}`,
         target: b.identity.id,
       });
     }
   }
-  for (const id of ["jupiter", "saturn", "mars", "ceres", "pluto", "earth"]) {
-    for (const e of eventsForBody(id)) {
-      hits.push({ id: `event-${e.id}`, label: e.title, group: "Events", target: e.bodyIds[0] });
+  for (const s of SATELLITES) {
+    if (!MOONS.some((m) => m.identity.id === s.id)) {
+      hits.push({
+        id: `satellite-${s.id}`,
+        label: `${s.name} (${s.parentId})`,
+        group: "Natural Satellites",
+        target: s.id,
+      });
     }
+  }
+  for (const e of EVENTS) {
+    hits.push({
+      id: `event-${e.id}`,
+      label: `${e.title} (${e.year})`,
+      group: "Events",
+      target: e.bodyIds[0],
+    });
+  }
+  for (const r of REGIONS) {
+    hits.push({
+      id: `region-${r.id}`,
+      label: r.name,
+      group: "Deep-Space Regions",
+      target: r.id,
+    });
   }
   return hits;
 }
@@ -131,6 +173,27 @@ function buildSearchIndex(): SearchHit[] {
 function SearchPalette({ open, onClose }: { open: boolean; onClose: () => void }) {
   const select = useSim((s) => s.select);
   const index = useMemo(buildSearchIndex, []);
+  const groups = useMemo(() => {
+    const priority = [
+      "Star",
+      "Planets",
+      "Dwarf Planets",
+      "Curated Moons",
+      "Natural Satellites",
+      "Deep-Space Regions",
+      "Events",
+    ];
+    const present = Array.from(new Set(index.map((h) => h.group)));
+    return present.sort((a, b) => {
+      const idxA = priority.indexOf(a);
+      const idxB = priority.indexOf(b);
+      if (idxA !== -1 && idxB !== -1) return idxA - idxB;
+      if (idxA !== -1) return -1;
+      if (idxB !== -1) return 1;
+      return a.localeCompare(b);
+    });
+  }, [index]);
+
   if (!open) return null;
   return (
     <div className="pointer-events-auto fixed inset-0 z-50 flex items-start justify-center bg-bg/60 p-4 pt-[12vh] backdrop-blur-sm" onClick={onClose}>
@@ -154,47 +217,32 @@ function SearchPalette({ open, onClose }: { open: boolean; onClose: () => void }
           <Command.Empty className="px-3 py-6 text-center text-sm text-muted">
             Nothing found in the catalogue.
           </Command.Empty>
-          {[
-            "Star",
-            "Planets",
-            "Dwarf Planets",
-            "Moons",
-            "Features · Ceres",
-            "Features · Pluto",
-            "Features · Jupiter",
-            "Features · Mars",
-            "Features · Saturn",
-            "Features · Mercury",
-            "Features · Moon",
-            "Features · Enceladus",
-            "Events",
-          ].map(
-            (group) => (
-              <Command.Group
-                key={group}
-                heading={group}
-                className="px-1 py-1 text-muted [&_[cmdk-group-heading]]:px-3 [&_[cmdk-group-heading]]:py-1 [&_[cmdk-group-heading]]:text-[11px] [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group-heading]]:tracking-widest [&_[cmdk-group-heading]]:uppercase"
-              >
-                {index
-                  .filter((h) => h.group === group)
-                  .map((h) => (
-                    <Command.Item
-                      key={h.id}
-                      value={h.label}
-                      onSelect={() => {
-                        select(h.target);
-                        onClose();
-                      }}
-                      className="flex cursor-pointer items-center gap-2.5 rounded-xl px-3 py-2 text-sm text-fg data-[selected=true]:bg-fg/10"
-                    >
-                      <PlanetDot color={bodyById(h.target)?.identity.color ?? "#8e939e"} />
-                      {h.label}
-                    </Command.Item>
-                  ))}
-              </Command.Group>
-            ),
-          )}
+          {groups.map((group) => (
+            <Command.Group
+              key={group}
+              heading={group}
+              className="px-1 py-1 text-muted [&_[cmdk-group-heading]]:px-3 [&_[cmdk-group-heading]]:py-1 [&_[cmdk-group-heading]]:text-[11px] [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group-heading]]:tracking-widest [&_[cmdk-group-heading]]:uppercase"
+            >
+              {index
+                .filter((h) => h.group === group)
+                .map((h) => (
+                  <Command.Item
+                    key={h.id}
+                    value={h.label}
+                    onSelect={() => {
+                      select(h.target);
+                      onClose();
+                    }}
+                    className="flex cursor-pointer items-center gap-2.5 rounded-xl px-3 py-2 text-sm text-fg data-[selected=true]:bg-fg/10"
+                  >
+                    <PlanetDot color={bodyById(h.target)?.identity.color ?? "#8e939e"} />
+                    {h.label}
+                  </Command.Item>
+                ))}
+            </Command.Group>
+          ))}
         </Command.List>
+
       </Command>
     </div>
   );
@@ -220,17 +268,17 @@ function CompareDialog({ open, onClose }: { open: boolean; onClose: () => void }
     .filter((b): b is NonNullable<typeof b> => Boolean(b));
 
   const rows: { label: string; get: (b: NonNullable<(typeof COMPARE_POOL)[number]>) => string }[] = [
-    { label: "Diameter", get: (b) => `${b.physical.diameterKm.toLocaleString()} km` },
-    { label: "Mass", get: (b) => (b.physical.massEarths ? `${b.physical.massEarths} × Earth` : `${b.physical.massKg24 ?? "—"} ×10²⁴ kg`) },
-    { label: "Gravity", get: (b) => `${b.physical.gravityG} g` },
-    { label: "Density", get: (b) => `${b.physical.densityGCm3} g/cm³` },
-    { label: "Mean temp", get: (b) => `${b.temperature.meanC} °C` },
-    { label: "Day", get: (b) => `${Math.abs(b.rotation.periodHours).toFixed(1)} h${b.rotation.periodHours < 0 ? " (retro)" : ""}` },
-    { label: "Year", get: (b) => (b.orbit ? `${b.orbit.periodDays.toFixed(1)} d` : "—") },
-    { label: "Tilt", get: (b) => `${b.rotation.axialTiltDeg}°` },
+    { label: "Diameter", get: (b) => formatDiameter(b.physical.diameterKm, units) },
+    { label: "Mass", get: (b) => formatMass(b.physical.massEarths, b.physical.massKg24, units) },
+    { label: "Gravity", get: (b) => formatGravity(b.physical.gravityG, units) },
+    { label: "Density", get: (b) => formatDensity(b.physical.densityGCm3) },
+    { label: "Mean temp", get: (b) => formatTemperature(b.temperature.meanC) },
+    { label: "Day", get: (b) => formatDayLength(b.rotation.periodHours) },
+    { label: "Year", get: (b) => (b.orbit ? formatYearLength(b.orbit.periodDays) : "—") },
+    { label: "Tilt", get: (b) => formatTilt(b.rotation.axialTiltDeg) },
     { label: "Moons", get: (b) => (b.moonSystem ? String(b.moonSystem.confirmedCount) : "0") },
   ];
-  void units;
+
 
   return (
     <div className="pointer-events-auto fixed inset-0 z-50 flex items-center justify-center bg-bg/60 p-4 backdrop-blur-sm" onClick={onClose}>
@@ -495,6 +543,7 @@ function BodyButton({
   name,
   color,
   selected,
+  selectedChildId,
   moons,
   depth,
   onSelect,
@@ -503,11 +552,17 @@ function BodyButton({
   name: string;
   color: string;
   selected: boolean;
+  selectedChildId?: string | null;
   moons?: { id: string; name: string; color: string }[];
   depth?: number;
   onSelect: (id: string) => void;
 }) {
-  const [open, setOpen] = useState(false);
+  const isChildSelected = Boolean(selectedChildId && moons?.some((m) => m.id === selectedChildId));
+  const [open, setOpen] = useState(isChildSelected);
+  useEffect(() => {
+    if (isChildSelected) setOpen(true);
+  }, [isChildSelected]);
+
   const hasMoons = moons && moons.length > 0;
   return (
     <div style={depth ? { paddingLeft: depth * 14 } : undefined}>
@@ -537,26 +592,32 @@ function BodyButton({
       </div>
       {hasMoons && open ? (
         <div className="mt-0.5 space-y-0.5">
-          {moons!.map((m) => (
-            <button
-              key={m.id}
-              type="button"
-              onClick={() => onSelect(m.id)}
-              className={cn(
-                "flex h-8 w-full items-center gap-2.5 rounded-lg px-3 text-left text-xs transition-colors",
-                selected && id === m.id ? "text-fg" : "text-muted hover:bg-fg/6 hover:text-fg",
-              )}
-              style={{ paddingLeft: 30 }}
-            >
-              <PlanetDot color={m.color} />
-              {m.name}
-            </button>
-          ))}
+          {moons!.map((m) => {
+            const activeMoon = selectedChildId === m.id;
+            return (
+              <button
+                key={m.id}
+                type="button"
+                onClick={() => onSelect(m.id)}
+                className={cn(
+                  "flex h-8 w-full items-center gap-2.5 rounded-lg px-3 text-left text-xs transition-colors",
+                  activeMoon
+                    ? "bg-fg/10 font-medium text-fg"
+                    : "text-muted hover:bg-fg/6 hover:text-fg",
+                )}
+                style={{ paddingLeft: 30 }}
+              >
+                <PlanetDot color={m.color} active={activeMoon} />
+                {m.name}
+              </button>
+            );
+          })}
         </div>
       ) : null}
     </div>
   );
 }
+
 
 function Chevronish({ open }: { open: boolean }) {
   return (
@@ -656,12 +717,13 @@ export function ObservatoryHud() {
   const scaleMode = useSim((s) => s.scaleMode);
   const detailOpen = useSim((s) => s.detailOpen);
   const setDetailOpen = useSim((s) => s.setDetailOpen);
+  const measurement = useSim((s) => s.measurement);
+  const toggleMeasurement = useSim((s) => s.toggleMeasurement);
   const [searchOpen, setSearchOpen] = useState(false);
   const [compareOpen, setCompareOpen] = useState(false);
   const [epochOpen, setEpochOpen] = useState(false);
   const [headerCopied, setHeaderCopied] = useState(false);
   const days = useSimDays();
-  const clock = formatSimClock(days);
   const selected = selectedId ? bodyById(selectedId) : null;
 
   const starBody = useMemo(() => BODIES.find((b) => b.identity.kind === "star"), []);
@@ -692,7 +754,13 @@ export function ObservatoryHud() {
       if (e.code === "Escape") {
         setSearchOpen(false);
         setCompareOpen(false);
-        if (!inInput) useSim.getState().select(null);
+        setEpochOpen(false);
+        const s = useSim.getState();
+        if (s.measurement.active) {
+          s.clearMeasurement();
+          return;
+        }
+        if (!inInput) s.select(null);
         return;
       }
       if (inInput) return;
@@ -708,7 +776,10 @@ export function ObservatoryHud() {
       } else if (e.code === "KeyM") {
         const s = useSim.getState();
         s.setMoonMode(s.moonMode === "auto" ? "always" : s.moonMode === "always" ? "hidden" : "auto");
+      } else if (e.code === "KeyD") {
+        useSim.getState().toggleMeasurement();
       } else if (e.code === "KeyC") {
+
         setCompareOpen((o) => !o);
       } else if (e.code === "KeyT") {
         setEpochOpen((o) => !o);
@@ -788,6 +859,18 @@ export function ObservatoryHud() {
             <Calendar className="size-5" strokeWidth={1.75} />
           </Button>
           <Button
+            variant={measurement.active ? "primary" : "ghost"}
+            size="icon"
+            aria-label="Distance caliper (D)"
+            title="Distance Caliper (D)"
+            onClick={(e) => {
+              e.stopPropagation();
+              toggleMeasurement();
+            }}
+          >
+            <Ruler className="size-5" strokeWidth={1.75} />
+          </Button>
+          <Button
             variant={headerCopied ? "primary" : "ghost"}
             size="icon"
             aria-label="Share observatory view"
@@ -855,6 +938,7 @@ export function ObservatoryHud() {
                 name={starBody.identity.name}
                 color={starBody.identity.color}
                 selected={selectedId === starBody.identity.id}
+                selectedChildId={selectedId}
                 moons={moonChildren[starBody.identity.id]}
                 onSelect={select}
               />
@@ -869,6 +953,7 @@ export function ObservatoryHud() {
                 name={body.identity.name}
                 color={body.identity.color}
                 selected={selectedId === body.identity.id}
+                selectedChildId={selectedId}
                 moons={moonChildren[body.identity.id]}
                 onSelect={select}
               />
@@ -885,6 +970,7 @@ export function ObservatoryHud() {
                     name={body.identity.name}
                     color={body.identity.color}
                     selected={selectedId === body.identity.id}
+                    selectedChildId={selectedId}
                     moons={moonChildren[body.identity.id]}
                     onSelect={select}
                   />
@@ -1040,6 +1126,7 @@ export function ObservatoryHud() {
       <SearchPalette open={searchOpen} onClose={() => setSearchOpen(false)} />
       <CompareDialog open={compareOpen} onClose={() => setCompareOpen(false)} />
       <EpochDialog open={epochOpen} onClose={() => setEpochOpen(false)} />
+      <MeasurementPanel />
     </div>
   );
 }

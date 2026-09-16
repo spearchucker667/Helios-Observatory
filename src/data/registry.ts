@@ -15,6 +15,16 @@ import { EVENTS, eventsForBody } from "./events/index.ts";
 import { MISSIONS } from "./missions/index.ts";
 import { SOURCES, sourceById } from "./sources.ts";
 
+import {
+  SATELLITES,
+  satelliteById,
+  satellitesOf,
+  satelliteCountOf,
+  anyMoonById,
+} from "./satellites/index.ts";
+import { REGIONS, regionById } from "./regions/index.ts";
+
+
 export const BODIES: CelestialBody[] = [
   SUN,
   MERCURY,
@@ -34,15 +44,15 @@ const REGISTRY: Record<string, AnyBody> = Object.fromEntries(
 );
 
 export function bodyById(id: string): AnyBody | undefined {
-  return REGISTRY[id];
+  return REGISTRY[id] ?? anyMoonById(id);
 }
 
 export function isMoon(id: string): boolean {
-  return id in MOON_BY_ID;
+  return id in MOON_BY_ID || Boolean(satelliteById(id));
 }
 
 export function bodyKind(id: string): "sun" | "planet" | "dwarf-planet" | "moon" | undefined {
-  const b = REGISTRY[id];
+  const b = bodyById(id);
   if (!b) return undefined;
   if (b.identity.kind === "star") return "sun";
   if (b.identity.kind === "moon") return "moon";
@@ -50,7 +60,23 @@ export function bodyKind(id: string): "sun" | "planet" | "dwarf-planet" | "moon"
   return "planet";
 }
 
-export { moonsOf, eventsForBody, MOONS, MOON_BY_ID, EVENTS, MISSIONS, SOURCES, sourceById };
+export {
+  moonsOf,
+  eventsForBody,
+  MOONS,
+  MOON_BY_ID,
+  SATELLITES,
+  satelliteById,
+  satellitesOf,
+  satelliteCountOf,
+  EVENTS,
+  MISSIONS,
+  SOURCES,
+  sourceById,
+  REGIONS,
+  regionById,
+};
+
 
 export const PLANET_IDS = BODIES.filter((b) => b.identity.kind === "planet").map(
   (b) => b.identity.id,
@@ -64,7 +90,7 @@ export const MAJOR_BODY_IDS = BODIES.filter(
   (b) => b.identity.kind === "planet" || b.identity.kind === "dwarf-planet",
 ).map((b) => b.identity.id);
 
-/** True when the body has a moon system worth rendering/inspecting. */
+/** True when the body has a known natural satellite system. */
 export function hasMoons(id: string): boolean {
-  return moonsOf(id).length > 0;
+  return satelliteCountOf(id) > 0 || moonsOf(id).length > 0;
 }

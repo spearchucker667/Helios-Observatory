@@ -1,0 +1,23 @@
+{
+  "asOf": "2026-08-15",
+  "generator": "scripts/build-satellite-catalogue.mjs",
+  "sources": [
+    "nasa-solar-system-exploration",
+    "jpl-ssd",
+    "iau-mpc"
+  ],
+  "counts": {
+    "mercury": 0,
+    "venus": 0,
+    "earth": 1,
+    "mars": 2,
+    "jupiter": 115,
+    "saturn": 293,
+    "uranus": 29,
+    "neptune": 16,
+    "pluto": 5
+  },
+  "totalPlanetary": 456,
+  "totalAll": 461,
+  "note": "Canonical natural satellite counts from NASA Solar System Exploration (August 2026). Total 456 planetary moons orbiting the 8 major planets, plus 5 moons of dwarf planet Pluto."
+}

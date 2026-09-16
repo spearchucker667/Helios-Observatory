@@ -1,6 +1,7 @@
 {
   "name": "app-builder-workspace",
   "private": true,
+  "license": "Apache-2.0",
   "sideEffects": false,
   "type": "module",
   "overrides": {
@@ -16,8 +17,10 @@
     "preview:stop": "node scripts/preview.mjs stop",
     "typecheck": "tsc --noEmit",
     "check:auth": "node scripts/check-auth-invariant.mjs",
-    "test": "node --test 'scripts/**/*.test.mjs' && node --experimental-strip-types --test src/lib/app-data/app-data.test.ts src/lib/app-data/readiness-schedule.test.ts src/lib/auth/gate-identity.test.ts src/lib/auth/sign-in-gate.test.ts src/data/data-validate.test.ts src/lib/format.test.ts src/lib/ephemeris.test.ts",
-    "lint": "eslint .",
+    "test": "node --test 'scripts/**/*.test.mjs' && node --experimental-strip-types --test src/lib/app-data/app-data.test.ts src/lib/app-data/readiness-schedule.test.ts src/lib/auth/gate-identity.test.ts src/lib/auth/sign-in-gate.test.ts src/data/data-validate.test.ts src/lib/format.test.ts src/lib/ephemeris.test.ts src/data/satellites/catalogue.test.ts src/lib/deep-space-scale.test.ts src/lib/measurement.test.ts",
+
+
+    "lint": "eslint . --max-warnings=0",
     "format": "prettier --write ."
   },
   "dependencies": {

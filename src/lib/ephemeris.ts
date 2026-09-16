@@ -199,16 +199,44 @@ export const KEPLER_TABLE: Record<string, KeplerElements> = {
   },
 };
 
-/** Convert a Date, ISO string, or timestamp to days since J2000.0 */
-export function dateToJ2000Days(input: Date | string | number): number {
-  const ms =
-    typeof input === "number"
-      ? input
-      : typeof input === "string"
-        ? Date.parse(input)
-        : input.getTime();
-  if (Number.isNaN(ms)) return 0;
+/**
+ * Analytical Keplerian validity interval: 1800-01-01 to 2050-12-31.
+ * Standish (1992) polynomial secular rates have sub-arcminute fidelity across
+ * this 250-year span, diverging outside it due to unmodeled planetary resonances.
+ */
+export const EPHEMERIS_VALID_MIN_YEAR = 1800;
+export const EPHEMERIS_VALID_MAX_YEAR = 2050;
+export const EPHEMERIS_MIN_DAYS = -73050; // 1800-01-01
+export const EPHEMERIS_MAX_DAYS = 18628;  // 2050-12-31
+
+/** Check if given J2000 days fall within authoritative ephemeris accuracy window */
+export function isSupportedEphemerisDay(days: number): boolean {
+  return Number.isFinite(days) && days >= EPHEMERIS_MIN_DAYS && days <= EPHEMERIS_MAX_DAYS;
+}
+
+/** Safely convert any date representation to J2000 days, returning null if invalid */
+export function tryDateToJ2000Days(input: unknown): number | null {
+  if (input === null || input === undefined) return null;
+  let ms: number;
+  if (input instanceof Date) {
+    ms = input.getTime();
+  } else if (typeof input === "number") {
+    ms = input;
+  } else if (typeof input === "string") {
+    const trimmed = input.trim();
+    if (!trimmed) return null;
+    ms = Date.parse(trimmed);
+  } else {
+    return null;
+  }
+  if (Number.isNaN(ms) || !Number.isFinite(ms)) return null;
   return (ms - J2000_EPOCH_MS) / MS_PER_DAY;
+}
+
+/** Convert a Date, ISO string, or timestamp to days since J2000.0 with optional fallback */
+export function dateToJ2000Days(input: Date | string | number, fallbackDays = 0): number {
+  const days = tryDateToJ2000Days(input);
+  return days !== null ? days : fallbackDays;
 }
 
 /** Convert days since J2000.0 back to a JavaScript Date object */
@@ -249,7 +277,17 @@ export type EphemerisPosition = {
   trueAnomalyRad: number;
   /** Heliocentric longitude in degrees */
   longitudeDeg: number;
+  /** True 3D scientific coordinates in AU (P2-001) */
+  science: {
+    /** Heliocentric position [x, y, z] in AU where Z is ecliptic normal */
+    heliocentricAu: [number, number, number];
+    /** Euclidean distance from heliocentric origin in AU */
+    distanceFromSunAu: number;
+  };
+  /** Scene coordinates [x, y, z] matching Three.js mapping */
+  scene: [number, number, number];
 };
+
 
 /**
  * Solves Kepler's equation M = E - e * sin(E) using Newton-Raphson iteration.
@@ -328,15 +366,25 @@ export function computeEphemerisPosition(
       : elem.presentationA / elem.a;
 
   // Map to Three.js: X is xh, Y is zh (up), Z is yh
+  const sceneX = xh * scale;
+  const sceneY = zh * scale;
+  const sceneZ = yh * scale;
+
   return {
-    x: xh * scale,
-    y: zh * scale,
-    z: yh * scale,
+    x: sceneX,
+    y: sceneY,
+    z: sceneZ,
     distanceAu,
     trueAnomalyRad,
     longitudeDeg,
+    science: {
+      heliocentricAu: [xh, yh, zh],
+      distanceFromSunAu: distanceAu,
+    },
+    scene: [sceneX, sceneY, sceneZ],
   };
 }
+
 
 /**
  * Computes a 3D polyline of the elliptical orbit for rendering.

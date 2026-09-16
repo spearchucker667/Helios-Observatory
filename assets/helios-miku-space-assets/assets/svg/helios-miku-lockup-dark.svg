@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
+<title id="title">Helios Observatory Miku lockup (dark)</title><desc id="desc">Helios Observatory wordmark with an original Miku-inspired orbital mascot mark.</desc>
+
+<defs>
+  <linearGradient id="tealGlow" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#78FFF1"/><stop offset=".46" stop-color="#39C5BB"/><stop offset="1" stop-color="#22E6FF"/></linearGradient>
+  <linearGradient id="spaceFade" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#050816"/><stop offset="1" stop-color="#0B1220"/></linearGradient>
+  <linearGradient id="magentaGlow" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#E653A7"/><stop offset="1" stop-color="#FF5B6E"/></linearGradient>
+  <radialGradient id="halo"><stop stop-color="#39C5BB" stop-opacity=".42"/><stop offset="1" stop-color="#39C5BB" stop-opacity="0"/></radialGradient>
+  <filter id="softGlow" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="7" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  <filter id="tinyGlow" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs><rect width="1200" height="360" rx="44" fill="#050816"/>
+<g>
+<circle cx="190" cy="180" r="113.67999999999999" fill="url(#halo)"/>
+<ellipse cx="190" cy="180" rx="109.75999999999999" ry="46.06" fill="none" stroke="#9DB0C4" stroke-opacity=".34" stroke-width="2.156" transform="rotate(-18 190 180)"/>
+<ellipse cx="190" cy="180" rx="93.1" ry="37.24" fill="none" stroke="url(#tealGlow)" stroke-opacity=".68" stroke-width="3.136" stroke-dasharray="11.76 8.82" transform="rotate(28 190 180)"/>
+<path d="M 162.56 158.44 C 119.44 109.44, 74.36 109.44, 66.52 183.92 C 80.24000000000001 158.44, 100.82000000000001 167.26, 129.24 196.66 C 100.82000000000001 228.01999999999998, 82.2 258.4, 92.0 288.78 C 135.12 242.72, 160.6 222.14, 176.28 197.64 Z" fill="url(#tealGlow)" opacity=".94"/>
+<path d="M 217.44 158.44 C 260.56 109.44, 305.64 109.44, 313.48 183.92 C 299.76 158.44, 279.18 167.26, 250.76 196.66 C 279.18 228.01999999999998, 297.8 258.4, 288.0 288.78 C 244.88 242.72, 219.4 222.14, 203.72 197.64 Z" fill="url(#tealGlow)" opacity=".94"/>
+<circle cx="190" cy="177.06" r="34.3" fill="#101923" stroke="#78FFF1" stroke-width="2.94"/>
+<path d="M 160.6 167.26 Q 190 138.84 219.4 167.26" fill="none" stroke="url(#tealGlow)" stroke-width="11.76" stroke-linecap="round"/>
+<path d="M 175.3 184.9 Q 190 193.72 204.7 184.9" fill="none" stroke="#F5FBFF" stroke-opacity=".9" stroke-width="1.96" stroke-linecap="round"/>
+<circle cx="177.26" cy="177.06" r="3.332" fill="#22E6FF"/><circle cx="202.74" cy="177.06" r="3.332" fill="#22E6FF"/>
+<path d="M 278.2 123.16 l 4.9 11.76 l 12.74 0.98 l -9.8 7.84 l 2.94 12.74 l -10.78 -6.859999999999999 l -10.78 6.859999999999999 l 2.94 -12.74 l -9.8 -7.84 l 12.74 -0.98 z" fill="#FFD166" filter="url(#tinyGlow)"/>
+<circle cx="96.9" cy="241.74" r="4.9" fill="#E653A7" filter="url(#tinyGlow)"/>
+</g><g transform="translate(360 112)">
+      <text x="0" y="64" fill="#F5FBFF" font-family="Inter,Arial,sans-serif" font-weight="800" font-size="76" letter-spacing="5">HELIOS</text>
+      <text x="4" y="112" fill="#39C5BB" font-family="Inter,Arial,sans-serif" font-weight="700" font-size="28" letter-spacing="9">OBSERVATORY</text>
+      <line x1="4" y1="136" x2="670" y2="136" stroke="#39C5BB" stroke-opacity=".5"/>
+      <text x="4" y="168" fill="#9DB0C4" font-family="Inter,Arial,sans-serif" font-size="17" letter-spacing="2">MIKU ORBITAL RESEARCH PROGRAM · UNOFFICIAL</text>
+    </g>
+</svg>

@@ -1,4 +1,5 @@
 import type { CelestialBody } from "../types.ts";
+import { satelliteCountOf } from "../satellites/index.ts";
 
 /** Canonical figures: NASA planetary fact sheets and New Horizons mission archives (retrieved 2026-09-16). */
 export const PLUTO: CelestialBody = {
@@ -52,8 +53,10 @@ export const PLUTO: CelestialBody = {
   interior: "Dense silicate rock core surrounded by a deep mantle of water ice, with evidence from New Horizons for a subsurface liquid ocean beneath Sputnik Planitia.",
   magneticField: "No detected intrinsic magnetic field.",
   moonSystem: {
-    confirmedCount: 5,
-    note: "Charon, Styx, Nix, Kerberos, and Hydra. Charon is half Pluto's size, orbiting a shared barycenter outside Pluto itself.",
+    confirmedCount: satelliteCountOf("pluto"),
+    asOf: "2026-08-15",
+    sourceIds: ["nasa-solar-system-exploration", "nasa-new-horizons"],
+    note: "5 known natural satellites: large companion Charon (mutually tidally locked in a binary system), plus Styx, Nix, Kerberos, and Hydra discovered by the Hubble Space Telescope.",
   },
   features: [
     {

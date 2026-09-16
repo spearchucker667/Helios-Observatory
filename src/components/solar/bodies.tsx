@@ -13,7 +13,7 @@ import { BODIES, bodyById } from "@/data/registry";
 import type { AnyBody } from "@/data/types";
 import { YEAR_SECONDS } from "@/lib/planets";
 import { simClock, useSim } from "@/lib/sim-store";
-import { sceneOrbitRadius, sceneRadius } from "@/lib/scene-scale";
+import { sceneRadius } from "@/lib/scene-scale";
 import {
   createTextureCache,
   disposeTextureCache,
@@ -23,7 +23,13 @@ import { createRingTexture } from "@/components/solar/ring-systems";
 import { MoonSystem } from "@/components/solar/moons";
 import { computeEphemerisPosition, computeOrbitPath } from "@/lib/ephemeris";
 import { AsteroidBelt } from "@/components/solar/asteroid-belt";
+import { KuiperBelt } from "@/components/solar/kuiper-belt";
+import { OortCloud } from "@/components/solar/oort-cloud";
+import { MeasurementLine } from "@/components/solar/measurement-line";
+import { FeatureMarkers } from "@/components/solar/feature-markers";
 import { cn } from "@/lib/utils";
+
+
 
 const TRAIL_LEN = 72;
 const tmp = new THREE.Vector3();
@@ -57,10 +63,11 @@ float noise(vec3 x) {
     mix(mix(hash(i), hash(i + vec3(1,0,0)), f.x),
         mix(hash(i + vec3(0,1,0)), hash(i + vec3(1,1,0)), f.x), f.y),
     mix(mix(hash(i + vec3(0,0,1)), hash(i + vec3(1,0,1)), f.x),
-        mix(hash(i + vec3(1,1,1)), hash(i + vec3(1,1,1)), f.x), f.y),
+        mix(hash(i + vec3(0,1,1)), hash(i + vec3(1,1,1)), f.x), f.y),
     f.z
   );
 }
+
 
 float fbm(vec3 p) {
   float s = 0.0;
@@ -86,17 +93,17 @@ void main() {
 }
 `;
 
-function orbitPoints(radius: number, segments = 160): [number, number, number][] {
-  const pts: [number, number, number][] = [];
-  for (let i = 0; i <= segments; i++) {
-    const a = (i / segments) * Math.PI * 2;
-    pts.push([Math.cos(a) * radius, 0, Math.sin(a) * radius]);
-  }
-  return pts;
-}
-
 function skipRaycast() {
   /* disable picking */
+}
+
+function mulberry32(seed: number) {
+  return function () {
+    let t = (seed += 0x6d2b79f5);
+    t = Math.imul(t ^ (t >>> 15), t | 1);
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
 }
 
 function SimulationDriver() {
@@ -111,18 +118,20 @@ function SimulationDriver() {
 
 function Starfield() {
   const positions = useMemo(() => {
+    const prng = mulberry32(0x48656c69); // "Heli"
     const n = 3800;
     const arr = new Float32Array(n * 3);
     for (let i = 0; i < n; i++) {
-      const r = 190 + Math.random() * 260;
-      const theta = Math.random() * Math.PI * 2;
-      const phi = Math.acos(2 * Math.random() - 1);
+      const r = 190 + prng() * 260;
+      const theta = prng() * Math.PI * 2;
+      const phi = Math.acos(2 * prng() - 1);
       arr[i * 3] = r * Math.sin(phi) * Math.cos(theta);
       arr[i * 3 + 1] = r * Math.cos(phi);
       arr[i * 3 + 2] = r * Math.sin(phi) * Math.sin(theta);
     }
     return arr;
   }, []);
+
 
   const geometry = useMemo(() => {
     const g = new THREE.BufferGeometry();
@@ -152,6 +161,15 @@ function usePick(id: string) {
   return {
     onClick: (e: { stopPropagation: () => void }) => {
       e.stopPropagation();
+      const state = useSim.getState();
+      if (state.measurement.active) {
+        if (!state.measurement.sourceId) {
+          state.setMeasurementSource(id);
+        } else if (state.measurement.sourceId !== id) {
+          state.setMeasurementTarget(id);
+        }
+        return;
+      }
       select(id);
     },
     onPointerOver: (e: { stopPropagation: () => void }) => {
@@ -165,6 +183,7 @@ function usePick(id: string) {
     },
   };
 }
+
 
 
 function Sun({
@@ -369,6 +388,7 @@ function Planet({
   const spin = useRef<THREE.Group>(null);
   const clouds = useRef<THREE.Mesh>(null);
   const showOrbits = useSim((s) => s.showOrbits);
+  const selectedId = useSim((s) => s.selectedId);
   const scaleMode = useSim((s) => s.scaleMode);
   const dateNonce = useSim((s) => s.dateNonce);
   const pick = usePick(body.identity.id);
@@ -432,6 +452,11 @@ function Planet({
                 metalness={0.04}
               />
             </mesh>
+            <FeatureMarkers
+              features={body.features}
+              radius={sceneR}
+              visible={selectedId === id}
+            />
 
             {/* Earth: clouds + atmosphere + night lights on approach */}
             {id === "earth" ? (
@@ -497,12 +522,6 @@ function d(delta: number): number {
   return Math.min(delta, 0.1);
 }
 
-function hashPhase(id: string): number {
-  let h = 0;
-  for (let i = 0; i < id.length; i++) h = (h * 31 + id.charCodeAt(i)) | 0;
-  return ((h >>> 0) % 1000) / 1000 * Math.PI * 2;
-}
-
 /**
  * Camera-distance LOD: switches to the HIGH inspection texture when the
  * camera comes within ~12 planet radii. Re-render only on tier flips.
@@ -549,10 +568,9 @@ export function SolarSystem({
 }) {
   const tex = useMemo(() => createTextureCache(), []);
   useEffect(() => () => disposeTextureCache(tex), [tex]);
-  const scaleMode = useSim((s) => s.scaleMode);
-  void scaleMode;
 
   return (
+
     <>
       <SimulationDriver />
       <Starfield />
@@ -565,6 +583,11 @@ export function SolarSystem({
         <Planet key={p.identity.id} body={p} tex={tex} bodyRefs={bodyRefs} />
       ))}
       <AsteroidBelt />
+      <KuiperBelt />
+      <OortCloud />
+      <MeasurementLine bodyRefs={bodyRefs} />
     </>
   );
 }
+
+

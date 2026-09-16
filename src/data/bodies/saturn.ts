@@ -1,4 +1,5 @@
 import type { CelestialBody } from "../types.ts";
+import { satelliteCountOf } from "../satellites/index.ts";
 
 /** Canonical figures: NASA planetary fact sheets (retrieved 2026-09-16). */
 export const SATURN: CelestialBody = {
@@ -63,8 +64,10 @@ export const SATURN: CelestialBody = {
     ],
   },
   moonSystem: {
-    confirmedCount: 146,
-    note: "Confirmed tally per NASA/JPL, 2023 (retrieved 2026-09-16): Titan, Enceladus, Rhea, Iapetus, Dione, Tethys, Mimas among the major seven.",
+    confirmedCount: satelliteCountOf("saturn"),
+    asOf: "2026-08-15",
+    sourceIds: ["nasa-solar-system-exploration", "jpl-ssd", "iau-mpc"],
+    note: "293 confirmed natural satellites (NASA August 2026 baseline), the largest satellite system in the Solar System, including Titan, Enceladus, Rhea, Iapetus, Dione, Tethys, Mimas, and vast outer irregular swarms.",
   },
   features: [
     {

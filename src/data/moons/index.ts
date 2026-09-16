@@ -19,12 +19,12 @@ import { ARIEL } from "./ariel.ts";
 import { UMBRIEL } from "./umbriel.ts";
 import { MIRANDA } from "./miranda.ts";
 import { TRITON } from "./triton.ts";
+import { CHARON } from "./charon.ts";
 
 /**
- * Tier 1 — detailed major moons (20). Rendered as first-class scene
+ * Curated detailed major moons (21). Rendered as first-class scene
  * bodies with dedicated procedural textures and full detail panels.
- * Tier 3 (minor irregulars) are represented by the parent planet's
- * `moonSystem.confirmedCount` and catalogue notes, not meshes.
+ * Includes all 20 planetary major moons and Pluto's companion Charon.
  */
 export const MOONS: MoonBody[] = [
   MOON,
@@ -47,6 +47,7 @@ export const MOONS: MoonBody[] = [
   UMBRIEL,
   MIRANDA,
   TRITON,
+  CHARON,
 ];
 
 export const MOON_BY_ID: Record<string, MoonBody> = Object.fromEntries(

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 280" role="img" aria-labelledby="title desc">
+<title id="title">Helios Miku Orbital Telemetry Badge</title><desc id="desc">Technical telemetry badge using the Helios Miku visual system.</desc>
+
+<defs>
+  <linearGradient id="tealGlow" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#78FFF1"/><stop offset=".46" stop-color="#39C5BB"/><stop offset="1" stop-color="#22E6FF"/></linearGradient>
+  <linearGradient id="spaceFade" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#050816"/><stop offset="1" stop-color="#0B1220"/></linearGradient>
+  <linearGradient id="magentaGlow" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#E653A7"/><stop offset="1" stop-color="#FF5B6E"/></linearGradient>
+  <radialGradient id="halo"><stop stop-color="#39C5BB" stop-opacity=".42"/><stop offset="1" stop-color="#39C5BB" stop-opacity="0"/></radialGradient>
+  <filter id="softGlow" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="7" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  <filter id="tinyGlow" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs><rect width="760" height="280" rx="46" fill="url(#spaceFade)" stroke="#39C5BB" stroke-opacity=".55" stroke-width="3"/>
+<g transform="translate(38 16)">
+<g>
+
+<ellipse cx="124" cy="124" rx="76.16000000000001" ry="31.96" fill="none" stroke="#9DB0C4" stroke-opacity=".34" stroke-width="1.4960000000000002" transform="rotate(-18 124 124)"/>
+<ellipse cx="124" cy="124" rx="64.60000000000001" ry="25.840000000000003" fill="none" stroke="url(#tealGlow)" stroke-opacity=".68" stroke-width="2.176" stroke-dasharray="8.16 6.12" transform="rotate(28 124 124)"/>
+<path d="M 104.96 109.03999999999999 C 75.03999999999999 75.03999999999999, 43.75999999999999 75.03999999999999, 38.31999999999999 126.72 C 47.83999999999999 109.03999999999999, 62.12 115.16, 81.84 135.56 C 62.12 157.32, 49.19999999999999 178.4, 56.0 199.48000000000002 C 85.91999999999999 167.52, 103.6 153.24, 114.48 136.24 Z" fill="url(#tealGlow)" opacity=".94"/>
+<path d="M 143.04 109.03999999999999 C 172.96 75.03999999999999, 204.24 75.03999999999999, 209.68 126.72 C 200.16000000000003 109.03999999999999, 185.88 115.16, 166.16 135.56 C 185.88 157.32, 198.8 178.4, 192.0 199.48000000000002 C 162.08 167.52, 144.4 153.24, 133.52 136.24 Z" fill="url(#tealGlow)" opacity=".94"/>
+<circle cx="124" cy="121.96" r="23.8" fill="#101923" stroke="#78FFF1" stroke-width="2.04"/>
+<path d="M 103.6 115.16 Q 124 95.44 144.4 115.16" fill="none" stroke="url(#tealGlow)" stroke-width="8.16" stroke-linecap="round"/>
+<path d="M 113.8 127.4 Q 124 133.52 134.2 127.4" fill="none" stroke="#F5FBFF" stroke-opacity=".9" stroke-width="1.36" stroke-linecap="round"/>
+<circle cx="115.16" cy="121.96" r="2.3120000000000003" fill="#22E6FF"/><circle cx="132.84" cy="121.96" r="2.3120000000000003" fill="#22E6FF"/>
+<path d="M 185.2 84.56 l 3.4000000000000004 8.16 l 8.84 0.68 l -6.800000000000001 5.44 l 2.04 8.84 l -7.48 -4.760000000000001 l -7.48 4.760000000000001 l 2.04 -8.84 l -6.800000000000001 -5.44 l 8.84 -0.68 z" fill="#FFD166" filter="url(#tinyGlow)"/>
+<circle cx="59.39999999999999" cy="166.84" r="3.4000000000000004" fill="#E653A7" filter="url(#tinyGlow)"/>
+</g></g>
+<g transform="translate(285 58)">
+<text fill="#F5FBFF" font-family="Inter,Arial,sans-serif" font-weight="800" font-size="42" letter-spacing="3">ORBITAL TELEMETRY</text>
+<text y="48" fill="#39C5BB" font-family="Inter,Arial,sans-serif" font-weight="700" font-size="18" letter-spacing="5">HELIOGRAPH // MIKU NODE 01</text>
+<g transform="translate(0 86)" fill="none" stroke="#9DB0C4" stroke-opacity=".55"><path d="M0 0h410"/><path d="M0 30h410"/><path d="M0 60h410"/></g>
+<path d="M0 132 C55 84 95 160 145 112 S250 74 315 128 S380 86 410 106" fill="none" stroke="url(#tealGlow)" stroke-width="4"/>
+</g>
+</svg>

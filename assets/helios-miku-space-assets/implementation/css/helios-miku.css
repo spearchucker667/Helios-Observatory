@@ -1,0 +1,18 @@
+:root {
+  --miku-orbit-teal: #39c5bb;
+  --miku-orbit-cyan: #22e6ff;
+  --miku-orbit-magenta: #e653a7;
+}
+
+.helios-miku-brand {
+  filter: drop-shadow(0 0 14px color-mix(in srgb, var(--miku-orbit-teal) 38%, transparent));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .helios-miku-animated {
+    display: none;
+  }
+  .helios-miku-static {
+    display: block;
+  }
+}

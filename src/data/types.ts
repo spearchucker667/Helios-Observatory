@@ -84,7 +84,10 @@ export type RotationData = {
   periodHours: number;
   /** Axial tilt to orbit, degrees. */
   axialTiltDeg: number;
+  /** True when the body is synchronously tidally locked to its parent. */
+  tidallyLocked?: boolean;
 };
+
 
 export type TemperatureData = {
   /** Mean surface (or 1-bar level) temperature, °C. */
@@ -146,8 +149,10 @@ export type CelestialBody = {
   rings?: RingSystem;
   /** Canonical moon-system counts (see docs/ASTRONOMICAL_DATA.md). */
   moonSystem?: {
-    /** Confirmed natural satellites per NASA Sun fact sheet (retrieval-dated). */
+    /** Confirmed natural satellites per NASA Solar System Exploration pinned catalogue. */
     confirmedCount: number;
+    asOf?: string;
+    sourceIds?: string[];
     note?: string;
   };
   /** Notable surface/atmospheric features, see {@link SurfaceFeature}. */
@@ -171,14 +176,33 @@ export type CelestialBody = {
   retrieved: string;
 };
 
+export type SatelliteFidelity = "major" | "regular" | "irregular";
+
 /** A natural satellite entry. Extends the body contract, adds moon specifics. */
 export type MoonBody = CelestialBody & {
   identity: BodyIdentity & { kind: "moon"; parentId: string };
-  /** Rendering fidelity tier — drives texture/geometry budget. */
-  tier: 1 | 2;
+  /** Rendering fidelity tier: 1 = major/curated, 2 = regular, 3 = irregular */
+  tier: 1 | 2 | 3;
+  fidelity?: SatelliteFidelity;
 };
 
-/** Any selectable scene body — planets, the star, and moons alike. */
+/** Deep-space region (e.g. Kuiper Belt, Oort Cloud, heliosphere). */
+export type SolarSystemRegion = {
+  id: string;
+  name: string;
+  kind: "belt" | "shell" | "boundary";
+  radialAu: {
+    innerMin: number;
+    innerMax?: number;
+    outer: number;
+  };
+  observationalStatus: "observed" | "inferred" | "model-dependent";
+  summary: string;
+  sourceIds: string[];
+  retrieved: string;
+};
+
+/** Any selectable scene body — planets, the star, dwarf planets, and moons alike. */
 export type AnyBody = CelestialBody | MoonBody;
 
 /**
@@ -237,3 +261,5 @@ export type SourceRecord = {
   /** What this source is trusted for. */
   scope: string;
 };
+
+

@@ -1,0 +1,273 @@
+{
+  "pack": "Helios Miku Space Assets",
+  "version": "1.0.0",
+  "sourceSpritesheetSha256": "5bb63858a12754de8150bb9a5b2fbb3820d3dc9b6a70d62389ae1ded80de1338",
+  "assets": [
+    {
+      "path": "assets/gif/helios-miku-mission-control.gif",
+      "bytes": 803619,
+      "sha256": "edd5f31e4f06a97a5b48620a8fcfd4483530d70800d7e6b5c8c95c5c025e6f47",
+      "type": "animated-gif",
+      "width": 960,
+      "height": 300,
+      "frames": 36,
+      "provenance": "derived-from-user-supplied-spritesheet"
+    },
+    {
+      "path": "assets/gif/helios-miku-moon-catalog.gif",
+      "bytes": 389339,
+      "sha256": "d320ab71df1b652cd6da2c3cd9dd32246a1dde50db85660600b182a76f76d56b",
+      "type": "animated-gif",
+      "width": 600,
+      "height": 260,
+      "frames": 28,
+      "provenance": "derived-from-user-supplied-spritesheet"
+    },
+    {
+      "path": "assets/gif/helios-miku-orbit-runner.gif",
+      "bytes": 508330,
+      "sha256": "e6fa0204d9f1aeb00b95eeaf24934368845f61563cabd08faf15b86d90420f53",
+      "type": "animated-gif",
+      "width": 760,
+      "height": 260,
+      "frames": 32,
+      "provenance": "derived-from-user-supplied-spritesheet"
+    },
+    {
+      "path": "assets/gif/helios-miku-orbit-spinner.gif",
+      "bytes": 89560,
+      "sha256": "9108941a58c3734171c5679b269cc314d8a691ed80658faf61caa5d67bea02d8",
+      "type": "animated-gif",
+      "width": 160,
+      "height": 160,
+      "frames": 24,
+      "provenance": "derived-from-user-supplied-spritesheet"
+    },
+    {
+      "path": "assets/gif/helios-miku-signal-scan.gif",
+      "bytes": 529272,
+      "sha256": "4f1499ed770538874088031d2802a92c06a6f87c24b6f7980227d665f57b6816",
+      "type": "animated-gif",
+      "width": 540,
+      "height": 300,
+      "frames": 30,
+      "provenance": "derived-from-user-supplied-spritesheet"
+    },
+    {
+      "path": "assets/gif/helios-miku-zero-g-idle.gif",
+      "bytes": 341866,
+      "sha256": "460d66da31f935235c9ad6d023543e0d757be78d968213ce548ee2c4b9c2bc60",
+      "type": "animated-gif",
+      "width": 360,
+      "height": 360,
+      "frames": 24,
+      "provenance": "derived-from-user-supplied-spritesheet"
+    },
+    {
+      "path": "assets/png/helios-miku-favicon.png",
+      "bytes": 7316,
+      "sha256": "a98ada9023e4a60d8645010e91c546e4650dd103f249dc01e7760c0b0ec33e5b",
+      "type": "png-preview-or-fallback",
+      "width": 128,
+      "height": 128
+    },
+    {
+      "path": "assets/png/helios-miku-lockup-dark.png",
+      "bytes": 58679,
+      "sha256": "4e6fa3fa6eef8dbdfc6c18a56d76752a76b47d0b0741a7d939eeda87b934c2a5",
+      "type": "png-preview-or-fallback",
+      "width": 1200,
+      "height": 360
+    },
+    {
+      "path": "assets/png/helios-miku-lockup-light.png",
+      "bytes": 59754,
+      "sha256": "2301d0d06c5da0f0d47eebd290cae03af1ec2b91fce1d3d1c54c238c3d4066c0",
+      "type": "png-preview-or-fallback",
+      "width": 1200,
+      "height": 360
+    },
+    {
+      "path": "assets/png/helios-miku-measurement-badge.png",
+      "bytes": 26488,
+      "sha256": "d1246911567077000fde6eaa3a93beba2abc660fa526a5954f7f984d7218710d",
+      "type": "png-preview-or-fallback",
+      "width": 640,
+      "height": 260
+    },
+    {
+      "path": "assets/png/helios-miku-mission-control-static.png",
+      "bytes": 42410,
+      "sha256": "e1db29155329233c7039907b951dba0dc79c31ecddbafe720318820a4a7890bb",
+      "type": "png-preview-or-fallback",
+      "width": 960,
+      "height": 300
+    },
+    {
+      "path": "assets/png/helios-miku-mission-patch.png",
+      "bytes": 132398,
+      "sha256": "8f7aabb24ab3935efa5868bebf274c8fb50d7272697068f7f98151df3c25fed2",
+      "type": "png-preview-or-fallback",
+      "width": 640,
+      "height": 640
+    },
+    {
+      "path": "assets/png/helios-miku-moon-catalog-badge.png",
+      "bytes": 31324,
+      "sha256": "72435e89fa3a7dc6568a06a0e5db631f948ed34c9ceb79a1c876beaec85dc62d",
+      "type": "png-preview-or-fallback",
+      "width": 640,
+      "height": 260
+    },
+    {
+      "path": "assets/png/helios-miku-moon-catalog-static.png",
+      "bytes": 27790,
+      "sha256": "0d903ee37ccd86f161bd99c54d0f4f3f0692c2e7c5e8dba53dd1d0e3867abc6d",
+      "type": "png-preview-or-fallback",
+      "width": 600,
+      "height": 260
+    },
+    {
+      "path": "assets/png/helios-miku-oort-frontier-badge.png",
+      "bytes": 23536,
+      "sha256": "fe7ed965ff798fd4ca19726d5926ce58a348ff5d6703741d13076cf1e2da300b",
+      "type": "png-preview-or-fallback",
+      "width": 640,
+      "height": 260
+    },
+    {
+      "path": "assets/png/helios-miku-orbit-mark.png",
+      "bytes": 80923,
+      "sha256": "e40710cedfed80e5f847dada615fdc735d1d6ec9bfcd6621ef035b45c64da41b",
+      "type": "png-preview-or-fallback",
+      "width": 512,
+      "height": 512
+    },
+    {
+      "path": "assets/png/helios-miku-orbit-runner-static.png",
+      "bytes": 34636,
+      "sha256": "f6b2b7b3254719bb8dfc7b6b442c567754dfcd24009c4c8359b1d95b8f3a96f6",
+      "type": "png-preview-or-fallback",
+      "width": 760,
+      "height": 260
+    },
+    {
+      "path": "assets/png/helios-miku-orbit-spinner-static.png",
+      "bytes": 6418,
+      "sha256": "b2e6d7f066954955809ea3855bf9d2141de6aa8b74edfc1837991f630c1e0d1a",
+      "type": "png-preview-or-fallback",
+      "width": 160,
+      "height": 160
+    },
+    {
+      "path": "assets/png/helios-miku-readme-header.png",
+      "bytes": 109709,
+      "sha256": "d41301605e1fa45ed01b8cef82976a070d3dae49d9d140f65bdccd38203e3bae",
+      "type": "png-preview-or-fallback",
+      "width": 1200,
+      "height": 360
+    },
+    {
+      "path": "assets/png/helios-miku-signal-scan-static.png",
+      "bytes": 33874,
+      "sha256": "8438a016c839be7f05d3c876d48842d52e1042f0adbdb660ba25cd6b60ab4d0b",
+      "type": "png-preview-or-fallback",
+      "width": 540,
+      "height": 300
+    },
+    {
+      "path": "assets/png/helios-miku-telemetry-badge.png",
+      "bytes": 45225,
+      "sha256": "12550e299c9651536f600977c8cde7a03a1639fd88945df1102c0410b062f430",
+      "type": "png-preview-or-fallback",
+      "width": 760,
+      "height": 280
+    },
+    {
+      "path": "assets/png/helios-miku-zero-g-idle-static.png",
+      "bytes": 27752,
+      "sha256": "9daad7fd49517b7d6c1b36aa0bac8ca485d84458f8df484dc89a5f5c43147c38",
+      "type": "png-preview-or-fallback",
+      "width": 360,
+      "height": 360
+    },
+    {
+      "path": "assets/previews/asset-contact-sheet.png",
+      "bytes": 550196,
+      "sha256": "e71422ff8d5587dd82502e236dbd3ec26ee51fd90436ad0f7e2598355824ec06",
+      "type": "png-preview-or-fallback",
+      "width": 1140,
+      "height": 1920
+    },
+    {
+      "path": "assets/svg/helios-miku-favicon.svg",
+      "bytes": 3036,
+      "sha256": "0038f1feda5e24258180d9cdb3e38e1c654bcaefd7db9d49b9b0208fc5cb45dd",
+      "type": "original-svg",
+      "provenance": "original-vector-design"
+    },
+    {
+      "path": "assets/svg/helios-miku-lockup-dark.svg",
+      "bytes": 3713,
+      "sha256": "92c71fc8e048bb01dc90d1d80c27cc0d13b64fda85064270eebb4b23c36392b1",
+      "type": "original-svg",
+      "provenance": "original-vector-design"
+    },
+    {
+      "path": "assets/svg/helios-miku-lockup-light.svg",
+      "bytes": 3714,
+      "sha256": "a48600cc81d286358fe7eb4cddb3bdb834527b71c56d3014179d5019876249da",
+      "type": "original-svg",
+      "provenance": "original-vector-design"
+    },
+    {
+      "path": "assets/svg/helios-miku-measurement-badge.svg",
+      "bytes": 2414,
+      "sha256": "3407759561182b20b7f1236989d99cd660c7f00741fedc356be481b672a3226f",
+      "type": "original-svg",
+      "provenance": "original-vector-design"
+    },
+    {
+      "path": "assets/svg/helios-miku-mission-patch.svg",
+      "bytes": 4003,
+      "sha256": "f0af4be27c5aed87bf81572e3a2de8d617779ac383c0504d6c83398c5b0ea450",
+      "type": "original-svg",
+      "provenance": "original-vector-design"
+    },
+    {
+      "path": "assets/svg/helios-miku-moon-catalog-badge.svg",
+      "bytes": 2276,
+      "sha256": "0512e07169397cec37c725c60c2ab4ab2f363bdf59c11bcabba4030d2e87a738",
+      "type": "original-svg",
+      "provenance": "original-vector-design"
+    },
+    {
+      "path": "assets/svg/helios-miku-oort-frontier-badge.svg",
+      "bytes": 2408,
+      "sha256": "7dea1bd613c5bd63c97de7a43562c60e9debbfd1c5fbaaa43c5224c07823bc15",
+      "type": "original-svg",
+      "provenance": "original-vector-design"
+    },
+    {
+      "path": "assets/svg/helios-miku-orbit-mark.svg",
+      "bytes": 3204,
+      "sha256": "5219b6f71a4ea764bd22b06b4412efea84c25c1c00bdf8b3f2a333fb876e64e0",
+      "type": "original-svg",
+      "provenance": "original-vector-design"
+    },
+    {
+      "path": "assets/svg/helios-miku-readme-header.svg",
+      "bytes": 5161,
+      "sha256": "a0ec19eceb98c5754db31dce1b413bc63d143393402269b48cdb6f7a82558f39",
+      "type": "original-svg",
+      "provenance": "original-vector-design"
+    },
+    {
+      "path": "assets/svg/helios-miku-telemetry-badge.svg",
+      "bytes": 4000,
+      "sha256": "69b6003e176dad7d458e7a2e2dd8c149ebcc3c0caf5646848473295f1be40a7e",
+      "type": "original-svg",
+      "provenance": "original-vector-design"
+    }
+  ]
+}

@@ -173,6 +173,46 @@ export const SOURCES: Record<string, SourceRecord> = {
     retrieved: "2026-09-16",
     scope: "Asteroid belt, Ceres and Vesta exploration",
   },
+  "nasa-new-horizons": {
+    id: "nasa-new-horizons",
+    title: "New Horizons",
+    organization: "NASA/JPL/APL",
+    url: "https://science.nasa.gov/mission/new-horizons/",
+    retrieved: "2026-09-16",
+    scope: "Pluto system and Kuiper Belt exploration",
+  },
+  "iau-mpc": {
+    id: "iau-mpc",
+    title: "Natural Satellites Ephemeris Service",
+    organization: "IAU Minor Planet Center",
+    url: "https://minorplanetcenter.net/iau/NatSats/NaturalSatellites.html",
+    retrieved: "2026-09-16",
+    scope: "Official planetary satellite discovery confirmations, orbital designations, and ephemerides",
+  },
+  "jpl-ssd": {
+    id: "jpl-ssd",
+    title: "Planetary Satellite Mean Orbital Parameters",
+    organization: "NASA Jet Propulsion Laboratory — Solar System Dynamics",
+    url: "https://ssd.jpl.nasa.gov/sats/elem/",
+    retrieved: "2026-09-16",
+    scope: "Planetary satellite orbital elements, rotational parameters, and physical dimensions",
+  },
+  "nasa-oort-cloud": {
+    id: "nasa-oort-cloud",
+    title: "Oort Cloud: In Depth",
+    organization: "NASA Solar System Exploration",
+    url: "https://science.nasa.gov/solar-system/oort-cloud/",
+    retrieved: "2026-09-16",
+    scope: "Outer solar system boundaries, Oort cloud theory, comet dynamics and model ranges",
+  },
+  "nasa-jpl-standish": {
+    id: "nasa-jpl-standish",
+    title: "Keplerian Elements for Approximate Positions of the Major Planets",
+    organization: "NASA Jet Propulsion Laboratory / Caltech (E.M. Standish)",
+    url: "https://ssd.jpl.nasa.gov/planets/approx_pos.html",
+    retrieved: "2026-09-16",
+    scope: "J2000 Keplerian elements and centuries secular rates for analytical planetary propagation",
+  },
 };
 
 export function sourceById(id: string): SourceRecord | undefined {

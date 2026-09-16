@@ -1,0 +1,19 @@
+# Helios Observatory ownership
+# Place this file at .github/CODEOWNERS in the repository.
+
+# Default owner
+* @spearchucker667
+
+# Brand / generated visual assets
+/public/assets/ @spearchucker667
+/screenshots/ @spearchucker667
+
+# Documentation and repository-facing presentation
+/README.md @spearchucker667
+/docs/ @spearchucker667
+
+# Astronomical source data and validation
+/src/data/ @spearchucker667
+
+# CI / repository governance
+/.github/ @spearchucker667

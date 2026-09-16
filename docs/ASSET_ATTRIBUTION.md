@@ -1,47 +1,43 @@
-# Asset Attribution
+# Asset Attribution & Provenance
 
-Helios ships **no third-party imagery**. This page records the provenance of
-every visual asset class in the repository.
+This document records the provenance, license status, and authorship of visual assets and graphics in Helios Observatory.
 
-## Inventory
+---
 
-| Asset | Class | Source | Licence |
-| --- | --- | --- | --- |
-| Planet/moon surface textures | **Generated** (procedural canvas, runtime) | Original code — `src/components/solar/textures.ts` | N/A (original work, same licence as repo) |
-| Ring-system textures | **Generated** (radial profile, runtime) | Original code — `src/components/solar/ring-systems.ts` | N/A |
-| Earth clouds / night lights / Venus radar | **Generated** | Original code — same file | N/A |
-| Sun surface + glow | **Generated** (GLSL shader + canvas billboard) | Original code — `src/components/solar/bodies.tsx` | N/A |
-| Starfield | **Generated** (seeded point cloud) | Original code | N/A |
-| `public/favicon.svg` | **Vector** | Original work (this repository) | N/A |
-| `public/assets/branding/og-card.svg` | **Vector** | Original work (this repository) | N/A |
-| `public/assets/icons/orbit-mark.svg` | **Vector** | Original work (this repository) | N/A |
-| `docs/architecture-diagram.svg` | **Vector** | Original work (this repository) | N/A |
-| `public/og.jpg`, `public/x-banner.jpg` | **Raster (legacy)** | Pre-existing from initial scaffold | Unverified — see below |
-| `public/__grok/**` | **Platform-managed** | App-builder platform chrome | Platform-owned — never modify |
+## 1. Primary Vector & Procedural Graphics Inventory
 
-## Legacy raster audit
+| Asset Path | Class | Source / Authorship | License |
+| :--- | :--- | :--- | :--- |
+| `src/components/solar/textures.ts` | Procedural Canvas Textures | Original project code | Apache-2.0 |
+| `src/components/solar/ring-systems.ts` | Procedural Ring Generators | Original project code | Apache-2.0 |
+| `src/components/solar/bodies.tsx` | Procedural Sun GLSL Shader | Original project code | Apache-2.0 |
+| `public/favicon.svg` | Scalable Vector Graphic | Original project artwork | Apache-2.0 |
+| `public/assets/branding/og-card.svg` | Scalable Vector Graphic | Original project artwork | Apache-2.0 |
+| `public/assets/branding/helios-wordmark.svg` | Scalable Vector Graphic | Original project artwork | Apache-2.0 |
+| `public/assets/icons/orbit-mark.svg` | Scalable Vector Graphic | Original project artwork | Apache-2.0 |
+| `public/assets/icons/caliper.svg` | Scalable Vector Graphic | Original project artwork | Apache-2.0 |
+| `public/assets/icons/epoch-clock.svg` | Scalable Vector Graphic | Original project artwork | Apache-2.0 |
+| `public/assets/diagrams/*.svg` | Scalable Vector Graphics | Original project artwork | Apache-2.0 |
+| `public/assets/miku-space/*.svg` | Scalable Vector Graphics | Original artwork (Helios asset pack) | Apache-2.0 |
+| `public/assets/miku-space/animated/*.gif` | Animated Sprites | Derived from Miku orbital telemetry sprites | Unofficial / Fair Use (see below) |
 
-`public/og.jpg` and `public/x-banner.jpg` date from the initial scaffold
-and carry no recorded provenance. They are superseded by
-`public/assets/branding/og-card.svg` (original vector art) and kept only
-because the platform's PWA injector references them for share cards. If the
-injector's reference moves to the SVG card, these two files should be
-deleted. Until then: do not distribute them externally.
+---
 
-## Data-figure provenance
+## 2. Space-Agency Styling & Miku Space Asset Pack
 
-Scientific figures are attributed in `src/data/sources.ts` and documented
-in [ASTRONOMICAL_DATA.md](ASTRONOMICAL_DATA.md) — that is data provenance,
-not asset provenance, but the same honesty standard applies.
+The SVG marks and layouts under `public/assets/miku-space/` are original artwork created for Helios Observatory:
+- **Design Inspiration:** Styled after retro-futuristic mission control and space agency aesthetics. They deliberately avoid copying or reproducing NASA's official meatball insignia, seal, or worm logotype.
+- **Hatsune Miku IP Notice:** Hatsune Miku is a character/IP associated with Crypton Future Media / Piapro. Helios Observatory is an independent, non-commercial open-source project and claims no affiliation with, sponsorship from, or endorsement by Crypton Future Media, Piapro, or NASA.
+- **Pure Vector Delivery:** In-app production views utilize clean, lightweight SVGs with zero embedded raster payloads. Animated GIFs are strictly opt-in, non-essential, and respect the browser's `prefers-reduced-motion` media query.
 
-## If you add an external asset
+---
 
-1. Verify the licence from the source's own page (an image being publicly
-   downloadable is not a licence).
-2. Record it in the table above: source, organisation, original URL,
-   licence, modifications made, retrieval date.
-3. Prefer NASA/JPL/ESA/USGS imagery (generally public-domain as US
-   government work) — but **verify per image**; partner facilities (e.g.
-   ESA, universities) often retain different terms.
-4. Follow the pipeline rules in [ASSET_PIPELINE.md](ASSET_PIPELINE.md)
-   (optimise, lazy-load, tier it behind a procedural fallback).
+## 3. Scientific Data Provenance
+
+All planetary constants, orbital elements, feature coordinates, and natural satellite data are derived from public domain US Government datasets published by:
+- NASA Goddard Space Flight Center (GSFC)
+- NASA Jet Propulsion Laboratory (JPL)
+- USGS Astrogeology Science Center
+- International Astronomical Union (IAU) Minor Planet Center (MPC)
+
+Full citations and URLs are maintained in `src/data/sources.ts` and documented in [docs/ASTRONOMICAL_DATA.md](./ASTRONOMICAL_DATA.md).
