@@ -117,6 +117,39 @@ export function checkDocConsistency() {
     }
   }
 
+  // 6. Semantic facts verification
+  if (fs.existsSync(readmePath)) {
+    const readme = fs.readFileSync(readmePath, "utf-8");
+    if (!readme.includes("461-moon") && !readme.includes("461-Moon")) {
+      errors.push("README.md must cite the 461-moon census total");
+    }
+    if (!readme.includes("Jupiter (115)") || !readme.includes("Saturn (293)")) {
+      errors.push("README.md census table must reflect 115 Jupiter and 293 Saturn satellites");
+    }
+    if (!readme.includes("38 bodies") && !readme.includes("38 Regular")) {
+      errors.push("README.md must reflect 38 Tier-2 regular satellites");
+    }
+    if (!readme.includes("402 bodies") && !readme.includes("402 Irregular")) {
+      errors.push("README.md must reflect 402 Tier-3 irregular satellites");
+    }
+  }
+
+  const satDocPath = path.join(DOCS_DIR, "SATELLITE_CATALOGUE.md");
+  if (fs.existsSync(satDocPath)) {
+    const satDoc = fs.readFileSync(satDocPath, "utf-8");
+    if (!satDoc.includes("| **Total** | **461** | **21** | **38** | **402** |")) {
+      errors.push("docs/SATELLITE_CATALOGUE.md total row must match 461 / 21 / 38 / 402");
+    }
+  }
+
+  const contributingPath = path.join(ROOT_DIR, "CONTRIBUTING.md");
+  if (fs.existsSync(contributingPath)) {
+    const contrib = fs.readFileSync(contributingPath, "utf-8");
+    if (contrib.includes("no licence yet")) {
+      errors.push("CONTRIBUTING.md must not state 'no licence yet'");
+    }
+  }
+
   return {
     valid: errors.length === 0,
     errors,

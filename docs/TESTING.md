@@ -10,13 +10,13 @@ npm test   # everything below (node:test)
 
 ### 1. Astronomical data integrity — `src/data/data-validate.test.ts`
 
-The guardian of the catalogue. Asserts:
+The guardian of curated primary bodies. Asserts:
 
 - `validateData()` reports **zero errors** (invariant checker in
   `src/data/validate.ts`)
-- unique body ids across all 29 bodies
-- exactly the 20 Tier-1 moons, selectable
-- moons reference valid **planet** parents; planets reference `"sun"`
+- unique body ids across all 32 curated primary bodies (Sun, 8 planets, 2 dwarf planets, 21 major moons)
+- exactly the 21 Tier-1 major moons, selectable
+- moons reference valid parents; planets and dwarf planets reference `"sun"`
 - positive radii/gravities/densities; non-zero rotation periods
 - every source citation (bodies, events, missions) resolves in the registry
 - unique event ids; every event references ≥ 1 known body
@@ -24,18 +24,44 @@ The guardian of the catalogue. Asserts:
 - `moonSystem.confirmedCount` ≥ rendered moons for parents with moons
 - temperatures physically plausible
 
-Add a dataset entry → this suite reviews it.
+### 2. Natural Satellite Catalogue — `src/data/satellites/catalogue.test.ts`
 
-### 2. Formatting — `src/lib/format.test.ts`
+Verifies the comprehensive 461-moon institutional catalogue:
+
+- exactly 461 total satellites (456 planetary + 5 Pluto)
+- exact fidelity tier distribution: 21 Major, 38 Regular, 402 Irregular
+- parent body reference integrity and zero duplicated IDs
+- positive orbital semi-major axes ($a > 0$) and periods ($P > 0$)
+- valid eccentricities ($0 \le e < 1$)
+- scientific honesty: verifies sparse/irregular moons do not manufacture placeholder constants
+
+### 3. J2000 Ephemeris Engine — `src/lib/ephemeris.test.ts`
+
+Verifies analytical celestial mechanics:
+
+- exact J2000.0 epoch conversion ($JD 2451545.0 \to d = 0$)
+- Newton-Raphson Kepler equation convergence ($\Delta E < 10^{-7}$)
+- temporal domain boundary enforcement (1800-01-01 to 2050-12-31)
+- deep-link date parameter parsing and rejection of out-of-domain epochs
+- heliocentric Cartesian AU vector and distance calculations
+- multi-epoch reference fixtures for Earth, Mars, and Jupiter (1950, 2000, 2025)
+
+### 4. Distance Caliper & Coordinate Scales — `src/lib/distance.test.ts`, `src/lib/deep-space-scale.test.ts`
+
+- physical speed of light ($c = 299,792.458\text{ km/s}$) and astronomical unit conversion
+- pairwise distance symmetry and Moon-Earth / Earth-Sun distances
+- logarithmic coordinate continuum continuity from planetary edge (30 AU) to outer Oort Cloud (100,000 AU)
+
+### 5. Formatting — `src/lib/format.test.ts`
 
 Unit-precision tests for every formatter: diameter (metric/Earth), distance
 (AU/km/M-notation), gravity (g/m/s²), day length (h m, retrograde sign),
 year length, mass, temperature (°C/°F), eccentricity.
 
-### 3. Platform scripts — `scripts/*.test.mjs`
+### 6. Platform scripts — `scripts/*.test.mjs`
 
-Existing suites for the build/preview/smoke tooling (path guards, verdict
-parsing, PWA injection).
+Comprehensive suites for the build/preview/smoke tooling (path guards, verdict
+parsing, PWA injection, auth invariants, and asset validation).
 
 ## Browser smoke test
 

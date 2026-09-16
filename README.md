@@ -4,7 +4,7 @@
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](./LICENSE)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.7_Strict-blue.svg)](https://www.typescriptlang.org/)
 [![ESLint](https://img.shields.io/badge/ESLint-Zero_Warnings-success.svg)](https://eslint.org/)
-[![Tests](https://img.shields.io/badge/Tests-104_Passing-brightgreen.svg)](./docs/TESTING.md)
+[![Tests](https://img.shields.io/badge/Tests-Passing-brightgreen.svg)](./docs/TESTING.md)
 
 **Helios Observatory** is an interactive, scientifically rigorous 3D orrery and astronomical reference platform for the Solar System. Combining analytical Keplerian ephemerides, NASA/JPL data registries, a complete 461-moon natural satellite catalogue, 3D surface feature inspection, real-time distance calipers, and deep-space logarithmic continuum layers, Helios bridges exploratory computer graphics with institutional astronomical precision.
 
@@ -35,8 +35,8 @@
 - **Institutional Census (August 2026 Baseline):** Catalogues all 456 planetary moons across all eight planets plus all 5 satellites of Pluto, referenced to NASA/JPL Solar System Dynamics and the IAU Minor Planet Center.
 - **Fidelity Tiers:**
   - **Tier 1 (Major Moons — 21 bodies):** 3D textured globes with tidal locking, surface feature markers, and real-time motion tracking (Moon, Phobos, Deimos, Galilean moons, Titan, Enceladus, Triton, Charon, etc.).
-  - **Tier 2 (Regular Satellites — 49 bodies):** Catalogued with orbital parameters, semi-major axis, period, and dynamical families.
-  - **Tier 3 (Irregular Satellites — 223 bodies):** Distant retrograde and prograde captured planetesimals organized into dynamical clusters (Norse, Inuit, Gallic, Pasiphae).
+  - **Tier 2 (Regular Satellites — 38 bodies):** Catalogued with orbital parameters, semi-major axis, period, and dynamical families.
+  - **Tier 3 (Irregular Satellites — 402 bodies):** Distant retrograde and prograde captured planetesimals organized into dynamical clusters (Norse, Inuit, Gallic, Pasiphae).
 - **Satellite Explorer:** Interactive filterable and searchable catalogue inside the planet detail panel.
 
 ### 3. Dwarf Planet Classification
@@ -55,7 +55,7 @@
 - **Interactive Globe Markers:** Geomorphic formations (volcanoes, canyons, impact basins, atmospheric storms) display 3D marker pins positioned at exact latitude/longitude coordinates on rotating planetary globes.
 - **Detailed Interior & Atmosphere:** Stratified core/mantle descriptions, global magnetic field summaries, and atmospheric gas fractions with barometric surface pressures.
 
-### 7. Shareable Deep Links
+### 7. Precise Deep-Link Hydration
 - URLs seamlessly preserve focused worlds, major moons, and the exact simulation epoch date (e.g., `/?body=jupiter&moon=europa&date=2026-09-16`), restoring exact camera framing on load.
 
 ---
@@ -66,8 +66,8 @@
 | :--- | :--- | :--- | :--- |
 | **Star** | Sun | — | Granulation shader, core corona glow |
 | **Terrestrial Planets** | Mercury, Venus, Earth, Mars | Earth (1), Mars (2) | Caloris Basin, Maxwell Montes, Olympus Mons, Valles Marineris |
-| **Gas Giants** | Jupiter, Saturn | Jupiter (95), Saturn (146) | Great Red Spot, Galilean moons, prominent rings, Cassini Division, Encke Gap |
-| **Ice Giants** | Uranus, Neptune | Uranus (28), Neptune (16) | Tilted retrograde spin, Miranda cliffs, Great Dark Spot, Triton plumes |
+| **Gas Giants** | Jupiter, Saturn | Jupiter (115), Saturn (293) | Great Red Spot, Galilean moons, prominent rings, Cassini Division, Encke Gap |
+| **Ice Giants** | Uranus, Neptune | Uranus (29), Neptune (16) | Tilted retrograde spin, Miranda cliffs, Great Dark Spot, Triton plumes |
 | **Dwarf Planets** | Ceres, Pluto | Pluto (5) | Occator crater bright spots, Sputnik Planitia, Tombaugh Regio, Charon |
 | **Minor Belts** | Asteroid Belt, Kuiper Belt | — | Procedural instanced asteroids, trans-Neptunian objects |
 | **Comet Reservoirs** | Oort Cloud (Hills + Outer Shell) | — | 2,000 to 100,000 AU logarithmic continuum |

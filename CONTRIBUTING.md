@@ -72,8 +72,7 @@ node scripts/browser-smoke.mjs http://127.0.0.1:8080/ screenshots/issue.png
 - Components stay small; data shaping belongs in `src/lib` or `src/data`
 - Prefer editing existing files; delete dead code outright
 
-## Licensing note
-
-The project has no licence yet — see the discussion in
-[SECURITY.md](SECURITY.md) / with the maintainers before submitting
-substantial work.
+## Licensing
+Helios Observatory is licensed under the [Apache License, Version 2.0](LICENSE).
+Astronomical ephemeris and data constants are derived from public domain and open-access
+materials published by NASA, JPL, and IAU; see [NOTICE](NOTICE) and [docs/LEGAL.md](docs/LEGAL.md).
