@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-labelledby="og-title og-desc">
+  <title id="og-title">Helios Observatory</title>
+  <desc id="og-desc">A living orrery of the solar system — the Sun with orbiting planets and Saturn's rings on a deep-space field.</desc>
+  <defs>
+    <radialGradient id="sunGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffedc4"/>
+      <stop offset="22%" stop-color="#ffc45c" stop-opacity="0.55"/>
+      <stop offset="48%" stop-color="#ff8c28" stop-opacity="0.16"/>
+      <stop offset="100%" stop-color="#ff5a14" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="sunCore" cx="42%" cy="40%" r="65%">
+      <stop offset="0%" stop-color="#fff3d6"/>
+      <stop offset="55%" stop-color="#f3c27a"/>
+      <stop offset="100%" stop-color="#e08a3c"/>
+    </radialGradient>
+    <radialGradient id="jupGrad" cx="38%" cy="35%" r="75%">
+      <stop offset="0%" stop-color="#e8caa2"/>
+      <stop offset="60%" stop-color="#d9b48a"/>
+      <stop offset="100%" stop-color="#a87e58"/>
+    </radialGradient>
+    <radialGradient id="space" cx="50%" cy="42%" r="75%">
+      <stop offset="0%" stop-color="#0c0f16"/>
+      <stop offset="100%" stop-color="#07080c"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="640" height="360" fill="url(#space)"/>
+
+  <!-- starfield -->
+  <g fill="#e6edf6">
+    <circle cx="52" cy="48" r="1.1" opacity="0.85"/>
+    <circle cx="128" cy="24" r="0.7" opacity="0.6"/>
+    <circle cx="212" cy="70" r="0.9" opacity="0.7"/>
+    <circle cx="310" cy="30" r="0.7" opacity="0.55"/>
+    <circle cx="452" cy="52" r="1" opacity="0.8"/>
+    <circle cx="560" cy="26" r="0.8" opacity="0.65"/>
+    <circle cx="604" cy="96" r="1.1" opacity="0.8"/>
+    <circle cx="84" cy="140" r="0.8" opacity="0.6"/>
+    <circle cx="388" cy="86" r="0.7" opacity="0.5"/>
+    <circle cx="512" cy="140" r="0.9" opacity="0.7"/>
+    <circle cx="176" cy="318" r="0.9" opacity="0.7"/>
+    <circle cx="586" cy="300" r="1" opacity="0.75"/>
+    <circle cx="36" cy="264" r="0.8" opacity="0.6"/>
+    <circle cx="268" cy="340" r="0.7" opacity="0.5"/>
+  </g>
+
+  <!-- orbit rings -->
+  <g fill="none" stroke="#8ea0b8" stroke-opacity="0.22">
+    <ellipse cx="120" cy="196" rx="120" ry="46"/>
+    <ellipse cx="120" cy="196" rx="184" ry="72"/>
+    <ellipse cx="120" cy="196" rx="248" ry="98"/>
+    <ellipse cx="120" cy="196" rx="316" ry="126"/>
+    <ellipse cx="120" cy="196" rx="392" ry="158" stroke-opacity="0.14"/>
+  </g>
+
+  <!-- sun -->
+  <circle cx="120" cy="196" r="120" fill="url(#sunGlow)"/>
+  <circle cx="120" cy="196" r="26" fill="url(#sunCore)"/>
+
+  <!-- inner planets -->
+  <circle cx="196" cy="166" r="4" fill="#b7aea3"/>
+  <circle cx="262" cy="220" r="6.5" fill="#6ea8d8"/>
+  <circle cx="330" cy="132" r="5" fill="#c07a55"/>
+
+  <!-- jupiter -->
+  <g transform="translate(452 128)">
+    <circle r="21" fill="url(#jupGrad)"/>
+    <g stroke="#b08a5e" stroke-opacity="0.7" stroke-width="1.6">
+      <path d="M-19 -6 Q0 -2 19 -7" fill="none"/>
+      <path d="M-20.5 1 Q0 5 20.5 0" fill="none"/>
+      <path d="M-18 8 Q0 11 18 7" fill="none"/>
+    </g>
+    <ellipse cx="6" cy="7" rx="5" ry="3" fill="#c25a3c" opacity="0.85"/>
+  </g>
+
+  <!-- saturn with rings -->
+  <g transform="translate(524 246)">
+    <ellipse rx="42" ry="13" fill="none" stroke="#d8c49a" stroke-width="7" stroke-opacity="0.85" transform="rotate(-16)"/>
+    <ellipse rx="31" ry="9.5" fill="none" stroke="#c2ab7e" stroke-width="6" stroke-opacity="0.9" transform="rotate(-16)"/>
+    <circle r="17" fill="#e6d3a4"/>
+    <ellipse rx="42" ry="13" fill="none" stroke="#d8c49a" stroke-width="7" stroke-opacity="0.5" transform="rotate(-16)" stroke-dasharray="70 200" stroke-dashoffset="-90"/>
+  </g>
+
+  <!-- wordmark -->
+  <g>
+    <text x="36" y="66" font-family="Georgia, 'Times New Roman', serif" font-size="40" fill="#eceef2" letter-spacing="1">Helios</text>
+    <text x="36" y="92" font-family="Verdana, Geneva, sans-serif" font-size="11.5" fill="#8e939e" letter-spacing="4.5">OBSERVATORY</text>
+  </g>
+</svg>

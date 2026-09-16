@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 420" role="img" aria-labelledby="arch-title arch-desc">
+  <title id="arch-title">Helios architecture</title>
+  <desc id="arch-desc">Data layer feeding the simulation layer, which drives the Three.js scene and the React observatory UI.</desc>
+  <style>
+    .box { fill: #12141a; stroke: #262a33; rx: 12; }
+    .lab { fill: #eceef2; font: 600 15px Verdana, sans-serif; }
+    .sub { fill: #8e939e; font: 11px Verdana, sans-serif; }
+    .arrow { stroke: #8ea0b8; stroke-width: 1.6; fill: none; marker-end: url(#head); }
+  </style>
+  <defs>
+    <marker id="head" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 z" fill="#8ea0b8"/>
+    </marker>
+  </defs>
+
+  <rect class="box" x="30" y="24" width="700" height="88" rx="12"/>
+  <text class="lab" x="52" y="54">Astronomical Data — src/data</text>
+  <text class="sub" x="52" y="76">bodies · moons · events · missions · sources (cited, dated) · validate.ts invariants</text>
+
+  <rect class="box" x="30" y="152" width="700" height="88" rx="12"/>
+  <text class="lab" x="52" y="182">Simulation — src/lib</text>
+  <text class="sub" x="52" y="204">sim-store (zustand) · scene-scale mapping · unit formatting · accelerated simClock</text>
+
+  <rect class="box" x="30" y="280" width="340" height="112" rx="12"/>
+  <text class="lab" x="52" y="310">Three.js Scene</text>
+  <text class="sub" x="52" y="332">bodies · moon systems · ring systems</text>
+  <text class="sub" x="52" y="350">orbital paths · camera rig · LOD textures</text>
+
+  <rect class="box" x="390" y="280" width="340" height="112" rx="12"/>
+  <text class="lab" x="412" y="310">React Observatory UI</text>
+  <text class="sub" x="412" y="332">HUD · tabbed detail panels · search ·</text>
+  <text class="sub" x="412" y="350">compare · units/scale controls · mobile sheet</text>
+
+  <path class="arrow" d="M380 112 v40"/>
+  <path class="arrow" d="M240 240 v40"/>
+  <path class="arrow" d="M560 240 v40"/>
+  <path class="arrow" d="M370 336 h20"/>
+</svg>

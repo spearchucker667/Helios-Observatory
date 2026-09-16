@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="mark-title">
+  <title id="mark-title">Helios orbit mark</title>
+  <rect width="64" height="64" rx="14" fill="#07080c"/>
+  <g fill="none" stroke="#8e939e" stroke-width="2">
+    <ellipse cx="32" cy="32" rx="22" ry="22" stroke-opacity="0.85"/>
+    <ellipse cx="32" cy="32" rx="22" ry="9" transform="rotate(-24 32 32)" stroke-opacity="0.55"/>
+  </g>
+  <circle cx="32" cy="32" r="9" fill="#eceef2"/>
+  <circle cx="51.5" cy="22.5" r="3" fill="#b8c4d4"/>
+</svg>

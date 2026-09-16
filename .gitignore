@@ -1,0 +1,33 @@
+# Dependencies
+/node_modules
+
+# macOS
+.DS_Store
+
+# Runtime / server logs
+.grok/preview.log
+.grok/preview-manual.log
+.grok/status
+/tmp
+
+# Vercel build output
+.vercel/
+
+# Screenshots are ephemeral QA output; the curated doc set is force-added
+# (see docs/SCREENSHOTS.md)
+screenshots/*.png
+screenshots/*.json
+
+# Workspace identity + agent-tooling internals (not part of the app)
+.project_id
+.node_modules.lock
+.grok/app-env.json
+.grok/references
+.grok/skills
+.grok/render-brand.py
+.grok/banner-raw.png
+.grok/favicon-*.png
+.grok/og-raw.png
+
+# Freebuff platform id
+.freebuff/

@@ -1,0 +1,114 @@
+@import "tailwindcss";
+@import "@fontsource/cormorant-garamond/500.css";
+@import "@fontsource/cormorant-garamond/600.css";
+@import "@fontsource/outfit/400.css";
+@import "@fontsource/outfit/500.css";
+@import "@fontsource/outfit/600.css";
+
+@theme {
+  --color-bg: #07080c;
+  --color-surface: #12141a;
+  --color-fg: #eceef2;
+  --color-muted: #8e939e;
+  --color-primary: #b8c4d4;
+  --color-border: #262a33;
+  --color-accent-fg: #07080c;
+
+  --font-sans: "Outfit", system-ui, -apple-system, sans-serif;
+  --font-display: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+
+  --shadow-border: 0 0 0 1px rgba(255, 255, 255, 0.08);
+  --shadow-border-hover: 0 0 0 1px rgba(255, 255, 255, 0.14);
+
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-smooth-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --motion-micro: 80ms;
+  --motion-quick: 150ms;
+  --motion-fast: 250ms;
+  --motion-slow: 400ms;
+}
+
+@layer base {
+  html,
+  body {
+    height: 100%;
+    background: var(--color-bg);
+    color: var(--color-fg);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.helios-scroll {
+  scrollbar-width: none;
+}
+.helios-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+@keyframes helios-enter {
+  from {
+    opacity: 0;
+    transform: translateY(var(--motion-y, 8px));
+    filter: blur(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+.helios-enter {
+  animation: helios-enter var(--motion-slow) var(--ease-smooth-out) both;
+}
+
+.helios-enter-d1 {
+  animation-delay: 40ms;
+}
+.helios-enter-d2 {
+  animation-delay: 80ms;
+}
+.helios-enter-d3 {
+  animation-delay: 120ms;
+}
+
+.helios-label-wrap,
+.helios-label-wrap > div,
+.helios-label {
+  background: transparent !important;
+  border: 0 !important;
+}
