@@ -79,6 +79,6 @@ In Presentation and Distance scale modes, the raw AU coordinates are mapped into
 
 ## 5. Temporal Domain & Validity Limits
 
-- **Supported Domain:** 1800-01-01 to 2050-12-31 AD ($d \in [-73050, +18628]$).
-- **Validation:** Dates outside this interval are safely rejected by `tryDateToJ2000Days` and flagged as out of bounds rather than producing extrapolations that violate perturbation bounds.
-- **Accuracy:** Positions match NASA JPL Horizons ephemerides to within $< 0.05\text{ AU}$ across inner planets and $< 0.25\text{ AU}$ for outer gas giants over the entire two-century window.
+- **Supported Domain:** 1800-01-01 to 2050-12-31 AD ($d \in [-73048.5, +18627.0]$ days from J2000.0).
+- **Validation:** Dates outside this interval are safely rejected by `trySupportedEphemerisDate` (and checked by `isSupportedEphemerisDay`), preventing unmodeled secular divergence. The HUD date input clamps values to this interval and deep links ignore out-of-domain date queries.
+- **Accuracy & Verification:** Validated against multi-epoch reference fixtures (1950, 2000, 2025) derived from the JPL Standish (1992) analytical formulation, matching heliocentric positions within $< 0.02\text{ AU}$ coordinates and $< 0.01\text{ AU}$ distances. Over the full 250-year interval, tolerances remain within $< 0.05\text{ AU}$ for inner planets and $< 0.15\text{ AU}$ for Jupiter.

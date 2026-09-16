@@ -10,18 +10,19 @@ Every quantity in Helios belongs to exactly one of:
 | Register | Meaning | Lives in |
 | --- | --- | --- |
 | **Scientific data** | Canonical, source-cited astronomy | `src/data/**` (`physical`, `orbit`, `rotation`, `temperature`, …) |
+| **Analytical ephemeris** | J2000 Keplerian elliptical mechanics (1800–2050 AD) | `src/lib/ephemeris.ts` |
 | **Visualization scale** | Presentation compromises that make the system watchable | `src/lib/scene-scale.ts` |
-| **Simulation approximation** | Circular-orbit kinematics with correct periods/inclinations | `bodies.tsx` position update |
+| **Simulation engine** | 3D numerical propagation, camera tracking, and real-time calipers | `bodies.tsx`, `caliper.tsx` |
 
 The UI distinguishes these explicitly: the footer shows the active scale
 mode ("Presentation view — not to scale", "True size", "True distance") and
-the Orbit tab notes that positions are educational approximations.
+the Epoch control displays the exact UTC date alongside simulation velocity.
 
 ## Canonical sources
 
 All planetary figures come from the **NASA GSFC planetary fact sheets**;
-moon counts and mission history from **NASA/JPL Solar System Exploration**
-pages; surface-feature names from the **USGS Gazetteer of Planetary
+moon counts and satellite orbital elements from the **NASA/JPL Solar System Dynamics Group**
+and **IAU Minor Planet Center**; surface-feature names from the **USGS Gazetteer of Planetary
 Nomenclature**. The full registry with URLs and retrieval dates is
 `src/data/sources.ts`.
 
@@ -42,17 +43,28 @@ blogs, no wikis as primary citations. Every dataset entry and every event
 lists its `sourceIds`; the integrity tests fail the build if a citation
 dangles.
 
-## Moon counts are a living quantity
+## Moon counts and natural satellite census
 
-Confirmed-satellite tallies change as observations accumulate (Jupiter went
-from 79 → 95 and Saturn 82 → 146 within a few years). Helios treats them as
-dated data:
+Confirmed-satellite tallies change as new telescopic surveys report discoveries.
+Helios incorporates the authoritative August 2026 census: **461 natural satellites**
+(456 planetary moons + 5 Pluto satellites):
 
-- `moonSystem.confirmedCount` carries the number **and** the tally date is
-  recorded in the note field (e.g. "per NASA/JPL, 2023, retrieved
-  2026-09-16").
-- The detail panel says "confirmed" and links the source.
-- Counts are never hardcoded in UI copy — they render from data.
+- **Earth:** 1 (Moon)
+- **Mars:** 2 (Phobos, Deimos)
+- **Jupiter:** 115 (4 major, 4 regular, 107 irregular)
+- **Saturn:** 293 (7 major, 10 regular, 276 irregular)
+- **Uranus:** 29 (5 major, 13 regular, 11 irregular)
+- **Neptune:** 16 (1 major, 7 regular, 8 irregular)
+- **Pluto:** 5 (1 major, 4 regular, 0 irregular)
+
+**Fidelity Tiers:**
+- **Tier 1 (Major Moons — 21 bodies):** Fully textured 3D bodies with synchronous tidal locking and surface features.
+- **Tier 2 (Regular Satellites — 38 bodies):** Prograde inner satellites with catalogued orbital families.
+- **Tier 3 (Irregular Satellites — 402 bodies):** Distant retrograde/prograde captured planetesimals.
+
+**Sparse Satellite Unknown-Value Policy:** Unobserved physical properties (such as mass,
+gravity, density, or temperature for small irregular moons) are never populated with
+fabricated constants; they are set to `undefined` and rendered as unknown in the UI.
 
 ## Which visual dimensions are exaggerated
 
@@ -71,15 +83,18 @@ In **Presentation** (default) mode:
 in frame). **True distance** mode uses real AU spacing. The active mode is
 always labelled in the HUD.
 
-## Simulation honesty
+## Simulation honesty & ephemeris model
 
-- Orbits are **circular** with correct periods, inclinations, and (data-
-  recorded) eccentricities. Eccentricity and orientation parameters are not
-  used to compute positions.
-- There is **no epoch**: `simClock` starts at 0 and advances at the chosen
-  pace. The UI shows "Y0 · D1" style sim time, never calendar dates, and
-  never claims "current positions".
-- Retrograde rotation/orbit directions are honoured (Venus, Uranus, Triton).
+- Planetary and dwarf planetary trajectories follow **analytical Keplerian elliptical orbits**
+  derived from Standish (1992) J2000 secular rates, solving Kepler's transcendental equation
+  via Newton-Raphson iteration.
+- **Epoch Date Control:** Users can select any calendar date in the supported domain
+  **1800-01-01 to 2050-12-31 AD** ($d \in [-73048.5, +18627.0]$ days from J2000.0). Positions
+  reflect genuine heliocentric ephemeris coordinates.
+- **Domain Boundaries:** Dates outside the 250-year calibrated window are rejected by the
+  parser and clamped during simulation playback to prevent unmodeled secular divergence.
+- Retrograde rotations and orbital inclinations are mathematically preserved (Venus, Uranus, Triton,
+  and retrograde irregular moons).
 
 ## Event sourcing
 
