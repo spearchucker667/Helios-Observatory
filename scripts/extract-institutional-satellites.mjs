@@ -12,9 +12,29 @@ async function getWikitext(page) {
   return data.parse.wikitext["*"];
 }
 
+function stripHtmlComments(str) {
+  let prev;
+  let s = str;
+  do {
+    prev = s;
+    s = s.replace(/<!--[\s\S]*?-->/g, "");
+  } while (s !== prev);
+  return s;
+}
+
+function stripRefTags(str) {
+  let prev;
+  let s = str;
+  do {
+    prev = s;
+    s = s.replace(/<ref\b[^>]*\/>/gi, "").replace(/<ref\b[^>]*>[\s\S]*?<\/ref>/gi, "");
+  } while (s !== prev);
+  return s;
+}
+
 function cleanVal(str) {
   if (!str) return null;
-  let s = str.replace(/<!--.*?-->/gs, "").replace(/<ref.*?\/>/g, "").replace(/<ref.*?<\/ref>/gs, "");
+  let s = stripRefTags(stripHtmlComments(str));
   s = s.replace(/\{\{val\|([^}|]+).*?\}\}/g, "$1");
   s = s.replace(/\{\{dsv\|([^}|]+).*?\}\}/g, "$1");
   s = s.replace(/\{\{sort\|([^}|]+)\|([^}]*)\}\}/g, "$1");
@@ -26,7 +46,7 @@ function cleanVal(str) {
 
 function cleanText(str) {
   if (!str) return "";
-  let s = str.replace(/<!--.*?-->/gs, "").replace(/<ref.*?\/>/g, "").replace(/<ref.*?<\/ref>/gs, "");
+  let s = stripRefTags(stripHtmlComments(str));
   s = s.replace(/\[\[([^|\]]+\|)?([^\]]+)\]\]/g, "$2");
   s = s.replace(/\{\{hid\|([^}|]+)\}\}/g, "");
   s = s.replace(/\{\{dsv\|([^}|]+)\|([^}|]+)\}\}/g, "$2");
