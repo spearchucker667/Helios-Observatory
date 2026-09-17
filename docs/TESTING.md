@@ -7,7 +7,7 @@ Helios Observatory maintains a strict zero-tolerance testing policy. All tests a
 ## 1. Test Commands
 
 ```bash
-# Run complete test suite (154 tests across 22 suites)
+# Run complete test suite (156 tests across 22 suites)
 npm test
 
 # Run strict TypeScript typecheck
@@ -15,6 +15,9 @@ npm run typecheck
 
 # Run zero-warning linter
 npm run lint
+
+# Run browser sandbox QA suite
+node scripts/browser-sandbox.mjs http://127.0.0.1:8081/sandbox
 
 # Check documentation integrity and link consistency
 node scripts/check-doc-consistency.mjs
@@ -25,7 +28,7 @@ node scripts/validate-assets.mjs
 
 ---
 
-## 2. Test Suites Overview (154 Tests / 22 Suites)
+## 2. Test Suites Overview (156 Tests / 22 Suites)
 
 ### 2.1 Astronomical Data Integrity — `src/data/data-validate.test.ts`
 Guarantees canonical data invariants across all primary celestial bodies:
@@ -139,6 +142,9 @@ node scripts/browser-smoke.mjs http://127.0.0.1:8081/ screenshots/built.png
 
 # Execute interactive UI assertion suite
 node scripts/browser-interaction.mjs http://127.0.0.1:8081/
+
+# Execute astrophysical sandbox interaction and accessibility suite
+node scripts/browser-sandbox.mjs http://127.0.0.1:8081/sandbox
 ```
 
 ### Smoke Test Invariants

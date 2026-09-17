@@ -1,2 +1,77 @@
-export type SimulationEvent =
-  | { type: "collision"; bodyA: string; bodyB: string; time: number };
+/**
+ * Semantic Simulation Events
+ *
+ * Events are emitted during N-body substepping, collisions, close encounters,
+ * tidal disruptions, and user commands. They are recorded in the event timeline
+ * and used for deterministic replay and screen-reader announcements.
+ */
+
+export type SimulationEventType =
+  | "body_added"
+  | "body_removed"
+  | "parameter_changed"
+  | "close_encounter"
+  | "roche_limit_crossing"
+  | "collision"
+  | "merge"
+  | "fragmentation"
+  | "capture"
+  | "escape"
+  | "ejection"
+  | "tidal_disruption"
+  | "black_hole_horizon_crossing"
+  | "accuracy_warning";
+
+export interface SimulationEvent {
+  eventId: string;
+  simTimeSeconds: number;
+  tick: number;
+  eventType: SimulationEventType;
+  involvedBodyIds: string[];
+  involvedBodyNames: string[];
+  summary: string;
+  calculatedQuantities?: Record<string, number | string>;
+  outcome?: string;
+  provenance?: {
+    model: string;
+    version: string;
+    note?: string;
+  };
+}
+
+export type SimulationEventListener = (event: SimulationEvent) => void;
+
+export class SimulationEventBus {
+  private listeners: SimulationEventListener[] = [];
+  private history: SimulationEvent[] = [];
+  private maxHistory: number;
+
+  constructor(maxHistory = 1000) {
+    this.maxHistory = maxHistory;
+  }
+
+  emit(event: SimulationEvent): void {
+    this.history.push(event);
+    if (this.history.length > this.maxHistory) {
+      this.history.shift();
+    }
+    for (const listener of this.listeners) {
+      listener(event);
+    }
+  }
+
+  subscribe(listener: SimulationEventListener): () => void {
+    this.listeners.push(listener);
+    return () => {
+      this.listeners = this.listeners.filter((l) => l !== listener);
+    };
+  }
+
+  getHistory(): SimulationEvent[] {
+    return [...this.history];
+  }
+
+  clear(): void {
+    this.history = [];
+  }
+}

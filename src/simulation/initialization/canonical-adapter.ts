@@ -1,6 +1,9 @@
 import type { SimulationBody } from "../domain/types.ts";
 import { computeEphemerisStateVector } from "../../lib/ephemeris.ts";
-import { bodyById } from "../../data/registry.ts";
+import { bodyById, BODIES } from "../../data/registry.ts";
+import { transformToBarycentric } from "./barycentric.ts";
+import { celsiusToKelvin } from "../domain/units.ts";
+import { SOLAR_LUMINOSITY_W } from "../domain/constants.ts";
 
 export function createSimulationBodyFromCanonical(
   bodyId: string,
@@ -9,7 +12,7 @@ export function createSimulationBodyFromCanonical(
   const canonical = bodyById(bodyId);
   if (!canonical) return null;
 
-  // Clone to avoid leaking mutations
+  // Clone to avoid leaking mutations into canonical data
   const safeCanonical = structuredClone(canonical);
 
   // The Sun is the origin of the heliocentric coordinate system
@@ -26,9 +29,7 @@ export function createSimulationBodyFromCanonical(
   }
 
   if (!stateVector) {
-    // If we can't defensibly produce a Cartesian state, we return null for now.
-    // Moon initialization policy says: "The default Solar-System sandbox should initially 
-    // include only bodies whose mass and Cartesian state can be defensibly produced."
+    // If we can't defensibly produce a Cartesian state, return null.
     return null;
   }
 
@@ -45,12 +46,17 @@ export function createSimulationBodyFromCanonical(
 
   const gravityRole = (hasMass && hasRadius) ? "massive" : "tracer";
 
-  // If tracer, we need *some* mass/radius for internal structure, but it won't exert gravity.
-  // The task says "Never invent a mass simply so an object can enter the full N-body solver."
-  // So we use role="tracer" and 0 mass/radius.
   const simMass = hasMass ? massKg : 0;
   const simRadius = hasRadius ? radiusM : 0;
   const canonicalSourceIds = safeCanonical.sources ? safeCanonical.sources.map(s => s.id) : [];
+
+  // Thermal & rotation extraction
+  const meanTempC = safeCanonical.temperature?.meanC;
+  const surfaceTempK = meanTempC !== undefined ? celsiusToKelvin(meanTempC) : undefined;
+  
+  const rotPeriodHours = safeCanonical.rotation?.periodHours;
+  const rotPeriodSeconds = rotPeriodHours !== undefined ? Math.abs(rotPeriodHours) * 3600 : undefined;
+  const axialTiltDeg = safeCanonical.rotation?.axialTiltDeg;
 
   return {
     id: safeCanonical.identity.id,
@@ -61,8 +67,17 @@ export function createSimulationBodyFromCanonical(
     gravityRole,
     mass: simMass,
     radius: simRadius,
+    density: safeCanonical.physical?.densityGCm3 ? safeCanonical.physical.densityGCm3 * 1000 : undefined,
     position: [...stateVector.position],
     velocity: [...stateVector.velocity],
+    rotation: rotPeriodSeconds !== undefined ? { periodSeconds: rotPeriodSeconds, axialTiltDeg } : undefined,
+    thermal: surfaceTempK !== undefined ? { surfaceTempK } : undefined,
+    radiative: bodyId === "sun" ? { luminosityWatts: SOLAR_LUMINOSITY_W } : undefined,
+    physicsCapabilityFlags: {
+      hasAtmosphere: !!safeCanonical.atmosphere,
+      isLuminous: bodyId === "sun",
+      isRelativistic: false,
+    },
     color: safeCanonical.identity.color,
     provenance: {
       mass: hasMass 
@@ -78,4 +93,31 @@ export function createSimulationBodyFromCanonical(
       }
     }
   };
+}
+
+/**
+ * Creates the initial canonical Solar System world in an inertial barycentric frame.
+ * Includes Sun, all 8 planets, and 2 dwarf planets (Ceres, Pluto).
+ */
+export function createCanonicalSolarSystem(
+  daysFromJ2000 = 0,
+  options?: { barycentric?: boolean }
+): SimulationBody[] {
+  const bodies: SimulationBody[] = [];
+
+  // Order: Sun first, then planets and dwarf planets from PRIMARY_BODIES
+  const sun = createSimulationBodyFromCanonical("sun", daysFromJ2000);
+  if (sun) bodies.push(sun);
+
+  for (const p of BODIES) {
+    if (p.identity.id === "sun") continue;
+    const body = createSimulationBodyFromCanonical(p.identity.id, daysFromJ2000);
+    if (body) bodies.push(body);
+  }
+
+  if (options?.barycentric !== false) {
+    transformToBarycentric(bodies);
+  }
+
+  return bodies;
 }

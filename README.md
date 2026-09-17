@@ -17,7 +17,7 @@
   <a href="./LICENSE"><img src="https://img.shields.io/badge/License-Apache_2.0-blue.svg" alt="License" /></a>
   <a href="https://www.typescriptlang.org/"><img src="https://img.shields.io/badge/TypeScript-5.7_Strict-3178C6.svg" alt="TypeScript" /></a>
   <a href="https://eslint.org/"><img src="https://img.shields.io/badge/ESLint-Zero_Warnings-4B32C3.svg" alt="ESLint" /></a>
-  <a href="./docs/TESTING.md"><img src="https://img.shields.io/badge/Tests-154_Passing-brightgreen.svg" alt="Tests" /></a>
+  <a href="./docs/TESTING.md"><img src="https://img.shields.io/badge/Tests-156_Passing-brightgreen.svg" alt="Tests" /></a>
   <a href="https://nodejs.org/"><img src="https://img.shields.io/badge/Node.js-22.x_LTS-339933.svg" alt="Node.js" /></a>
   <a href="./docs/EPHEMERIS_ENGINE.md"><img src="https://img.shields.io/badge/Ephemeris-J2000.0_JPL_DE405-orange.svg" alt="Ephemeris" /></a>
   <a href="./docs/SATELLITE_CATALOGUE.md"><img src="https://img.shields.io/badge/Satellites-461_Moons-informational.svg" alt="Satellites" /></a>

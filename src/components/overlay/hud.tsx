@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState, type ReactNode } from "react";
+import { Link } from "@tanstack/react-router";
 import {
   Compass,
   Pause,
@@ -13,6 +14,7 @@ import {
   Share2,
   Check,
   X,
+  Sparkles,
 } from "lucide-react";
 import { Command } from "cmdk";
 import { Button } from "@/components/ui/button";
@@ -886,6 +888,16 @@ export function ObservatoryHud() {
           </h1>
         </div>
         <div className="helios-enter helios-enter-d1 flex items-center gap-0.5 rounded-2xl bg-surface/85 p-1 shadow-[var(--shadow-border)] backdrop-blur-md sm:gap-1">
+          <Link
+            to="/sandbox"
+            className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-primary/15 hover:bg-primary/25 border border-primary/30 text-xs font-medium text-primary shadow-sm backdrop-blur-md transition-all outline-none focus-visible:ring-2 focus-visible:ring-primary/60"
+            aria-label="Open Simulation Sandbox"
+            title="Open Simulation Sandbox"
+          >
+            <Sparkles className="size-4 shrink-0" strokeWidth={1.75} aria-hidden="true" />
+            <span className="hidden md:inline">Open Simulation Sandbox</span>
+            <span className="md:hidden">Sandbox</span>
+          </Link>
           <Button
             variant="ghost"
             size="icon"
