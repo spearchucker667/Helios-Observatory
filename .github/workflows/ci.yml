@@ -145,5 +145,16 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install --with-deps chromium
 
+      - name: Start dev server
+        run: |
+          npm run dev &
+          for i in {1..30}; do
+            if curl -sf http://127.0.0.1:8080/ > /dev/null 2>&1; then
+              echo "Dev server ready on :8080"
+              break
+            fi
+            sleep 1
+          done
+
       - name: Run browser smoke tests
-        run: xvfb-run --auto-servernum -- node scripts/browser-smoke.mjs
+        run: xvfb-run --auto-servernum -- node scripts/browser-smoke.mjs http://127.0.0.1:8080/ screenshots/app-builder-preview.png
