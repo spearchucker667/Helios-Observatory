@@ -113,3 +113,80 @@ test("Roche limit calculations against theoretical values", () => {
   const diagnosticsClose = computeRocheDiagnostics(earth, closeMoon);
   assert.equal(diagnosticsClose.isInsideFluidLimit, true, "Moon at 10,000 km is inside fluid Roche limit");
 });
+
+test("tidal disruption generates debris remnants conserving mass and linear momentum", () => {
+  const primary: SimulationBody = {
+    id: "jupiter-like",
+    name: "Gas Giant",
+    classification: "planet",
+    gravityRole: "massive",
+    mass: 1.898e27,
+    radius: 6.9911e7,
+    position: [0, 0, 0],
+    velocity: [0, 0, 0],
+    provenance: { mass: { kind: "custom" }, radius: { kind: "custom" }, state: { kind: "custom" } },
+  };
+
+  const comet: SimulationBody = {
+    id: "comet-shoemaker",
+    name: "Infalling Comet",
+    classification: "comet",
+    gravityRole: "massive",
+    mass: 1e15, // 1 trillion kg comet
+    radius: 5000,
+    position: [1e8, 0, 0], // ~100,000 km, inside Roche limit of gas giant
+    velocity: [0, 45000, 0], // 45 km/s
+    provenance: { mass: { kind: "custom" }, radius: { kind: "custom" }, state: { kind: "custom" } },
+  };
+
+  const mBefore = primary.mass + comet.mass;
+  const pBeforeX = primary.mass * primary.velocity[0] + comet.mass * comet.velocity[0];
+  const pBeforeY = primary.mass * primary.velocity[1] + comet.mass * comet.velocity[1];
+  const pBeforeZ = primary.mass * primary.velocity[2] + comet.mass * comet.velocity[2];
+
+  const collisionPair = {
+    bodyA: primary,
+    bodyB: comet,
+    separationM: 1e8,
+    contactDistanceM: primary.radius + comet.radius,
+    relativeVelocityMs: 45000,
+    isBlackHoleCapture: false,
+  };
+
+  const resolution = resolveCollision(collisionPair);
+  assert.equal(resolution.outcome, "tidal_disruption", "Must resolve to tidal disruption");
+  assert.ok(resolution.remnantBodies && resolution.remnantBodies.length > 0, "Must produce remnant bodies");
+
+  const remnants = resolution.remnantBodies!;
+  assert.equal(remnants.length, 6, "Expected 6 debris fragments");
+
+  // Verify total mass conservation across surviving primary and remnants
+  const totalRemnantMass = remnants.reduce((acc, r) => acc + r.mass, 0);
+  const mAfter = resolution.survivingBody.mass + totalRemnantMass;
+  const massRelError = Math.abs(mAfter - mBefore) / mBefore;
+  assert.ok(massRelError < 1e-12, `Mass mismatch: ${mAfter} vs ${mBefore} (relError: ${massRelError})`);
+
+  // Verify total linear momentum conservation
+  let pAfterX = resolution.survivingBody.mass * resolution.survivingBody.velocity[0];
+  let pAfterY = resolution.survivingBody.mass * resolution.survivingBody.velocity[1];
+  let pAfterZ = resolution.survivingBody.mass * resolution.survivingBody.velocity[2];
+
+  for (const rem of remnants) {
+    pAfterX += rem.mass * rem.velocity[0];
+    pAfterY += rem.mass * rem.velocity[1];
+    pAfterZ += rem.mass * rem.velocity[2];
+  }
+
+  assert.ok(Math.abs(pAfterX - pBeforeX) < 1e-4, `Px mismatch: ${pAfterX} vs ${pBeforeX}`);
+  const pyRelError = Math.abs(pAfterY - pBeforeY) / Math.abs(pBeforeY);
+  assert.ok(pyRelError < 1e-12, `Py mismatch: ${pAfterY} vs ${pBeforeY} (relError: ${pyRelError})`);
+  assert.ok(Math.abs(pAfterZ - pBeforeZ) < 1e-4, `Pz mismatch: ${pAfterZ} vs ${pBeforeZ}`);
+
+  // Verify fragment names, classification and provenance
+  for (const rem of remnants) {
+    assert.ok(rem.name.includes("Debris"), "Remnant name must identify debris");
+    assert.equal(rem.classification, "comet", "Inherited comet classification");
+    assert.equal(rem.provenance.mass.kind, "calculated");
+    assert.equal(rem.provenance.state.kind, "calculated");
+  }
+});

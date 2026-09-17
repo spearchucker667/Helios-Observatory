@@ -14,6 +14,7 @@ import { cartesianToOrbitalElements } from "@/simulation/physics/orbital-element
 import { calculateSchwarzschildRadius } from "@/simulation/engine/compact-objects";
 import { computeEquilibriumTemperature } from "@/simulation/environment/temperature";
 import { computeRocheDiagnostics } from "@/simulation/collisions/disruption";
+import { calculateEinsteinPrecession } from "@/simulation/environment/orbital-derived";
 import { cn } from "@/lib/utils";
 import {
   Edit3,
@@ -120,6 +121,15 @@ export function BodyInspector({ className }: { className?: string }) {
   const periodDays = (oscElements.periodSeconds ?? 0) / 86400;
   const periapsisAu = (oscElements.semiMajorAxisM * (1 - oscElements.eccentricity)) / AU_M;
   const apoapsisAu = (oscElements.semiMajorAxisM * (1 + oscElements.eccentricity)) / AU_M;
+
+  const einsteinPrecession = calculateEinsteinPrecession(
+    centralMass,
+    body.mass,
+    oscElements.semiMajorAxisM,
+    oscElements.eccentricity
+  );
+  const relDistM = Math.hypot(relPos[0], relPos[1], relPos[2]);
+  const compactnessParam = relDistM > 0 ? (G_CODATA_2022 * centralMass) / (relDistM * 299792458 * 299792458) : 0;
 
   // Environmental derivation
   const allBodiesList = Object.values(bodies);
@@ -384,6 +394,30 @@ export function BodyInspector({ className }: { className?: string }) {
               <span className="text-muted">Apoapsis Distance:</span>
               <span>{apoapsisAu.toFixed(4)} AU</span>
             </div>
+
+            {einsteinPrecession && (
+              <div className="flex items-center justify-between py-1 border-b border-fg/5">
+                <span className="text-muted">GR Precession (1PN):</span>
+                <div className="text-right flex items-center gap-2">
+                  <span className="text-amber-400 font-medium">
+                    {einsteinPrecession.arcsecPerCentury.toFixed(2)}″ / century
+                  </span>
+                  <ProvenanceBadge
+                    provenance={{ kind: "calculated", method: "1PN Einstein Precession: 6πGM / (a(1-e²)c²)" }}
+                    label="GR Precession"
+                  />
+                </div>
+              </div>
+            )}
+
+            {compactnessParam > 0 && (
+              <div className="flex items-center justify-between py-1 border-b border-fg/5">
+                <span className="text-muted">Compactness (GM/rc²):</span>
+                <span className={compactnessParam > 0.01 ? "text-amber-400 font-bold" : "text-fg"}>
+                  {compactnessParam.toExponential(3)}
+                </span>
+              </div>
+            )}
           </div>
         )}
 

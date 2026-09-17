@@ -23,7 +23,7 @@ export function EventTimeline({ className }: { className?: string }) {
 
   const filteredEvents = events.filter((e) => {
     if (filterType === "all") return true;
-    if (filterType === "collision") return e.eventType.includes("collision") || e.eventType.includes("merger");
+    if (filterType === "collision") return e.eventType.includes("collision") || e.eventType.includes("merge") || e.eventType.includes("disruption");
     if (filterType === "warning") return e.eventType.includes("warning") || e.eventType.includes("roche");
     return true;
   });

@@ -4,9 +4,11 @@ import {
   calculateSchwarzschildRadius,
   evaluateCompactObjectField,
 } from "../engine/compact-objects.ts";
-import { SOLAR_MASS_KG } from "../domain/constants.ts";
+import { SOLAR_MASS_KG, AU_M } from "../domain/constants.ts";
 import { detectCollisions } from "../collisions/detect.ts";
 import { resolveCollision } from "../collisions/resolve.ts";
+import { calculateEinsteinPrecession } from "../environment/orbital-derived.ts";
+import { computeAccelerations } from "../physics/gravity.ts";
 import type { SimulationBody } from "../domain/types.ts";
 
 test("Schwarzschild radius calculation matches standard ~2.95 km per solar mass", () => {
@@ -144,4 +146,57 @@ test("strong-field regime flag is set when GM / (r * c^2) > 0.01 without false G
   // Far from horizon (1 AU): GM/(r c^2) is tiny
   const farDiag = evaluateCompactObjectField(blackHole, 149597870700);
   assert.equal(farDiag.isStrongFieldRegime, false, "Must not flag strong field regime at 1 AU");
+});
+
+test("Einstein relativistic perihelion precession matches Mercury canonical ~43 arcsec/century", () => {
+  // Mercury parameters: a = 0.387098 AU, e = 0.20563, M_sun = SOLAR_MASS_KG, m_mercury = 3.3011e23 kg
+  const mercuryA = 0.387098 * AU_M;
+  const mercuryE = 0.20563;
+  const mercuryM = 3.3011e23;
+
+  const precession = calculateEinsteinPrecession(SOLAR_MASS_KG, mercuryM, mercuryA, mercuryE);
+  assert.ok(precession !== undefined, "Precession must be calculated for bound orbit");
+
+  // Historic Einstein prediction: ~42.98 arcsec / century
+  const rate = precession!.arcsecPerCentury;
+  assert.ok(
+    rate > 42.0 && rate < 44.0,
+    `Expected Mercury GR precession ~42.98 arcsec/century, got ${rate.toFixed(2)}`
+  );
+});
+
+test("1PN post-Newtonian acceleration computes relativistic perturbing force", () => {
+  // Relativistic binary near compact object
+  const numBodies = 2;
+  const positions = new Float64Array([
+    0, 0, 0, // Central black hole at origin
+    1e7, 0, 0, // Infalling body at 10,000 km
+  ]);
+  const velocities = new Float64Array([
+    0, 0, 0,
+    0, 5e6, 0, // 5,000 km/s (relativistic speed: v/c ~ 0.0167)
+  ]);
+  const masses = new Float64Array([10 * SOLAR_MASS_KG, 1e20]);
+  const isTracer = new Uint8Array([0, 0]);
+
+  const newtonianAccel = computeAccelerations(positions, masses, isTracer, numBodies, velocities, {
+    enableRelativity: false,
+  });
+
+  const relativisticAccel = computeAccelerations(positions, masses, isTracer, numBodies, velocities, {
+    enableRelativity: true,
+  });
+
+  // Secondary body acceleration comparison (indices 3, 4, 5)
+  const axNewton = newtonianAccel[3];
+  const axRel = relativisticAccel[3];
+
+  assert.ok(axNewton < 0, "Newtonian gravity attracts towards origin");
+  assert.ok(axRel < 0, "Relativistic gravity attracts towards origin");
+  // 1PN post-Newtonian adds additional inward attractive pull: |a_rel| > |a_newton|
+  assert.ok(Math.abs(axRel) > Math.abs(axNewton), "1PN corrections enhance gravitational attraction in strong field");
+
+  // Relative correction magnitude should be order (v/c)^2 or GM/(r c^2) ~ 1e-4 to 1e-3
+  const relativeDiff = Math.abs(axRel - axNewton) / Math.abs(axNewton);
+  assert.ok(relativeDiff > 1e-4 && relativeDiff < 0.1, `Relative 1PN diff: ${relativeDiff.toExponential(3)}`);
 });

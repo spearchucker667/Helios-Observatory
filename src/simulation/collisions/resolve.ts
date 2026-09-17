@@ -1,7 +1,8 @@
 import type { SimulationBody } from "../domain/types.ts";
 import type { CollisionPair } from "./detect.ts";
 import { G_CODATA_2022, C_M_S } from "../domain/constants.ts";
-import type { Vector3 } from "../physics/vector.ts";
+import { type Vector3, vec3Sub, vec3Mag, vec3Normalize, vec3Cross } from "../physics/vector.ts";
+import { computeRocheDiagnostics } from "./disruption.ts";
 
 export interface CollisionDiagnostics {
   relativeVelocityMs: number;
@@ -15,8 +16,9 @@ export interface CollisionDiagnostics {
 export interface CollisionResolution {
   survivingBody: SimulationBody;
   removedBodyIds: string[];
+  remnantBodies?: SimulationBody[];
   diagnostics: CollisionDiagnostics;
-  outcome: "merge" | "black_hole_capture";
+  outcome: "merge" | "black_hole_capture" | "tidal_disruption";
 }
 
 /**
@@ -54,8 +56,8 @@ export function computeCollisionDiagnostics(a: SimulationBody, b: SimulationBody
 }
 
 /**
- * Resolves a collision pair through an inelastic merger or black hole capture,
- * strictly conserving total mass and linear momentum.
+ * Resolves a collision pair through an inelastic merger, black hole capture,
+ * or tidal shredding disruption, strictly conserving total mass and linear momentum.
  */
 export function resolveCollision(pair: CollisionPair): CollisionResolution {
   const { bodyA, bodyB, relativeVelocityMs, isBlackHoleCapture } = pair;
@@ -123,11 +125,120 @@ export function resolveCollision(pair: CollisionPair): CollisionResolution {
     };
   }
 
-  // General inelastic merge
+  // Primary and secondary bodies based on mass
   const primary = bodyA.mass >= bodyB.mass ? bodyA : bodyB;
   const secondary = bodyA.mass >= bodyB.mass ? bodyB : bodyA;
 
-  // New radius from volume addition assuming mean bulk density
+  // Tidal disruption check:
+  // If the secondary is significantly less massive (m_sec < 0.5 * m_prim), not a compact object,
+  // and inside the fluid Roche limit (or grazing collision):
+  const roche = computeRocheDiagnostics(primary, secondary);
+  const isCompactSecondary = secondary.classification === "black-hole" || secondary.classification === "neutron-star";
+  const isAsymmetric = primary.mass >= 2 * secondary.mass && secondary.mass > 0;
+  const isTidalShredding = !isCompactSecondary && isAsymmetric && (roche.isInsideFluidLimit || pair.separationM <= (roche.fluidRocheLimitM ?? primary.radius * 2.44));
+
+  if (isTidalShredding) {
+    const remnantCount = 6;
+    const debrisFraction = 0.25; // 25% of secondary mass forms tidal debris remnants
+    const debrisTotalMass = secondary.mass * debrisFraction;
+    const retainedSecondaryMass = secondary.mass * (1 - debrisFraction);
+    const primaryNewMass = primary.mass + retainedSecondaryMass;
+
+    // Linear momentum of primary with retained portion:
+    // P_retained = m_prim * v_prim + (1 - f) * m_sec * v_sec
+    const vPrimRetained: Vector3 = [
+      (primary.mass * primary.velocity[0] + retainedSecondaryMass * secondary.velocity[0]) / primaryNewMass,
+      (primary.mass * primary.velocity[1] + retainedSecondaryMass * secondary.velocity[1]) / primaryNewMass,
+      (primary.mass * primary.velocity[2] + retainedSecondaryMass * secondary.velocity[2]) / primaryNewMass,
+    ];
+
+    const posPrimRetained: Vector3 = [
+      (primary.mass * primary.position[0] + retainedSecondaryMass * secondary.position[0]) / primaryNewMass,
+      (primary.mass * primary.position[1] + retainedSecondaryMass * secondary.position[1]) / primaryNewMass,
+      (primary.mass * primary.position[2] + retainedSecondaryMass * secondary.position[2]) / primaryNewMass,
+    ];
+
+    // Compute tangent vector for tidal debris stream along orbit
+    const rRel = vec3Sub(secondary.position, primary.position);
+    const vRel = vec3Sub(secondary.velocity, primary.velocity);
+    let tangent = vec3Normalize(vRel);
+    if (vec3Mag(tangent) === 0) {
+      // Fallback perpendicular to rRel
+      const cross = vec3Cross(rRel, [0, 0, 1]);
+      tangent = vec3Mag(cross) > 0 ? vec3Normalize(cross) : [1, 0, 0];
+    }
+
+    // Velocity dispersion matching parent body escape speed: v_disp ~ sqrt(2 * G * m_sec / r_sec)
+    const secR = Math.max(1, secondary.radius);
+    const vDisp = Math.sqrt((2 * G_CODATA_2022 * secondary.mass) / secR);
+    const fragmentMass = debrisTotalMass / remnantCount;
+    const fragmentRadius = Math.max(100, secondary.radius * Math.cbrt(debrisFraction / remnantCount));
+
+    const remnants: SimulationBody[] = [];
+    const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+    for (let k = 0; k < remnantCount; k++) {
+      // Symmetrically spaced parameter from -1 to 1 so sum(s_k) = 0 strictly!
+      const s_k = (k - (remnantCount - 1) / 2) / ((remnantCount - 1) / 2);
+
+      const fragPos: Vector3 = [
+        secondary.position[0] + s_k * secondary.radius * 2 * tangent[0],
+        secondary.position[1] + s_k * secondary.radius * 2 * tangent[1],
+        secondary.position[2] + s_k * secondary.radius * 2 * tangent[2],
+      ];
+
+      const fragVel: Vector3 = [
+        secondary.velocity[0] + s_k * vDisp * tangent[0],
+        secondary.velocity[1] + s_k * vDisp * tangent[1],
+        secondary.velocity[2] + s_k * vDisp * tangent[2],
+      ];
+
+      remnants.push({
+        id: `${secondary.id}-debris-${k + 1}`,
+        name: `${secondary.name} Debris ${alphabet[k] ?? k + 1}`,
+        classification: secondary.classification === "comet" ? "comet" : "asteroid",
+        gravityRole: fragmentMass < 1e20 ? "tracer" : "massive",
+        mass: fragmentMass,
+        radius: fragmentRadius,
+        position: fragPos,
+        velocity: fragVel,
+        color: secondary.color ?? "#fbbf24",
+        provenance: {
+          mass: { kind: "calculated", method: "Tidal disruption mass conservation (25% debris / 6)" },
+          radius: { kind: "calculated", method: "Volume conservation from fragment mass" },
+          state: { kind: "calculated", method: "Orbital momentum conservation with symmetric dispersion" },
+        },
+      });
+    }
+
+    // Surviving primary with accreted 75% mass
+    const newRadius = Math.cbrt(Math.pow(primary.radius, 3) + (1 - debrisFraction) * Math.pow(secondary.radius, 3));
+
+    const surviving: SimulationBody = {
+      ...primary,
+      mass: primaryNewMass,
+      radius: newRadius,
+      position: posPrimRetained,
+      velocity: vPrimRetained,
+      gravityRole: "massive",
+      provenance: {
+        ...primary.provenance,
+        mass: { kind: "calculated", method: "Tidal disruption core accretion (75% retained)", note: `Accreted from ${secondary.name}` },
+        radius: { kind: "calculated", method: "Volume conservation with accreted core" },
+        state: { kind: "calculated", method: "Linear momentum conservation" },
+      },
+    };
+
+    return {
+      survivingBody: surviving,
+      removedBodyIds: [secondary.id],
+      remnantBodies: remnants,
+      diagnostics,
+      outcome: "tidal_disruption",
+    };
+  }
+
+  // General inelastic merge (for comparable mass bodies or direct central impact)
   const newRadius = Math.cbrt(Math.pow(bodyA.radius, 3) + Math.pow(bodyB.radius, 3));
 
   const surviving: SimulationBody = {

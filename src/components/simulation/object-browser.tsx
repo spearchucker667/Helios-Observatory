@@ -77,7 +77,9 @@ export function ObjectBrowser({ className }: { className?: string }) {
       <div className="flex items-center justify-between p-3.5 border-b border-fg/10 bg-bg/30">
         <div>
           <h2 className="font-semibold text-sm">Celestial Objects</h2>
-          <p className="text-[11px] text-muted">{bodiesList.length} active bodies in simulation</p>
+          <p className="text-[11px] text-muted font-mono">
+            {bodiesList.length} / 1024 bodies ({bodiesList.filter((b) => b.gravityRole === "massive").length} massive)
+          </p>
         </div>
 
         <Button

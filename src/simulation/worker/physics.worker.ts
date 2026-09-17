@@ -134,6 +134,13 @@ if (typeof self !== "undefined") {
           break;
         }
 
+        case "set_relativity": {
+          if (world) {
+            world.enableRelativity = msg.enabled;
+          }
+          break;
+        }
+
         case "request_snapshot": {
           if (!world) throw new Error("World not initialized");
           const snap = world.getRenderSnapshot();

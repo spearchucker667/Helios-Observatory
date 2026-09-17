@@ -54,6 +54,7 @@ export interface SandboxState {
   multiplier: number;
   quality: TimestepQuality;
   strongFieldWarning: boolean;
+  enableRelativity: boolean;
   error: string | null;
   
   // Actions
@@ -65,6 +66,7 @@ export interface SandboxState {
   stepOnce: () => void;
   setMultiplier: (mult: number) => void;
   setQuality: (quality: TimestepQuality) => void;
+  setEnableRelativity: (enabled: boolean) => void;
   
   selectBody: (id: string | null) => void;
   hoverBody: (id: string | null) => void;
@@ -136,6 +138,7 @@ export const useSandboxStore = create<SandboxState>((set, get) => ({
   multiplier: 86400, // 1 day / sec
   quality: "standard",
   strongFieldWarning: false,
+  enableRelativity: false,
   error: null,
   
   init: () => {
@@ -155,31 +158,58 @@ export const useSandboxStore = create<SandboxState>((set, get) => ({
     client.onSnapshot((snap) => {
       const currentBodies = { ...get().bodies };
       let anyStrongField = false;
+      const activeIds = new Set(snap.bodyIds);
+      
+      // Remove deleted/absorbed bodies
+      for (const id of Object.keys(currentBodies)) {
+        if (!activeIds.has(id)) {
+          delete currentBodies[id];
+        }
+      }
       
       for (let i = 0; i < snap.numBodies; i++) {
         const id = snap.bodyIds[i];
-        const b = currentBodies[id];
-        if (b) {
+        let b = currentBodies[id];
+        if (!b) {
+          // Newly created body (e.g. tidal debris remnant)
+          b = {
+            id,
+            name: snap.names[i] || id,
+            classification: (snap.classes[i] as any) || "asteroid",
+            gravityRole: snap.isTracer[i] ? "tracer" : "massive",
+            mass: snap.masses[i],
+            radius: snap.radii[i],
+            position: [snap.positions[i * 3], snap.positions[i * 3 + 1], snap.positions[i * 3 + 2]],
+            velocity: [snap.velocities[i * 3], snap.velocities[i * 3 + 1], snap.velocities[i * 3 + 2]],
+            color: snap.colors[i] || "#fbbf24",
+            provenance: {
+              mass: { kind: "calculated", method: "Tidal disruption remnant" },
+              radius: { kind: "calculated" },
+              state: { kind: "calculated" },
+            },
+          };
+          currentBodies[id] = b;
+        } else {
           b.position = [snap.positions[i * 3], snap.positions[i * 3 + 1], snap.positions[i * 3 + 2]];
           b.velocity = [snap.velocities[i * 3], snap.velocities[i * 3 + 1], snap.velocities[i * 3 + 2]];
           b.mass = snap.masses[i];
           b.radius = snap.radii[i];
-          
-          if (
-            b.classification === "black-hole" ||
-            b.classification === "neutron-star" ||
-            b.classification === "pulsar" ||
-            b.classification === "magnetar"
-          ) {
-            for (let j = 0; j < snap.numBodies; j++) {
-              if (i === j) continue;
-              const dx = snap.positions[i * 3] - snap.positions[j * 3];
-              const dy = snap.positions[i * 3 + 1] - snap.positions[j * 3 + 1];
-              const dz = snap.positions[i * 3 + 2] - snap.positions[j * 3 + 2];
-              const dist = Math.sqrt(dx * dx + dy * dy + dz * dz);
-              if (evaluateCompactObjectField(b, dist).isStrongFieldRegime) {
-                anyStrongField = true;
-              }
+        }
+        
+        if (
+          b.classification === "black-hole" ||
+          b.classification === "neutron-star" ||
+          b.classification === "pulsar" ||
+          b.classification === "magnetar"
+        ) {
+          for (let j = 0; j < snap.numBodies; j++) {
+            if (i === j) continue;
+            const dx = snap.positions[i * 3] - snap.positions[j * 3];
+            const dy = snap.positions[i * 3 + 1] - snap.positions[j * 3 + 1];
+            const dz = snap.positions[i * 3 + 2] - snap.positions[j * 3 + 2];
+            const dist = Math.sqrt(dx * dx + dy * dy + dz * dz);
+            if (evaluateCompactObjectField(b, dist).isStrongFieldRegime) {
+              anyStrongField = true;
             }
           }
         }
@@ -284,6 +314,18 @@ export const useSandboxStore = create<SandboxState>((set, get) => ({
     if (!client) return;
     client.setQuality(quality);
     set({ quality });
+  },
+
+  setEnableRelativity: (enabled: boolean) => {
+    const { client } = get();
+    set({ enableRelativity: enabled });
+    if (client) {
+      client.setRelativity(enabled);
+      client.sendCommand({ type: "set_relativity", enabled });
+    }
+    if (get().selectedId) {
+      get().requestTrajectory(get().selectedId!);
+    }
   },
   
   selectBody: (id: string | null) => {

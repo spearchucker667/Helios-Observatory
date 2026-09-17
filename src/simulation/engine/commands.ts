@@ -13,6 +13,7 @@ export type SimulationCommand =
   | { type: "set_radius"; id: string; radiusM: number }
   | { type: "set_time_multiplier"; multiplier: number }
   | { type: "set_dt"; dtSeconds: number }
+  | { type: "set_relativity"; enabled: boolean }
   | { type: "pause" }
   | { type: "resume" }
   | { type: "reset_to_initial" };

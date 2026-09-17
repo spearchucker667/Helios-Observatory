@@ -107,7 +107,13 @@ export const WorldSnapshotSchema = z.object({
   simTimeSeconds: z.number().refine(Number.isFinite),
   tick: z.number().int().min(0),
   dtSeconds: z.number().positive().refine(Number.isFinite),
-  bodies: z.array(SimulationBodySchema).max(128, "Maximum 128 bodies supported"),
+  bodies: z
+    .array(SimulationBodySchema)
+    .max(1024, "Maximum 1024 bodies supported")
+    .refine(
+      (bodies) => bodies.filter((b) => b.gravityRole === "massive").length <= 256,
+      "Maximum 256 massive bodies supported"
+    ),
   invariants: SystemInvariantsSchema,
 });
 
@@ -123,6 +129,7 @@ export const SimulationCommandSchema = z.discriminatedUnion("type", [
   z.object({ type: z.literal("set_radius"), id: z.string(), radiusM: z.number().positive() }),
   z.object({ type: z.literal("set_time_multiplier"), multiplier: z.number().positive() }),
   z.object({ type: z.literal("set_dt"), dtSeconds: z.number().positive() }),
+  z.object({ type: z.literal("set_relativity"), enabled: z.boolean() }),
   z.object({ type: z.literal("pause") }),
   z.object({ type: z.literal("resume") }),
   z.object({ type: z.literal("reset_to_initial") }),

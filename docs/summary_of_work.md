@@ -98,3 +98,24 @@ The Interactive Astrophysical Sandbox (`/sandbox`) for Helios Observatory has be
   21. Verify canonical Earth is untouched and operational.
   22. Verify zero uncaught browser console or page errors.
   23. Run dedicated `prefers-reduced-motion: reduce` verification pass.
+
+#### Phase 11: Physical & Scale Limitations Resolved
+- **1PN Relativistic Corrections & Einstein Precession:**
+  - Integrated 1PN (First Post-Newtonian) acceleration $\mathbf{a}_{\text{1PN}, i} = \sum_{j \ne i} \frac{G m_j}{c^2 r_{ij}^3} [ ( 4 \frac{G(m_i + m_j)}{r_{ij}} - v_{rel}^2 ) \mathbf{r}_{ij} + 4 (\mathbf{v}_{rel} \cdot \mathbf{r}_{ij}) \mathbf{v}_{rel} ]$ in `src/simulation/physics/gravity.ts`.
+  - Added velocity-dependent symplectic evaluation in `src/simulation/physics/integrator.ts`.
+  - Implemented exact Einstein apsidal precession calculation ($\Delta \varpi = \frac{6\pi G(M+m)}{a(1-e^2)c^2}$) in `src/simulation/environment/orbital-derived.ts`, verified against Mercury reference (~42.98″/century).
+  - Wired 1PN relativistic corrections user toggle into `AccuracyIndicator`, worker protocol (`set_relativity`), engine command stack, and `BodyInspector` (GR Precession & Compactness $GM/rc^2$).
+- **Tidal Disruption & Shredding Remnants:**
+  - Upgraded `resolveCollision` in `src/simulation/collisions/resolve.ts` to detect fluid Roche limit breaches ($r \le d_{\text{Roche}}$) for non-compact secondary bodies ($m_2 < 0.5 m_1$).
+  - Generates 6 symmetrically dispersed tidal debris fragments along orbital tangent with velocity dispersion matching parent escape speed ($v_{\text{disp}} \sim \sqrt{2 G m_{\text{sec}} / r_{\text{sec}}}$).
+  - Fully conserves total system mass and linear momentum ($\Delta m / m < 10^{-12}$, $\Delta p / p < 10^{-12}$) and emits `tidal_disruption` timeline events.
+- **Dynamic Body Envelope Expanded to 1,024 Bodies:**
+  - Expanded capacity from 128 to 1,024 total bodies in `src/simulation/scenarios/schema.ts`, `world.ts`, and `gravity.ts`.
+  - Partitioned into up to 256 massive $O(N^2)$ bodies and 768 massless/debris tracer particles ($O(N_{\text{massive}} \times N_{\text{tracer}})$) to maintain 60 FPS deterministic Web Worker execution.
+  - Updated UI body counter in `ObjectBrowser` to show total and massive counts (`X / 1024 bodies (Y massive)`).
+- **All Verification Gates Passed:**
+  - `npm test`: **159/159 tests passing** across 22 test suites.
+  - `npm run typecheck`: **0 errors**.
+  - `npm run lint`: **0 warnings**.
+  - `npm run build`: Clean production build.
+  - `scripts/browser-sandbox.mjs`: All 22 QA steps and reduced-motion pass verified with 0 console/page errors.

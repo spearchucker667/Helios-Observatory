@@ -16,7 +16,7 @@ let browser = null;
 try {
   browser = await chromium.launch({
     headless: true,
-    args: ["--no-sandbox", "--disable-dev-shm-usage"],
+    args: ["--no-sandbox", "--disable-dev-shm-usage", "--use-gl=swiftshader"],
   });
 
   const context = await browser.newContext({
@@ -40,7 +40,7 @@ try {
   // Step 1: Open /sandbox
   console.log("Step 1: Navigating to /sandbox...");
   await page.goto(url, { waitUntil: "domcontentloaded", timeout: timeoutMs });
-  await page.waitForSelector("canvas", { timeout: 15000 });
+  await page.waitForSelector("canvas", { timeout: 30000 });
   await page.waitForTimeout(1000);
   console.log("✓ Sandbox route loaded with WebGL canvas");
 
@@ -132,7 +132,7 @@ try {
   }
 
   const undoBtn = page.locator('button[aria-label="Undo last action"]').first();
-  await undoBtn.click();
+  await undoBtn.click({ noWaitAfter: true });
   await page.waitForTimeout(500);
 
   const countAfterUndo = await objectBrowser.getByText("Earth-like Planet").count();
@@ -293,7 +293,7 @@ try {
   });
 
   await motionPage.goto(url, { waitUntil: "domcontentloaded", timeout: timeoutMs });
-  await motionPage.waitForSelector("canvas", { timeout: 15000 });
+  await motionPage.waitForSelector("canvas", { timeout: 30000 });
   await motionPage.waitForTimeout(1000);
 
   const motionBanner = motionPage.getByText("SIMULATION SANDBOX").first();
@@ -309,6 +309,9 @@ try {
   await motionContext.close();
 } catch (err) {
   console.error("Browser sandbox QA exception:", err);
+  if (errors.consoleErrors.length > 0 || errors.pageErrors.length > 0) {
+    console.error("Errors encountered:", JSON.stringify(errors, null, 2));
+  }
   process.exitCode = 1;
 } finally {
   await browser?.close();

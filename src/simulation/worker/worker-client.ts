@@ -159,6 +159,11 @@ export class WorkerClient {
           break;
         }
 
+        case "set_relativity": {
+          if (this.localWorld) this.localWorld.enableRelativity = msg.enabled;
+          break;
+        }
+
         case "request_snapshot": {
           if (!this.localWorld) throw new Error("World not initialized");
           for (const cb of this.snapshotListeners) cb(this.localWorld.getRenderSnapshot());
@@ -240,6 +245,10 @@ export class WorkerClient {
 
   setDt(dtSeconds: number) {
     this.post({ type: "set_dt", dtSeconds });
+  }
+
+  setRelativity(enabled: boolean) {
+    this.post({ type: "set_relativity", enabled });
   }
 
   requestSnapshot() {

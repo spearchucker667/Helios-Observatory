@@ -12,6 +12,7 @@ export type WorkerInboundMessage =
   | { type: "step_once" }
   | { type: "set_time_multiplier"; multiplier: number }
   | { type: "set_dt"; dtSeconds: number }
+  | { type: "set_relativity"; enabled: boolean }
   | { type: "set_quality"; quality: TimestepQuality }
   | { type: "request_snapshot" }
   | { type: "request_trajectory"; bodyId: string; steps?: number; dt?: number }

@@ -6,7 +6,7 @@ import type { TimestepQuality } from "@/simulation/engine/timestep";
 
 export function AccuracyIndicator({ className }: { className?: string }) {
   const [open, setOpen] = useState(false);
-  const { quality, setQuality, stats, snapshot, strongFieldWarning, multiplier } = useSandboxStore();
+  const { quality, setQuality, stats, snapshot, strongFieldWarning, multiplier, enableRelativity, setEnableRelativity } = useSandboxStore();
 
   let massiveCount = 0;
   let tracerCount = 0;
@@ -85,7 +85,9 @@ export function AccuracyIndicator({ className }: { className?: string }) {
           <div className="space-y-2 font-mono text-[11px]">
             <div className="flex justify-between py-1 border-b border-fg/5">
               <span className="text-muted">Physics Model:</span>
-              <span className="text-fg font-medium">Newtonian N-body O(N²)</span>
+              <span className={cn("font-medium", enableRelativity ? "text-amber-400" : "text-fg")}>
+                {enableRelativity ? "1PN Post-Newtonian (GR Precession)" : "Newtonian N-body O(N²)"}
+              </span>
             </div>
             <div className="flex justify-between py-1 border-b border-fg/5">
               <span className="text-muted">Integrator:</span>
@@ -94,7 +96,7 @@ export function AccuracyIndicator({ className }: { className?: string }) {
             <div className="flex justify-between py-1 border-b border-fg/5">
               <span className="text-muted">Dynamic Bodies:</span>
               <span className="text-fg font-medium">
-                {massiveCount} massive + {tracerCount} tracers
+                {massiveCount} massive + {tracerCount} tracers / 1024
               </span>
             </div>
             <div className="flex justify-between py-1 border-b border-fg/5">
@@ -111,7 +113,7 @@ export function AccuracyIndicator({ className }: { className?: string }) {
             </div>
             <div className="flex justify-between py-1 border-b border-fg/5">
               <span className="text-muted">Collision Engine:</span>
-              <span className="text-fg font-medium">Inelastic momentum merger / BH capture</span>
+              <span className="text-fg font-medium">Inelastic / Tidal Disruption / BH</span>
             </div>
             <div className="flex justify-between py-1 border-b border-fg/5">
               <span className="text-muted">Environmental:</span>
@@ -119,8 +121,24 @@ export function AccuracyIndicator({ className }: { className?: string }) {
             </div>
           </div>
 
-          <div className="pt-2 border-t border-fg/10">
-            <span className="text-[11px] font-medium text-muted block mb-1.5">Accuracy Preset:</span>
+          <div className="pt-2 border-t border-fg/10 space-y-2">
+            <div className="flex items-center justify-between">
+              <span className="text-[11px] font-medium text-muted">1PN Relativistic Corrections:</span>
+              <button
+                type="button"
+                onClick={() => setEnableRelativity(!enableRelativity)}
+                className={cn(
+                  "px-2 py-0.5 rounded text-[10px] font-mono font-semibold uppercase border transition-all",
+                  enableRelativity
+                    ? "bg-amber-500/20 border-amber-500 text-amber-300"
+                    : "bg-fg/5 border-fg/10 text-muted hover:text-fg"
+                )}
+              >
+                {enableRelativity ? "Active (1PN)" : "Newtonian"}
+              </button>
+            </div>
+
+            <span className="text-[11px] font-medium text-muted block mb-1">Accuracy Preset:</span>
             <div className="grid grid-cols-3 gap-1.5" role="radiogroup" aria-label="Accuracy Preset">
               {(["fast", "standard", "high"] as TimestepQuality[]).map((q) => (
                 <button

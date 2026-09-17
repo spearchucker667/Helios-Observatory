@@ -11,12 +11,14 @@ import {
   type RenderSnapshot,
 } from "./snapshot.ts";
 import { vec3Add } from "../physics/vector.ts";
+import { MAX_FULL_GRAVITY_BODIES, MAX_TOTAL_SIMULATION_BODIES } from "../physics/gravity.ts";
 
 export interface WorldOptions {
   dtSeconds?: number;
   initialBodies?: SimulationBody[];
   initialSimTime?: number;
   initialTick?: number;
+  enableRelativity?: boolean;
 }
 
 export class SimulationWorld {
@@ -25,6 +27,7 @@ export class SimulationWorld {
   private currentTick: number = 0;
   private dtSeconds: number = 900;
   private initialSnapshot: WorldSnapshot | null = null;
+  public enableRelativity: boolean = false;
 
   public readonly eventBus: SimulationEventBus = new SimulationEventBus();
   private commandLog: LoggedCommand[] = [];
@@ -33,6 +36,7 @@ export class SimulationWorld {
     this.dtSeconds = options?.dtSeconds ?? 900;
     this.simTimeSeconds = options?.initialSimTime ?? 0;
     this.currentTick = options?.initialTick ?? 0;
+    this.enableRelativity = options?.enableRelativity ?? false;
 
     if (options?.initialBodies) {
       for (const b of options.initialBodies) {
@@ -104,8 +108,10 @@ export class SimulationWorld {
       isTracer[i] = b.gravityRole === "tracer" ? 1 : 0;
     }
 
-    // Advance symplectic Velocity Verlet
-    const integrated = stepSimulation(positions, velocities, masses, isTracer, dt, numBodies);
+    // Advance symplectic Velocity Verlet with optional 1PN post-Newtonian relativistic corrections
+    const integrated = stepSimulation(positions, velocities, masses, isTracer, dt, numBodies, undefined, {
+      enableRelativity: this.enableRelativity,
+    });
 
     // Update body states
     for (let i = 0; i < numBodies; i++) {
@@ -143,24 +149,46 @@ export class SimulationWorld {
       }
       this.bodies.set(resolution.survivingBody.id, resolution.survivingBody);
 
+      // Add tidal disruption debris remnants up to max total capacity
+      if (resolution.remnantBodies) {
+        for (const remnant of resolution.remnantBodies) {
+          if (this.bodies.size < MAX_TOTAL_SIMULATION_BODIES) {
+            this.bodies.set(remnant.id, remnant);
+          }
+        }
+      }
+
+      // Determine event semantics based on resolution outcome
+      let eventType: SimulationEvent["eventType"] = "merge";
+      let summary = `Physical collision and merge between ${pair.bodyA.name} and ${pair.bodyB.name}.`;
+
+      if (resolution.outcome === "black_hole_capture") {
+        eventType = "black_hole_horizon_crossing";
+        summary = `${pair.bodyA.name} and ${pair.bodyB.name} merged across the event horizon.`;
+      } else if (resolution.outcome === "tidal_disruption") {
+        eventType = "tidal_disruption";
+        const fragCount = resolution.remnantBodies ? resolution.remnantBodies.length : 0;
+        const destroyedName = pair.bodyA.mass >= pair.bodyB.mass ? pair.bodyB.name : pair.bodyA.name;
+        const hostName = pair.bodyA.mass >= pair.bodyB.mass ? pair.bodyA.name : pair.bodyB.name;
+        summary = `Tidal disruption: ${destroyedName} shredded inside Roche limit of ${hostName}. Generated ${fragCount} debris remnants.`;
+      }
+
       // Emit event
       const event: SimulationEvent = {
         eventId: `evt-${this.currentTick}-${pair.bodyA.id}-${pair.bodyB.id}`,
         simTimeSeconds: this.simTimeSeconds,
         tick: this.currentTick,
-        eventType: resolution.outcome === "black_hole_capture" ? "black_hole_horizon_crossing" : "merge",
+        eventType,
         involvedBodyIds: [pair.bodyA.id, pair.bodyB.id],
         involvedBodyNames: [pair.bodyA.name, pair.bodyB.name],
-        summary:
-          resolution.outcome === "black_hole_capture"
-            ? `${pair.bodyA.name} and ${pair.bodyB.name} merged across the event horizon.`
-            : `Physical collision and merge between ${pair.bodyA.name} and ${pair.bodyB.name}.`,
+        summary,
         calculatedQuantities: {
           relativeVelocityKmS: (resolution.diagnostics.relativeVelocityMs / 1000).toFixed(2),
           kineticImpactEnergyJoules: resolution.diagnostics.kineticImpactEnergyJ.toExponential(4),
           reducedMassKg: resolution.diagnostics.reducedMassKg.toExponential(4),
           mergedMassKg: resolution.survivingBody.mass.toExponential(4),
           mergedRadiusKm: (resolution.survivingBody.radius / 1000).toFixed(2),
+          remnantCount: resolution.remnantBodies ? resolution.remnantBodies.length : 0,
         },
         outcome: `Surviving body: ${resolution.survivingBody.name} (mass: ${resolution.survivingBody.mass.toExponential(2)} kg)`,
       };
@@ -189,7 +217,23 @@ export class SimulationWorld {
 
     switch (command.type) {
       case "add_body": {
+        if (this.bodies.size >= MAX_TOTAL_SIMULATION_BODIES) {
+          this.eventBus.emit({
+            eventId: `cmd-${this.currentTick}-max-bodies`,
+            simTimeSeconds: this.simTimeSeconds,
+            tick: this.currentTick,
+            eventType: "accuracy_warning",
+            involvedBodyIds: [],
+            involvedBodyNames: [],
+            summary: `Maximum body capacity reached (${MAX_TOTAL_SIMULATION_BODIES}). Cannot add body.`,
+          });
+          break;
+        }
         const copy = structuredClone(command.body);
+        const massiveCount = Array.from(this.bodies.values()).filter((b) => b.gravityRole === "massive").length;
+        if (copy.gravityRole === "massive" && massiveCount >= MAX_FULL_GRAVITY_BODIES) {
+          copy.gravityRole = "tracer";
+        }
         this.bodies.set(copy.id, copy);
         this.eventBus.emit({
           eventId: `cmd-${this.currentTick}-${copy.id}-add`,
@@ -219,6 +263,9 @@ export class SimulationWorld {
         break;
       }
       case "duplicate_body": {
+        if (this.bodies.size >= MAX_TOTAL_SIMULATION_BODIES) {
+          break;
+        }
         const source = this.bodies.get(command.id);
         if (source) {
           const dup = structuredClone(source);
@@ -226,6 +273,10 @@ export class SimulationWorld {
           dup.name = `${source.name} (Copy)`;
           if (command.offsetM) {
             dup.position = vec3Add(dup.position, command.offsetM);
+          }
+          const massiveCount = Array.from(this.bodies.values()).filter((b) => b.gravityRole === "massive").length;
+          if (dup.gravityRole === "massive" && massiveCount >= MAX_FULL_GRAVITY_BODIES) {
+            dup.gravityRole = "tracer";
           }
           this.bodies.set(dup.id, dup);
           this.eventBus.emit({
@@ -303,6 +354,21 @@ export class SimulationWorld {
         this.setDt(command.dtSeconds);
         break;
       }
+      case "set_relativity": {
+        this.enableRelativity = command.enabled;
+        this.eventBus.emit({
+          eventId: `cmd-${this.currentTick}-relativity`,
+          simTimeSeconds: this.simTimeSeconds,
+          tick: this.currentTick,
+          eventType: "parameter_changed",
+          involvedBodyIds: [],
+          involvedBodyNames: [],
+          summary: command.enabled
+            ? "1PN Post-Newtonian Relativistic corrections enabled"
+            : "Relativistic corrections disabled (Newtonian mode)",
+        });
+        break;
+      }
       case "reset_to_initial": {
         if (this.initialSnapshot) {
           this.restoreSnapshot(this.initialSnapshot);
@@ -358,7 +424,9 @@ export class SimulationWorld {
     let accel: Float64Array | undefined = undefined;
 
     for (let s = 0; s < steps; s++) {
-      const next = stepSimulation(positions, velocities, masses, isTracer, dt, numBodies, accel);
+      const next = stepSimulation(positions, velocities, masses, isTracer, dt, numBodies, accel, {
+        enableRelativity: this.enableRelativity,
+      });
       positions = next.positions;
       velocities = next.velocities;
       accel = next.accelerations;

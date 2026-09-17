@@ -68,24 +68,40 @@ test("malformed JSON is rejected with descriptive error", () => {
   );
 });
 
-test("oversized bodies array (> 128 bodies) is rejected", () => {
+test("oversized bodies array (> 1024 bodies or > 256 massive) is rejected", () => {
   const doc = createTestScenarioDoc("oversized-1");
-  // Inflate bodies to 129
   const baseBody = doc.initialState.bodies[0];
-  const inflatedBodies = [];
-  for (let i = 0; i < 129; i++) {
-    inflatedBodies.push({
+
+  // Test 1: Exceeding massive body cap (257 massive bodies)
+  const massiveInflated = [];
+  for (let i = 0; i < 257; i++) {
+    massiveInflated.push({
       ...baseBody,
-      id: `body-${i}`,
-      name: `Body ${i}`,
+      id: `body-massive-${i}`,
+      name: `Massive Body ${i}`,
+      gravityRole: "massive" as const,
     });
   }
-  doc.initialState.bodies = inflatedBodies;
-
-  const json = JSON.stringify(doc);
+  doc.initialState.bodies = massiveInflated;
   assert.throws(
-    () => deserializeScenario(json),
-    /Maximum 128 bodies supported/
+    () => deserializeScenario(JSON.stringify(doc)),
+    /Maximum 256 massive bodies supported/
+  );
+
+  // Test 2: Exceeding total body cap (1025 bodies)
+  const totalInflated = [];
+  for (let i = 0; i < 1025; i++) {
+    totalInflated.push({
+      ...baseBody,
+      id: `body-total-${i}`,
+      name: `Total Body ${i}`,
+      gravityRole: "tracer" as const,
+    });
+  }
+  doc.initialState.bodies = totalInflated;
+  assert.throws(
+    () => deserializeScenario(JSON.stringify(doc)),
+    /Maximum 1024 bodies supported/
   );
 });
 
