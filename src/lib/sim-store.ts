@@ -52,6 +52,8 @@ type SimState = {
   moonMode: "auto" | "always" | "hidden";
   /** Selected body id — planets, dwarf planets, sun, and moons alike. */
   selectedId: string | null;
+  /** Selected deep-space region id (e.g. kuiper-belt, oort-cloud). */
+  selectedRegionId: string | null;
   hoverId: string | null;
   resetNonce: number;
   dateNonce: number;
@@ -78,6 +80,7 @@ type SimState = {
   setShowOrbits: (show: boolean) => void;
   setMoonMode: (mode: SimState["moonMode"]) => void;
   select: (id: string | null) => void;
+  selectRegion: (regionId: string | null) => void;
   setDate: (dateOrDays: string | number | Date) => void;
   setHover: (id: string | null) => void;
   setUnits: (units: UnitSystem) => void;
@@ -133,6 +136,7 @@ export const useSim = create<SimState>((set) => ({
   showOrbits: true,
   moonMode: "auto",
   selectedId: null,
+  selectedRegionId: null,
   hoverId: null,
   resetNonce: 0,
   dateNonce: 0,
@@ -174,8 +178,11 @@ export const useSim = create<SimState>((set) => ({
   setShowOrbits: (showOrbits) => set({ showOrbits }),
   setMoonMode: (moonMode) => set({ moonMode }),
   select: (selectedId) => {
-    set({ selectedId, detailOpen: true });
+    set({ selectedId, selectedRegionId: null, detailOpen: true });
     syncDeepLinkToUrl(selectedId);
+  },
+  selectRegion: (selectedRegionId) => {
+    set({ selectedRegionId, selectedId: null, detailOpen: true });
   },
   setDate: (dateOrDays) => {
     let days: number | null = null;
@@ -196,6 +203,7 @@ export const useSim = create<SimState>((set) => ({
   resetView: () => {
     set((s) => ({
       selectedId: null,
+      selectedRegionId: null,
       resetNonce: s.resetNonce + 1,
     }));
     syncDeepLinkToUrl(null);
@@ -221,10 +229,23 @@ export function parseDeepLinkParams(searchQuery?: string): {
     const rawDate = params.get("date")?.trim();
 
     let targetId: string | null = null;
-    if (moon && bodyById(moon)) {
-      targetId = moon;
-    } else if (body && bodyById(body)) {
-      targetId = body;
+    const resolvedMoon = moon ? bodyById(moon) : null;
+    const resolvedBody = body ? bodyById(body) : null;
+
+    if (resolvedMoon && resolvedMoon.identity.kind === "moon") {
+      if (resolvedBody) {
+        // Enforce hierarchy: moon must belong to specified parent body
+        if (resolvedMoon.identity.parentId === resolvedBody.identity.id) {
+          targetId = resolvedMoon.identity.id;
+        } else {
+          // Hierarchy mismatch (e.g. ?body=mars&moon=europa): reject mismatched moon and fallback to valid parent body
+          targetId = resolvedBody.identity.id;
+        }
+      } else {
+        targetId = resolvedMoon.identity.id;
+      }
+    } else if (resolvedBody) {
+      targetId = resolvedBody.identity.id;
     }
 
     let dateDays: number | null = null;

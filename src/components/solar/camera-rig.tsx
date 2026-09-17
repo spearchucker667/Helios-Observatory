@@ -31,14 +31,25 @@ export function CameraRig({
   const { camera } = useThree();
   const resetNonce = useSim((s) => s.resetNonce);
   const scaleMode = useSim((s) => s.scaleMode);
+  const selectedRegionId = useSim((s) => s.selectedRegionId);
   const defaultPos = useRef(homePosition(scaleMode));
   const initialSnap = useRef(true);
+  const regionFraming = useRef(false);
 
   useEffect(() => {
     returning.current = true;
     tracking.current = false;
     initialSnap.current = false;
+    regionFraming.current = false;
   }, [resetNonce]);
+
+  useEffect(() => {
+    if (selectedRegionId) {
+      regionFraming.current = true;
+      returning.current = false;
+      tracking.current = false;
+    }
+  }, [selectedRegionId]);
 
   // Keep the home position in sync with scale mode.
   useEffect(() => {
@@ -58,10 +69,12 @@ export function CameraRig({
     const kReturn = reduced ? 1 : 1 - Math.exp(-2.4 * d);
 
     const selectedId = useSim.getState().selectedId;
+    const currentRegionId = useSim.getState().selectedRegionId;
     const body = selectedId ? bodyById(selectedId) : null;
 
     if (body && selectedId && bodyRefs.current[selectedId]) {
       returning.current = false;
+      regionFraming.current = false;
       const node = bodyRefs.current[selectedId]!;
       node.getWorldPosition(tmpWorld);
 
@@ -103,6 +116,26 @@ export function CameraRig({
       controls.minDistance = Math.max(sceneR * 1.6, 0.12);
       lastTarget.current.copy(tmpWorld);
       tracking.current = true;
+    } else if (currentRegionId) {
+      tracking.current = false;
+      returning.current = false;
+      controls.target.lerp(origin, kReturn);
+      controls.minDistance = 1.0;
+
+      if (regionFraming.current) {
+        const isOort = currentRegionId === "oort-cloud";
+        const targetDist = isOort
+          ? (scaleMode === "distance" ? 240 : 180)
+          : (scaleMode === "distance" ? 180 : 80);
+        tmpDir.copy(camera.position).sub(origin);
+        if (tmpDir.lengthSq() < 1e-4) tmpDir.set(0.35, 0.5, 0.75);
+        tmpDir.normalize().multiplyScalar(targetDist);
+        camera.position.lerp(tmpDir, kReturn);
+        if (camera.position.distanceTo(tmpDir) < 0.5) {
+          regionFraming.current = false;
+        }
+      }
+      lastTarget.current.copy(controls.target);
     } else {
       tracking.current = false;
       controls.target.lerp(origin, kReturn);

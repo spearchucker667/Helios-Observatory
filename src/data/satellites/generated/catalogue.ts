@@ -137,10 +137,10 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "fidelity": "regular",
     "named": true,
     "provisional": false,
-    "family": "Amalthea group",
+    "family": "Inner",
     "discovery": {
       "year": 1979,
-      "discoverer": "Stephen P. Synnott (Voyager 1)"
+      "discoverer": "Synnott(Voyager 1)"
     },
     "orbit": {
       "semiMajorAxisKm": 128000,
@@ -169,10 +169,10 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "fidelity": "regular",
     "named": true,
     "provisional": false,
-    "family": "Amalthea group",
+    "family": "Inner",
     "discovery": {
       "year": 1979,
-      "discoverer": "David C. Jewitt (Voyager 1)"
+      "discoverer": "Jewitt(Voyager 2)"
     },
     "orbit": {
       "semiMajorAxisKm": 129000,
@@ -201,14 +201,14 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "fidelity": "regular",
     "named": true,
     "provisional": false,
-    "family": "Amalthea group",
+    "family": "Inner",
     "discovery": {
       "year": 1892,
-      "discoverer": "E. E. Barnard"
+      "discoverer": "Barnard"
     },
     "orbit": {
-      "semiMajorAxisKm": 181400,
-      "periodDays": 0.498,
+      "semiMajorAxisKm": 181366,
+      "periodDays": 0.499,
       "eccentricity": 0.0032,
       "inclinationDeg": 0.37,
       "retrograde": false
@@ -233,14 +233,14 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "fidelity": "regular",
     "named": true,
     "provisional": false,
-    "family": "Amalthea group",
+    "family": "Inner",
     "discovery": {
       "year": 1979,
-      "discoverer": "Stephen P. Synnott (Voyager 1)"
+      "discoverer": "Synnott(Voyager 1)"
     },
     "orbit": {
-      "semiMajorAxisKm": 221900,
-      "periodDays": 0.675,
+      "semiMajorAxisKm": 221889,
+      "periodDays": 0.676,
       "eccentricity": 0.0175,
       "inclinationDeg": 1.08,
       "retrograde": false
@@ -259,7 +259,7 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
   },
   {
     "id": "io",
-    "name": "Io",
+    "name": "'Io'",
     "designation": "Jupiter I",
     "parentId": "jupiter",
     "fidelity": "major",
@@ -273,7 +273,7 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "orbit": {
       "semiMajorAxisKm": 421700,
       "periodDays": 1.769,
-      "eccentricity": 0.0041,
+      "eccentricity": 0.004,
       "inclinationDeg": 0.05,
       "retrograde": false
     },
@@ -291,7 +291,7 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
   },
   {
     "id": "europa",
-    "name": "Europa",
+    "name": "'Europa'",
     "designation": "Jupiter II",
     "parentId": "jupiter",
     "fidelity": "major",
@@ -303,8 +303,8 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
       "discoverer": "Galileo Galilei"
     },
     "orbit": {
-      "semiMajorAxisKm": 671034,
-      "periodDays": 3.551,
+      "semiMajorAxisKm": 670900,
+      "periodDays": 3.55,
       "eccentricity": 0.009,
       "inclinationDeg": 0.47,
       "retrograde": false
@@ -323,7 +323,7 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
   },
   {
     "id": "ganymede",
-    "name": "Ganymede",
+    "name": "'Ganymede'",
     "designation": "Jupiter III",
     "parentId": "jupiter",
     "fidelity": "major",
@@ -335,8 +335,8 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
       "discoverer": "Galileo Galilei"
     },
     "orbit": {
-      "semiMajorAxisKm": 1070412,
-      "periodDays": 7.155,
+      "semiMajorAxisKm": 1070400,
+      "periodDays": 7.156,
       "eccentricity": 0.0013,
       "inclinationDeg": 0.2,
       "retrograde": false
@@ -355,7 +355,7 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
   },
   {
     "id": "callisto",
-    "name": "Callisto",
+    "name": "'Callisto'",
     "designation": "Jupiter IV",
     "parentId": "jupiter",
     "fidelity": "major",
@@ -367,10 +367,10 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
       "discoverer": "Galileo Galilei"
     },
     "orbit": {
-      "semiMajorAxisKm": 1882709,
-      "periodDays": 16.689,
+      "semiMajorAxisKm": 1882700,
+      "periodDays": 16.69,
       "eccentricity": 0.0074,
-      "inclinationDeg": 0.28,
+      "inclinationDeg": 0.19,
       "retrograde": false
     },
     "physical": {
@@ -396,18 +396,50 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "family": "Themisto",
     "discovery": {
       "year": 1975,
-      "discoverer": "Charles T. Kowal"
+      "discoverer": "Kowal & Roemer/{{br}}Sheppard et al."
     },
     "orbit": {
-      "semiMajorAxisKm": 7393216,
-      "periodDays": 130.02,
-      "eccentricity": 0.242,
-      "inclinationDeg": 45.8,
+      "semiMajorAxisKm": 7397000,
+      "periodDays": 129.97,
+      "eccentricity": 0.257,
+      "inclinationDeg": 44.3,
       "retrograde": false
     },
     "physical": {
       "meanRadiusKm": 4.5,
       "diameterKm": 9,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2011-j-4",
+    "name": "S/2011 J 4",
+    "designation": "Jupiter I",
+    "parentId": "jupiter",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Himalia group",
+    "discovery": {
+      "year": 2011,
+      "discoverer": "Sheppard"
+    },
+    "orbit": {
+      "semiMajorAxisKm": 11104600,
+      "periodDays": 239.05,
+      "eccentricity": 0.128,
+      "inclinationDeg": 28.5,
+      "retrograde": false
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
       "albedo": 0.04
     },
     "sourceIds": [
@@ -428,50 +460,18 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "family": "Himalia group",
     "discovery": {
       "year": 1974,
-      "discoverer": "Charles T. Kowal"
+      "discoverer": "Kowal"
     },
     "orbit": {
-      "semiMajorAxisKm": 11187780,
-      "periodDays": 241.1,
-      "eccentricity": 0.1636,
-      "inclinationDeg": 27.46,
+      "semiMajorAxisKm": 11145200,
+      "periodDays": 240.33,
+      "eccentricity": 0.162,
+      "inclinationDeg": 28.2,
       "retrograde": false
     },
     "physical": {
       "meanRadiusKm": 10.8,
       "diameterKm": 21.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "himalia",
-    "name": "Himalia",
-    "designation": "Jupiter VI",
-    "parentId": "jupiter",
-    "fidelity": "irregular",
-    "named": true,
-    "provisional": false,
-    "family": "Himalia group",
-    "discovery": {
-      "year": 1904,
-      "discoverer": "Charles Dillon Perrine"
-    },
-    "orbit": {
-      "semiMajorAxisKm": 11451970,
-      "periodDays": 250.2,
-      "eccentricity": 0.1623,
-      "inclinationDeg": 27.5,
-      "retrograde": false
-    },
-    "physical": {
-      "meanRadiusKm": 69.8,
-      "diameterKm": 139.6,
       "albedo": 0.04
     },
     "sourceIds": [
@@ -492,18 +492,82 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "family": "Himalia group",
     "discovery": {
       "year": 2018,
-      "discoverer": "Scott S. Sheppard"
+      "discoverer": "Sheppard"
     },
     "orbit": {
-      "semiMajorAxisKm": 11483000,
-      "periodDays": 252,
-      "eccentricity": 0.094,
-      "inclinationDeg": 30.61,
+      "semiMajorAxisKm": 11399400,
+      "periodDays": 248.62,
+      "eccentricity": 0.117,
+      "inclinationDeg": 29,
       "retrograde": false
     },
     "physical": {
       "meanRadiusKm": 1.5,
       "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2018-j-2",
+    "name": "S/2018 J 2",
+    "designation": "S/2018 J 2",
+    "parentId": "jupiter",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Himalia group",
+    "discovery": {
+      "year": 2018,
+      "discoverer": "Sheppard"
+    },
+    "orbit": {
+      "semiMajorAxisKm": 11419700,
+      "periodDays": 249.28,
+      "eccentricity": 0.152,
+      "inclinationDeg": 28.3,
+      "retrograde": false
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "himalia",
+    "name": "Himalia",
+    "designation": "Jupiter VI",
+    "parentId": "jupiter",
+    "fidelity": "irregular",
+    "named": true,
+    "provisional": false,
+    "family": "Himalia group",
+    "discovery": {
+      "year": 1904,
+      "discoverer": "Perrine"
+    },
+    "orbit": {
+      "semiMajorAxisKm": 11439000,
+      "periodDays": 249.91,
+      "eccentricity": 0.16,
+      "inclinationDeg": 28.4,
+      "retrograde": false
+    },
+    "physical": {
+      "meanRadiusKm": 69.8,
+      "diameterKm": 139.6,
       "albedo": 0.04
     },
     "sourceIds": [
@@ -524,13 +588,13 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "family": "Himalia group",
     "discovery": {
       "year": 2017,
-      "discoverer": "Scott S. Sheppard"
+      "discoverer": "Sheppard"
     },
     "orbit": {
-      "semiMajorAxisKm": 11525000,
-      "periodDays": 252.1,
-      "eccentricity": 0.18,
-      "inclinationDeg": 28.15,
+      "semiMajorAxisKm": 11479600,
+      "periodDays": 251.23,
+      "eccentricity": 0.178,
+      "inclinationDeg": 28.9,
       "retrograde": false
     },
     "physical": {
@@ -556,13 +620,13 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "family": "Himalia group",
     "discovery": {
       "year": 1938,
-      "discoverer": "Seth Barnes Nicholson"
+      "discoverer": "Nicholson"
     },
     "orbit": {
-      "semiMajorAxisKm": 11740560,
-      "periodDays": 259.2,
-      "eccentricity": 0.1124,
-      "inclinationDeg": 28.3,
+      "semiMajorAxisKm": 11699100,
+      "periodDays": 258.5,
+      "eccentricity": 0.117,
+      "inclinationDeg": 27.7,
       "retrograde": false
     },
     "physical": {
@@ -588,18 +652,82 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "family": "Himalia group",
     "discovery": {
       "year": 1905,
-      "discoverer": "Charles Dillon Perrine"
+      "discoverer": "Perrine"
     },
     "orbit": {
-      "semiMajorAxisKm": 11778030,
-      "periodDays": 259.6,
-      "eccentricity": 0.2172,
-      "inclinationDeg": 26.63,
+      "semiMajorAxisKm": 11710700,
+      "periodDays": 258.89,
+      "eccentricity": 0.212,
+      "inclinationDeg": 27.8,
       "retrograde": false
     },
     "physical": {
       "meanRadiusKm": 40,
       "diameterKm": 79.9,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2011-j-3",
+    "name": "S/2011 J 3",
+    "designation": "Jupiter I",
+    "parentId": "jupiter",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Himalia group",
+    "discovery": {
+      "year": 2011,
+      "discoverer": "Sheppard"
+    },
+    "orbit": {
+      "semiMajorAxisKm": 11716800,
+      "periodDays": 259.09,
+      "eccentricity": 0.192,
+      "inclinationDeg": 27.6,
+      "retrograde": false
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2017-j-17",
+    "name": "S/2017 J 17",
+    "designation": "Jupiter I",
+    "parentId": "jupiter",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Himalia group",
+    "discovery": {
+      "year": 2017,
+      "discoverer": "Sheppard"
+    },
+    "orbit": {
+      "semiMajorAxisKm": 11776100,
+      "periodDays": 261.07,
+      "eccentricity": 0.164,
+      "inclinationDeg": 29,
+      "retrograde": false
+    },
+    "physical": {
+      "meanRadiusKm": 0.5,
+      "diameterKm": 1,
       "albedo": 0.04
     },
     "sourceIds": [
@@ -623,15 +751,47 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
       "discoverer": "Sheppard et al."
     },
     "orbit": {
-      "semiMajorAxisKm": 12555000,
-      "periodDays": 287,
-      "eccentricity": 0.211,
-      "inclinationDeg": 28.3,
+      "semiMajorAxisKm": 12257900,
+      "periodDays": 277.25,
+      "eccentricity": 0.232,
+      "inclinationDeg": 29.1,
       "retrograde": false
     },
     "physical": {
       "meanRadiusKm": 2,
       "diameterKm": 4,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2018-j-4",
+    "name": "S/2018 J 4",
+    "designation": "S/2018 J 4",
+    "parentId": "jupiter",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Carpo",
+    "discovery": {
+      "year": 2018,
+      "discoverer": "Sheppard"
+    },
+    "orbit": {
+      "semiMajorAxisKm": 16328500,
+      "periodDays": 426.26,
+      "eccentricity": 0.177,
+      "inclinationDeg": 50.2,
+      "retrograde": false
+    },
+    "physical": {
+      "meanRadiusKm": 1,
+      "diameterKm": 2,
       "albedo": 0.04
     },
     "sourceIds": [
@@ -652,13 +812,13 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "family": "Carpo",
     "discovery": {
       "year": 2003,
-      "discoverer": "Scott S. Sheppard et al."
+      "discoverer": "Sheppard"
     },
     "orbit": {
-      "semiMajorAxisKm": 17058000,
-      "periodDays": 456.1,
-      "eccentricity": 0.4297,
-      "inclinationDeg": 51.4,
+      "semiMajorAxisKm": 17039500,
+      "periodDays": 454.4,
+      "eccentricity": 0.415,
+      "inclinationDeg": 53.3,
       "retrograde": false
     },
     "physical": {
@@ -684,13 +844,13 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "family": "Valetudo",
     "discovery": {
       "year": 2016,
-      "discoverer": "Scott S. Sheppard"
+      "discoverer": "Sheppard"
     },
     "orbit": {
-      "semiMajorAxisKm": 18980000,
-      "periodDays": 532,
-      "eccentricity": 0.222,
-      "inclinationDeg": 34,
+      "semiMajorAxisKm": 18690100,
+      "periodDays": 522.07,
+      "eccentricity": 0.217,
+      "inclinationDeg": 34.5,
       "retrograde": false
     },
     "physical": {
@@ -707,7 +867,7 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
   },
   {
     "id": "euporie",
-    "name": "Euporie",
+    "name": "Euporie♦",
     "designation": "Jupiter XXXIV",
     "parentId": "jupiter",
     "fidelity": "irregular",
@@ -716,13 +876,45 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "family": "Ananke group",
     "discovery": {
       "year": 2001,
-      "discoverer": "Scott S. Sheppard et al."
+      "discoverer": "Sheppard et al."
     },
     "orbit": {
-      "semiMajorAxisKm": 19302000,
-      "periodDays": 550.7,
-      "eccentricity": 0.144,
-      "inclinationDeg": 145.8,
+      "semiMajorAxisKm": 19261900,
+      "periodDays": 546.18,
+      "eccentricity": 0.148,
+      "inclinationDeg": 145.5,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1,
+      "diameterKm": 2,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2003-j-18",
+    "name": "S/2003 J 18♦",
+    "designation": "Jupiter LV",
+    "parentId": "jupiter",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Ananke group",
+    "discovery": {
+      "year": 2003,
+      "discoverer": "Gladman"
+    },
+    "orbit": {
+      "semiMajorAxisKm": 20332800,
+      "periodDays": 592.33,
+      "eccentricity": 0.102,
+      "inclinationDeg": 145.7,
       "retrograde": true
     },
     "physical": {
@@ -739,7 +931,7 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
   },
   {
     "id": "eupheme",
-    "name": "Eupheme",
+    "name": "Eupheme♦",
     "designation": "Jupiter LX",
     "parentId": "jupiter",
     "fidelity": "irregular",
@@ -748,13 +940,13 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "family": "Ananke group",
     "discovery": {
       "year": 2003,
-      "discoverer": "Scott S. Sheppard et al."
+      "discoverer": "Sheppard"
     },
     "orbit": {
-      "semiMajorAxisKm": 20224000,
-      "periodDays": 583.9,
-      "eccentricity": 0.253,
-      "inclinationDeg": 146.4,
+      "semiMajorAxisKm": 20763400,
+      "periodDays": 611.32,
+      "eccentricity": 0.234,
+      "inclinationDeg": 147.9,
       "retrograde": true
     },
     "physical": {
@@ -770,9 +962,105 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "asOf": "2026-08-15"
   },
   {
-    "id": "thelxinoe",
-    "name": "Thelxinoe",
-    "designation": "Jupiter XLII",
+    "id": "s-2021-j-3",
+    "name": "S/2021 J 3♦",
+    "designation": "S/2021 J 3♦",
+    "parentId": "jupiter",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Ananke group",
+    "discovery": {
+      "year": 2021,
+      "discoverer": "Sheppard"
+    },
+    "orbit": {
+      "semiMajorAxisKm": 20776600,
+      "periodDays": 611.87,
+      "eccentricity": 0.239,
+      "inclinationDeg": 147.9,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1,
+      "diameterKm": 2,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2010-j-2",
+    "name": "S/2010 J 2♦",
+    "designation": "Jupiter LII",
+    "parentId": "jupiter",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Ananke group",
+    "discovery": {
+      "year": 2010,
+      "discoverer": "Veillet"
+    },
+    "orbit": {
+      "semiMajorAxisKm": 20786900,
+      "periodDays": 612.35,
+      "eccentricity": 0.244,
+      "inclinationDeg": 148,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 0.5,
+      "diameterKm": 1,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2016-j-1",
+    "name": "S/2016 J 1♦",
+    "designation": "Jupiter LIV",
+    "parentId": "jupiter",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Ananke group",
+    "discovery": {
+      "year": 2016,
+      "discoverer": "Sheppard"
+    },
+    "orbit": {
+      "semiMajorAxisKm": 20796700,
+      "periodDays": 612.78,
+      "eccentricity": 0.245,
+      "inclinationDeg": 145.1,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 0.5,
+      "diameterKm": 1,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "mneme",
+    "name": "Mneme♦",
+    "designation": "Jupiter XL",
     "parentId": "jupiter",
     "fidelity": "irregular",
     "named": true,
@@ -780,13 +1068,13 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "family": "Ananke group",
     "discovery": {
       "year": 2003,
-      "discoverer": "Scott S. Sheppard et al."
+      "discoverer": "Sheppard &{{br}}Gladman"
     },
     "orbit": {
-      "semiMajorAxisKm": 21162000,
-      "periodDays": 628.1,
-      "eccentricity": 0.221,
-      "inclinationDeg": 151.4,
+      "semiMajorAxisKm": 20815800,
+      "periodDays": 613.61,
+      "eccentricity": 0.24,
+      "inclinationDeg": 147.8,
       "retrograde": true
     },
     "physical": {
@@ -803,7 +1091,7 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
   },
   {
     "id": "euanthe",
-    "name": "Euanthe",
+    "name": "Euanthe♦",
     "designation": "Jupiter XXXIII",
     "parentId": "jupiter",
     "fidelity": "irregular",
@@ -812,13 +1100,13 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "family": "Ananke group",
     "discovery": {
       "year": 2001,
-      "discoverer": "Scott S. Sheppard et al."
+      "discoverer": "Sheppard et al."
     },
     "orbit": {
-      "semiMajorAxisKm": 20799000,
-      "periodDays": 620.5,
-      "eccentricity": 0.232,
-      "inclinationDeg": 148.9,
+      "semiMajorAxisKm": 20822900,
+      "periodDays": 613.93,
+      "eccentricity": 0.243,
+      "inclinationDeg": 148.1,
       "retrograde": true
     },
     "physical": {
@@ -834,23 +1122,55 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "asOf": "2026-08-15"
   },
   {
-    "id": "helike",
-    "name": "Helike",
-    "designation": "Jupiter XLV",
+    "id": "s-2003-j-16",
+    "name": "S/2003 J 16♦",
+    "designation": "S/2003 J 16♦",
+    "parentId": "jupiter",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Ananke group",
+    "discovery": {
+      "year": 2003,
+      "discoverer": "Gladman"
+    },
+    "orbit": {
+      "semiMajorAxisKm": 20877500,
+      "periodDays": 616.34,
+      "eccentricity": 0.238,
+      "inclinationDeg": 147.8,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1,
+      "diameterKm": 2,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "harpalyke",
+    "name": "Harpalyke♦",
+    "designation": "Jupiter XXII",
     "parentId": "jupiter",
     "fidelity": "irregular",
     "named": true,
     "provisional": false,
     "family": "Ananke group",
     "discovery": {
-      "year": 2003,
-      "discoverer": "Scott S. Sheppard et al."
+      "year": 2000,
+      "discoverer": "Sheppard et al."
     },
     "orbit": {
-      "semiMajorAxisKm": 21263000,
-      "periodDays": 634.8,
-      "eccentricity": 0.156,
-      "inclinationDeg": 154.8,
+      "semiMajorAxisKm": 20887500,
+      "periodDays": 616.78,
+      "eccentricity": 0.239,
+      "inclinationDeg": 147.8,
       "retrograde": true
     },
     "physical": {
@@ -867,7 +1187,7 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
   },
   {
     "id": "orthosie",
-    "name": "Orthosie",
+    "name": "Orthosie♦",
     "designation": "Jupiter XXXV",
     "parentId": "jupiter",
     "fidelity": "irregular",
@@ -876,13 +1196,13 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "family": "Ananke group",
     "discovery": {
       "year": 2001,
-      "discoverer": "Scott S. Sheppard et al."
+      "discoverer": "Sheppard et al."
     },
     "orbit": {
-      "semiMajorAxisKm": 20721000,
-      "periodDays": 622.6,
-      "eccentricity": 0.281,
-      "inclinationDeg": 145.9,
+      "semiMajorAxisKm": 20897800,
+      "periodDays": 617.23,
+      "eccentricity": 0.294,
+      "inclinationDeg": 144.2,
       "retrograde": true
     },
     "physical": {
@@ -898,28 +1218,60 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "asOf": "2026-08-15"
   },
   {
-    "id": "iocaste",
-    "name": "Iocaste",
-    "designation": "Jupiter XXIV",
+    "id": "helike",
+    "name": "Helike♦",
+    "designation": "Jupiter XLV",
     "parentId": "jupiter",
     "fidelity": "irregular",
     "named": true,
     "provisional": false,
     "family": "Ananke group",
     "discovery": {
-      "year": 2000,
-      "discoverer": "Scott S. Sheppard et al."
+      "year": 2003,
+      "discoverer": "Sheppard"
     },
     "orbit": {
-      "semiMajorAxisKm": 21269000,
-      "periodDays": 631.5,
-      "eccentricity": 0.216,
-      "inclinationDeg": 149.4,
+      "semiMajorAxisKm": 20911400,
+      "periodDays": 617.86,
+      "eccentricity": 0.155,
+      "inclinationDeg": 154.4,
       "retrograde": true
     },
     "physical": {
-      "meanRadiusKm": 2.6,
-      "diameterKm": 5.2,
+      "meanRadiusKm": 2,
+      "diameterKm": 4,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2021-j-2",
+    "name": "S/2021 J 2♦",
+    "designation": "S/2021 J 2♦",
+    "parentId": "jupiter",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Ananke group",
+    "discovery": {
+      "year": 2021,
+      "discoverer": "Sheppard"
+    },
+    "orbit": {
+      "semiMajorAxisKm": 20926600,
+      "periodDays": 618.5,
+      "eccentricity": 0.242,
+      "inclinationDeg": 148.1,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 0.5,
+      "diameterKm": 1,
       "albedo": 0.04
     },
     "sourceIds": [
@@ -931,7 +1283,7 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
   },
   {
     "id": "praxidike",
-    "name": "Praxidike",
+    "name": "Praxidike♦",
     "designation": "Jupiter XXVII",
     "parentId": "jupiter",
     "fidelity": "irregular",
@@ -940,13 +1292,13 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "family": "Ananke group",
     "discovery": {
       "year": 2000,
-      "discoverer": "Scott S. Sheppard et al."
+      "discoverer": "Sheppard et al."
     },
     "orbit": {
-      "semiMajorAxisKm": 21147000,
-      "periodDays": 625.3,
-      "eccentricity": 0.23,
-      "inclinationDeg": 149,
+      "semiMajorAxisKm": 20931100,
+      "periodDays": 618.72,
+      "eccentricity": 0.245,
+      "inclinationDeg": 148.2,
       "retrograde": true
     },
     "physical": {
@@ -962,55 +1314,23 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "asOf": "2026-08-15"
   },
   {
-    "id": "harpalyke",
-    "name": "Harpalyke",
-    "designation": "Jupiter XXII",
+    "id": "s-2017-j-3",
+    "name": "S/2017 J 3♦",
+    "designation": "Jupiter LXIV",
     "parentId": "jupiter",
     "fidelity": "irregular",
-    "named": true,
-    "provisional": false,
+    "named": false,
+    "provisional": true,
     "family": "Ananke group",
     "discovery": {
-      "year": 2000,
-      "discoverer": "Scott S. Sheppard et al."
+      "year": 2017,
+      "discoverer": "Sheppard"
     },
     "orbit": {
-      "semiMajorAxisKm": 21105000,
-      "periodDays": 623.3,
-      "eccentricity": 0.226,
-      "inclinationDeg": 148.6,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 2.2,
-      "diameterKm": 4.4,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "mneme",
-    "name": "Mneme",
-    "designation": "Jupiter XL",
-    "parentId": "jupiter",
-    "fidelity": "irregular",
-    "named": true,
-    "provisional": false,
-    "family": "Ananke group",
-    "discovery": {
-      "year": 2003,
-      "discoverer": "Scott S. Sheppard et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 21069000,
-      "periodDays": 620,
-      "eccentricity": 0.227,
-      "inclinationDeg": 148.6,
+      "semiMajorAxisKm": 20936500,
+      "periodDays": 618.97,
+      "eccentricity": 0.238,
+      "inclinationDeg": 147.9,
       "retrograde": true
     },
     "physical": {
@@ -1026,28 +1346,124 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "asOf": "2026-08-15"
   },
   {
-    "id": "hermippe",
-    "name": "Hermippe",
-    "designation": "Jupiter XXX",
+    "id": "s-2021-j-1",
+    "name": "S/2021 J 1♦",
+    "designation": "S/2021 J 1♦",
+    "parentId": "jupiter",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Ananke group",
+    "discovery": {
+      "year": 2021,
+      "discoverer": "Sheppard"
+    },
+    "orbit": {
+      "semiMajorAxisKm": 20954700,
+      "periodDays": 619.77,
+      "eccentricity": 0.228,
+      "inclinationDeg": 150.5,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 0.5,
+      "diameterKm": 1,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2003-j-12",
+    "name": "S/2003 J 12♦",
+    "designation": "S/2003 J 12♦",
+    "parentId": "jupiter",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Ananke group",
+    "discovery": {
+      "year": 2003,
+      "discoverer": "Sheppard"
+    },
+    "orbit": {
+      "semiMajorAxisKm": 20959300,
+      "periodDays": 619.96,
+      "eccentricity": 0.235,
+      "inclinationDeg": 150,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 0.5,
+      "diameterKm": 1,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2017-j-7",
+    "name": "S/2017 J 7♦",
+    "designation": "Jupiter LXVIII",
+    "parentId": "jupiter",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Ananke group",
+    "discovery": {
+      "year": 2017,
+      "discoverer": "Sheppard"
+    },
+    "orbit": {
+      "semiMajorAxisKm": 20960400,
+      "periodDays": 620.02,
+      "eccentricity": 0.235,
+      "inclinationDeg": 147.4,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1,
+      "diameterKm": 2,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "thelxinoe",
+    "name": "Thelxinoe♦",
+    "designation": "Jupiter XLII",
     "parentId": "jupiter",
     "fidelity": "irregular",
     "named": true,
     "provisional": false,
     "family": "Ananke group",
     "discovery": {
-      "year": 2001,
-      "discoverer": "Scott S. Sheppard et al."
+      "year": 2003,
+      "discoverer": "Sheppard &{{br}}Gladman et al."
     },
     "orbit": {
-      "semiMajorAxisKm": 21297000,
-      "periodDays": 633.9,
-      "eccentricity": 0.21,
+      "semiMajorAxisKm": 20972300,
+      "periodDays": 620.55,
+      "eccentricity": 0.229,
       "inclinationDeg": 150.7,
       "retrograde": true
     },
     "physical": {
-      "meanRadiusKm": 2,
-      "diameterKm": 4,
+      "meanRadiusKm": 1,
+      "diameterKm": 2,
       "albedo": 0.04
     },
     "sourceIds": [
@@ -1059,7 +1475,7 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
   },
   {
     "id": "thyone",
-    "name": "Thyone",
+    "name": "Thyone♦",
     "designation": "Jupiter XXIX",
     "parentId": "jupiter",
     "fidelity": "irregular",
@@ -1068,13 +1484,13 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "family": "Ananke group",
     "discovery": {
       "year": 2001,
-      "discoverer": "Scott S. Sheppard et al."
+      "discoverer": "Sheppard et al."
     },
     "orbit": {
-      "semiMajorAxisKm": 20939000,
-      "periodDays": 627.3,
-      "eccentricity": 0.229,
-      "inclinationDeg": 148.5,
+      "semiMajorAxisKm": 20972700,
+      "periodDays": 620.59,
+      "eccentricity": 0.235,
+      "inclinationDeg": 147.6,
       "retrograde": true
     },
     "physical": {
@@ -1090,8 +1506,104 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "asOf": "2026-08-15"
   },
   {
+    "id": "s-2021-j-8",
+    "name": "S/2021 J 8♦",
+    "designation": "S/2021 J 8♦",
+    "parentId": "jupiter",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Ananke group",
+    "discovery": {
+      "year": 2021,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 20978900,
+      "periodDays": 620.85,
+      "eccentricity": 0.243,
+      "inclinationDeg": 147.1,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 0.5,
+      "diameterKm": 1,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2003-j-2",
+    "name": "S/2003 J 2♦",
+    "designation": "Jupiter LXXIII",
+    "parentId": "jupiter",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Ananke group",
+    "discovery": {
+      "year": 2003,
+      "discoverer": "Sheppard"
+    },
+    "orbit": {
+      "semiMajorAxisKm": 20992900,
+      "periodDays": 621.47,
+      "eccentricity": 0.225,
+      "inclinationDeg": 150.1,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1,
+      "diameterKm": 2,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2022-j-3",
+    "name": "S/2022 J 3♦",
+    "designation": "S/2022 J 3♦",
+    "parentId": "jupiter",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Ananke group",
+    "discovery": {
+      "year": 2022,
+      "discoverer": "Sheppard"
+    },
+    "orbit": {
+      "semiMajorAxisKm": 21015100,
+      "periodDays": 622.44,
+      "eccentricity": 0.248,
+      "inclinationDeg": 148.1,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 0.5,
+      "diameterKm": 1,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
     "id": "ananke",
-    "name": "Ananke",
+    "name": "Ananke♦",
     "designation": "Jupiter XII",
     "parentId": "jupiter",
     "fidelity": "irregular",
@@ -1100,13 +1612,13 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "family": "Ananke group",
     "discovery": {
       "year": 1951,
-      "discoverer": "Seth Barnes Nicholson"
+      "discoverer": "Nicholson"
     },
     "orbit": {
-      "semiMajorAxisKm": 21276000,
-      "periodDays": 610.5,
-      "eccentricity": 0.244,
-      "inclinationDeg": 148.9,
+      "semiMajorAxisKm": 21029500,
+      "periodDays": 623.11,
+      "eccentricity": 0.238,
+      "inclinationDeg": 147.6,
       "retrograde": true
     },
     "physical": {
@@ -1122,119 +1634,23 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "asOf": "2026-08-15"
   },
   {
-    "id": "herse",
-    "name": "Herse",
-    "designation": "Jupiter L",
+    "id": "iocaste",
+    "name": "Iocaste♦",
+    "designation": "Jupiter XXIV",
     "parentId": "jupiter",
     "fidelity": "irregular",
     "named": true,
     "provisional": false,
     "family": "Ananke group",
     "discovery": {
-      "year": 2003,
-      "discoverer": "Scott S. Sheppard et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 20606000,
-      "periodDays": 606,
-      "eccentricity": 0.2,
-      "inclinationDeg": 149,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1,
-      "diameterKm": 2,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "aitne",
-    "name": "Aitne",
-    "designation": "Jupiter XXXI",
-    "parentId": "jupiter",
-    "fidelity": "irregular",
-    "named": true,
-    "provisional": false,
-    "family": "Carme group",
-    "discovery": {
-      "year": 2001,
-      "discoverer": "Scott S. Sheppard et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 23229000,
-      "periodDays": 730.2,
-      "eccentricity": 0.264,
-      "inclinationDeg": 165.1,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.5,
-      "diameterKm": 3,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "kale",
-    "name": "Kale",
-    "designation": "Jupiter XXXVII",
-    "parentId": "jupiter",
-    "fidelity": "irregular",
-    "named": true,
-    "provisional": false,
-    "family": "Carme group",
-    "discovery": {
-      "year": 2001,
-      "discoverer": "Scott S. Sheppard et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 23217000,
-      "periodDays": 729.5,
-      "eccentricity": 0.26,
-      "inclinationDeg": 165,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1,
-      "diameterKm": 2,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "taygete",
-    "name": "Taygete",
-    "designation": "Jupiter XX",
-    "parentId": "jupiter",
-    "fidelity": "irregular",
-    "named": true,
-    "provisional": false,
-    "family": "Carme group",
-    "discovery": {
       "year": 2000,
-      "discoverer": "Scott S. Sheppard et al."
+      "discoverer": "Sheppard et al."
     },
     "orbit": {
-      "semiMajorAxisKm": 23360000,
-      "periodDays": 732.2,
-      "eccentricity": 0.252,
-      "inclinationDeg": 165.2,
+      "semiMajorAxisKm": 21062300,
+      "periodDays": 624.55,
+      "eccentricity": 0.223,
+      "inclinationDeg": 148.7,
       "retrograde": true
     },
     "physical": {
@@ -1250,28 +1666,28 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "asOf": "2026-08-15"
   },
   {
-    "id": "chaldene",
-    "name": "Chaldene",
-    "designation": "Jupiter XXI",
+    "id": "s-2017-j-10",
+    "name": "S/2017 J 10♦",
+    "designation": "Jupiter L",
     "parentId": "jupiter",
     "fidelity": "irregular",
-    "named": true,
-    "provisional": false,
-    "family": "Carme group",
+    "named": false,
+    "provisional": true,
+    "family": "Ananke group",
     "discovery": {
-      "year": 2000,
-      "discoverer": "Scott S. Sheppard et al."
+      "year": 2017,
+      "discoverer": "Sheppard"
     },
     "orbit": {
-      "semiMajorAxisKm": 23100000,
-      "periodDays": 723.7,
-      "eccentricity": 0.251,
-      "inclinationDeg": 165.2,
+      "semiMajorAxisKm": 21075800,
+      "periodDays": 625.15,
+      "eccentricity": 0.209,
+      "inclinationDeg": 145.1,
       "retrograde": true
     },
     "physical": {
-      "meanRadiusKm": 1.9,
-      "diameterKm": 3.8,
+      "meanRadiusKm": 0.5,
+      "diameterKm": 1,
       "albedo": 0.04
     },
     "sourceIds": [
@@ -1282,183 +1698,55 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "asOf": "2026-08-15"
   },
   {
-    "id": "erinome",
-    "name": "Erinome",
-    "designation": "Jupiter XXV",
+    "id": "hermippe",
+    "name": "Hermippe♦",
+    "designation": "Jupiter XXX",
     "parentId": "jupiter",
     "fidelity": "irregular",
     "named": true,
     "provisional": false,
-    "family": "Carme group",
-    "discovery": {
-      "year": 2000,
-      "discoverer": "Scott S. Sheppard et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 23279000,
-      "periodDays": 728.5,
-      "eccentricity": 0.266,
-      "inclinationDeg": 164.9,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.6,
-      "diameterKm": 3.2,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "kalyke",
-    "name": "Kalyke",
-    "designation": "Jupiter XXIII",
-    "parentId": "jupiter",
-    "fidelity": "irregular",
-    "named": true,
-    "provisional": false,
-    "family": "Carme group",
-    "discovery": {
-      "year": 2000,
-      "discoverer": "Scott S. Sheppard et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 23566000,
-      "periodDays": 742,
-      "eccentricity": 0.245,
-      "inclinationDeg": 165.2,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 2.6,
-      "diameterKm": 5.2,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "carme",
-    "name": "Carme",
-    "designation": "Jupiter XI",
-    "parentId": "jupiter",
-    "fidelity": "irregular",
-    "named": true,
-    "provisional": false,
-    "family": "Carme group",
-    "discovery": {
-      "year": 1938,
-      "discoverer": "Seth Barnes Nicholson"
-    },
-    "orbit": {
-      "semiMajorAxisKm": 23404000,
-      "periodDays": 734.2,
-      "eccentricity": 0.253,
-      "inclinationDeg": 164.9,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 23.4,
-      "diameterKm": 46.7,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "isonoe",
-    "name": "Isonoe",
-    "designation": "Jupiter XXVI",
-    "parentId": "jupiter",
-    "fidelity": "irregular",
-    "named": true,
-    "provisional": false,
-    "family": "Carme group",
-    "discovery": {
-      "year": 2000,
-      "discoverer": "Scott S. Sheppard et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 23217000,
-      "periodDays": 726.2,
-      "eccentricity": 0.247,
-      "inclinationDeg": 165.2,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.9,
-      "diameterKm": 3.8,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "arche",
-    "name": "Arche",
-    "designation": "Jupiter XLIII",
-    "parentId": "jupiter",
-    "fidelity": "irregular",
-    "named": true,
-    "provisional": false,
-    "family": "Carme group",
-    "discovery": {
-      "year": 2002,
-      "discoverer": "Scott S. Sheppard et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 22931000,
-      "periodDays": 723.9,
-      "eccentricity": 0.259,
-      "inclinationDeg": 165,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.5,
-      "diameterKm": 3,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "pasithee",
-    "name": "Pasithee",
-    "designation": "Jupiter XXXVIII",
-    "parentId": "jupiter",
-    "fidelity": "irregular",
-    "named": true,
-    "provisional": false,
-    "family": "Carme group",
+    "family": "Ananke group",
     "discovery": {
       "year": 2001,
-      "discoverer": "Scott S. Sheppard et al."
+      "discoverer": "Sheppard et al."
     },
     "orbit": {
-      "semiMajorAxisKm": 23004000,
-      "periodDays": 719.5,
-      "eccentricity": 0.267,
-      "inclinationDeg": 165.1,
+      "semiMajorAxisKm": 21103600,
+      "periodDays": 626.38,
+      "eccentricity": 0.22,
+      "inclinationDeg": 150.2,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 2,
+      "diameterKm": 4,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2010-j-6",
+    "name": "S/2010 J 6♦",
+    "designation": "S/2010 J 6♦",
+    "parentId": "jupiter",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Ananke group",
+    "discovery": {
+      "year": 2010,
+      "discoverer": "Sheppard"
+    },
+    "orbit": {
+      "semiMajorAxisKm": 21489800,
+      "periodDays": 643.67,
+      "eccentricity": 0.297,
+      "inclinationDeg": 149.9,
       "retrograde": true
     },
     "physical": {
@@ -1474,28 +1762,316 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "asOf": "2026-08-15"
   },
   {
-    "id": "eukelade",
-    "name": "Eukelade",
-    "designation": "Jupiter XLVII",
+    "id": "s-2017-j-9",
+    "name": "S/2017 J 9♦",
+    "designation": "Jupiter LXX",
+    "parentId": "jupiter",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Ananke group",
+    "discovery": {
+      "year": 2017,
+      "discoverer": "Sheppard"
+    },
+    "orbit": {
+      "semiMajorAxisKm": 21764200,
+      "periodDays": 656.05,
+      "eccentricity": 0.197,
+      "inclinationDeg": 155.4,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "shy-philo-phrosyne",
+    "name": "{{shy|Philo|phrosyne}}",
+    "designation": "Jupiter LVIII",
+    "parentId": "jupiter",
+    "fidelity": "irregular",
+    "named": true,
+    "provisional": false,
+    "family": "Pasiphae group",
+    "discovery": {
+      "year": 2003,
+      "discoverer": "Sheppard"
+    },
+    "orbit": {
+      "semiMajorAxisKm": 22600200,
+      "periodDays": 694.2,
+      "eccentricity": 0.221,
+      "inclinationDeg": 146.1,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1,
+      "diameterKm": 2,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2016-j-3",
+    "name": "S/2016 J 3♥",
+    "designation": "S/2016 J 3♥",
+    "parentId": "jupiter",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Carme group",
+    "discovery": {
+      "year": 2016,
+      "discoverer": "Sheppard"
+    },
+    "orbit": {
+      "semiMajorAxisKm": 22719300,
+      "periodDays": 699.76,
+      "eccentricity": 0.251,
+      "inclinationDeg": 164.6,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1,
+      "diameterKm": 2,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2022-j-1",
+    "name": "S/2022 J 1♥",
+    "designation": "S/2022 J 1♥",
+    "parentId": "jupiter",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Carme group",
+    "discovery": {
+      "year": 2022,
+      "discoverer": "Sheppard"
+    },
+    "orbit": {
+      "semiMajorAxisKm": 22744700,
+      "periodDays": 700.93,
+      "eccentricity": 0.257,
+      "inclinationDeg": 164.5,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 0.5,
+      "diameterKm": 1,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2010-j-4",
+    "name": "S/2010 J 4♥",
+    "designation": "S/2010 J 4♥",
+    "parentId": "jupiter",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Carme group",
+    "discovery": {
+      "year": 2010,
+      "discoverer": "Sheppard"
+    },
+    "orbit": {
+      "semiMajorAxisKm": 22793400,
+      "periodDays": 693.23,
+      "eccentricity": 0.278,
+      "inclinationDeg": 164.6,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 0.5,
+      "diameterKm": 1,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2017-j-8",
+    "name": "S/2017 J 8♥",
+    "designation": "Jupiter LXIX",
+    "parentId": "jupiter",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Carme group",
+    "discovery": {
+      "year": 2017,
+      "discoverer": "Sheppard"
+    },
+    "orbit": {
+      "semiMajorAxisKm": 22819600,
+      "periodDays": 704.42,
+      "eccentricity": 0.259,
+      "inclinationDeg": 164.8,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 0.5,
+      "diameterKm": 1,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "pasithee",
+    "name": "Pasithee♥",
+    "designation": "Jupiter XXXVIII",
     "parentId": "jupiter",
     "fidelity": "irregular",
     "named": true,
     "provisional": false,
     "family": "Carme group",
     "discovery": {
-      "year": 2003,
-      "discoverer": "Scott S. Sheppard et al."
+      "year": 2001,
+      "discoverer": "Sheppard et al."
     },
     "orbit": {
-      "semiMajorAxisKm": 23328000,
-      "periodDays": 746.4,
-      "eccentricity": 0.272,
-      "inclinationDeg": 165.5,
+      "semiMajorAxisKm": 22840800,
+      "periodDays": 705.41,
+      "eccentricity": 0.274,
+      "inclinationDeg": 164.5,
       "retrograde": true
     },
     "physical": {
-      "meanRadiusKm": 2,
-      "diameterKm": 4,
+      "meanRadiusKm": 1,
+      "diameterKm": 2,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2017-j-13",
+    "name": "S/2017 J 13♥",
+    "designation": "S/2017 J 13♥",
+    "parentId": "jupiter",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Carme group",
+    "discovery": {
+      "year": 2017,
+      "discoverer": "Sheppard"
+    },
+    "orbit": {
+      "semiMajorAxisKm": 22842700,
+      "periodDays": 705.5,
+      "eccentricity": 0.277,
+      "inclinationDeg": 164.5,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 0.5,
+      "diameterKm": 1,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2021-j-6",
+    "name": "S/2021 J 6♥",
+    "designation": "Jupiter V",
+    "parentId": "jupiter",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Carme group",
+    "discovery": {
+      "year": 2021,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 22870400,
+      "periodDays": 706.77,
+      "eccentricity": 0.271,
+      "inclinationDeg": 164.9,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 0.5,
+      "diameterKm": 1,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2003-j-24",
+    "name": "S/2003 J 24♥",
+    "designation": "S/2003 J 24♥",
+    "parentId": "jupiter",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Carme group",
+    "discovery": {
+      "year": 2003,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 22882400,
+      "periodDays": 707.33,
+      "eccentricity": 0.263,
+      "inclinationDeg": 164.6,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1,
+      "diameterKm": 2,
       "albedo": 0.04
     },
     "sourceIds": [
@@ -1516,13 +2092,13 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "family": "Pasiphae group",
     "discovery": {
       "year": 2001,
-      "discoverer": "Scott S. Sheppard et al."
+      "discoverer": "Sheppard et al."
     },
     "orbit": {
-      "semiMajorAxisKm": 22865000,
-      "periodDays": 717.3,
-      "eccentricity": 0.276,
-      "inclinationDeg": 150.3,
+      "semiMajorAxisKm": 22894500,
+      "periodDays": 707.86,
+      "eccentricity": 0.287,
+      "inclinationDeg": 148.9,
       "retrograde": true
     },
     "physical": {
@@ -1538,23 +2114,119 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "asOf": "2026-08-15"
   },
   {
-    "id": "autonoe",
-    "name": "Autonoe",
-    "designation": "Jupiter XXVIII",
+    "id": "s-2011-j-2",
+    "name": "S/2011 J 2",
+    "designation": "Jupiter LVI",
+    "parentId": "jupiter",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Pasiphae group",
+    "discovery": {
+      "year": 2011,
+      "discoverer": "Sheppard"
+    },
+    "orbit": {
+      "semiMajorAxisKm": 22903400,
+      "periodDays": 708.29,
+      "eccentricity": 0.358,
+      "inclinationDeg": 151.7,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 0.5,
+      "diameterKm": 1,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2003-j-4",
+    "name": "S/2003 J 4",
+    "designation": "S/2003 J 4",
+    "parentId": "jupiter",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Pasiphae group",
+    "discovery": {
+      "year": 2003,
+      "discoverer": "Sheppard"
+    },
+    "orbit": {
+      "semiMajorAxisKm": 22922300,
+      "periodDays": 709.12,
+      "eccentricity": 0.327,
+      "inclinationDeg": 148.3,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1,
+      "diameterKm": 2,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2017-j-18",
+    "name": "S/2017 J 18♥",
+    "designation": "S/2017 J 18♥",
+    "parentId": "jupiter",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Carme group",
+    "discovery": {
+      "year": 2017,
+      "discoverer": "Sheppard"
+    },
+    "orbit": {
+      "semiMajorAxisKm": 22923800,
+      "periodDays": 709.24,
+      "eccentricity": 0.254,
+      "inclinationDeg": 164.9,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1,
+      "diameterKm": 2,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "chaldene",
+    "name": "Chaldene♥",
+    "designation": "Jupiter XXI",
     "parentId": "jupiter",
     "fidelity": "irregular",
     "named": true,
     "provisional": false,
-    "family": "Pasiphae group",
+    "family": "Carme group",
     "discovery": {
-      "year": 2001,
-      "discoverer": "Scott S. Sheppard et al."
+      "year": 2000,
+      "discoverer": "Sheppard et al."
     },
     "orbit": {
-      "semiMajorAxisKm": 24046000,
-      "periodDays": 760.9,
-      "eccentricity": 0.334,
-      "inclinationDeg": 152.9,
+      "semiMajorAxisKm": 22926300,
+      "periodDays": 709.36,
+      "eccentricity": 0.261,
+      "inclinationDeg": 164.7,
       "retrograde": true
     },
     "physical": {
@@ -1570,23 +2242,1111 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "asOf": "2026-08-15"
   },
   {
-    "id": "sponde",
-    "name": "Sponde",
-    "designation": "Jupiter XXXVI",
+    "id": "s-2017-j-2",
+    "name": "S/2017 J 2♥",
+    "designation": "Jupiter LXIII",
+    "parentId": "jupiter",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Carme group",
+    "discovery": {
+      "year": 2017,
+      "discoverer": "Sheppard"
+    },
+    "orbit": {
+      "semiMajorAxisKm": 22949600,
+      "periodDays": 710.42,
+      "eccentricity": 0.27,
+      "inclinationDeg": 164.5,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1,
+      "diameterKm": 2,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "isonoe",
+    "name": "Isonoe♥",
+    "designation": "Jupiter XXVI",
+    "parentId": "jupiter",
+    "fidelity": "irregular",
+    "named": true,
+    "provisional": false,
+    "family": "Carme group",
+    "discovery": {
+      "year": 2000,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 22976300,
+      "periodDays": 711.66,
+      "eccentricity": 0.249,
+      "inclinationDeg": 164.9,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 2,
+      "diameterKm": 4,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2017-j-11",
+    "name": "S/2017 J 11♥",
+    "designation": "Jupiter M",
+    "parentId": "jupiter",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Carme group",
+    "discovery": {
+      "year": 2017,
+      "discoverer": "Sheppard"
+    },
+    "orbit": {
+      "semiMajorAxisKm": 22991300,
+      "periodDays": 712.38,
+      "eccentricity": 0.268,
+      "inclinationDeg": 164.8,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 0.5,
+      "diameterKm": 1,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2017-j-16",
+    "name": "S/2017 J 16♥",
+    "designation": "S/2017 J 16♥",
+    "parentId": "jupiter",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Carme group",
+    "discovery": {
+      "year": 2017,
+      "discoverer": "Sheppard"
+    },
+    "orbit": {
+      "semiMajorAxisKm": 23007800,
+      "periodDays": 713.13,
+      "eccentricity": 0.268,
+      "inclinationDeg": 164.7,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 0.5,
+      "diameterKm": 1,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "kallichore",
+    "name": "Kallichore♥",
+    "designation": "Jupiter XLIV",
+    "parentId": "jupiter",
+    "fidelity": "irregular",
+    "named": true,
+    "provisional": false,
+    "family": "Carme group",
+    "discovery": {
+      "year": 2003,
+      "discoverer": "Sheppard"
+    },
+    "orbit": {
+      "semiMajorAxisKm": 23017100,
+      "periodDays": 713.59,
+      "eccentricity": 0.253,
+      "inclinationDeg": 164.7,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1,
+      "diameterKm": 2,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2021-j-4",
+    "name": "S/2021 J 4♥",
+    "designation": "S/2021 J 4♥",
+    "parentId": "jupiter",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Carme group",
+    "discovery": {
+      "year": 2021,
+      "discoverer": "Sheppard"
+    },
+    "orbit": {
+      "semiMajorAxisKm": 23019700,
+      "periodDays": 713.71,
+      "eccentricity": 0.265,
+      "inclinationDeg": 164.6,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 0.5,
+      "diameterKm": 1,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "erinome",
+    "name": "Erinome♥",
+    "designation": "Jupiter XXV",
+    "parentId": "jupiter",
+    "fidelity": "irregular",
+    "named": true,
+    "provisional": false,
+    "family": "Carme group",
+    "discovery": {
+      "year": 2000,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 23027200,
+      "periodDays": 714.05,
+      "eccentricity": 0.272,
+      "inclinationDeg": 164.3,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "kale",
+    "name": "Kale♥",
+    "designation": "Jupiter XXXVII",
+    "parentId": "jupiter",
+    "fidelity": "irregular",
+    "named": true,
+    "provisional": false,
+    "family": "Carme group",
+    "discovery": {
+      "year": 2001,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 23047800,
+      "periodDays": 715.02,
+      "eccentricity": 0.262,
+      "inclinationDeg": 164.6,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1,
+      "diameterKm": 2,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "eirene",
+    "name": "Eirene♥",
+    "designation": "Jupiter LVII",
+    "parentId": "jupiter",
+    "fidelity": "irregular",
+    "named": true,
+    "provisional": false,
+    "family": "Carme group",
+    "discovery": {
+      "year": 2003,
+      "discoverer": "Sheppard"
+    },
+    "orbit": {
+      "semiMajorAxisKm": 23051300,
+      "periodDays": 715.19,
+      "eccentricity": 0.263,
+      "inclinationDeg": 164.7,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 2,
+      "diameterKm": 4,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "aitne",
+    "name": "Aitne♥",
+    "designation": "Jupiter XXXI",
+    "parentId": "jupiter",
+    "fidelity": "irregular",
+    "named": true,
+    "provisional": false,
+    "family": "Carme group",
+    "discovery": {
+      "year": 2001,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 23059400,
+      "periodDays": 715.54,
+      "eccentricity": 0.273,
+      "inclinationDeg": 164.5,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "eukelade",
+    "name": "Eukelade♥",
+    "designation": "Jupiter XLVII",
+    "parentId": "jupiter",
+    "fidelity": "irregular",
+    "named": true,
+    "provisional": false,
+    "family": "Carme group",
+    "discovery": {
+      "year": 2003,
+      "discoverer": "Sheppard"
+    },
+    "orbit": {
+      "semiMajorAxisKm": 23062400,
+      "periodDays": 715.69,
+      "eccentricity": 0.274,
+      "inclinationDeg": 164.7,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 2,
+      "diameterKm": 4,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2022-j-2",
+    "name": "S/2022 J 2♥",
+    "designation": "Jupiter X",
+    "parentId": "jupiter",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Carme group",
+    "discovery": {
+      "year": 2022,
+      "discoverer": "Sheppard"
+    },
+    "orbit": {
+      "semiMajorAxisKm": 23073400,
+      "periodDays": 716.21,
+      "eccentricity": 0.263,
+      "inclinationDeg": 164.7,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 0.5,
+      "diameterKm": 1,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "arche",
+    "name": "Arche♥",
+    "designation": "Jupiter XLIII",
+    "parentId": "jupiter",
+    "fidelity": "irregular",
+    "named": true,
+    "provisional": false,
+    "family": "Carme group",
+    "discovery": {
+      "year": 2002,
+      "discoverer": "Sheppard"
+    },
+    "orbit": {
+      "semiMajorAxisKm": 23093200,
+      "periodDays": 717.11,
+      "eccentricity": 0.263,
+      "inclinationDeg": 164.5,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "taygete",
+    "name": "Taygete♥",
+    "designation": "Jupiter XX",
+    "parentId": "jupiter",
+    "fidelity": "irregular",
+    "named": true,
+    "provisional": false,
+    "family": "Carme group",
+    "discovery": {
+      "year": 2000,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 23103400,
+      "periodDays": 717.59,
+      "eccentricity": 0.257,
+      "inclinationDeg": 164.7,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 2.5,
+      "diameterKm": 5,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2016-j-4",
+    "name": "S/2016 J 4",
+    "designation": "S/2016 J 4",
+    "parentId": "jupiter",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Pasiphae group",
+    "discovery": {
+      "year": 2016,
+      "discoverer": "Sheppard"
+    },
+    "orbit": {
+      "semiMajorAxisKm": 23113900,
+      "periodDays": 718.04,
+      "eccentricity": 0.294,
+      "inclinationDeg": 147.1,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 0.5,
+      "diameterKm": 1,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2011-j-1",
+    "name": "S/2011 J 1♥",
+    "designation": "Jupiter LXXII",
+    "parentId": "jupiter",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Carme group",
+    "discovery": {
+      "year": 2011,
+      "discoverer": "Sheppard"
+    },
+    "orbit": {
+      "semiMajorAxisKm": 23120800,
+      "periodDays": 718.42,
+      "eccentricity": 0.269,
+      "inclinationDeg": 164.7,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1,
+      "diameterKm": 2,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "carme",
+    "name": "Carme♥",
+    "designation": "Jupiter XI",
+    "parentId": "jupiter",
+    "fidelity": "irregular",
+    "named": true,
+    "provisional": false,
+    "family": "Carme group",
+    "discovery": {
+      "year": 1938,
+      "discoverer": "Nicholson"
+    },
+    "orbit": {
+      "semiMajorAxisKm": 23139200,
+      "periodDays": 719.28,
+      "eccentricity": 0.261,
+      "inclinationDeg": 164.6,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 23.4,
+      "diameterKm": 46.7,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "herse",
+    "name": "Herse♥",
+    "designation": "Jupiter L",
+    "parentId": "jupiter",
+    "fidelity": "irregular",
+    "named": true,
+    "provisional": false,
+    "family": "Carme group",
+    "discovery": {
+      "year": 2003,
+      "discoverer": "Gladman et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 23146700,
+      "periodDays": 719.63,
+      "eccentricity": 0.258,
+      "inclinationDeg": 164.4,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1,
+      "diameterKm": 2,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2003-j-19",
+    "name": "S/2003 J 19♥",
+    "designation": "Jupiter LXI",
+    "parentId": "jupiter",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Carme group",
+    "discovery": {
+      "year": 2003,
+      "discoverer": "Gladman"
+    },
+    "orbit": {
+      "semiMajorAxisKm": 23153100,
+      "periodDays": 719.92,
+      "eccentricity": 0.264,
+      "inclinationDeg": 164.6,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1,
+      "diameterKm": 2,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2017-j-15",
+    "name": "S/2017 J 15",
+    "designation": "S/2017 J 15",
+    "parentId": "jupiter",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Pasiphae group",
+    "discovery": {
+      "year": 2017,
+      "discoverer": "Sheppard"
+    },
+    "orbit": {
+      "semiMajorAxisKm": 23170300,
+      "periodDays": 720.65,
+      "eccentricity": 0.232,
+      "inclinationDeg": 149.2,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1,
+      "diameterKm": 2,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2010-j-1",
+    "name": "S/2010 J 1♥",
+    "designation": "Jupiter LI",
+    "parentId": "jupiter",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Carme group",
+    "discovery": {
+      "year": 2010,
+      "discoverer": "Jacobson et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 23185600,
+      "periodDays": 721.43,
+      "eccentricity": 0.256,
+      "inclinationDeg": 164.5,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1,
+      "diameterKm": 2,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2003-j-9",
+    "name": "S/2003 J 9♥",
+    "designation": "Jupiter C",
+    "parentId": "jupiter",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Carme group",
+    "discovery": {
+      "year": 2003,
+      "discoverer": "Sheppard"
+    },
+    "orbit": {
+      "semiMajorAxisKm": 23195100,
+      "periodDays": 721.88,
+      "eccentricity": 0.268,
+      "inclinationDeg": 164.7,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 0.5,
+      "diameterKm": 1,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2017-j-5",
+    "name": "S/2017 J 5♥",
+    "designation": "Jupiter LXVI",
+    "parentId": "jupiter",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Carme group",
+    "discovery": {
+      "year": 2017,
+      "discoverer": "Sheppard"
+    },
+    "orbit": {
+      "semiMajorAxisKm": 23202000,
+      "periodDays": 722.2,
+      "eccentricity": 0.261,
+      "inclinationDeg": 164.7,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1,
+      "diameterKm": 2,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2011-j-6",
+    "name": "S/2011 J 6♥",
+    "designation": "S/2011 J 6♥",
+    "parentId": "jupiter",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Carme group",
+    "discovery": {
+      "year": 2011,
+      "discoverer": "Sheppard"
+    },
+    "orbit": {
+      "semiMajorAxisKm": 23238700,
+      "periodDays": 723.93,
+      "eccentricity": 0.261,
+      "inclinationDeg": 164.9,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 0.5,
+      "diameterKm": 1,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2017-j-6",
+    "name": "S/2017 J 6",
+    "designation": "Jupiter LXVII",
+    "parentId": "jupiter",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Pasiphae group",
+    "discovery": {
+      "year": 2017,
+      "discoverer": "Sheppard"
+    },
+    "orbit": {
+      "semiMajorAxisKm": 23251200,
+      "periodDays": 724.47,
+      "eccentricity": 0.333,
+      "inclinationDeg": 149.6,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1,
+      "diameterKm": 2,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2018-j-5",
+    "name": "S/2018 J 5♥",
+    "designation": "S/2018 J 5♥",
+    "parentId": "jupiter",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Carme group",
+    "discovery": {
+      "year": 2018,
+      "discoverer": "Sheppard"
+    },
+    "orbit": {
+      "semiMajorAxisKm": 23269900,
+      "periodDays": 725.38,
+      "eccentricity": 0.261,
+      "inclinationDeg": 164.9,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1,
+      "diameterKm": 2,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2017-j-12",
+    "name": "S/2017 J 12♥",
+    "designation": "S/2017 J 12♥",
+    "parentId": "jupiter",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Carme group",
+    "discovery": {
+      "year": 2017,
+      "discoverer": "Sheppard"
+    },
+    "orbit": {
+      "semiMajorAxisKm": 23270500,
+      "periodDays": 725.4,
+      "eccentricity": 0.257,
+      "inclinationDeg": 164.8,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 0.5,
+      "diameterKm": 1,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "kalyke",
+    "name": "Kalyke♥",
+    "designation": "Jupiter XXIII",
+    "parentId": "jupiter",
+    "fidelity": "irregular",
+    "named": true,
+    "provisional": false,
+    "family": "Carme group",
+    "discovery": {
+      "year": 2000,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 23298000,
+      "periodDays": 726.7,
+      "eccentricity": 0.261,
+      "inclinationDeg": 164.7,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 3.5,
+      "diameterKm": 6.9,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2021-j-7",
+    "name": "S/2021 J 7",
+    "designation": "S/2021 J 7",
+    "parentId": "jupiter",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Pasiphae group",
+    "discovery": {
+      "year": 2021,
+      "discoverer": "Sheppard"
+    },
+    "orbit": {
+      "semiMajorAxisKm": 23305900,
+      "periodDays": 727.01,
+      "eccentricity": 0.253,
+      "inclinationDeg": 149.4,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 0.5,
+      "diameterKm": 1,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "hegemone",
+    "name": "Hegemone",
+    "designation": "Jupiter XXXIX",
     "parentId": "jupiter",
     "fidelity": "irregular",
     "named": true,
     "provisional": false,
     "family": "Pasiphae group",
     "discovery": {
-      "year": 2001,
-      "discoverer": "Scott S. Sheppard et al."
+      "year": 2003,
+      "discoverer": "Sheppard"
     },
     "orbit": {
-      "semiMajorAxisKm": 23487000,
-      "periodDays": 748.3,
-      "eccentricity": 0.312,
-      "inclinationDeg": 151,
+      "semiMajorAxisKm": 23342600,
+      "periodDays": 728.77,
+      "eccentricity": 0.357,
+      "inclinationDeg": 152.5,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2003-j-10",
+    "name": "S/2003 J 10♥",
+    "designation": "Jupiter D",
+    "parentId": "jupiter",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Carme group",
+    "discovery": {
+      "year": 2003,
+      "discoverer": "Sheppard"
+    },
+    "orbit": {
+      "semiMajorAxisKm": 23384400,
+      "periodDays": 730.74,
+      "eccentricity": 0.257,
+      "inclinationDeg": 164.6,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1,
+      "diameterKm": 2,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2018-j-3",
+    "name": "S/2018 J 3♥",
+    "designation": "S/2018 J 3♥",
+    "parentId": "jupiter",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Carme group",
+    "discovery": {
+      "year": 2018,
+      "discoverer": "Sheppard"
+    },
+    "orbit": {
+      "semiMajorAxisKm": 23400200,
+      "periodDays": 731.49,
+      "eccentricity": 0.268,
+      "inclinationDeg": 164.9,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 0.5,
+      "diameterKm": 1,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2017-j-14",
+    "name": "S/2017 J 14",
+    "designation": "S/2017 J 14",
+    "parentId": "jupiter",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Pasiphae group",
+    "discovery": {
+      "year": 2017,
+      "discoverer": "Sheppard"
+    },
+    "orbit": {
+      "semiMajorAxisKm": 23412500,
+      "periodDays": 732.04,
+      "eccentricity": 0.436,
+      "inclinationDeg": 142.7,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 0.5,
+      "diameterKm": 1,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2021-j-5",
+    "name": "S/2021 J 5♥",
+    "designation": "S/2021 J 5♥",
+    "parentId": "jupiter",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Carme group",
+    "discovery": {
+      "year": 2021,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 23414600,
+      "periodDays": 732.15,
+      "eccentricity": 0.272,
+      "inclinationDeg": 164.9,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1,
+      "diameterKm": 2,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2024-j-1",
+    "name": "S/2024 J 1♥",
+    "designation": "S/2024 J 1♥",
+    "parentId": "jupiter",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Carme group",
+    "discovery": {
+      "year": 2024,
+      "discoverer": "Sheppard"
+    },
+    "orbit": {
+      "semiMajorAxisKm": 23462100,
+      "periodDays": 734.38,
+      "eccentricity": 0.273,
+      "inclinationDeg": 164.7,
       "retrograde": true
     },
     "physical": {
@@ -1612,18 +3372,114 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "family": "Pasiphae group",
     "discovery": {
       "year": 1908,
-      "discoverer": "Philibert Jacques Melotte"
+      "discoverer": "Melotte"
     },
     "orbit": {
-      "semiMajorAxisKm": 23624000,
-      "periodDays": 708,
-      "eccentricity": 0.409,
-      "inclinationDeg": 151.4,
+      "semiMajorAxisKm": 23463200,
+      "periodDays": 734.42,
+      "eccentricity": 0.412,
+      "inclinationDeg": 148.3,
       "retrograde": true
     },
     "physical": {
       "meanRadiusKm": 28.9,
       "diameterKm": 57.8,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2011-j-5",
+    "name": "S/2011 J 5♥",
+    "designation": "S/2011 J 5♥",
+    "parentId": "jupiter",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Carme group",
+    "discovery": {
+      "year": 2011,
+      "discoverer": "Sheppard"
+    },
+    "orbit": {
+      "semiMajorAxisKm": 23527800,
+      "periodDays": 737.46,
+      "eccentricity": 0.251,
+      "inclinationDeg": 164.6,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1,
+      "diameterKm": 2,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "sponde",
+    "name": "Sponde",
+    "designation": "Jupiter XXXVI",
+    "parentId": "jupiter",
+    "fidelity": "irregular",
+    "named": true,
+    "provisional": false,
+    "family": "Pasiphae group",
+    "discovery": {
+      "year": 2001,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 23538700,
+      "periodDays": 737.95,
+      "eccentricity": 0.323,
+      "inclinationDeg": 149.4,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1,
+      "diameterKm": 2,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2010-j-5",
+    "name": "S/2010 J 5♥",
+    "designation": "S/2010 J 5♥",
+    "parentId": "jupiter",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Carme group",
+    "discovery": {
+      "year": 2010,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 23581000,
+      "periodDays": 739.99,
+      "eccentricity": 0.257,
+      "inclinationDeg": 164.6,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 0.5,
+      "diameterKm": 1,
       "albedo": 0.04
     },
     "sourceIds": [
@@ -1644,18 +3500,50 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "family": "Pasiphae group",
     "discovery": {
       "year": 2000,
-      "discoverer": "Scott S. Sheppard et al."
+      "discoverer": "Sheppard et al."
     },
     "orbit": {
-      "semiMajorAxisKm": 23806000,
-      "periodDays": 752.8,
+      "semiMajorAxisKm": 23640100,
+      "periodDays": 742.77,
       "eccentricity": 0.421,
-      "inclinationDeg": 152.8,
+      "inclinationDeg": 149.9,
       "retrograde": true
     },
     "physical": {
-      "meanRadiusKm": 2.7,
-      "diameterKm": 5.4,
+      "meanRadiusKm": 3,
+      "diameterKm": 6,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "cyllene",
+    "name": "Cyllene",
+    "designation": "Jupiter XLVIII",
+    "parentId": "jupiter",
+    "fidelity": "irregular",
+    "named": true,
+    "provisional": false,
+    "family": "Pasiphae group",
+    "discovery": {
+      "year": 2003,
+      "discoverer": "Sheppard"
+    },
+    "orbit": {
+      "semiMajorAxisKm": 23650000,
+      "periodDays": 743.21,
+      "eccentricity": 0.421,
+      "inclinationDeg": 146.8,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1,
+      "diameterKm": 2,
       "albedo": 0.04
     },
     "sourceIds": [
@@ -1676,13 +3564,13 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "family": "Pasiphae group",
     "discovery": {
       "year": 1914,
-      "discoverer": "Seth Barnes Nicholson"
+      "discoverer": "Nicholson"
     },
     "orbit": {
-      "semiMajorAxisKm": 23939000,
-      "periodDays": 724.5,
-      "eccentricity": 0.249,
-      "inclinationDeg": 158.1,
+      "semiMajorAxisKm": 23679300,
+      "periodDays": 744.6,
+      "eccentricity": 0.262,
+      "inclinationDeg": 157.3,
       "retrograde": true
     },
     "physical": {
@@ -1698,28 +3586,28 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "asOf": "2026-08-15"
   },
   {
-    "id": "hegemone",
-    "name": "Hegemone",
-    "designation": "Jupiter XXXIX",
+    "id": "s-2017-j-1",
+    "name": "S/2017 J 1",
+    "designation": "Jupiter LIX",
     "parentId": "jupiter",
     "fidelity": "irregular",
-    "named": true,
-    "provisional": false,
+    "named": false,
+    "provisional": true,
     "family": "Pasiphae group",
     "discovery": {
-      "year": 2003,
-      "discoverer": "Scott S. Sheppard et al."
+      "year": 2017,
+      "discoverer": "Sheppard"
     },
     "orbit": {
-      "semiMajorAxisKm": 23577000,
-      "periodDays": 739.6,
-      "eccentricity": 0.328,
-      "inclinationDeg": 150.3,
+      "semiMajorAxisKm": 23739600,
+      "periodDays": 747.44,
+      "eccentricity": 0.321,
+      "inclinationDeg": 145.6,
       "retrograde": true
     },
     "physical": {
-      "meanRadiusKm": 1.5,
-      "diameterKm": 3,
+      "meanRadiusKm": 1,
+      "diameterKm": 2,
       "albedo": 0.04
     },
     "sourceIds": [
@@ -1740,13 +3628,45 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "family": "Pasiphae group",
     "discovery": {
       "year": 2003,
-      "discoverer": "Scott S. Sheppard et al."
+      "discoverer": "Sheppard"
     },
     "orbit": {
-      "semiMajorAxisKm": 23981000,
-      "periodDays": 761.5,
-      "eccentricity": 0.432,
-      "inclinationDeg": 158.3,
+      "semiMajorAxisKm": 23773100,
+      "periodDays": 749.07,
+      "eccentricity": 0.437,
+      "inclinationDeg": 155.7,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 2,
+      "diameterKm": 4,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "autonoe",
+    "name": "Autonoe",
+    "designation": "Jupiter XXVIII",
+    "parentId": "jupiter",
+    "fidelity": "irregular",
+    "named": true,
+    "provisional": false,
+    "family": "Pasiphae group",
+    "discovery": {
+      "year": 2001,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 23785200,
+      "periodDays": 749.61,
+      "eccentricity": 0.326,
+      "inclinationDeg": 150.7,
       "retrograde": true
     },
     "physical": {
@@ -1772,13 +3692,13 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "family": "Pasiphae group",
     "discovery": {
       "year": 1999,
-      "discoverer": "Spacewatch / Jim V. Scotti"
+      "discoverer": "Scotti et al."
     },
     "orbit": {
-      "semiMajorAxisKm": 24103000,
-      "periodDays": 758.8,
-      "eccentricity": 0.283,
-      "inclinationDeg": 147.1,
+      "semiMajorAxisKm": 23789400,
+      "periodDays": 749.79,
+      "eccentricity": 0.29,
+      "inclinationDeg": 144.9,
       "retrograde": true
     },
     "physical": {
@@ -1794,28 +3714,60 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "asOf": "2026-08-15"
   },
   {
-    "id": "cyllene",
-    "name": "Cyllene",
-    "designation": "Jupiter XLVIII",
+    "id": "s-2003-j-23",
+    "name": "S/2003 J 23",
+    "designation": "S/2003 J 23",
     "parentId": "jupiter",
     "fidelity": "irregular",
-    "named": true,
-    "provisional": false,
+    "named": false,
+    "provisional": true,
     "family": "Pasiphae group",
     "discovery": {
       "year": 2003,
-      "discoverer": "Scott S. Sheppard et al."
+      "discoverer": "Sheppard"
     },
     "orbit": {
-      "semiMajorAxisKm": 24349000,
-      "periodDays": 737.8,
-      "eccentricity": 0.319,
-      "inclinationDeg": 149.3,
+      "semiMajorAxisKm": 23824000,
+      "periodDays": 751.4,
+      "eccentricity": 0.306,
+      "inclinationDeg": 144.4,
       "retrograde": true
     },
     "physical": {
       "meanRadiusKm": 1,
       "diameterKm": 2,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2010-j-3",
+    "name": "S/2010 J 3",
+    "designation": "S/2010 J 3",
+    "parentId": "jupiter",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Pasiphae group",
+    "discovery": {
+      "year": 2010,
+      "discoverer": "Sheppard"
+    },
+    "orbit": {
+      "semiMajorAxisKm": 23862900,
+      "periodDays": 753.28,
+      "eccentricity": 0.313,
+      "inclinationDeg": 148.3,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 0.5,
+      "diameterKm": 1,
       "albedo": 0.04
     },
     "sourceIds": [
@@ -1836,13 +3788,13 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "family": "Pasiphae group",
     "discovery": {
       "year": 2003,
-      "discoverer": "Scott S. Sheppard et al."
+      "discoverer": "Sheppard"
     },
     "orbit": {
-      "semiMajorAxisKm": 24543000,
-      "periodDays": 779.2,
-      "eccentricity": 0.325,
-      "inclinationDeg": 145,
+      "semiMajorAxisKm": 24203300,
+      "periodDays": 769.42,
+      "eccentricity": 0.338,
+      "inclinationDeg": 141.7,
       "retrograde": true
     },
     "physical": {
@@ -1858,860 +3810,28 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "asOf": "2026-08-15"
   },
   {
-    "id": "philophrosyne",
-    "name": "Philophrosyne",
-    "designation": "Jupiter LVIII",
-    "parentId": "jupiter",
-    "fidelity": "irregular",
-    "named": true,
-    "provisional": false,
-    "family": "Pasiphae group",
-    "discovery": {
-      "year": 2003,
-      "discoverer": "Scott S. Sheppard et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 22820000,
-      "periodDays": 701.3,
-      "eccentricity": 0.194,
-      "inclinationDeg": 143.6,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1,
-      "diameterKm": 2,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2003-j-1",
-    "name": "S/2003 J 1",
-    "designation": "S/2003 J 1",
-    "parentId": "jupiter",
+    "id": "s-2009-s-1",
+    "name": "S/2009 S 1",
+    "designation": "S/2009 S 1",
+    "parentId": "saturn",
     "fidelity": "irregular",
     "named": false,
     "provisional": true,
-    "family": "Pasiphae group",
+    "family": "Gallic group",
     "discovery": {
-      "year": 2003,
-      "discoverer": "Scott S. Sheppard et al."
+      "year": 2009,
+      "discoverer": "Cassini"
     },
     "orbit": {
-      "semiMajorAxisKm": 28450000,
-      "periodDays": 978,
-      "eccentricity": 0.2,
-      "inclinationDeg": 151.8,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 0.5,
-      "diameterKm": 1,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2003-j-2",
-    "name": "S/2003 J 2",
-    "designation": "S/2003 J 2",
-    "parentId": "jupiter",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Ananke group",
-    "discovery": {
-      "year": 2003,
-      "discoverer": "Scott S. Sheppard et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 23967000,
-      "periodDays": 756,
-      "eccentricity": 0.21,
-      "inclinationDeg": 149.4,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 0.8,
-      "diameterKm": 1.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2003-j-3",
-    "name": "S/2003 J 3",
-    "designation": "S/2003 J 3",
-    "parentId": "jupiter",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Pasiphae group",
-    "discovery": {
-      "year": 2003,
-      "discoverer": "Scott S. Sheppard et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 24274000,
-      "periodDays": 770,
-      "eccentricity": 0.22,
-      "inclinationDeg": 153.1,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1,
-      "diameterKm": 2,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2003-j-4",
-    "name": "S/2003 J 4",
-    "designation": "S/2003 J 4",
-    "parentId": "jupiter",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Carme group",
-    "discovery": {
-      "year": 2003,
-      "discoverer": "Scott S. Sheppard et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 23151000,
-      "periodDays": 718,
-      "eccentricity": 0.23,
-      "inclinationDeg": 165.1,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2003-j-5",
-    "name": "S/2003 J 5",
-    "designation": "S/2003 J 5",
-    "parentId": "jupiter",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Ananke group",
-    "discovery": {
-      "year": 2003,
-      "discoverer": "Scott S. Sheppard et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 19148000,
-      "periodDays": 540,
-      "eccentricity": 0.24,
-      "inclinationDeg": 145.8,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 0.5,
-      "diameterKm": 1,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2003-j-6",
-    "name": "S/2003 J 6",
-    "designation": "S/2003 J 6",
-    "parentId": "jupiter",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Ananke group",
-    "discovery": {
-      "year": 2003,
-      "discoverer": "Scott S. Sheppard et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 21185000,
-      "periodDays": 628,
-      "eccentricity": 0.25,
-      "inclinationDeg": 148.6,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 0.8,
-      "diameterKm": 1.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2003-j-7",
-    "name": "S/2003 J 7",
-    "designation": "S/2003 J 7",
-    "parentId": "jupiter",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Ananke group",
-    "discovery": {
-      "year": 2003,
-      "discoverer": "Scott S. Sheppard et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 20812000,
-      "periodDays": 612,
-      "eccentricity": 0.26,
-      "inclinationDeg": 146.5,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1,
-      "diameterKm": 2,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2003-j-8",
-    "name": "S/2003 J 8",
-    "designation": "S/2003 J 8",
-    "parentId": "jupiter",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Carme group",
-    "discovery": {
-      "year": 2003,
-      "discoverer": "Scott S. Sheppard et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 23789000,
-      "periodDays": 747,
-      "eccentricity": 0.27,
-      "inclinationDeg": 162.9,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2003-j-9",
-    "name": "S/2003 J 9",
-    "designation": "S/2003 J 9",
-    "parentId": "jupiter",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Ananke group",
-    "discovery": {
-      "year": 2003,
-      "discoverer": "Scott S. Sheppard et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 23856000,
-      "periodDays": 751,
-      "eccentricity": 0.28,
-      "inclinationDeg": 149.2,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 0.5,
-      "diameterKm": 1,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2003-j-10",
-    "name": "S/2003 J 10",
-    "designation": "S/2003 J 10",
-    "parentId": "jupiter",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Carme group",
-    "discovery": {
-      "year": 2003,
-      "discoverer": "Scott S. Sheppard et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 23483000,
-      "periodDays": 733,
-      "eccentricity": 0.29,
-      "inclinationDeg": 162.1,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 0.8,
-      "diameterKm": 1.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2010-j-11",
-    "name": "S/2010 J 11",
-    "designation": "S/2010 J 11",
-    "parentId": "jupiter",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Ananke group",
-    "discovery": {
-      "year": 2010,
-      "discoverer": "Scott S. Sheppard et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 21380000,
-      "periodDays": 637,
-      "eccentricity": 0.3,
-      "inclinationDeg": 147.5,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1,
-      "diameterKm": 2,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2011-j-12",
-    "name": "S/2011 J 12",
-    "designation": "S/2011 J 12",
-    "parentId": "jupiter",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Carme group",
-    "discovery": {
-      "year": 2011,
-      "discoverer": "Scott S. Sheppard et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 20557000,
-      "periodDays": 600,
-      "eccentricity": 0.31,
-      "inclinationDeg": 162.8,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2011-j-13",
-    "name": "S/2011 J 13",
-    "designation": "S/2011 J 13",
-    "parentId": "jupiter",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Pasiphae group",
-    "discovery": {
-      "year": 2011,
-      "discoverer": "Scott S. Sheppard et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 23774000,
-      "periodDays": 747,
-      "eccentricity": 0.32,
-      "inclinationDeg": 151.8,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 0.5,
-      "diameterKm": 1,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2011-j-14",
-    "name": "S/2011 J 14",
-    "designation": "S/2011 J 14",
-    "parentId": "jupiter",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Ananke group",
-    "discovery": {
-      "year": 2011,
-      "discoverer": "Scott S. Sheppard et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 24241000,
-      "periodDays": 769,
-      "eccentricity": 0.33,
-      "inclinationDeg": 149.3,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 0.8,
-      "diameterKm": 1.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2016-j-15",
-    "name": "S/2016 J 15",
-    "designation": "S/2016 J 15",
-    "parentId": "jupiter",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Ananke group",
-    "discovery": {
-      "year": 2016,
-      "discoverer": "Scott S. Sheppard et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 20618000,
-      "periodDays": 603,
-      "eccentricity": 0.34,
-      "inclinationDeg": 139.8,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1,
-      "diameterKm": 2,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2016-j-16",
-    "name": "S/2016 J 16",
-    "designation": "S/2016 J 16",
-    "parentId": "jupiter",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Carme group",
-    "discovery": {
-      "year": 2016,
-      "discoverer": "Scott S. Sheppard et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 22325000,
-      "periodDays": 680,
-      "eccentricity": 0.2,
-      "inclinationDeg": 164.1,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2016-j-17",
-    "name": "S/2016 J 17",
-    "designation": "S/2016 J 17",
-    "parentId": "jupiter",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Ananke group",
-    "discovery": {
-      "year": 2016,
-      "discoverer": "Scott S. Sheppard et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 23812000,
-      "periodDays": 749,
-      "eccentricity": 0.21,
-      "inclinationDeg": 147.1,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 0.5,
-      "diameterKm": 1,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2017-j-18",
-    "name": "S/2017 J 18",
-    "designation": "S/2017 J 18",
-    "parentId": "jupiter",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Ananke group",
-    "discovery": {
-      "year": 2017,
-      "discoverer": "Scott S. Sheppard et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 23629000,
-      "periodDays": 740,
-      "eccentricity": 0.22,
-      "inclinationDeg": 149.2,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 0.8,
-      "diameterKm": 1.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2017-j-19",
-    "name": "S/2017 J 19",
-    "designation": "S/2017 J 19",
-    "parentId": "jupiter",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Carme group",
-    "discovery": {
-      "year": 2017,
-      "discoverer": "Scott S. Sheppard et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 23466000,
-      "periodDays": 732,
-      "eccentricity": 0.23,
-      "inclinationDeg": 165.2,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1,
-      "diameterKm": 2,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2017-j-20",
-    "name": "S/2017 J 20",
-    "designation": "S/2017 J 20",
-    "parentId": "jupiter",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Ananke group",
-    "discovery": {
-      "year": 2017,
-      "discoverer": "Scott S. Sheppard et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 20903000,
-      "periodDays": 616,
-      "eccentricity": 0.24,
-      "inclinationDeg": 148,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2017-j-21",
-    "name": "S/2017 J 21",
-    "designation": "S/2017 J 21",
-    "parentId": "jupiter",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Carme group",
-    "discovery": {
-      "year": 2017,
-      "discoverer": "Scott S. Sheppard et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 23470000,
-      "periodDays": 732,
-      "eccentricity": 0.25,
-      "inclinationDeg": 164.3,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 0.5,
-      "diameterKm": 1,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2017-j-22",
-    "name": "S/2017 J 22",
-    "designation": "S/2017 J 22",
-    "parentId": "jupiter",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Pasiphae group",
-    "discovery": {
-      "year": 2017,
-      "discoverer": "Scott S. Sheppard et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 22727000,
-      "periodDays": 698,
-      "eccentricity": 0.26,
-      "inclinationDeg": 155.2,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 0.8,
-      "diameterKm": 1.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2017-j-23",
-    "name": "S/2017 J 23",
-    "designation": "S/2017 J 23",
-    "parentId": "jupiter",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Ananke group",
-    "discovery": {
-      "year": 2017,
-      "discoverer": "Scott S. Sheppard et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 20914000,
-      "periodDays": 616,
-      "eccentricity": 0.27,
-      "inclinationDeg": 143.4,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1,
-      "diameterKm": 2,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2017-j-24",
-    "name": "S/2017 J 24",
-    "designation": "S/2017 J 24",
-    "parentId": "jupiter",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Carme group",
-    "discovery": {
-      "year": 2017,
-      "discoverer": "Scott S. Sheppard et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 23581000,
-      "periodDays": 738,
-      "eccentricity": 0.28,
-      "inclinationDeg": 164.7,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2017-j-25",
-    "name": "S/2017 J 25",
-    "designation": "S/2017 J 25",
-    "parentId": "jupiter",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Pasiphae group",
-    "discovery": {
-      "year": 2017,
-      "discoverer": "Scott S. Sheppard et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 21878000,
-      "periodDays": 659,
-      "eccentricity": 0.29,
-      "inclinationDeg": 152.7,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 0.5,
-      "diameterKm": 1,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2018-j-26",
-    "name": "S/2018 J 26",
-    "designation": "S/2018 J 26",
-    "parentId": "jupiter",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Himalia group",
-    "discovery": {
-      "year": 2018,
-      "discoverer": "Scott S. Sheppard et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 11875000,
-      "periodDays": 264,
-      "eccentricity": 0.3,
-      "inclinationDeg": 30.5,
+      "semiMajorAxisKm": 116914,
+      "periodDays": 0.472,
+      "eccentricity": 0,
+      "inclinationDeg": 0,
       "retrograde": false
     },
     "physical": {
-      "meanRadiusKm": 0.8,
-      "diameterKm": 1.5,
+      "meanRadiusKm": 0.1,
+      "diameterKm": 0.3,
       "albedo": 0.04
     },
     "sourceIds": [
@@ -2722,28 +3842,26 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "asOf": "2026-08-15"
   },
   {
-    "id": "s-2018-j-27",
-    "name": "S/2018 J 27",
-    "designation": "S/2018 J 27",
-    "parentId": "jupiter",
+    "id": "s-2009-s-2",
+    "name": "S/2009 S 2",
+    "designation": "S/2009 S 2",
+    "parentId": "saturn",
     "fidelity": "irregular",
     "named": false,
     "provisional": true,
-    "family": "Himalia group",
+    "family": "Gallic group",
     "discovery": {
-      "year": 2018,
-      "discoverer": "Scott S. Sheppard et al."
+      "year": 2009,
+      "discoverer": "Spitale"
     },
     "orbit": {
-      "semiMajorAxisKm": 11952000,
-      "periodDays": 266,
-      "eccentricity": 0.31,
-      "inclinationDeg": 29.4,
+      "semiMajorAxisKm": 117059,
+      "periodDays": 0.473,
+      "eccentricity": 0,
+      "inclinationDeg": 0,
       "retrograde": false
     },
     "physical": {
-      "meanRadiusKm": 1,
-      "diameterKm": 2,
       "albedo": 0.04
     },
     "sourceIds": [
@@ -2754,1085 +3872,29 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "asOf": "2026-08-15"
   },
   {
-    "id": "s-2018-j-28",
-    "name": "S/2018 J 28",
-    "designation": "S/2018 J 28",
-    "parentId": "jupiter",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Carme group",
-    "discovery": {
-      "year": 2018,
-      "discoverer": "Scott S. Sheppard et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 23379000,
-      "periodDays": 728,
-      "eccentricity": 0.32,
-      "inclinationDeg": 164.9,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2018-j-29",
-    "name": "S/2018 J 29",
-    "designation": "S/2018 J 29",
-    "parentId": "jupiter",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Ananke group",
-    "discovery": {
-      "year": 2018,
-      "discoverer": "Scott S. Sheppard et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 20536000,
-      "periodDays": 599,
-      "eccentricity": 0.33,
-      "inclinationDeg": 144.2,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 0.5,
-      "diameterKm": 1,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2021-j-30",
-    "name": "S/2021 J 30",
-    "designation": "S/2021 J 30",
-    "parentId": "jupiter",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Ananke group",
-    "discovery": {
-      "year": 2021,
-      "discoverer": "Scott S. Sheppard et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 20793000,
-      "periodDays": 611,
-      "eccentricity": 0.34,
-      "inclinationDeg": 149.8,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 0.8,
-      "diameterKm": 1.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2021-j-31",
-    "name": "S/2021 J 31",
-    "designation": "S/2021 J 31",
-    "parentId": "jupiter",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Pasiphae group",
-    "discovery": {
-      "year": 2021,
-      "discoverer": "Scott S. Sheppard et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 21250000,
-      "periodDays": 631,
-      "eccentricity": 0.2,
-      "inclinationDeg": 150.1,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1,
-      "diameterKm": 2,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2021-j-32",
-    "name": "S/2021 J 32",
-    "designation": "S/2021 J 32",
-    "parentId": "jupiter",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Carme group",
-    "discovery": {
-      "year": 2021,
-      "discoverer": "Scott S. Sheppard et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 23377000,
-      "periodDays": 728,
-      "eccentricity": 0.21,
-      "inclinationDeg": 164.9,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2021-j-33",
-    "name": "S/2021 J 33",
-    "designation": "S/2021 J 33",
-    "parentId": "jupiter",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Carme group",
-    "discovery": {
-      "year": 2021,
-      "discoverer": "Scott S. Sheppard et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 23634000,
-      "periodDays": 740,
-      "eccentricity": 0.22,
-      "inclinationDeg": 164.5,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 0.5,
-      "diameterKm": 1,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2021-j-34",
-    "name": "S/2021 J 34",
-    "designation": "S/2021 J 34",
-    "parentId": "jupiter",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Carme group",
-    "discovery": {
-      "year": 2021,
-      "discoverer": "Scott S. Sheppard et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 23111000,
-      "periodDays": 716,
-      "eccentricity": 0.23,
-      "inclinationDeg": 163.2,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 0.8,
-      "diameterKm": 1.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2021-j-35",
-    "name": "S/2021 J 35",
-    "designation": "S/2021 J 35",
-    "parentId": "jupiter",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Carme group",
-    "discovery": {
-      "year": 2021,
-      "discoverer": "Scott S. Sheppard et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 23608000,
-      "periodDays": 739,
-      "eccentricity": 0.24,
-      "inclinationDeg": 166.5,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1,
-      "diameterKm": 2,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2022-j-36",
-    "name": "S/2022 J 36",
-    "designation": "S/2022 J 36",
-    "parentId": "jupiter",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Carme group",
-    "discovery": {
-      "year": 2022,
-      "discoverer": "Scott S. Sheppard et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 24075000,
-      "periodDays": 761,
-      "eccentricity": 0.25,
-      "inclinationDeg": 165.4,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2022-j-37",
-    "name": "S/2022 J 37",
-    "designation": "S/2022 J 37",
-    "parentId": "jupiter",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Pasiphae group",
-    "discovery": {
-      "year": 2022,
-      "discoverer": "Scott S. Sheppard et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 24342000,
-      "periodDays": 774,
-      "eccentricity": 0.26,
-      "inclinationDeg": 153.2,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 0.5,
-      "diameterKm": 1,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2022-j-38",
-    "name": "S/2022 J 38",
-    "designation": "S/2022 J 38",
-    "parentId": "jupiter",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Ananke group",
-    "discovery": {
-      "year": 2022,
-      "discoverer": "Scott S. Sheppard et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 21319000,
-      "periodDays": 634,
-      "eccentricity": 0.27,
-      "inclinationDeg": 144.5,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 0.8,
-      "diameterKm": 1.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2003-j-39",
-    "name": "S/2003 J 39",
-    "designation": "S/2003 J 39",
-    "parentId": "jupiter",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Pasiphae group",
-    "discovery": {
-      "year": 2003,
-      "discoverer": "Scott S. Sheppard et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 28856000,
-      "periodDays": 999,
-      "eccentricity": 0.28,
-      "inclinationDeg": 151.8,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1,
-      "diameterKm": 2,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2003-j-40",
-    "name": "S/2003 J 40",
-    "designation": "S/2003 J 40",
-    "parentId": "jupiter",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Ananke group",
-    "discovery": {
-      "year": 2003,
-      "discoverer": "Scott S. Sheppard et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 24373000,
-      "periodDays": 775,
-      "eccentricity": 0.29,
-      "inclinationDeg": 149.4,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2003-j-41",
-    "name": "S/2003 J 41",
-    "designation": "S/2003 J 41",
-    "parentId": "jupiter",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Pasiphae group",
-    "discovery": {
-      "year": 2003,
-      "discoverer": "Scott S. Sheppard et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 24680000,
-      "periodDays": 790,
-      "eccentricity": 0.3,
-      "inclinationDeg": 153.1,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 0.5,
-      "diameterKm": 1,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2003-j-42",
-    "name": "S/2003 J 42",
-    "designation": "S/2003 J 42",
-    "parentId": "jupiter",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Carme group",
-    "discovery": {
-      "year": 2003,
-      "discoverer": "Scott S. Sheppard et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 23057000,
-      "periodDays": 713,
-      "eccentricity": 0.31,
-      "inclinationDeg": 165.1,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 0.8,
-      "diameterKm": 1.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2003-j-43",
-    "name": "S/2003 J 43",
-    "designation": "S/2003 J 43",
-    "parentId": "jupiter",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Ananke group",
-    "discovery": {
-      "year": 2003,
-      "discoverer": "Scott S. Sheppard et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 19054000,
-      "periodDays": 536,
-      "eccentricity": 0.32,
-      "inclinationDeg": 145.8,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1,
-      "diameterKm": 2,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2003-j-44",
-    "name": "S/2003 J 44",
-    "designation": "S/2003 J 44",
-    "parentId": "jupiter",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Ananke group",
-    "discovery": {
-      "year": 2003,
-      "discoverer": "Scott S. Sheppard et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 21091000,
-      "periodDays": 624,
-      "eccentricity": 0.33,
-      "inclinationDeg": 148.6,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2003-j-45",
-    "name": "S/2003 J 45",
-    "designation": "S/2003 J 45",
-    "parentId": "jupiter",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Ananke group",
-    "discovery": {
-      "year": 2003,
-      "discoverer": "Scott S. Sheppard et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 20718000,
-      "periodDays": 607,
-      "eccentricity": 0.34,
-      "inclinationDeg": 146.5,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 0.5,
-      "diameterKm": 1,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2003-j-46",
-    "name": "S/2003 J 46",
-    "designation": "S/2003 J 46",
-    "parentId": "jupiter",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Carme group",
-    "discovery": {
-      "year": 2003,
-      "discoverer": "Scott S. Sheppard et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 23695000,
-      "periodDays": 743,
-      "eccentricity": 0.2,
-      "inclinationDeg": 162.9,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 0.8,
-      "diameterKm": 1.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2003-j-47",
-    "name": "S/2003 J 47",
-    "designation": "S/2003 J 47",
-    "parentId": "jupiter",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Ananke group",
-    "discovery": {
-      "year": 2003,
-      "discoverer": "Scott S. Sheppard et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 23762000,
-      "periodDays": 746,
-      "eccentricity": 0.21,
-      "inclinationDeg": 149.2,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1,
-      "diameterKm": 2,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2003-j-48",
-    "name": "S/2003 J 48",
-    "designation": "S/2003 J 48",
-    "parentId": "jupiter",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Carme group",
-    "discovery": {
-      "year": 2003,
-      "discoverer": "Scott S. Sheppard et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 23389000,
-      "periodDays": 729,
-      "eccentricity": 0.22,
-      "inclinationDeg": 162.1,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2010-j-49",
-    "name": "S/2010 J 49",
-    "designation": "S/2010 J 49",
-    "parentId": "jupiter",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Ananke group",
-    "discovery": {
-      "year": 2010,
-      "discoverer": "Scott S. Sheppard et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 21286000,
-      "periodDays": 633,
-      "eccentricity": 0.23,
-      "inclinationDeg": 147.5,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 0.5,
-      "diameterKm": 1,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2011-j-50",
-    "name": "S/2011 J 50",
-    "designation": "S/2011 J 50",
-    "parentId": "jupiter",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Carme group",
-    "discovery": {
-      "year": 2011,
-      "discoverer": "Scott S. Sheppard et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 20463000,
-      "periodDays": 596,
-      "eccentricity": 0.24,
-      "inclinationDeg": 162.8,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 0.8,
-      "diameterKm": 1.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2011-j-51",
-    "name": "S/2011 J 51",
-    "designation": "S/2011 J 51",
-    "parentId": "jupiter",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Pasiphae group",
-    "discovery": {
-      "year": 2011,
-      "discoverer": "Scott S. Sheppard et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 23680000,
-      "periodDays": 742,
-      "eccentricity": 0.25,
-      "inclinationDeg": 151.8,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1,
-      "diameterKm": 2,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2011-j-52",
-    "name": "S/2011 J 52",
-    "designation": "S/2011 J 52",
-    "parentId": "jupiter",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Ananke group",
-    "discovery": {
-      "year": 2011,
-      "discoverer": "Scott S. Sheppard et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 24147000,
-      "periodDays": 764,
-      "eccentricity": 0.26,
-      "inclinationDeg": 149.3,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2016-j-53",
-    "name": "S/2016 J 53",
-    "designation": "S/2016 J 53",
-    "parentId": "jupiter",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Ananke group",
-    "discovery": {
-      "year": 2016,
-      "discoverer": "Scott S. Sheppard et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 21024000,
-      "periodDays": 621,
-      "eccentricity": 0.27,
-      "inclinationDeg": 139.8,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 0.5,
-      "diameterKm": 1,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2016-j-54",
-    "name": "S/2016 J 54",
-    "designation": "S/2016 J 54",
-    "parentId": "jupiter",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Carme group",
-    "discovery": {
-      "year": 2016,
-      "discoverer": "Scott S. Sheppard et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 22731000,
-      "periodDays": 698,
-      "eccentricity": 0.28,
-      "inclinationDeg": 164.1,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 0.8,
-      "diameterKm": 1.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2016-j-55",
-    "name": "S/2016 J 55",
-    "designation": "S/2016 J 55",
-    "parentId": "jupiter",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Ananke group",
-    "discovery": {
-      "year": 2016,
-      "discoverer": "Scott S. Sheppard et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 24218000,
-      "periodDays": 768,
-      "eccentricity": 0.29,
-      "inclinationDeg": 147.1,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1,
-      "diameterKm": 2,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2017-j-56",
-    "name": "S/2017 J 56",
-    "designation": "S/2017 J 56",
-    "parentId": "jupiter",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Ananke group",
-    "discovery": {
-      "year": 2017,
-      "discoverer": "Scott S. Sheppard et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 23535000,
-      "periodDays": 735,
-      "eccentricity": 0.3,
-      "inclinationDeg": 149.2,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2017-j-57",
-    "name": "S/2017 J 57",
-    "designation": "S/2017 J 57",
-    "parentId": "jupiter",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Carme group",
-    "discovery": {
-      "year": 2017,
-      "discoverer": "Scott S. Sheppard et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 23372000,
-      "periodDays": 728,
-      "eccentricity": 0.31,
-      "inclinationDeg": 165.2,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 0.5,
-      "diameterKm": 1,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2017-j-58",
-    "name": "S/2017 J 58",
-    "designation": "S/2017 J 58",
-    "parentId": "jupiter",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Ananke group",
-    "discovery": {
-      "year": 2017,
-      "discoverer": "Scott S. Sheppard et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 20809000,
-      "periodDays": 611,
-      "eccentricity": 0.32,
-      "inclinationDeg": 148,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 0.8,
-      "diameterKm": 1.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2017-j-59",
-    "name": "S/2017 J 59",
-    "designation": "S/2017 J 59",
-    "parentId": "jupiter",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Carme group",
-    "discovery": {
-      "year": 2017,
-      "discoverer": "Scott S. Sheppard et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 23376000,
-      "periodDays": 728,
-      "eccentricity": 0.33,
-      "inclinationDeg": 164.3,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1,
-      "diameterKm": 2,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2017-j-60",
-    "name": "S/2017 J 60",
-    "designation": "S/2017 J 60",
-    "parentId": "jupiter",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Pasiphae group",
-    "discovery": {
-      "year": 2017,
-      "discoverer": "Scott S. Sheppard et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 22633000,
-      "periodDays": 694,
-      "eccentricity": 0.34,
-      "inclinationDeg": 155.2,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-pan",
+    "id": "pan",
     "name": "Pan",
     "designation": "Saturn XVIII",
     "parentId": "saturn",
     "fidelity": "regular",
     "named": true,
     "provisional": false,
-    "family": "Ring shepherd",
+    "family": "inner ring",
     "discovery": {
       "year": 1990,
-      "discoverer": "Mark R. Showalter (Voyager 2)"
+      "discoverer": "Showalter"
     },
     "orbit": {
-      "semiMajorAxisKm": 133584,
+      "semiMajorAxisKm": 133600,
       "periodDays": 0.575,
-      "eccentricity": 0.0001,
+      "eccentricity": 0,
       "inclinationDeg": 0,
       "retrograde": false
     },
     "physical": {
       "meanRadiusKm": 14.1,
       "diameterKm": 28.2,
-      "albedo": 0.5
+      "albedo": 0.04
     },
     "sourceIds": [
       "nasa-solar-system-exploration",
@@ -3842,29 +3904,29 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "asOf": "2026-08-15"
   },
   {
-    "id": "s-daphnis",
+    "id": "daphnis",
     "name": "Daphnis",
     "designation": "Saturn XXXV",
     "parentId": "saturn",
     "fidelity": "regular",
     "named": true,
     "provisional": false,
-    "family": "Ring shepherd",
+    "family": "inner ring",
     "discovery": {
       "year": 2005,
-      "discoverer": "Cassini Imaging Science Team"
+      "discoverer": "Cassini"
     },
     "orbit": {
-      "semiMajorAxisKm": 136505,
+      "semiMajorAxisKm": 136500,
       "periodDays": 0.594,
-      "eccentricity": 0.0001,
+      "eccentricity": 0,
       "inclinationDeg": 0,
       "retrograde": false
     },
     "physical": {
       "meanRadiusKm": 3.8,
       "diameterKm": 7.6,
-      "albedo": 0.5
+      "albedo": 0.04
     },
     "sourceIds": [
       "nasa-solar-system-exploration",
@@ -3874,29 +3936,29 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "asOf": "2026-08-15"
   },
   {
-    "id": "s-atlas",
+    "id": "atlas",
     "name": "Atlas",
     "designation": "Saturn XV",
     "parentId": "saturn",
     "fidelity": "regular",
     "named": true,
     "provisional": false,
-    "family": "Ring shepherd",
+    "family": "inner ring",
     "discovery": {
       "year": 1980,
-      "discoverer": "Richard J. Terrile (Voyager 1)"
+      "discoverer": "Voyager 1"
     },
     "orbit": {
-      "semiMajorAxisKm": 137670,
-      "periodDays": 0.602,
-      "eccentricity": 0.0012,
+      "semiMajorAxisKm": 137700,
+      "periodDays": 0.605,
+      "eccentricity": 0.001,
       "inclinationDeg": 0,
       "retrograde": false
     },
     "physical": {
       "meanRadiusKm": 15.1,
       "diameterKm": 30.2,
-      "albedo": 0.4
+      "albedo": 0.04
     },
     "sourceIds": [
       "nasa-solar-system-exploration",
@@ -3906,29 +3968,29 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "asOf": "2026-08-15"
   },
   {
-    "id": "s-prometheus",
+    "id": "prometheus",
     "name": "Prometheus",
     "designation": "Saturn XVI",
     "parentId": "saturn",
     "fidelity": "regular",
     "named": true,
     "provisional": false,
-    "family": "Ring shepherd",
+    "family": "inner ring",
     "discovery": {
       "year": 1980,
-      "discoverer": "Collins et al. (Voyager 1)"
+      "discoverer": "Voyager 1"
     },
     "orbit": {
-      "semiMajorAxisKm": 139380,
-      "periodDays": 0.613,
-      "eccentricity": 0.0022,
-      "inclinationDeg": 0.01,
+      "semiMajorAxisKm": 139400,
+      "periodDays": 0.616,
+      "eccentricity": 0.002,
+      "inclinationDeg": 0,
       "retrograde": false
     },
     "physical": {
       "meanRadiusKm": 43.1,
       "diameterKm": 86.2,
-      "albedo": 0.6
+      "albedo": 0.04
     },
     "sourceIds": [
       "nasa-solar-system-exploration",
@@ -3938,29 +4000,29 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "asOf": "2026-08-15"
   },
   {
-    "id": "s-pandora",
+    "id": "pandora",
     "name": "Pandora",
     "designation": "Saturn XVII",
     "parentId": "saturn",
     "fidelity": "regular",
     "named": true,
     "provisional": false,
-    "family": "Ring shepherd",
+    "family": "inner ring",
     "discovery": {
       "year": 1980,
-      "discoverer": "Collins et al. (Voyager 1)"
+      "discoverer": "Voyager 1"
     },
     "orbit": {
-      "semiMajorAxisKm": 141720,
-      "periodDays": 0.629,
-      "eccentricity": 0.0042,
-      "inclinationDeg": 0.05,
+      "semiMajorAxisKm": 141700,
+      "periodDays": 0.631,
+      "eccentricity": 0.004,
+      "inclinationDeg": 0,
       "retrograde": false
     },
     "physical": {
       "meanRadiusKm": 40.7,
       "diameterKm": 81.4,
-      "albedo": 0.6
+      "albedo": 0.04
     },
     "sourceIds": [
       "nasa-solar-system-exploration",
@@ -3970,29 +4032,29 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "asOf": "2026-08-15"
   },
   {
-    "id": "s-epimetheus",
+    "id": "epimetheus",
     "name": "Epimetheus",
     "designation": "Saturn XI",
     "parentId": "saturn",
     "fidelity": "regular",
     "named": true,
     "provisional": false,
-    "family": "Co-orbital",
+    "family": "co-orbital (with Janus)",
     "discovery": {
       "year": 1966,
-      "discoverer": "Richard L. Walker"
+      "discoverer": "Fountain & Larson"
     },
     "orbit": {
-      "semiMajorAxisKm": 151422,
-      "periodDays": 0.694,
-      "eccentricity": 0.0098,
-      "inclinationDeg": 0.35,
+      "semiMajorAxisKm": 151400,
+      "periodDays": 0.697,
+      "eccentricity": 0.02,
+      "inclinationDeg": 0.3,
       "retrograde": false
     },
     "physical": {
       "meanRadiusKm": 58.1,
       "diameterKm": 116.2,
-      "albedo": 0.73
+      "albedo": 0.04
     },
     "sourceIds": [
       "nasa-solar-system-exploration",
@@ -4002,29 +4064,29 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "asOf": "2026-08-15"
   },
   {
-    "id": "s-janus",
+    "id": "janus",
     "name": "Janus",
     "designation": "Saturn X",
     "parentId": "saturn",
     "fidelity": "regular",
     "named": true,
     "provisional": false,
-    "family": "Co-orbital",
+    "family": "co-orbital (with Epimetheus)",
     "discovery": {
       "year": 1966,
-      "discoverer": "Audouin Dollfus"
+      "discoverer": "Dollfus"
     },
     "orbit": {
-      "semiMajorAxisKm": 151472,
-      "periodDays": 0.695,
-      "eccentricity": 0.0068,
-      "inclinationDeg": 0.17,
+      "semiMajorAxisKm": 151500,
+      "periodDays": 0.697,
+      "eccentricity": 0.007,
+      "inclinationDeg": 0.2,
       "retrograde": false
     },
     "physical": {
       "meanRadiusKm": 89.5,
       "diameterKm": 179,
-      "albedo": 0.71
+      "albedo": 0.04
     },
     "sourceIds": [
       "nasa-solar-system-exploration",
@@ -4034,29 +4096,29 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "asOf": "2026-08-15"
   },
   {
-    "id": "s-aegeon",
+    "id": "aegaeon",
     "name": "Aegaeon",
     "designation": "Saturn LIII",
     "parentId": "saturn",
     "fidelity": "regular",
     "named": true,
     "provisional": false,
-    "family": "G-ring moonlet",
+    "family": "ring-embedded",
     "discovery": {
       "year": 2008,
-      "discoverer": "Cassini Imaging Science Team"
+      "discoverer": "Cassini"
     },
     "orbit": {
       "semiMajorAxisKm": 167500,
       "periodDays": 0.808,
-      "eccentricity": 0.0004,
+      "eccentricity": 0,
       "inclinationDeg": 0,
       "retrograde": false
     },
     "physical": {
       "meanRadiusKm": 0.3,
-      "diameterKm": 0.6,
-      "albedo": 0.15
+      "diameterKm": 0.7,
+      "albedo": 0.04
     },
     "sourceIds": [
       "nasa-solar-system-exploration",
@@ -4067,22 +4129,22 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
   },
   {
     "id": "mimas",
-    "name": "Mimas",
+    "name": "'Mimas'",
     "designation": "Saturn I",
     "parentId": "saturn",
     "fidelity": "major",
     "named": true,
     "provisional": false,
-    "family": "Major inner",
+    "family": "Gallic group",
     "discovery": {
       "year": 1789,
       "discoverer": "William Herschel"
     },
     "orbit": {
-      "semiMajorAxisKm": 185520,
+      "semiMajorAxisKm": 186000,
       "periodDays": 0.942,
-      "eccentricity": 0.0202,
-      "inclinationDeg": 1.51,
+      "eccentricity": 0.02,
+      "inclinationDeg": 1.6,
       "retrograde": false
     },
     "physical": {
@@ -4105,22 +4167,22 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "fidelity": "regular",
     "named": true,
     "provisional": false,
-    "family": "Alkyonides",
+    "family": "ring-embedded",
     "discovery": {
       "year": 2004,
-      "discoverer": "Cassini Imaging Team"
+      "discoverer": "Cassini"
     },
     "orbit": {
-      "semiMajorAxisKm": 194440,
+      "semiMajorAxisKm": 194700,
       "periodDays": 1.01,
-      "eccentricity": 0.0001,
-      "inclinationDeg": 0.01,
+      "eccentricity": 0.002,
+      "inclinationDeg": 0,
       "retrograde": false
     },
     "physical": {
       "meanRadiusKm": 1.4,
       "diameterKm": 2.9,
-      "albedo": 0.7
+      "albedo": 0.04
     },
     "sourceIds": [
       "nasa-solar-system-exploration",
@@ -4137,22 +4199,22 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "fidelity": "regular",
     "named": true,
     "provisional": false,
-    "family": "Alkyonides",
+    "family": "ring-embedded",
     "discovery": {
       "year": 2007,
-      "discoverer": "Cassini Imaging Team"
+      "discoverer": "Cassini"
     },
     "orbit": {
-      "semiMajorAxisKm": 197700,
-      "periodDays": 1.05,
-      "eccentricity": 0.0011,
-      "inclinationDeg": 0.1,
+      "semiMajorAxisKm": 198100,
+      "periodDays": 1.039,
+      "eccentricity": 0.002,
+      "inclinationDeg": 0,
       "retrograde": false
     },
     "physical": {
       "meanRadiusKm": 0.9,
       "diameterKm": 1.8,
-      "albedo": 0.7
+      "albedo": 0.04
     },
     "sourceIds": [
       "nasa-solar-system-exploration",
@@ -4169,22 +4231,22 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "fidelity": "irregular",
     "named": true,
     "provisional": false,
-    "family": "Alkyonides",
+    "family": "ring-embedded",
     "discovery": {
       "year": 2004,
-      "discoverer": "Cassini Imaging Team"
+      "discoverer": "Cassini"
     },
     "orbit": {
-      "semiMajorAxisKm": 212280,
-      "periodDays": 1.154,
+      "semiMajorAxisKm": 212300,
+      "periodDays": 1.156,
       "eccentricity": 0.004,
-      "inclinationDeg": 0.18,
+      "inclinationDeg": 0.2,
       "retrograde": false
     },
     "physical": {
       "meanRadiusKm": 2.2,
       "diameterKm": 4.4,
-      "albedo": 0.7
+      "albedo": 0.04
     },
     "sourceIds": [
       "nasa-solar-system-exploration",
@@ -4195,22 +4257,22 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
   },
   {
     "id": "enceladus",
-    "name": "Enceladus",
+    "name": "'Enceladus'",
     "designation": "Saturn II",
     "parentId": "saturn",
     "fidelity": "major",
     "named": true,
     "provisional": false,
-    "family": "Major inner",
+    "family": "Gallic group",
     "discovery": {
       "year": 1789,
       "discoverer": "William Herschel"
     },
     "orbit": {
-      "semiMajorAxisKm": 238020,
+      "semiMajorAxisKm": 238400,
       "periodDays": 1.37,
-      "eccentricity": 0.0047,
-      "inclinationDeg": 0.02,
+      "eccentricity": 0.005,
+      "inclinationDeg": 0,
       "retrograde": false
     },
     "physical": {
@@ -4227,22 +4289,22 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
   },
   {
     "id": "tethys",
-    "name": "Tethys",
+    "name": "'Tethys'",
     "designation": "Saturn III",
     "parentId": "saturn",
     "fidelity": "major",
     "named": true,
     "provisional": false,
-    "family": "Major inner",
+    "family": "Gallic group",
     "discovery": {
       "year": 1684,
       "discoverer": "G. D. Cassini"
     },
     "orbit": {
-      "semiMajorAxisKm": 294660,
+      "semiMajorAxisKm": 295000,
       "periodDays": 1.888,
-      "eccentricity": 0,
-      "inclinationDeg": 1.12,
+      "eccentricity": 0.001,
+      "inclinationDeg": 1.1,
       "retrograde": false
     },
     "physical": {
@@ -4265,22 +4327,22 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "fidelity": "irregular",
     "named": true,
     "provisional": false,
-    "family": "Tethys trojan",
+    "family": "trojan (Tethys {{L4}})",
     "discovery": {
       "year": 1980,
-      "discoverer": "Smith, Reitsema, Larson (Voyager 1)"
+      "discoverer": "Smith et al."
     },
     "orbit": {
-      "semiMajorAxisKm": 294660,
+      "semiMajorAxisKm": 295000,
       "periodDays": 1.888,
-      "eccentricity": 0,
-      "inclinationDeg": 1.16,
+      "eccentricity": 0.001,
+      "inclinationDeg": 1.2,
       "retrograde": false
     },
     "physical": {
       "meanRadiusKm": 12.4,
       "diameterKm": 24.8,
-      "albedo": 1
+      "albedo": 0.04
     },
     "sourceIds": [
       "nasa-solar-system-exploration",
@@ -4297,54 +4359,22 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "fidelity": "irregular",
     "named": true,
     "provisional": false,
-    "family": "Tethys trojan",
+    "family": "trojan (Tethys {{L5}})",
     "discovery": {
       "year": 1980,
       "discoverer": "Pascu et al."
     },
     "orbit": {
-      "semiMajorAxisKm": 294660,
+      "semiMajorAxisKm": 295000,
       "periodDays": 1.888,
       "eccentricity": 0.001,
-      "inclinationDeg": 1.47,
+      "inclinationDeg": 1.5,
       "retrograde": false
     },
     "physical": {
       "meanRadiusKm": 10.7,
       "diameterKm": 21.4,
-      "albedo": 1.34
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "dione",
-    "name": "Dione",
-    "designation": "Saturn IV",
-    "parentId": "saturn",
-    "fidelity": "major",
-    "named": true,
-    "provisional": false,
-    "family": "Major inner",
-    "discovery": {
-      "year": 1684,
-      "discoverer": "G. D. Cassini"
-    },
-    "orbit": {
-      "semiMajorAxisKm": 377400,
-      "periodDays": 2.737,
-      "eccentricity": 0.0022,
-      "inclinationDeg": 0.02,
-      "retrograde": false
-    },
-    "physical": {
-      "meanRadiusKm": 561.4,
-      "diameterKm": 1122.8,
-      "albedo": 0.998
+      "albedo": 0.04
     },
     "sourceIds": [
       "nasa-solar-system-exploration",
@@ -4361,22 +4391,22 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "fidelity": "irregular",
     "named": true,
     "provisional": false,
-    "family": "Dione trojan",
+    "family": "trojan (Dione {{L4}})",
     "discovery": {
       "year": 1980,
       "discoverer": "Laques & Lecacheux"
     },
     "orbit": {
-      "semiMajorAxisKm": 377400,
+      "semiMajorAxisKm": 377600,
       "periodDays": 2.737,
-      "eccentricity": 0.005,
+      "eccentricity": 0.007,
       "inclinationDeg": 0.2,
       "retrograde": false
     },
     "physical": {
       "meanRadiusKm": 17.6,
       "diameterKm": 35.2,
-      "albedo": 1.67
+      "albedo": 0.04
     },
     "sourceIds": [
       "nasa-solar-system-exploration",
@@ -4393,22 +4423,54 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "fidelity": "irregular",
     "named": true,
     "provisional": false,
-    "family": "Dione trojan",
+    "family": "trojan (Dione {{L5}})",
     "discovery": {
       "year": 2004,
-      "discoverer": "Cassini Imaging Team"
+      "discoverer": "Cassini"
     },
     "orbit": {
-      "semiMajorAxisKm": 377400,
+      "semiMajorAxisKm": 377600,
       "periodDays": 2.737,
       "eccentricity": 0.019,
-      "inclinationDeg": 0.18,
+      "inclinationDeg": 0.2,
       "retrograde": false
     },
     "physical": {
       "meanRadiusKm": 1.3,
       "diameterKm": 2.6,
-      "albedo": 0.7
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "dione",
+    "name": "'Dione'",
+    "designation": "Saturn IV",
+    "parentId": "saturn",
+    "fidelity": "major",
+    "named": true,
+    "provisional": false,
+    "family": "Gallic group",
+    "discovery": {
+      "year": 1684,
+      "discoverer": "G. D. Cassini"
+    },
+    "orbit": {
+      "semiMajorAxisKm": 377700,
+      "periodDays": 2.737,
+      "eccentricity": 0.002,
+      "inclinationDeg": 0,
+      "retrograde": false
+    },
+    "physical": {
+      "meanRadiusKm": 561.4,
+      "diameterKm": 1122.8,
+      "albedo": 0.998
     },
     "sourceIds": [
       "nasa-solar-system-exploration",
@@ -4419,22 +4481,22 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
   },
   {
     "id": "rhea",
-    "name": "Rhea",
+    "name": "'Rhea'",
     "designation": "Saturn V",
     "parentId": "saturn",
     "fidelity": "major",
     "named": true,
     "provisional": false,
-    "family": "Major inner",
+    "family": "Gallic group",
     "discovery": {
       "year": 1672,
       "discoverer": "G. D. Cassini"
     },
     "orbit": {
-      "semiMajorAxisKm": 527040,
+      "semiMajorAxisKm": 527200,
       "periodDays": 4.518,
-      "eccentricity": 0.0012,
-      "inclinationDeg": 0.34,
+      "eccentricity": 0.001,
+      "inclinationDeg": 0.3,
       "retrograde": false
     },
     "physical": {
@@ -4451,22 +4513,22 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
   },
   {
     "id": "titan",
-    "name": "Titan",
+    "name": "'Titan'",
     "designation": "Saturn VI",
     "parentId": "saturn",
     "fidelity": "major",
     "named": true,
     "provisional": false,
-    "family": "Titan",
+    "family": "Gallic group",
     "discovery": {
       "year": 1655,
       "discoverer": "Christiaan Huygens"
     },
     "orbit": {
-      "semiMajorAxisKm": 1221830,
+      "semiMajorAxisKm": 1221900,
       "periodDays": 15.945,
-      "eccentricity": 0.0288,
-      "inclinationDeg": 0.35,
+      "eccentricity": 0.029,
+      "inclinationDeg": 0.3,
       "retrograde": false
     },
     "physical": {
@@ -4489,16 +4551,16 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "fidelity": "irregular",
     "named": true,
     "provisional": false,
-    "family": "Hyperion",
+    "family": "Gallic group",
     "discovery": {
       "year": 1848,
       "discoverer": "W. & G. Bond, W. Lassell"
     },
     "orbit": {
-      "semiMajorAxisKm": 1481100,
+      "semiMajorAxisKm": 1481500,
       "periodDays": 21.277,
-      "eccentricity": 0.123,
-      "inclinationDeg": 0.57,
+      "eccentricity": 0.105,
+      "inclinationDeg": 0.6,
       "retrograde": false
     },
     "physical": {
@@ -4515,22 +4577,22 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
   },
   {
     "id": "iapetus",
-    "name": "Iapetus",
+    "name": "'Iapetus'",
     "designation": "Saturn VIII",
     "parentId": "saturn",
     "fidelity": "major",
     "named": true,
     "provisional": false,
-    "family": "Iapetus",
+    "family": "Gallic group",
     "discovery": {
       "year": 1671,
       "discoverer": "G. D. Cassini"
     },
     "orbit": {
-      "semiMajorAxisKm": 3561300,
-      "periodDays": 79.33,
-      "eccentricity": 0.0286,
-      "inclinationDeg": 15.47,
+      "semiMajorAxisKm": 3561700,
+      "periodDays": 79.331,
+      "eccentricity": 0.028,
+      "inclinationDeg": 7.6,
       "retrograde": false
     },
     "physical": {
@@ -4546,28 +4608,462 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "asOf": "2026-08-15"
   },
   {
+    "id": "s-2023-s-1",
+    "name": "♦S/2023 S 1",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": true,
+    "provisional": false,
+    "family": "Inuit group (Kiviuq)",
+    "discovery": {
+      "year": 2023,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 11205400,
+      "periodDays": 442.86,
+      "eccentricity": 0.386,
+      "inclinationDeg": 48.8,
+      "retrograde": false
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2019-s-1",
+    "name": "♦S/2019 S 1",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": true,
+    "provisional": false,
+    "family": "Inuit group (Kiviuq)",
+    "discovery": {
+      "year": 2019,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 11245400,
+      "periodDays": 445.17,
+      "eccentricity": 0.383,
+      "inclinationDeg": 49.5,
+      "retrograde": false
+    },
+    "physical": {
+      "meanRadiusKm": 2.5,
+      "diameterKm": 5,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2004-s-54",
+    "name": "♦S/2004 S 54",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": true,
+    "provisional": false,
+    "family": "Inuit group (Kiviuq)",
+    "discovery": {
+      "year": 2004,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 11277500,
+      "periodDays": 447.14,
+      "eccentricity": 0.373,
+      "inclinationDeg": 48.1,
+      "retrograde": false
+    },
+    "physical": {
+      "meanRadiusKm": 2,
+      "diameterKm": 4,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2023-s-56",
+    "name": "♦S/2023 S 56",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": true,
+    "provisional": false,
+    "family": "Inuit group (Kiviuq)",
+    "discovery": {
+      "year": 2023,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 11287500,
+      "periodDays": 447.75,
+      "eccentricity": 0.358,
+      "inclinationDeg": 45.4,
+      "retrograde": false
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2004-s-55",
+    "name": "♦S/2004 S 55",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": true,
+    "provisional": false,
+    "family": "Inuit group (Kiviuq)",
+    "discovery": {
+      "year": 2004,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 11294700,
+      "periodDays": 448.16,
+      "eccentricity": 0.26,
+      "inclinationDeg": 48.9,
+      "retrograde": false
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2020-s-11",
+    "name": "♦S/2020 S 11",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": true,
+    "provisional": false,
+    "family": "Inuit group (Kiviuq)",
+    "discovery": {
+      "year": 2020,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 11295600,
+      "periodDays": 448.21,
+      "eccentricity": 0.372,
+      "inclinationDeg": 48.2,
+      "retrograde": false
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2019-s-22",
+    "name": "♦S/2019 S 22",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": true,
+    "provisional": false,
+    "family": "Inuit group (Kiviuq)",
+    "discovery": {
+      "year": 2019,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 11305100,
+      "periodDays": 448.78,
+      "eccentricity": 0.369,
+      "inclinationDeg": 47.3,
+      "retrograde": false
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2020-s-49",
+    "name": "♦S/2020 S 49",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": true,
+    "provisional": false,
+    "family": "Inuit group (Kiviuq)",
+    "discovery": {
+      "year": 2020,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 11305900,
+      "periodDays": 448.84,
+      "eccentricity": 0.373,
+      "inclinationDeg": 48,
+      "retrograde": false
+    },
+    "physical": {
+      "meanRadiusKm": 1,
+      "diameterKm": 2,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
     "id": "kiviuq",
-    "name": "Kiviuq",
+    "name": "♦Kiviuq",
     "designation": "Saturn XXIV",
     "parentId": "saturn",
     "fidelity": "irregular",
     "named": true,
     "provisional": false,
-    "family": "Inuit group",
+    "family": "Inuit group (Kiviuq)",
     "discovery": {
       "year": 2000,
       "discoverer": "Gladman et al."
     },
     "orbit": {
-      "semiMajorAxisKm": 11111000,
-      "periodDays": 449.2,
-      "eccentricity": 0.334,
+      "semiMajorAxisKm": 11307400,
+      "periodDays": 448.91,
+      "eccentricity": 0.275,
+      "inclinationDeg": 48,
+      "retrograde": false
+    },
+    "physical": {
+      "meanRadiusKm": 8.5,
+      "diameterKm": 17,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2023-s-2",
+    "name": "♦S/2023 S 2",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": true,
+    "provisional": false,
+    "family": "Inuit group (Kiviuq)",
+    "discovery": {
+      "year": 2023,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 11309900,
+      "periodDays": 449.05,
+      "eccentricity": 0.339,
       "inclinationDeg": 45.7,
       "retrograde": false
     },
     "physical": {
-      "meanRadiusKm": 8,
-      "diameterKm": 16,
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2019-s-23",
+    "name": "♦S/2019 S 23",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": true,
+    "provisional": false,
+    "family": "Inuit group (Kiviuq)",
+    "discovery": {
+      "year": 2019,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 11310200,
+      "periodDays": 449.08,
+      "eccentricity": 0.255,
+      "inclinationDeg": 48.7,
+      "retrograde": false
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2020-s-12",
+    "name": "♦S/2020 S 12",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": true,
+    "provisional": false,
+    "family": "Inuit group (Kiviuq)",
+    "discovery": {
+      "year": 2020,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 11314500,
+      "periodDays": 449.33,
+      "eccentricity": 0.26,
+      "inclinationDeg": 50.8,
+      "retrograde": false
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2005-s-4",
+    "name": "♦S/2005 S 4",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": true,
+    "provisional": false,
+    "family": "Inuit group (Kiviuq)",
+    "discovery": {
+      "year": 2005,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 11324500,
+      "periodDays": 449.93,
+      "eccentricity": 0.315,
+      "inclinationDeg": 48,
+      "retrograde": false
+    },
+    "physical": {
+      "meanRadiusKm": 2.5,
+      "diameterKm": 5,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2019-s-25",
+    "name": "♦S/2019 S 25",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": true,
+    "provisional": false,
+    "family": "Inuit group (Kiviuq)",
+    "discovery": {
+      "year": 2019,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 11329400,
+      "periodDays": 450.22,
+      "eccentricity": 0.271,
+      "inclinationDeg": 48.1,
+      "retrograde": false
+    },
+    "physical": {
+      "meanRadiusKm": 2,
+      "diameterKm": 4,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2020-s-1",
+    "name": "♦S/2020 S 1",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": true,
+    "provisional": false,
+    "family": "Inuit group (Kiviuq)",
+    "discovery": {
+      "year": 2020,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 11338600,
+      "periodDays": 450.77,
+      "eccentricity": 0.337,
+      "inclinationDeg": 48.2,
+      "retrograde": false
+    },
+    "physical": {
+      "meanRadiusKm": 2,
+      "diameterKm": 4,
       "albedo": 0.04
     },
     "sourceIds": [
@@ -4579,27 +5075,596 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
   },
   {
     "id": "ijiraq",
-    "name": "Ijiraq",
+    "name": "♦Ijiraq",
     "designation": "Saturn XXII",
     "parentId": "saturn",
     "fidelity": "irregular",
     "named": true,
     "provisional": false,
-    "family": "Inuit group",
+    "family": "Inuit group (Kiviuq)",
     "discovery": {
       "year": 2000,
       "discoverer": "Gladman et al."
     },
     "orbit": {
-      "semiMajorAxisKm": 11124000,
-      "periodDays": 451.4,
-      "eccentricity": 0.316,
-      "inclinationDeg": 46.4,
+      "semiMajorAxisKm": 11344700,
+      "periodDays": 451.12,
+      "eccentricity": 0.293,
+      "inclinationDeg": 49.2,
       "retrograde": false
     },
     "physical": {
-      "meanRadiusKm": 6,
-      "diameterKm": 12,
+      "meanRadiusKm": 6.5,
+      "diameterKm": 13,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2020-s-48",
+    "name": "♦S/2020 S 48",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": true,
+    "provisional": false,
+    "family": "Inuit group (Kiviuq)",
+    "discovery": {
+      "year": 2020,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 11355100,
+      "periodDays": 451.75,
+      "eccentricity": 0.373,
+      "inclinationDeg": 45.9,
+      "retrograde": false
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2019-s-24",
+    "name": "♦S/2019 S 24",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": true,
+    "provisional": false,
+    "family": "Inuit group (Kiviuq)",
+    "discovery": {
+      "year": 2019,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 11360500,
+      "periodDays": 452.07,
+      "eccentricity": 0.345,
+      "inclinationDeg": 46.7,
+      "retrograde": false
+    },
+    "physical": {
+      "meanRadiusKm": 2,
+      "diameterKm": 4,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2007-s-10",
+    "name": "♦S/2007 S 10",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": true,
+    "provisional": false,
+    "family": "Inuit group (Kiviuq)",
+    "discovery": {
+      "year": 2007,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 11364900,
+      "periodDays": 452.36,
+      "eccentricity": 0.367,
+      "inclinationDeg": 45.8,
+      "retrograde": false
+    },
+    "physical": {
+      "meanRadiusKm": 2,
+      "diameterKm": 4,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2019-s-26",
+    "name": "♦S/2019 S 26",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": true,
+    "provisional": false,
+    "family": "Inuit group (Kiviuq)",
+    "discovery": {
+      "year": 2019,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 11390900,
+      "periodDays": 453.89,
+      "eccentricity": 0.365,
+      "inclinationDeg": 48.1,
+      "retrograde": false
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2020-s-13",
+    "name": "♦S/2020 S 13",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": true,
+    "provisional": false,
+    "family": "Inuit group (Kiviuq)",
+    "discovery": {
+      "year": 2020,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 11415600,
+      "periodDays": 455.39,
+      "eccentricity": 0.373,
+      "inclinationDeg": 48,
+      "retrograde": false
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2023-s-50",
+    "name": "S/2023 S 50",
+    "designation": "S/2023 S 50",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2023,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 11656500,
+      "periodDays": 469.82,
+      "eccentricity": 0.263,
+      "inclinationDeg": 166.1,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2023-s-6",
+    "name": "♦S/2023 S 6",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": true,
+    "provisional": false,
+    "family": "Inuit group (Kiviuq)",
+    "discovery": {
+      "year": 2023,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 11953100,
+      "periodDays": 487.91,
+      "eccentricity": 0.336,
+      "inclinationDeg": 47.4,
+      "retrograde": false
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2023-s-7",
+    "name": "♦S/2023 S 7",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": true,
+    "provisional": false,
+    "family": "Inuit group (Kiviuq)",
+    "discovery": {
+      "year": 2023,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 12133700,
+      "periodDays": 499.01,
+      "eccentricity": 0.284,
+      "inclinationDeg": 44.7,
+      "retrograde": false
+    },
+    "physical": {
+      "meanRadiusKm": 2,
+      "diameterKm": 4,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2023-s-38",
+    "name": "S/2023 S 38",
+    "designation": "S/2023 S 38",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (low-inclination)",
+    "discovery": {
+      "year": 2023,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 12823500,
+      "periodDays": 546.31,
+      "eccentricity": 0.909,
+      "inclinationDeg": 149.2,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "phoebe",
+    "name": "Phoebe",
+    "designation": "Saturn IX",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": true,
+    "provisional": false,
+    "family": "Norse group (Phoebe)",
+    "discovery": {
+      "year": 1899,
+      "discoverer": "William H. Pickering"
+    },
+    "orbit": {
+      "semiMajorAxisKm": 12929400,
+      "periodDays": 550.3,
+      "eccentricity": 0.164,
+      "inclinationDeg": 175.2,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 106.5,
+      "diameterKm": 213,
+      "albedo": 0.08
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2023-s-9",
+    "name": "S/2023 S 9",
+    "designation": "S/2023 S 9",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Phoebe)",
+    "discovery": {
+      "year": 2023,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 13167500,
+      "periodDays": 564.11,
+      "eccentricity": 0.141,
+      "inclinationDeg": 172.2,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2006-s-20",
+    "name": "S/2006 S 20",
+    "designation": "S/2006 S 20",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Phoebe)",
+    "discovery": {
+      "year": 2006,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 13193700,
+      "periodDays": 565.79,
+      "eccentricity": 0.206,
+      "inclinationDeg": 173.1,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 2.5,
+      "diameterKm": 5,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2004-s-56",
+    "name": "S/2004 S 56",
+    "designation": "S/2004 S 56",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2004,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 13670200,
+      "periodDays": 596.69,
+      "eccentricity": 0.339,
+      "inclinationDeg": 161.6,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 2.5,
+      "diameterKm": 5,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2023-s-8",
+    "name": "S/2023 S 8",
+    "designation": "S/2023 S 8",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2023,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 14018800,
+      "periodDays": 619.69,
+      "eccentricity": 0.122,
+      "inclinationDeg": 166.9,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2023-s-62",
+    "name": "S/2023 S 62",
+    "designation": "S/2023 S 62",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Kari)",
+    "discovery": {
+      "year": 2023,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 14025900,
+      "periodDays": 620.15,
+      "eccentricity": 0.467,
+      "inclinationDeg": 155.6,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1,
+      "diameterKm": 2,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2023-s-11",
+    "name": "S/2023 S 11",
+    "designation": "S/2023 S 11",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2023,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 14046100,
+      "periodDays": 621.49,
+      "eccentricity": 0.3,
+      "inclinationDeg": 170.9,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2006-s-9",
+    "name": "S/2006 S 9",
+    "designation": "S/2006 S 9",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Phoebe)",
+    "discovery": {
+      "year": 2006,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 14406700,
+      "periodDays": 645.58,
+      "eccentricity": 0.249,
+      "inclinationDeg": 173,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2006-s-21",
+    "name": "S/2006 S 21",
+    "designation": "S/2006 S 21",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2006,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 14976500,
+      "periodDays": 684.28,
+      "eccentricity": 0.204,
+      "inclinationDeg": 169.8,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
       "albedo": 0.04
     },
     "sourceIds": [
@@ -4611,27 +5676,27 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
   },
   {
     "id": "paaliaq",
-    "name": "Paaliaq",
+    "name": "♦Paaliaq",
     "designation": "Saturn XX",
     "parentId": "saturn",
     "fidelity": "irregular",
     "named": true,
     "provisional": false,
-    "family": "Inuit group",
+    "family": "Inuit group{{refn|group=lower-alpha|The moon has a similar inclination, but a significantly different semi-major axis. Therefore, it is uncertain whether it comes from the same parent body as the rest of the Inuit group.}}",
     "discovery": {
       "year": 2000,
       "discoverer": "Gladman et al."
     },
     "orbit": {
-      "semiMajorAxisKm": 15200000,
-      "periodDays": 686.9,
-      "eccentricity": 0.363,
-      "inclinationDeg": 47.2,
+      "semiMajorAxisKm": 14997700,
+      "periodDays": 685.72,
+      "eccentricity": 0.378,
+      "inclinationDeg": 48.5,
       "retrograde": false
     },
     "physical": {
-      "meanRadiusKm": 11,
-      "diameterKm": 22,
+      "meanRadiusKm": 12.5,
+      "diameterKm": 25,
       "albedo": 0.04
     },
     "sourceIds": [
@@ -4642,28 +5707,28 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "asOf": "2026-08-15"
   },
   {
-    "id": "siarnaq",
-    "name": "Siarnaq",
-    "designation": "Saturn XXIX",
+    "id": "s-2006-s-22",
+    "name": "S/2006 S 22",
+    "designation": "S/2006 S 22",
     "parentId": "saturn",
     "fidelity": "irregular",
-    "named": true,
-    "provisional": false,
-    "family": "Inuit group",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Phoebe){{efn|group=lower-alpha|This moon's inclination of 172.0° is at the exact boundary between the Phoebe (i > 172°) and Mundilfari subgroups (172° > i > 157°). Because neither group's range is inclusive of the boundary value, S/2006 S 22 has been arbitrarily assigned to the Phoebe subgroup.}}",
     "discovery": {
-      "year": 2000,
-      "discoverer": "Gladman et al."
+      "year": 2006,
+      "discoverer": "Sheppard et al."
     },
     "orbit": {
-      "semiMajorAxisKm": 17531000,
-      "periodDays": 895.6,
-      "eccentricity": 0.295,
-      "inclinationDeg": 45.6,
-      "retrograde": false
+      "semiMajorAxisKm": 15109500,
+      "periodDays": 693.41,
+      "eccentricity": 0.246,
+      "inclinationDeg": 172,
+      "retrograde": true
     },
     "physical": {
-      "meanRadiusKm": 20,
-      "diameterKm": 40,
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
       "albedo": 0.04
     },
     "sourceIds": [
@@ -4674,28 +5739,380 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "asOf": "2026-08-15"
   },
   {
-    "id": "tarqeq",
-    "name": "Tarqeq",
-    "designation": "Saturn LII",
+    "id": "s-2023-s-13",
+    "name": "S/2023 S 13",
+    "designation": "S/2023 S 13",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2023,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 15193000,
+      "periodDays": 699.18,
+      "eccentricity": 0.179,
+      "inclinationDeg": 168.5,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2023-s-10",
+    "name": "S/2023 S 10",
+    "designation": "S/2023 S 10",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2023,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 15500200,
+      "periodDays": 720.49,
+      "eccentricity": 0.302,
+      "inclinationDeg": 163,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "skathi",
+    "name": "Skathi",
+    "designation": "Saturn XXVII",
     "parentId": "saturn",
     "fidelity": "irregular",
     "named": true,
     "provisional": false,
-    "family": "Inuit group",
+    "family": "Norse group (low-inclination)",
+    "discovery": {
+      "year": 2000,
+      "discoverer": "Gladman et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 15575400,
+      "periodDays": 725.73,
+      "eccentricity": 0.281,
+      "inclinationDeg": 151.6,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 4,
+      "diameterKm": 8,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2023-s-12",
+    "name": "S/2023 S 12",
+    "designation": "S/2023 S 12",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2023,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 15805900,
+      "periodDays": 741.92,
+      "eccentricity": 0.601,
+      "inclinationDeg": 168.8,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2007-s-5",
+    "name": "S/2007 S 5",
+    "designation": "S/2007 S 5",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
     "discovery": {
       "year": 2007,
-      "discoverer": "Scott S. Sheppard et al."
+      "discoverer": "Sheppard et al."
     },
     "orbit": {
-      "semiMajorAxisKm": 18009000,
-      "periodDays": 887.5,
-      "eccentricity": 0.16,
-      "inclinationDeg": 46.3,
-      "retrograde": false
+      "semiMajorAxisKm": 15835600,
+      "periodDays": 744.01,
+      "eccentricity": 0.104,
+      "inclinationDeg": 158.4,
+      "retrograde": true
     },
     "physical": {
-      "meanRadiusKm": 3.5,
-      "diameterKm": 7,
+      "meanRadiusKm": 2,
+      "diameterKm": 4,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2007-s-7",
+    "name": "S/2007 S 7",
+    "designation": "S/2007 S 7",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2007,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 15931600,
+      "periodDays": 750.8,
+      "eccentricity": 0.217,
+      "inclinationDeg": 169.3,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 2,
+      "diameterKm": 4,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2007-s-2",
+    "name": "S/2007 S 2",
+    "designation": "S/2007 S 2",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Phoebe){{refn|group=lower-alpha|name=\"Phoebe/Mundilfari\"|The moon has been identified as potentially belonging to the Mundilfari subgroup due to its inclination and semi-major axis.}}",
+    "discovery": {
+      "year": 2007,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 15939100,
+      "periodDays": 751.33,
+      "eccentricity": 0.232,
+      "inclinationDeg": 174,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 2.5,
+      "diameterKm": 5,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2004-s-37",
+    "name": "S/2004 S 37",
+    "designation": "S/2004 S 37",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2004,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 15956300,
+      "periodDays": 752.55,
+      "eccentricity": 0.448,
+      "inclinationDeg": 158.2,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 2,
+      "diameterKm": 4,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2004-s-47",
+    "name": "S/2004 S 47",
+    "designation": "S/2004 S 47",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2004,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 16050700,
+      "periodDays": 759.22,
+      "eccentricity": 0.291,
+      "inclinationDeg": 160.9,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 2,
+      "diameterKm": 4,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2004-s-40",
+    "name": "S/2004 S 40",
+    "designation": "Saturn V",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2004,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 16075600,
+      "periodDays": 761,
+      "eccentricity": 0.297,
+      "inclinationDeg": 169.2,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 2,
+      "diameterKm": 4,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2020-s-14",
+    "name": "S/2020 S 14",
+    "designation": "S/2020 S 14",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2020,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 16186200,
+      "periodDays": 768.86,
+      "eccentricity": 0.313,
+      "inclinationDeg": 161.7,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2019-s-27",
+    "name": "S/2019 S 27",
+    "designation": "S/2019 S 27",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2019,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 16267000,
+      "periodDays": 774.63,
+      "eccentricity": 0.42,
+      "inclinationDeg": 162.1,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
       "albedo": 0.04
     },
     "sourceIds": [
@@ -4716,18 +6133,210 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "family": "Gallic group",
     "discovery": {
       "year": 2000,
-      "discoverer": "Holman et al."
+      "discoverer": "Holman"
     },
     "orbit": {
-      "semiMajorAxisKm": 16182000,
-      "periodDays": 783.5,
-      "eccentricity": 0.477,
-      "inclinationDeg": 34,
+      "semiMajorAxisKm": 16329200,
+      "periodDays": 779.07,
+      "eccentricity": 0.482,
+      "inclinationDeg": 36.8,
       "retrograde": false
     },
     "physical": {
-      "meanRadiusKm": 16,
-      "diameterKm": 32,
+      "meanRadiusKm": 14.3,
+      "diameterKm": 28.6,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2019-s-2",
+    "name": "S/2019 S 2",
+    "designation": "S/2019 S 2",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Phoebe)",
+    "discovery": {
+      "year": 2019,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 16560300,
+      "periodDays": 795.67,
+      "eccentricity": 0.279,
+      "inclinationDeg": 173.3,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2020-s-15",
+    "name": "S/2020 S 15",
+    "designation": "S/2020 S 15",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Gallic group",
+    "discovery": {
+      "year": 2020,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 16729200,
+      "periodDays": 807.82,
+      "eccentricity": 0.462,
+      "inclinationDeg": 37.1,
+      "retrograde": false
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2023-s-14",
+    "name": "S/2023 S 14",
+    "designation": "S/2023 S 14",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2023,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 16853000,
+      "periodDays": 816.86,
+      "eccentricity": 0.497,
+      "inclinationDeg": 171.6,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2023-s-55",
+    "name": "S/2023 S 55",
+    "designation": "S/2023 S 55",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Gallic group",
+    "discovery": {
+      "year": 2023,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 16875100,
+      "periodDays": 818.51,
+      "eccentricity": 0.491,
+      "inclinationDeg": 35.9,
+      "retrograde": false
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2020-s-16",
+    "name": "S/2020 S 16",
+    "designation": "S/2020 S 16",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2020,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 16963400,
+      "periodDays": 824.92,
+      "eccentricity": 0.405,
+      "inclinationDeg": 167.3,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2023-s-16",
+    "name": "S/2023 S 16",
+    "designation": "S/2023 S 16",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2023,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 17005300,
+      "periodDays": 827.91,
+      "eccentricity": 0.27,
+      "inclinationDeg": 162.6,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
       "albedo": 0.04
     },
     "sourceIds": [
@@ -4751,15 +6360,527 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
       "discoverer": "Sheppard et al."
     },
     "orbit": {
-      "semiMajorAxisKm": 17119000,
-      "periodDays": 834.8,
-      "eccentricity": 0.469,
-      "inclinationDeg": 35,
+      "semiMajorAxisKm": 17027300,
+      "periodDays": 829.64,
+      "eccentricity": 0.459,
+      "inclinationDeg": 38.6,
       "retrograde": false
     },
     "physical": {
       "meanRadiusKm": 3,
       "diameterKm": 6,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2007-s-8",
+    "name": "S/2007 S 8",
+    "designation": "S/2007 S 8",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Gallic group",
+    "discovery": {
+      "year": 2007,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 17048900,
+      "periodDays": 831.21,
+      "eccentricity": 0.49,
+      "inclinationDeg": 36.2,
+      "retrograde": false
+    },
+    "physical": {
+      "meanRadiusKm": 2,
+      "diameterKm": 4,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2004-s-29",
+    "name": "S/2004 S 29",
+    "designation": "Saturn LX",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Gallic group",
+    "discovery": {
+      "year": 2004,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 17063900,
+      "periodDays": 832.27,
+      "eccentricity": 0.485,
+      "inclinationDeg": 38.6,
+      "retrograde": false
+    },
+    "physical": {
+      "meanRadiusKm": 2.5,
+      "diameterKm": 5,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2019-s-3",
+    "name": "S/2019 S 3",
+    "designation": "Saturn X",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2019,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 17077400,
+      "periodDays": 833.19,
+      "eccentricity": 0.248,
+      "inclinationDeg": 166.9,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 2,
+      "diameterKm": 4,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2020-s-17",
+    "name": "S/2020 S 17",
+    "designation": "S/2020 S 17",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (low-inclination)",
+    "discovery": {
+      "year": 2020,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 17094200,
+      "periodDays": 834.45,
+      "eccentricity": 0.378,
+      "inclinationDeg": 148.9,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 2,
+      "diameterKm": 4,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2023-s-53",
+    "name": "S/2023 S 53",
+    "designation": "S/2023 S 53",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2023,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 17181100,
+      "periodDays": 840.82,
+      "eccentricity": 0.103,
+      "inclinationDeg": 171.2,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2023-s-58",
+    "name": "S/2023 S 58",
+    "designation": "S/2023 S 58",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2023,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 17206000,
+      "periodDays": 842.68,
+      "eccentricity": 0.093,
+      "inclinationDeg": 169.6,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1,
+      "diameterKm": 2,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2023-s-20",
+    "name": "S/2023 S 20",
+    "designation": "S/2023 S 20",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (low-inclination)",
+    "discovery": {
+      "year": 2023,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 17261000,
+      "periodDays": 846.77,
+      "eccentricity": 0.442,
+      "inclinationDeg": 136.5,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2019-s-29",
+    "name": "S/2019 S 29",
+    "designation": "S/2019 S 29",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Gallic group",
+    "discovery": {
+      "year": 2019,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 17353900,
+      "periodDays": 853.62,
+      "eccentricity": 0.441,
+      "inclinationDeg": 37.7,
+      "retrograde": false
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2023-s-18",
+    "name": "S/2023 S 18",
+    "designation": "S/2023 S 18",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Gallic group",
+    "discovery": {
+      "year": 2023,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 17381700,
+      "periodDays": 855.65,
+      "eccentricity": 0.448,
+      "inclinationDeg": 36.7,
+      "retrograde": false
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2023-s-17",
+    "name": "S/2023 S 17",
+    "designation": "S/2023 S 17",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Gallic group",
+    "discovery": {
+      "year": 2023,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 17385300,
+      "periodDays": 855.94,
+      "eccentricity": 0.498,
+      "inclinationDeg": 35.9,
+      "retrograde": false
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2020-s-7",
+    "name": "S/2020 S 7",
+    "designation": "S/2020 S 7",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2020,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 17394000,
+      "periodDays": 856.53,
+      "eccentricity": 0.5,
+      "inclinationDeg": 161.4,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2007-s-11",
+    "name": "S/2007 S 11",
+    "designation": "S/2007 S 11",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Gallic group",
+    "discovery": {
+      "year": 2007,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 17434400,
+      "periodDays": 859.53,
+      "eccentricity": 0.499,
+      "inclinationDeg": 35.5,
+      "retrograde": false
+    },
+    "physical": {
+      "meanRadiusKm": 2,
+      "diameterKm": 4,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2023-s-54",
+    "name": "S/2023 S 54",
+    "designation": "S/2023 S 54",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Gallic group",
+    "discovery": {
+      "year": 2023,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 17485100,
+      "periodDays": 863.35,
+      "eccentricity": 0.48,
+      "inclinationDeg": 37.8,
+      "retrograde": false
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2023-s-60",
+    "name": "S/2023 S 60",
+    "designation": "S/2023 S 60",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2023,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 17493700,
+      "periodDays": 863.96,
+      "eccentricity": 0.206,
+      "inclinationDeg": 170.7,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1,
+      "diameterKm": 2,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2019-s-28",
+    "name": "S/2019 S 28",
+    "designation": "S/2019 S 28",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2019,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 17496000,
+      "periodDays": 864.09,
+      "eccentricity": 0.199,
+      "inclinationDeg": 158.4,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 2,
+      "diameterKm": 4,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2004-s-31",
+    "name": "♦S/2004 S 31",
+    "designation": "Saturn I",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": true,
+    "provisional": false,
+    "family": "Inuit group (Siarnaq)",
+    "discovery": {
+      "year": 2004,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 17497100,
+      "periodDays": 863.92,
+      "eccentricity": 0.159,
+      "inclinationDeg": 48,
+      "retrograde": false
+    },
+    "physical": {
+      "meanRadiusKm": 2.5,
+      "diameterKm": 5,
       "albedo": 0.04
     },
     "sourceIds": [
@@ -4783,15 +6904,743 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
       "discoverer": "Gladman et al."
     },
     "orbit": {
-      "semiMajorAxisKm": 17319000,
-      "periodDays": 871.2,
-      "eccentricity": 0.474,
-      "inclinationDeg": 34.5,
+      "semiMajorAxisKm": 17506900,
+      "periodDays": 864.92,
+      "eccentricity": 0.475,
+      "inclinationDeg": 37.1,
       "retrograde": false
     },
     "physical": {
       "meanRadiusKm": 5,
       "diameterKm": 10,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2023-s-19",
+    "name": "♦S/2023 S 19",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": true,
+    "provisional": false,
+    "family": "Inuit group (Siarnaq)",
+    "discovery": {
+      "year": 2023,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 17590300,
+      "periodDays": 870.92,
+      "eccentricity": 0.092,
+      "inclinationDeg": 48.2,
+      "retrograde": false
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "skoll",
+    "name": "Skoll",
+    "designation": "Saturn XLVII",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": true,
+    "provisional": false,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2006,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 17623400,
+      "periodDays": 873.57,
+      "eccentricity": 0.463,
+      "inclinationDeg": 159.4,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 2.5,
+      "diameterKm": 5,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2023-s-3",
+    "name": "♦S/2023 S 3",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": true,
+    "provisional": false,
+    "family": "Inuit group (Siarnaq)",
+    "discovery": {
+      "year": 2023,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 17646400,
+      "periodDays": 875,
+      "eccentricity": 0.178,
+      "inclinationDeg": 46.9,
+      "retrograde": false
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2019-s-30",
+    "name": "S/2019 S 30",
+    "designation": "S/2019 S 30",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2019,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 17709900,
+      "periodDays": 879.97,
+      "eccentricity": 0.107,
+      "inclinationDeg": 168.3,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2020-s-19",
+    "name": "♦S/2020 S 19",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": true,
+    "provisional": false,
+    "family": "Inuit group (Siarnaq)",
+    "discovery": {
+      "year": 2020,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 17726700,
+      "periodDays": 881.04,
+      "eccentricity": 0.159,
+      "inclinationDeg": 48.1,
+      "retrograde": false
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2019-s-31",
+    "name": "S/2019 S 31",
+    "designation": "S/2019 S 31",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Gallic group",
+    "discovery": {
+      "year": 2019,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 17739100,
+      "periodDays": 882.24,
+      "eccentricity": 0.488,
+      "inclinationDeg": 39.8,
+      "retrograde": false
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "tarqeq",
+    "name": "♦Tarqeq",
+    "designation": "Saturn LII",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": true,
+    "provisional": false,
+    "family": "Inuit group (Siarnaq)",
+    "discovery": {
+      "year": 2007,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 17751000,
+      "periodDays": 882.85,
+      "eccentricity": 0.144,
+      "inclinationDeg": 48.7,
+      "retrograde": false
+    },
+    "physical": {
+      "meanRadiusKm": 3.5,
+      "diameterKm": 7,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2023-s-21",
+    "name": "S/2023 S 21",
+    "designation": "S/2023 S 21",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2023,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 17755400,
+      "periodDays": 883.31,
+      "eccentricity": 0.077,
+      "inclinationDeg": 157.3,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2023-s-4",
+    "name": "S/2023 S 4",
+    "designation": "S/2023 S 4",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2023,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 17764600,
+      "periodDays": 884.11,
+      "eccentricity": 0.276,
+      "inclinationDeg": 170,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2020-s-18",
+    "name": "S/2020 S 18",
+    "designation": "S/2020 S 18",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2020,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 17777900,
+      "periodDays": 885.12,
+      "eccentricity": 0.18,
+      "inclinationDeg": 168.9,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2019-s-14",
+    "name": "♦S/2019 S 14",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": true,
+    "provisional": false,
+    "family": "Inuit group (Siarnaq)",
+    "discovery": {
+      "year": 2019,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 17852800,
+      "periodDays": 893.15,
+      "eccentricity": 0.172,
+      "inclinationDeg": 46.2,
+      "retrograde": false
+    },
+    "physical": {
+      "meanRadiusKm": 2,
+      "diameterKm": 4,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2020-s-2",
+    "name": "S/2020 S 2",
+    "designation": "S/2020 S 2",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2020,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 17869000,
+      "periodDays": 891.86,
+      "eccentricity": 0.152,
+      "inclinationDeg": 170.7,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "siarnaq",
+    "name": "♦Siarnaq",
+    "designation": "Saturn XXIX",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": true,
+    "provisional": false,
+    "family": "Inuit group (Siarnaq)",
+    "discovery": {
+      "year": 2000,
+      "discoverer": "Gladman et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 17881100,
+      "periodDays": 892.68,
+      "eccentricity": 0.308,
+      "inclinationDeg": 47.8,
+      "retrograde": false
+    },
+    "physical": {
+      "meanRadiusKm": 19.6,
+      "diameterKm": 39.3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2019-s-4",
+    "name": "S/2019 S 4",
+    "designation": "S/2019 S 4",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2019,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 17951900,
+      "periodDays": 898.09,
+      "eccentricity": 0.408,
+      "inclinationDeg": 170.1,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2019-s-32",
+    "name": "♦S/2019 S 32",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": true,
+    "provisional": false,
+    "family": "Inuit group (Siarnaq)",
+    "discovery": {
+      "year": 2019,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 17960500,
+      "periodDays": 898.71,
+      "eccentricity": 0.276,
+      "inclinationDeg": 46.2,
+      "retrograde": false
+    },
+    "physical": {
+      "meanRadiusKm": 2.5,
+      "diameterKm": 5,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2020-s-20",
+    "name": "S/2020 S 20",
+    "designation": "S/2020 S 20",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2020,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 17997300,
+      "periodDays": 901.53,
+      "eccentricity": 0.133,
+      "inclinationDeg": 169.8,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2020-s-3",
+    "name": "♦S/2020 S 3",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": true,
+    "provisional": false,
+    "family": "Inuit group (Siarnaq)",
+    "discovery": {
+      "year": 2020,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 18056800,
+      "periodDays": 905.84,
+      "eccentricity": 0.142,
+      "inclinationDeg": 46,
+      "retrograde": false
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2023-s-61",
+    "name": "S/2023 S 61",
+    "designation": "S/2023 S 61",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2023,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 18067700,
+      "periodDays": 906.85,
+      "eccentricity": 0.557,
+      "inclinationDeg": 158,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2004-s-41",
+    "name": "S/2004 S 41",
+    "designation": "S/2004 S 41",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2004,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 18095400,
+      "periodDays": 908.89,
+      "eccentricity": 0.301,
+      "inclinationDeg": 165.7,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 2,
+      "diameterKm": 4,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2005-s-6",
+    "name": "♦S/2005 S 6",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": true,
+    "provisional": false,
+    "family": "Inuit group (Siarnaq)",
+    "discovery": {
+      "year": 2005,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 18107300,
+      "periodDays": 909.58,
+      "eccentricity": 0.084,
+      "inclinationDeg": 47.7,
+      "retrograde": false
+    },
+    "physical": {
+      "meanRadiusKm": 2,
+      "diameterKm": 4,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2004-s-57",
+    "name": "S/2004 S 57",
+    "designation": "S/2004 S 57",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2004,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 18150500,
+      "periodDays": 913.07,
+      "eccentricity": 0.263,
+      "inclinationDeg": 167.9,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 2,
+      "diameterKm": 4,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2019-s-6",
+    "name": "♦S/2019 S 6",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": true,
+    "provisional": false,
+    "family": "Inuit group (Siarnaq)",
+    "discovery": {
+      "year": 2019,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 18205600,
+      "periodDays": 917.11,
+      "eccentricity": 0.12,
+      "inclinationDeg": 46.4,
+      "retrograde": false
+    },
+    "physical": {
+      "meanRadiusKm": 2.5,
+      "diameterKm": 5,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2006-s-24",
+    "name": "S/2006 S 24",
+    "designation": "S/2006 S 24",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2006,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 18210700,
+      "periodDays": 917.56,
+      "eccentricity": 0.352,
+      "inclinationDeg": 165.9,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
       "albedo": 0.04
     },
     "sourceIds": [
@@ -4815,10 +7664,10 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
       "discoverer": "Gladman et al."
     },
     "orbit": {
-      "semiMajorAxisKm": 17983000,
-      "periodDays": 926.2,
-      "eccentricity": 0.531,
-      "inclinationDeg": 33.8,
+      "semiMajorAxisKm": 18216600,
+      "periodDays": 917.98,
+      "eccentricity": 0.522,
+      "inclinationDeg": 37.8,
       "retrograde": false
     },
     "physical": {
@@ -4834,60 +7683,28 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "asOf": "2026-08-15"
   },
   {
-    "id": "phoebe",
-    "name": "Phoebe",
-    "designation": "Saturn IX",
+    "id": "s-2020-s-4",
+    "name": "S/2020 S 4",
+    "designation": "S/2020 S 4",
     "parentId": "saturn",
     "fidelity": "irregular",
-    "named": true,
-    "provisional": false,
-    "family": "Norse group",
+    "named": false,
+    "provisional": true,
+    "family": "Gallic group",
     "discovery": {
-      "year": 1899,
-      "discoverer": "William H. Pickering"
+      "year": 2020,
+      "discoverer": "Ashton et al."
     },
     "orbit": {
-      "semiMajorAxisKm": 12955759,
-      "periodDays": 550.6,
-      "eccentricity": 0.1635,
-      "inclinationDeg": 175.3,
-      "retrograde": true
+      "semiMajorAxisKm": 18236400,
+      "periodDays": 919.52,
+      "eccentricity": 0.496,
+      "inclinationDeg": 40.1,
+      "retrograde": false
     },
     "physical": {
-      "meanRadiusKm": 106.5,
-      "diameterKm": 213,
-      "albedo": 0.08
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "skathi",
-    "name": "Skathi",
-    "designation": "Saturn XXVII",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": true,
-    "provisional": false,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2000,
-      "discoverer": "Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 15541000,
-      "periodDays": 728.2,
-      "eccentricity": 0.27,
-      "inclinationDeg": 152.6,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 4,
-      "diameterKm": 8,
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
       "albedo": 0.04
     },
     "sourceIds": [
@@ -4898,28 +7715,28 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "asOf": "2026-08-15"
   },
   {
-    "id": "mundilfari",
-    "name": "Mundilfari",
-    "designation": "Saturn XXV",
+    "id": "s-2023-s-30",
+    "name": "S/2023 S 30",
+    "designation": "S/2023 S 30",
     "parentId": "saturn",
     "fidelity": "irregular",
-    "named": true,
-    "provisional": false,
-    "family": "Norse group",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (low-inclination)",
     "discovery": {
-      "year": 2000,
-      "discoverer": "Gladman et al."
+      "year": 2023,
+      "discoverer": "Ashton et al."
     },
     "orbit": {
-      "semiMajorAxisKm": 18628000,
-      "periodDays": 952.8,
-      "eccentricity": 0.198,
-      "inclinationDeg": 169.4,
+      "semiMajorAxisKm": 18238300,
+      "periodDays": 919.71,
+      "eccentricity": 0.493,
+      "inclinationDeg": 142.4,
       "retrograde": true
     },
     "physical": {
-      "meanRadiusKm": 3.5,
-      "diameterKm": 7,
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
       "albedo": 0.04
     },
     "sourceIds": [
@@ -4930,215 +7747,23 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "asOf": "2026-08-15"
   },
   {
-    "id": "narvi",
-    "name": "Narvi",
-    "designation": "Saturn XXXI",
+    "id": "s-2004-s-42",
+    "name": "S/2004 S 42",
+    "designation": "S/2004 S 42",
     "parentId": "saturn",
     "fidelity": "irregular",
-    "named": true,
-    "provisional": false,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2003,
-      "discoverer": "Sheppard et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 19007000,
-      "periodDays": 1003.9,
-      "eccentricity": 0.32,
-      "inclinationDeg": 137.3,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 3.5,
-      "diameterKm": 7,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "suttungr",
-    "name": "Suttungr",
-    "designation": "Saturn XXIII",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": true,
-    "provisional": false,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2000,
-      "discoverer": "Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 19458000,
-      "periodDays": 1016.7,
-      "eccentricity": 0.131,
-      "inclinationDeg": 174.6,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 3.5,
-      "diameterKm": 7,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "thrymr",
-    "name": "Thrymr",
-    "designation": "Saturn XXX",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": true,
-    "provisional": false,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2000,
-      "discoverer": "Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 20314000,
-      "periodDays": 1094.1,
-      "eccentricity": 0.453,
-      "inclinationDeg": 175,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 3.5,
-      "diameterKm": 7,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "ymir",
-    "name": "Ymir",
-    "designation": "Saturn XIX",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": true,
-    "provisional": false,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2000,
-      "discoverer": "Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 23040000,
-      "periodDays": 1315.1,
-      "eccentricity": 0.335,
-      "inclinationDeg": 172.4,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 9,
-      "diameterKm": 18,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "bestla",
-    "name": "Bestla",
-    "designation": "Saturn XXXIX",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": true,
-    "provisional": false,
-    "family": "Norse group",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
     "discovery": {
       "year": 2004,
       "discoverer": "Sheppard et al."
     },
     "orbit": {
-      "semiMajorAxisKm": 20192000,
-      "periodDays": 1088,
-      "eccentricity": 0.514,
-      "inclinationDeg": 147,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 3.5,
-      "diameterKm": 7,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "farnbauti",
-    "name": "Farbauti",
-    "designation": "Saturn XL",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": true,
-    "provisional": false,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2004,
-      "discoverer": "Sheppard et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 20377000,
-      "periodDays": 1085.6,
-      "eccentricity": 0.206,
-      "inclinationDeg": 158,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 2.5,
-      "diameterKm": 5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "fenrir",
-    "name": "Fenrir",
-    "designation": "Saturn XLI",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": true,
-    "provisional": false,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2004,
-      "discoverer": "Sheppard et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 22454000,
-      "periodDays": 1260.4,
-      "eccentricity": 0.136,
-      "inclinationDeg": 162.8,
+      "semiMajorAxisKm": 18240700,
+      "periodDays": 919.88,
+      "eccentricity": 0.158,
+      "inclinationDeg": 165.7,
       "retrograde": true
     },
     "physical": {
@@ -5154,28 +7779,28 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "asOf": "2026-08-15"
   },
   {
-    "id": "fornjot",
-    "name": "Fornjot",
-    "designation": "Saturn XLII",
+    "id": "s-2023-s-15",
+    "name": "S/2023 S 15",
+    "designation": "S/2023 S 15",
     "parentId": "saturn",
     "fidelity": "irregular",
-    "named": true,
-    "provisional": false,
-    "family": "Norse group",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
     "discovery": {
-      "year": 2004,
-      "discoverer": "Sheppard et al."
+      "year": 2023,
+      "discoverer": "Ashton et al."
     },
     "orbit": {
-      "semiMajorAxisKm": 25146000,
-      "periodDays": 1494.2,
-      "eccentricity": 0.186,
-      "inclinationDeg": 168,
+      "semiMajorAxisKm": 18241300,
+      "periodDays": 919.93,
+      "eccentricity": 0.549,
+      "inclinationDeg": 161.9,
       "retrograde": true
     },
     "physical": {
-      "meanRadiusKm": 3,
-      "diameterKm": 6,
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
       "albedo": 0.04
     },
     "sourceIds": [
@@ -5186,28 +7811,27 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "asOf": "2026-08-15"
   },
   {
-    "id": "hati",
-    "name": "Hati",
-    "designation": "Saturn XLIII",
+    "id": "s-2004-s-58",
+    "name": "♦S/2004 S 58",
     "parentId": "saturn",
     "fidelity": "irregular",
     "named": true,
     "provisional": false,
-    "family": "Norse group",
+    "family": "Inuit group (Siarnaq)",
     "discovery": {
       "year": 2004,
       "discoverer": "Sheppard et al."
     },
     "orbit": {
-      "semiMajorAxisKm": 19856000,
-      "periodDays": 1038.6,
-      "eccentricity": 0.291,
-      "inclinationDeg": 163,
-      "retrograde": true
+      "semiMajorAxisKm": 18254500,
+      "periodDays": 920.8,
+      "eccentricity": 0.249,
+      "inclinationDeg": 45.7,
+      "retrograde": false
     },
     "physical": {
-      "meanRadiusKm": 3,
-      "diameterKm": 6,
+      "meanRadiusKm": 2.5,
+      "diameterKm": 5,
       "albedo": 0.04
     },
     "sourceIds": [
@@ -5218,23 +7842,54 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "asOf": "2026-08-15"
   },
   {
-    "id": "hyrokkin",
+    "id": "s-2006-s-23",
+    "name": "♦S/2006 S 23",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": true,
+    "provisional": false,
+    "family": "Inuit group (Siarnaq)",
+    "discovery": {
+      "year": 2006,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 18269700,
+      "periodDays": 921.86,
+      "eccentricity": 0.19,
+      "inclinationDeg": 43.8,
+      "retrograde": false
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "hyrrokkin",
     "name": "Hyrrokkin",
     "designation": "Saturn XLIV",
     "parentId": "saturn",
     "fidelity": "irregular",
     "named": true,
     "provisional": false,
-    "family": "Norse group",
+    "family": "Norse group (low-inclination)",
     "discovery": {
-      "year": 2006,
+      "year": 2004,
       "discoverer": "Sheppard et al."
     },
     "orbit": {
-      "semiMajorAxisKm": 18437000,
-      "periodDays": 931.9,
-      "eccentricity": 0.36,
-      "inclinationDeg": 153.3,
+      "semiMajorAxisKm": 18340900,
+      "periodDays": 927.46,
+      "eccentricity": 0.336,
+      "inclinationDeg": 149.9,
       "retrograde": true
     },
     "physical": {
@@ -5250,156 +7905,28 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "asOf": "2026-08-15"
   },
   {
-    "id": "kari",
-    "name": "Kari",
-    "designation": "Saturn XLV",
+    "id": "s-2023-s-24",
+    "name": "S/2023 S 24",
+    "designation": "S/2023 S 24",
     "parentId": "saturn",
     "fidelity": "irregular",
-    "named": true,
-    "provisional": false,
-    "family": "Norse group",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
     "discovery": {
-      "year": 2006,
-      "discoverer": "Sheppard et al."
+      "year": 2023,
+      "discoverer": "Ashton et al."
     },
     "orbit": {
-      "semiMajorAxisKm": 22089000,
-      "periodDays": 1230.9,
-      "eccentricity": 0.34,
-      "inclinationDeg": 148.4,
+      "semiMajorAxisKm": 18351800,
+      "periodDays": 928.25,
+      "eccentricity": 0.374,
+      "inclinationDeg": 169.7,
       "retrograde": true
     },
     "physical": {
-      "meanRadiusKm": 3.5,
-      "diameterKm": 7,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "logi",
-    "name": "Loge",
-    "designation": "Saturn XLVI",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": true,
-    "provisional": false,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2006,
-      "discoverer": "Sheppard et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 23058000,
-      "periodDays": 1311.4,
-      "eccentricity": 0.139,
-      "inclinationDeg": 166.5,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 3,
-      "diameterKm": 6,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "skoll",
-    "name": "Skoll",
-    "designation": "Saturn XLVII",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": true,
-    "provisional": false,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2006,
-      "discoverer": "Sheppard et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 17665000,
-      "periodDays": 878.3,
-      "eccentricity": 0.464,
-      "inclinationDeg": 160,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 3,
-      "diameterKm": 6,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "surtur",
-    "name": "Surtur",
-    "designation": "Saturn XLVIII",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": true,
-    "provisional": false,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2006,
-      "discoverer": "Sheppard et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 22704000,
-      "periodDays": 1297.4,
-      "eccentricity": 0.368,
-      "inclinationDeg": 166.9,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 3,
-      "diameterKm": 6,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "jarnsaxa",
-    "name": "Jarnsaxa",
-    "designation": "Saturn L",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": true,
-    "provisional": false,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2006,
-      "discoverer": "Sheppard et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 18811000,
-      "periodDays": 964.7,
-      "eccentricity": 0.192,
-      "inclinationDeg": 162.9,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 3,
-      "diameterKm": 6,
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
       "albedo": 0.04
     },
     "sourceIds": [
@@ -5417,21 +7944,723 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "fidelity": "irregular",
     "named": true,
     "provisional": false,
-    "family": "Norse group",
+    "family": "Norse group (Phoebe)",
     "discovery": {
       "year": 2006,
       "discoverer": "Sheppard et al."
     },
     "orbit": {
-      "semiMajorAxisKm": 18206000,
-      "periodDays": 921.2,
-      "eccentricity": 0.374,
-      "inclinationDeg": 172.7,
+      "semiMajorAxisKm": 18380000,
+      "periodDays": 930.44,
+      "eccentricity": 0.317,
+      "inclinationDeg": 174.2,
       "retrograde": true
     },
     "physical": {
-      "meanRadiusKm": 3,
-      "diameterKm": 6,
+      "meanRadiusKm": 2.5,
+      "diameterKm": 5,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2020-s-5",
+    "name": "♦S/2020 S 5",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": true,
+    "provisional": false,
+    "family": "Inuit group (Siarnaq)",
+    "discovery": {
+      "year": 2020,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 18391000,
+      "periodDays": 931.19,
+      "eccentricity": 0.22,
+      "inclinationDeg": 48.2,
+      "retrograde": false
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2019-s-34",
+    "name": "S/2019 S 34",
+    "designation": "S/2019 S 34",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Gallic group",
+    "discovery": {
+      "year": 2019,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 18446800,
+      "periodDays": 935.45,
+      "eccentricity": 0.536,
+      "inclinationDeg": 37.6,
+      "retrograde": false
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2004-s-13",
+    "name": "S/2004 S 13",
+    "designation": "Saturn D",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2004,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 18453700,
+      "periodDays": 936.09,
+      "eccentricity": 0.265,
+      "inclinationDeg": 169,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 2,
+      "diameterKm": 4,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2023-s-63",
+    "name": "S/2023 S 63",
+    "designation": "S/2023 S 63",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2023,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 18482600,
+      "periodDays": 938.25,
+      "eccentricity": 0.266,
+      "inclinationDeg": 165,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 2,
+      "diameterKm": 4,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2005-s-7",
+    "name": "S/2005 S 7",
+    "designation": "S/2005 S 7",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Gallic group",
+    "discovery": {
+      "year": 2005,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 18502500,
+      "periodDays": 939.75,
+      "eccentricity": 0.565,
+      "inclinationDeg": 34.6,
+      "retrograde": false
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2007-s-6",
+    "name": "S/2007 S 6",
+    "designation": "S/2007 S 6",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2007,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 18545000,
+      "periodDays": 942.98,
+      "eccentricity": 0.168,
+      "inclinationDeg": 166.5,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2019-s-35",
+    "name": "S/2019 S 35",
+    "designation": "S/2019 S 35",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2019,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 18557800,
+      "periodDays": 944,
+      "eccentricity": 0.577,
+      "inclinationDeg": 157.3,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2006-s-25",
+    "name": "S/2006 S 25",
+    "designation": "S/2006 S 25",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2006,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 18572400,
+      "periodDays": 945.07,
+      "eccentricity": 0.303,
+      "inclinationDeg": 158.8,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2023-s-22",
+    "name": "♦S/2023 S 22",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": true,
+    "provisional": false,
+    "family": "Inuit group (Siarnaq)",
+    "discovery": {
+      "year": 2023,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 18577500,
+      "periodDays": 945.37,
+      "eccentricity": 0.182,
+      "inclinationDeg": 47.5,
+      "retrograde": false
+    },
+    "physical": {
+      "meanRadiusKm": 2,
+      "diameterKm": 4,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "mundilfari",
+    "name": "Mundilfari",
+    "designation": "Saturn XXV",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": true,
+    "provisional": false,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2000,
+      "discoverer": "Gladman et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 18588200,
+      "periodDays": 946.29,
+      "eccentricity": 0.211,
+      "inclinationDeg": 167.1,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 3.5,
+      "diameterKm": 7,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2006-s-26",
+    "name": "S/2006 S 26",
+    "designation": "S/2006 S 26",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2006,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 18619300,
+      "periodDays": 948.67,
+      "eccentricity": 0.248,
+      "inclinationDeg": 171.9,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2019-s-33",
+    "name": "S/2019 S 33",
+    "designation": "S/2019 S 33",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2019,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 18696100,
+      "periodDays": 954.53,
+      "eccentricity": 0.289,
+      "inclinationDeg": 170.4,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 2,
+      "diameterKm": 4,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2006-s-1",
+    "name": "S/2006 S 1",
+    "designation": "Saturn M",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Kari)",
+    "discovery": {
+      "year": 2006,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 18746300,
+      "periodDays": 958.32,
+      "eccentricity": 0.105,
+      "inclinationDeg": 156.1,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 2.5,
+      "diameterKm": 5,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2023-s-23",
+    "name": "S/2023 S 23",
+    "designation": "S/2023 S 23",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2023,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 18783700,
+      "periodDays": 961.22,
+      "eccentricity": 0.35,
+      "inclinationDeg": 164.8,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2020-s-21",
+    "name": "S/2020 S 21",
+    "designation": "S/2020 S 21",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2020,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 18862100,
+      "periodDays": 967.26,
+      "eccentricity": 0.307,
+      "inclinationDeg": 169.9,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2020-s-46",
+    "name": "S/2020 S 46",
+    "designation": "S/2020 S 46",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2020,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 18892100,
+      "periodDays": 969.6,
+      "eccentricity": 0.207,
+      "inclinationDeg": 167.3,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2004-s-43",
+    "name": "S/2004 S 43",
+    "designation": "S/2004 S 43",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2004,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 18935700,
+      "periodDays": 972.85,
+      "eccentricity": 0.432,
+      "inclinationDeg": 171.1,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 2,
+      "diameterKm": 4,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2006-s-10",
+    "name": "S/2006 S 10",
+    "designation": "S/2006 S 10",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2006,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 18979900,
+      "periodDays": 976.34,
+      "eccentricity": 0.151,
+      "inclinationDeg": 161.6,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2019-s-5",
+    "name": "S/2019 S 5",
+    "designation": "S/2019 S 5",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2019,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 19090100,
+      "periodDays": 984.87,
+      "eccentricity": 0.216,
+      "inclinationDeg": 158.8,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2023-s-25",
+    "name": "S/2023 S 25",
+    "designation": "S/2023 S 25",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2023,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 19136600,
+      "periodDays": 988.53,
+      "eccentricity": 0.281,
+      "inclinationDeg": 166.4,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2004-s-59",
+    "name": "S/2004 S 59",
+    "designation": "S/2004 S 59",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2004,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 19170700,
+      "periodDays": 991.18,
+      "eccentricity": 0.262,
+      "inclinationDeg": 167.3,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2006-s-27",
+    "name": "S/2006 S 27",
+    "designation": "S/2006 S 27",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2006,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 19205700,
+      "periodDays": 993.79,
+      "eccentricity": 0.14,
+      "inclinationDeg": 170.5,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 2,
+      "diameterKm": 4,
       "albedo": 0.04
     },
     "sourceIds": [
@@ -5449,16 +8678,16 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "fidelity": "irregular",
     "named": true,
     "provisional": false,
-    "family": "Norse group",
+    "family": "Norse group (Mundilfari)",
     "discovery": {
-      "year": 2019,
+      "year": 2004,
       "discoverer": "Sheppard et al."
     },
     "orbit": {
-      "semiMajorAxisKm": 19211000,
-      "periodDays": 1010.6,
-      "eccentricity": 0.201,
-      "inclinationDeg": 163.1,
+      "semiMajorAxisKm": 19250600,
+      "periodDays": 997.33,
+      "eccentricity": 0.187,
+      "inclinationDeg": 163.9,
       "retrograde": true
     },
     "physical": {
@@ -5474,119 +8703,23 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "asOf": "2026-08-15"
   },
   {
-    "id": "angrboda",
-    "name": "Angrboda",
-    "designation": "Saturn LV",
+    "id": "bergelmir",
+    "name": "Bergelmir",
+    "designation": "Saturn XXXVIII",
     "parentId": "saturn",
     "fidelity": "irregular",
     "named": true,
     "provisional": false,
-    "family": "Norse group",
+    "family": "Norse group (Mundilfari)",
     "discovery": {
-      "year": 2019,
+      "year": 2004,
       "discoverer": "Sheppard et al."
     },
     "orbit": {
-      "semiMajorAxisKm": 20380000,
-      "periodDays": 1114.1,
-      "eccentricity": 0.257,
-      "inclinationDeg": 177.3,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.5,
-      "diameterKm": 3,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "skrymir",
-    "name": "Skrymir",
-    "designation": "Saturn LVI",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": true,
-    "provisional": false,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2019,
-      "discoverer": "Sheppard et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 21427000,
-      "periodDays": 1164.3,
-      "eccentricity": 0.399,
-      "inclinationDeg": 177.7,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 2,
-      "diameterKm": 4,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "geirrod",
-    "name": "Geirrod",
-    "designation": "Saturn LXVI",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": true,
-    "provisional": false,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2019,
-      "discoverer": "Sheppard et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 21908000,
-      "periodDays": 1211,
-      "eccentricity": 0.435,
-      "inclinationDeg": 168,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 2,
-      "diameterKm": 4,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "alvaldi",
-    "name": "Alvaldi",
-    "designation": "Saturn LXV",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": true,
-    "provisional": false,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2019,
-      "discoverer": "Sheppard et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 22412000,
-      "periodDays": 1253.1,
-      "eccentricity": 0.182,
-      "inclinationDeg": 176.4,
+      "semiMajorAxisKm": 19268100,
+      "periodDays": 998.62,
+      "eccentricity": 0.145,
+      "inclinationDeg": 158.8,
       "retrograde": true
     },
     "physical": {
@@ -5602,28 +8735,508 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "asOf": "2026-08-15"
   },
   {
-    "id": "thiazzi",
-    "name": "Thiazzi",
-    "designation": "Saturn LXII",
+    "id": "jarnsaxa",
+    "name": "Jarnsaxa",
+    "designation": "Saturn L",
     "parentId": "saturn",
     "fidelity": "irregular",
     "named": true,
     "provisional": false,
-    "family": "Norse group",
+    "family": "Norse group (Mundilfari)",
     "discovery": {
-      "year": 2019,
+      "year": 2006,
       "discoverer": "Sheppard et al."
     },
     "orbit": {
-      "semiMajorAxisKm": 24168000,
-      "periodDays": 1403,
-      "eccentricity": 0.481,
-      "inclinationDeg": 161.5,
+      "semiMajorAxisKm": 19273500,
+      "periodDays": 999.13,
+      "eccentricity": 0.218,
+      "inclinationDeg": 163,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 3,
+      "diameterKm": 6,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "narvi",
+    "name": "Narvi",
+    "designation": "Saturn XXXI",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": true,
+    "provisional": false,
+    "family": "Norse group (low-inclination)",
+    "discovery": {
+      "year": 2003,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 19285000,
+      "periodDays": 999.94,
+      "eccentricity": 0.441,
+      "inclinationDeg": 142.2,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 3.5,
+      "diameterKm": 7,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2023-s-44",
+    "name": "S/2023 S 44",
+    "designation": "S/2023 S 44",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2023,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 19292400,
+      "periodDays": 1000.47,
+      "eccentricity": 0.434,
+      "inclinationDeg": 167.4,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "suttungr",
+    "name": "Suttungr",
+    "designation": "Saturn XXIII",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": true,
+    "provisional": false,
+    "family": "Norse group (Phoebe)",
+    "discovery": {
+      "year": 2000,
+      "discoverer": "Gladman et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 19391900,
+      "periodDays": 1008.25,
+      "eccentricity": 0.116,
+      "inclinationDeg": 175.7,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 3.5,
+      "diameterKm": 7,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2020-s-22",
+    "name": "S/2020 S 22",
+    "designation": "S/2020 S 22",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2020,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 19443000,
+      "periodDays": 1012.24,
+      "eccentricity": 0.059,
+      "inclinationDeg": 161.3,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2004-s-44",
+    "name": "S/2004 S 44",
+    "designation": "S/2004 S 44",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2004,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 19515400,
+      "periodDays": 1017.91,
+      "eccentricity": 0.129,
+      "inclinationDeg": 167.7,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 2.5,
+      "diameterKm": 5,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2004-s-60",
+    "name": "S/2004 S 60",
+    "designation": "S/2004 S 60",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Phoebe)",
+    "discovery": {
+      "year": 2004,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 19517000,
+      "periodDays": 1018.13,
+      "eccentricity": 0.28,
+      "inclinationDeg": 173.8,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2006-s-12",
+    "name": "S/2006 S 12",
+    "designation": "S/2006 S 12",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Gallic group{{refn|group=lower-alpha|Sheppard et al. suggested in 2023 that the moon's identification with the Gallic group is uncertain, but a later study from Ashton et al. considers it confidently Gallic and associated with Albiorix, unlike S/2004 S 24.}}",
+    "discovery": {
+      "year": 2006,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 19570300,
+      "periodDays": 1022.29,
+      "eccentricity": 0.542,
+      "inclinationDeg": 38.6,
+      "retrograde": false
+    },
+    "physical": {
+      "meanRadiusKm": 2,
+      "diameterKm": 4,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2007-s-3",
+    "name": "S/2007 S 3",
+    "designation": "S/2007 S 3",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Phoebe)",
+    "discovery": {
+      "year": 2007,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 19614400,
+      "periodDays": 1025.7,
+      "eccentricity": 0.15,
+      "inclinationDeg": 173.8,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 2.5,
+      "diameterKm": 5,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2004-s-45",
+    "name": "S/2004 S 45",
+    "designation": "S/2004 S 45",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Kari)",
+    "discovery": {
+      "year": 2004,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 19693700,
+      "periodDays": 1031.86,
+      "eccentricity": 0.551,
+      "inclinationDeg": 154,
       "retrograde": true
     },
     "physical": {
       "meanRadiusKm": 2,
       "diameterKm": 4,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "hati",
+    "name": "Hati",
+    "designation": "Saturn XLIII",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": true,
+    "provisional": false,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2004,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 19695000,
+      "periodDays": 1032.02,
+      "eccentricity": 0.372,
+      "inclinationDeg": 165.4,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 2.5,
+      "diameterKm": 5,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2004-s-17",
+    "name": "S/2004 S 17",
+    "designation": "S/2004 S 17",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2004,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 19699000,
+      "periodDays": 1032.37,
+      "eccentricity": 0.162,
+      "inclinationDeg": 167.9,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 2,
+      "diameterKm": 4,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2006-s-11",
+    "name": "S/2006 S 11",
+    "designation": "S/2006 S 11",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Phoebe)",
+    "discovery": {
+      "year": 2004,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 19711900,
+      "periodDays": 1033.35,
+      "eccentricity": 0.143,
+      "inclinationDeg": 174.1,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2004-s-12",
+    "name": "S/2004 S 12",
+    "designation": "Saturn C",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2004,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 19801000,
+      "periodDays": 1040.39,
+      "eccentricity": 0.337,
+      "inclinationDeg": 164.7,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 2,
+      "diameterKm": 4,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2020-s-23",
+    "name": "S/2020 S 23",
+    "designation": "S/2020 S 23",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2020,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 19801500,
+      "periodDays": 1040.38,
+      "eccentricity": 0.089,
+      "inclinationDeg": 165,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2023-s-27",
+    "name": "S/2023 S 27",
+    "designation": "S/2023 S 27",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (low-inclination)",
+    "discovery": {
+      "year": 2023,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 19820100,
+      "periodDays": 1041.85,
+      "eccentricity": 0.652,
+      "inclinationDeg": 151.1,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
       "albedo": 0.04
     },
     "sourceIds": [
@@ -5641,21 +9254,789 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "fidelity": "irregular",
     "named": true,
     "provisional": false,
-    "family": "Norse group",
+    "family": "Norse group (Mundilfari)",
     "discovery": {
-      "year": 2019,
+      "year": 2004,
       "discoverer": "Sheppard et al."
     },
     "orbit": {
-      "semiMajorAxisKm": 19777000,
-      "periodDays": 1052.2,
-      "eccentricity": 0.143,
-      "inclinationDeg": 167.1,
+      "semiMajorAxisKm": 19844600,
+      "periodDays": 1043.8,
+      "eccentricity": 0.157,
+      "inclinationDeg": 165,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 3,
+      "diameterKm": 6,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2023-s-28",
+    "name": "S/2023 S 28",
+    "designation": "S/2023 S 28",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2023,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 19881000,
+      "periodDays": 1046.56,
+      "eccentricity": 0.575,
+      "inclinationDeg": 168.7,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2023-s-37",
+    "name": "S/2023 S 37",
+    "designation": "S/2023 S 37",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Phoebe)",
+    "discovery": {
+      "year": 2023,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 19889800,
+      "periodDays": 1047.39,
+      "eccentricity": 0.215,
+      "inclinationDeg": 172.3,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2023-s-26",
+    "name": "S/2023 S 26",
+    "designation": "S/2023 S 26",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2023,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 19894300,
+      "periodDays": 1047.76,
+      "eccentricity": 0.306,
+      "inclinationDeg": 163.9,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2019-s-36",
+    "name": "S/2019 S 36",
+    "designation": "S/2019 S 36",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2019,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 19903200,
+      "periodDays": 1048.42,
+      "eccentricity": 0.161,
+      "inclinationDeg": 166.9,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2006-s-13",
+    "name": "S/2006 S 13",
+    "designation": "S/2006 S 13",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2006,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 19953300,
+      "periodDays": 1052.32,
+      "eccentricity": 0.313,
+      "inclinationDeg": 162,
       "retrograde": true
     },
     "physical": {
       "meanRadiusKm": 2,
       "diameterKm": 4,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2019-s-37",
+    "name": "S/2019 S 37",
+    "designation": "S/2019 S 37",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (low-inclination)",
+    "discovery": {
+      "year": 2019,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 19996900,
+      "periodDays": 1055.78,
+      "eccentricity": 0.404,
+      "inclinationDeg": 149.9,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2023-s-48",
+    "name": "S/2023 S 48",
+    "designation": "S/2023 S 48",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2023,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 20029200,
+      "periodDays": 1058.35,
+      "eccentricity": 0.022,
+      "inclinationDeg": 169.7,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2023-s-29",
+    "name": "S/2023 S 29",
+    "designation": "S/2023 S 29",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Phoebe)",
+    "discovery": {
+      "year": 2023,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 20042400,
+      "periodDays": 1059.42,
+      "eccentricity": 0.141,
+      "inclinationDeg": 172.2,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2023-s-59",
+    "name": "S/2023 S 59",
+    "designation": "S/2023 S 59",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2023,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 20064000,
+      "periodDays": 1061.04,
+      "eccentricity": 0.467,
+      "inclinationDeg": 169.5,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1,
+      "diameterKm": 2,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2007-s-9",
+    "name": "S/2007 S 9",
+    "designation": "S/2007 S 9",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2007,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 20174600,
+      "periodDays": 1069.81,
+      "eccentricity": 0.36,
+      "inclinationDeg": 159.3,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 2,
+      "diameterKm": 4,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2019-s-7",
+    "name": "S/2019 S 7",
+    "designation": "S/2019 S 7",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Phoebe)",
+    "discovery": {
+      "year": 2019,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 20185100,
+      "periodDays": 1070.8,
+      "eccentricity": 0.233,
+      "inclinationDeg": 174.2,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 2,
+      "diameterKm": 4,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2019-s-8",
+    "name": "S/2019 S 8",
+    "designation": "S/2019 S 8",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Phoebe)",
+    "discovery": {
+      "year": 2019,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 20287400,
+      "periodDays": 1078.86,
+      "eccentricity": 0.311,
+      "inclinationDeg": 172.8,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 2,
+      "diameterKm": 4,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "farbauti",
+    "name": "Farbauti",
+    "designation": "Saturn XL",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": true,
+    "provisional": false,
+    "family": "Norse group (Kari)",
+    "discovery": {
+      "year": 2004,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 20290700,
+      "periodDays": 1079.12,
+      "eccentricity": 0.249,
+      "inclinationDeg": 156.2,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 2.5,
+      "diameterKm": 5,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "thrymr",
+    "name": "Thrymr",
+    "designation": "Saturn XXX",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": true,
+    "provisional": false,
+    "family": "Norse group (Phoebe)",
+    "discovery": {
+      "year": 2000,
+      "discoverer": "Gladman et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 20330500,
+      "periodDays": 1082.23,
+      "eccentricity": 0.467,
+      "inclinationDeg": 175,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 4,
+      "diameterKm": 8,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "bestla",
+    "name": "Bestla",
+    "designation": "Saturn XXXIX",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": true,
+    "provisional": false,
+    "family": "Norse group (low-inclination)",
+    "discovery": {
+      "year": 2004,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 20337800,
+      "periodDays": 1082.94,
+      "eccentricity": 0.486,
+      "inclinationDeg": 138.3,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 3.5,
+      "diameterKm": 7,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2019-s-9",
+    "name": "S/2019 S 9",
+    "designation": "S/2019 S 9",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2019,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 20359700,
+      "periodDays": 1084.62,
+      "eccentricity": 0.433,
+      "inclinationDeg": 159.5,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 2,
+      "diameterKm": 4,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2023-s-32",
+    "name": "S/2023 S 32",
+    "designation": "S/2023 S 32",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2023,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 20454400,
+      "periodDays": 1092.24,
+      "eccentricity": 0.037,
+      "inclinationDeg": 169.8,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1,
+      "diameterKm": 2,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2004-s-46",
+    "name": "S/2004 S 46",
+    "designation": "S/2004 S 46",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Phoebe)",
+    "discovery": {
+      "year": 2004,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 20513800,
+      "periodDays": 1096.99,
+      "eccentricity": 0.249,
+      "inclinationDeg": 177.2,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2023-s-57",
+    "name": "S/2023 S 57",
+    "designation": "S/2023 S 57",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2023,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 20536100,
+      "periodDays": 1098.83,
+      "eccentricity": 0.245,
+      "inclinationDeg": 168,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1,
+      "diameterKm": 2,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "angrboda",
+    "name": "Angrboda",
+    "designation": "Saturn LV",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": true,
+    "provisional": false,
+    "family": "Norse group (Phoebe)",
+    "discovery": {
+      "year": 2004,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 20591500,
+      "periodDays": 1103.2,
+      "eccentricity": 0.216,
+      "inclinationDeg": 177.7,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 2,
+      "diameterKm": 4,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2020-s-24",
+    "name": "S/2020 S 24",
+    "designation": "S/2020 S 24",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2020,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 20618300,
+      "periodDays": 1105.41,
+      "eccentricity": 0.23,
+      "inclinationDeg": 159.6,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2019-s-11",
+    "name": "S/2019 S 11",
+    "designation": "S/2019 S 11",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (low-inclination)",
+    "discovery": {
+      "year": 2019,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 20664200,
+      "periodDays": 1109.11,
+      "eccentricity": 0.513,
+      "inclinationDeg": 144.6,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 2,
+      "diameterKm": 4,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "aegir",
+    "name": "Aegir",
+    "designation": "Saturn XXXVI",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": true,
+    "provisional": false,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2004,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 20664400,
+      "periodDays": 1109.13,
+      "eccentricity": 0.255,
+      "inclinationDeg": 166.1,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 3,
+      "diameterKm": 6,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2019-s-10",
+    "name": "S/2019 S 10",
+    "designation": "S/2019 S 10",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2019,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 20700300,
+      "periodDays": 1111.99,
+      "eccentricity": 0.248,
+      "inclinationDeg": 163.9,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
       "albedo": 0.04
     },
     "sourceIds": [
@@ -5673,16 +10054,336 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "fidelity": "irregular",
     "named": true,
     "provisional": false,
-    "family": "Norse group",
+    "family": "Norse group (Mundilfari)",
     "discovery": {
-      "year": 2019,
+      "year": 2004,
       "discoverer": "Sheppard et al."
     },
     "orbit": {
-      "semiMajorAxisKm": 20424000,
-      "periodDays": 1084.5,
-      "eccentricity": 0.113,
-      "inclinationDeg": 156.3,
+      "semiMajorAxisKm": 20703700,
+      "periodDays": 1112.27,
+      "eccentricity": 0.087,
+      "inclinationDeg": 158.9,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 2,
+      "diameterKm": 4,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2023-s-31",
+    "name": "S/2023 S 31",
+    "designation": "S/2023 S 31",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2023,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 20729200,
+      "periodDays": 1114.29,
+      "eccentricity": 0.182,
+      "inclinationDeg": 163,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2020-s-25",
+    "name": "S/2020 S 25",
+    "designation": "S/2020 S 25",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2020,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 20763700,
+      "periodDays": 1117.09,
+      "eccentricity": 0.316,
+      "inclinationDeg": 171.8,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2023-s-34",
+    "name": "S/2023 S 34",
+    "designation": "S/2023 S 34",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2023,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 20803900,
+      "periodDays": 1120.38,
+      "eccentricity": 0.57,
+      "inclinationDeg": 168.4,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2023-s-39",
+    "name": "S/2023 S 39",
+    "designation": "S/2023 S 39",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2023,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 20824500,
+      "periodDays": 1121.99,
+      "eccentricity": 0.124,
+      "inclinationDeg": 164.8,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2019-s-12",
+    "name": "S/2019 S 12",
+    "designation": "S/2019 S 12",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2019,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 20895000,
+      "periodDays": 1127.6,
+      "eccentricity": 0.476,
+      "inclinationDeg": 167.1,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 2,
+      "diameterKm": 4,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "gerd",
+    "name": "Gerd",
+    "designation": "Saturn LVII",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": true,
+    "provisional": false,
+    "family": "Norse group (Phoebe)",
+    "discovery": {
+      "year": 2004,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 20947500,
+      "periodDays": 1131.91,
+      "eccentricity": 0.517,
+      "inclinationDeg": 174.4,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 2,
+      "diameterKm": 4,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2019-s-13",
+    "name": "S/2019 S 13",
+    "designation": "S/2019 S 13",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Phoebe)",
+    "discovery": {
+      "year": 2019,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 20964500,
+      "periodDays": 1133.27,
+      "eccentricity": 0.318,
+      "inclinationDeg": 177.3,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2004-s-61",
+    "name": "S/2004 S 61",
+    "designation": "S/2004 S 61",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2004,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 20986900,
+      "periodDays": 1135.06,
+      "eccentricity": 0.466,
+      "inclinationDeg": 168.4,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 2,
+      "diameterKm": 4,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2006-s-14",
+    "name": "S/2006 S 14",
+    "designation": "S/2006 S 14",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2006,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 21062300,
+      "periodDays": 1141.27,
+      "eccentricity": 0.06,
+      "inclinationDeg": 166.7,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2023-s-40",
+    "name": "S/2023 S 40",
+    "designation": "S/2023 S 40",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2023,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 21065100,
+      "periodDays": 1141.48,
+      "eccentricity": 0.342,
+      "inclinationDeg": 169.6,
       "retrograde": true
     },
     "physical": {
@@ -5705,2357 +10406,21 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "fidelity": "irregular",
     "named": true,
     "provisional": false,
-    "family": "Norse group",
+    "family": "Norse group (Mundilfari)",
     "discovery": {
-      "year": 2019,
+      "year": 2004,
       "discoverer": "Sheppard et al."
     },
     "orbit": {
-      "semiMajorAxisKm": 21564000,
-      "periodDays": 1175.3,
+      "semiMajorAxisKm": 21141800,
+      "periodDays": 1147.74,
       "eccentricity": 0.251,
-      "inclinationDeg": 158.5,
+      "inclinationDeg": 160.4,
       "retrograde": true
     },
     "physical": {
       "meanRadiusKm": 2,
       "diameterKm": 4,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2004-s-1",
-    "name": "S/2004 S 1",
-    "designation": "S/2004 S 1",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2004,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 14000000,
-      "periodDays": 618,
-      "eccentricity": 0.15,
-      "inclinationDeg": 150,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2006-s-1",
-    "name": "S/2006 S 1",
-    "designation": "S/2006 S 1",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2006,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 14113000,
-      "periodDays": 625,
-      "eccentricity": 0.16,
-      "inclinationDeg": 151,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.8,
-      "diameterKm": 3.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2007-s-1",
-    "name": "S/2007 S 1",
-    "designation": "S/2007 S 1",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2007,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 14226000,
-      "periodDays": 633,
-      "eccentricity": 0.17,
-      "inclinationDeg": 152,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 2.3,
-      "diameterKm": 4.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2019-s-1",
-    "name": "S/2019 S 1",
-    "designation": "S/2019 S 1",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2019,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 14339000,
-      "periodDays": 640,
-      "eccentricity": 0.18,
-      "inclinationDeg": 153,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2020-s-1",
-    "name": "S/2020 S 1",
-    "designation": "S/2020 S 1",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2020,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 14452000,
-      "periodDays": 648,
-      "eccentricity": 0.19,
-      "inclinationDeg": 154,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.8,
-      "diameterKm": 3.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2004-s-2",
-    "name": "S/2004 S 2",
-    "designation": "S/2004 S 2",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2004,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 14565000,
-      "periodDays": 655,
-      "eccentricity": 0.2,
-      "inclinationDeg": 155,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 2.3,
-      "diameterKm": 4.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2006-s-2",
-    "name": "S/2006 S 2",
-    "designation": "S/2006 S 2",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2006,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 14678000,
-      "periodDays": 663,
-      "eccentricity": 0.21,
-      "inclinationDeg": 156,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2007-s-2",
-    "name": "S/2007 S 2",
-    "designation": "S/2007 S 2",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2007,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 14791000,
-      "periodDays": 671,
-      "eccentricity": 0.22,
-      "inclinationDeg": 157,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.8,
-      "diameterKm": 3.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2019-s-2",
-    "name": "S/2019 S 2",
-    "designation": "S/2019 S 2",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Gallic group",
-    "discovery": {
-      "year": 2019,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 14904000,
-      "periodDays": 678,
-      "eccentricity": 0.23,
-      "inclinationDeg": 36,
-      "retrograde": false
-    },
-    "physical": {
-      "meanRadiusKm": 2.3,
-      "diameterKm": 4.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2020-s-2",
-    "name": "S/2020 S 2",
-    "designation": "S/2020 S 2",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Inuit group",
-    "discovery": {
-      "year": 2020,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 15017000,
-      "periodDays": 686,
-      "eccentricity": 0.24,
-      "inclinationDeg": 49,
-      "retrograde": false
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2004-s-3",
-    "name": "S/2004 S 3",
-    "designation": "S/2004 S 3",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2004,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 15130000,
-      "periodDays": 694,
-      "eccentricity": 0.25,
-      "inclinationDeg": 160,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.8,
-      "diameterKm": 3.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2006-s-3",
-    "name": "S/2006 S 3",
-    "designation": "S/2006 S 3",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2006,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 15243000,
-      "periodDays": 702,
-      "eccentricity": 0.26,
-      "inclinationDeg": 161,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 2.3,
-      "diameterKm": 4.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2007-s-3",
-    "name": "S/2007 S 3",
-    "designation": "S/2007 S 3",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2007,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 15356000,
-      "periodDays": 709,
-      "eccentricity": 0.27,
-      "inclinationDeg": 162,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2019-s-3",
-    "name": "S/2019 S 3",
-    "designation": "S/2019 S 3",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2019,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 15469000,
-      "periodDays": 717,
-      "eccentricity": 0.28,
-      "inclinationDeg": 163,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.8,
-      "diameterKm": 3.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2020-s-3",
-    "name": "S/2020 S 3",
-    "designation": "S/2020 S 3",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2020,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 15582000,
-      "periodDays": 725,
-      "eccentricity": 0.29,
-      "inclinationDeg": 164,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 2.3,
-      "diameterKm": 4.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2004-s-4",
-    "name": "S/2004 S 4",
-    "designation": "S/2004 S 4",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2004,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 15695000,
-      "periodDays": 733,
-      "eccentricity": 0.3,
-      "inclinationDeg": 165,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2006-s-4",
-    "name": "S/2006 S 4",
-    "designation": "S/2006 S 4",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2006,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 15808000,
-      "periodDays": 741,
-      "eccentricity": 0.31,
-      "inclinationDeg": 166,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.8,
-      "diameterKm": 3.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2007-s-4",
-    "name": "S/2007 S 4",
-    "designation": "S/2007 S 4",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2007,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 15921000,
-      "periodDays": 749,
-      "eccentricity": 0.32,
-      "inclinationDeg": 167,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 2.3,
-      "diameterKm": 4.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2019-s-4",
-    "name": "S/2019 S 4",
-    "designation": "S/2019 S 4",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Gallic group",
-    "discovery": {
-      "year": 2019,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 16034000,
-      "periodDays": 757,
-      "eccentricity": 0.33,
-      "inclinationDeg": 34,
-      "retrograde": false
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2020-s-4",
-    "name": "S/2020 S 4",
-    "designation": "S/2020 S 4",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Inuit group",
-    "discovery": {
-      "year": 2020,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 16147000,
-      "periodDays": 765,
-      "eccentricity": 0.34,
-      "inclinationDeg": 49,
-      "retrograde": false
-    },
-    "physical": {
-      "meanRadiusKm": 1.8,
-      "diameterKm": 3.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2004-s-5",
-    "name": "S/2004 S 5",
-    "designation": "S/2004 S 5",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2004,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 16260000,
-      "periodDays": 773,
-      "eccentricity": 0.35,
-      "inclinationDeg": 170,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 2.3,
-      "diameterKm": 4.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2006-s-5",
-    "name": "S/2006 S 5",
-    "designation": "S/2006 S 5",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2006,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 16373000,
-      "periodDays": 781,
-      "eccentricity": 0.36,
-      "inclinationDeg": 171,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2007-s-5",
-    "name": "S/2007 S 5",
-    "designation": "S/2007 S 5",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2007,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 16486000,
-      "periodDays": 789,
-      "eccentricity": 0.37,
-      "inclinationDeg": 172,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.8,
-      "diameterKm": 3.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2019-s-5",
-    "name": "S/2019 S 5",
-    "designation": "S/2019 S 5",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2019,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 16599000,
-      "periodDays": 797,
-      "eccentricity": 0.38,
-      "inclinationDeg": 173,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 2.3,
-      "diameterKm": 4.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2020-s-5",
-    "name": "S/2020 S 5",
-    "designation": "S/2020 S 5",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2020,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 16712000,
-      "periodDays": 805,
-      "eccentricity": 0.39,
-      "inclinationDeg": 174,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2004-s-6",
-    "name": "S/2004 S 6",
-    "designation": "S/2004 S 6",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2004,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 16825000,
-      "periodDays": 814,
-      "eccentricity": 0.4,
-      "inclinationDeg": 150,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.8,
-      "diameterKm": 3.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2006-s-6",
-    "name": "S/2006 S 6",
-    "designation": "S/2006 S 6",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2006,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 16938000,
-      "periodDays": 822,
-      "eccentricity": 0.41,
-      "inclinationDeg": 151,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 2.3,
-      "diameterKm": 4.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2007-s-6",
-    "name": "S/2007 S 6",
-    "designation": "S/2007 S 6",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2007,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 17051000,
-      "periodDays": 830,
-      "eccentricity": 0.42,
-      "inclinationDeg": 152,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2019-s-6",
-    "name": "S/2019 S 6",
-    "designation": "S/2019 S 6",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Gallic group",
-    "discovery": {
-      "year": 2019,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 17164000,
-      "periodDays": 838,
-      "eccentricity": 0.43,
-      "inclinationDeg": 38,
-      "retrograde": false
-    },
-    "physical": {
-      "meanRadiusKm": 1.8,
-      "diameterKm": 3.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2020-s-6",
-    "name": "S/2020 S 6",
-    "designation": "S/2020 S 6",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Inuit group",
-    "discovery": {
-      "year": 2020,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 17277000,
-      "periodDays": 847,
-      "eccentricity": 0.44,
-      "inclinationDeg": 49,
-      "retrograde": false
-    },
-    "physical": {
-      "meanRadiusKm": 2.3,
-      "diameterKm": 4.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2004-s-7",
-    "name": "S/2004 S 7",
-    "designation": "S/2004 S 7",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2004,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 17390000,
-      "periodDays": 855,
-      "eccentricity": 0.45,
-      "inclinationDeg": 155,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2006-s-7",
-    "name": "S/2006 S 7",
-    "designation": "S/2006 S 7",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2006,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 17503000,
-      "periodDays": 863,
-      "eccentricity": 0.46,
-      "inclinationDeg": 156,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.8,
-      "diameterKm": 3.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2007-s-7",
-    "name": "S/2007 S 7",
-    "designation": "S/2007 S 7",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2007,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 17616000,
-      "periodDays": 872,
-      "eccentricity": 0.47,
-      "inclinationDeg": 157,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 2.3,
-      "diameterKm": 4.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2019-s-7",
-    "name": "S/2019 S 7",
-    "designation": "S/2019 S 7",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2019,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 17729000,
-      "periodDays": 880,
-      "eccentricity": 0.48,
-      "inclinationDeg": 158,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2020-s-7",
-    "name": "S/2020 S 7",
-    "designation": "S/2020 S 7",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2020,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 17842000,
-      "periodDays": 888,
-      "eccentricity": 0.49,
-      "inclinationDeg": 159,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.8,
-      "diameterKm": 3.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2004-s-8",
-    "name": "S/2004 S 8",
-    "designation": "S/2004 S 8",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2004,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 17955000,
-      "periodDays": 897,
-      "eccentricity": 0.15,
-      "inclinationDeg": 160,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 2.3,
-      "diameterKm": 4.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2006-s-8",
-    "name": "S/2006 S 8",
-    "designation": "S/2006 S 8",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2006,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 18068000,
-      "periodDays": 905,
-      "eccentricity": 0.16,
-      "inclinationDeg": 161,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2007-s-8",
-    "name": "S/2007 S 8",
-    "designation": "S/2007 S 8",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2007,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 18181000,
-      "periodDays": 914,
-      "eccentricity": 0.17,
-      "inclinationDeg": 162,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.8,
-      "diameterKm": 3.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2019-s-8",
-    "name": "S/2019 S 8",
-    "designation": "S/2019 S 8",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Gallic group",
-    "discovery": {
-      "year": 2019,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 18294000,
-      "periodDays": 922,
-      "eccentricity": 0.18,
-      "inclinationDeg": 36,
-      "retrograde": false
-    },
-    "physical": {
-      "meanRadiusKm": 2.3,
-      "diameterKm": 4.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2020-s-8",
-    "name": "S/2020 S 8",
-    "designation": "S/2020 S 8",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Inuit group",
-    "discovery": {
-      "year": 2020,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 18407000,
-      "periodDays": 931,
-      "eccentricity": 0.19,
-      "inclinationDeg": 49,
-      "retrograde": false
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2004-s-9",
-    "name": "S/2004 S 9",
-    "designation": "S/2004 S 9",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2004,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 18520000,
-      "periodDays": 940,
-      "eccentricity": 0.2,
-      "inclinationDeg": 165,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.8,
-      "diameterKm": 3.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2006-s-9",
-    "name": "S/2006 S 9",
-    "designation": "S/2006 S 9",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2006,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 18633000,
-      "periodDays": 948,
-      "eccentricity": 0.21,
-      "inclinationDeg": 166,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 2.3,
-      "diameterKm": 4.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2007-s-9",
-    "name": "S/2007 S 9",
-    "designation": "S/2007 S 9",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2007,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 18746000,
-      "periodDays": 957,
-      "eccentricity": 0.22,
-      "inclinationDeg": 167,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2019-s-9",
-    "name": "S/2019 S 9",
-    "designation": "S/2019 S 9",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2019,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 18859000,
-      "periodDays": 965,
-      "eccentricity": 0.23,
-      "inclinationDeg": 168,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.8,
-      "diameterKm": 3.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2020-s-9",
-    "name": "S/2020 S 9",
-    "designation": "S/2020 S 9",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2020,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 18972000,
-      "periodDays": 974,
-      "eccentricity": 0.24,
-      "inclinationDeg": 169,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 2.3,
-      "diameterKm": 4.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2004-s-10",
-    "name": "S/2004 S 10",
-    "designation": "S/2004 S 10",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2004,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 19085000,
-      "periodDays": 983,
-      "eccentricity": 0.25,
-      "inclinationDeg": 170,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2006-s-10",
-    "name": "S/2006 S 10",
-    "designation": "S/2006 S 10",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2006,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 19198000,
-      "periodDays": 992,
-      "eccentricity": 0.26,
-      "inclinationDeg": 171,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.8,
-      "diameterKm": 3.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2007-s-10",
-    "name": "S/2007 S 10",
-    "designation": "S/2007 S 10",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2007,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 19311000,
-      "periodDays": 1000,
-      "eccentricity": 0.27,
-      "inclinationDeg": 172,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 2.3,
-      "diameterKm": 4.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2019-s-10",
-    "name": "S/2019 S 10",
-    "designation": "S/2019 S 10",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Gallic group",
-    "discovery": {
-      "year": 2019,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 19424000,
-      "periodDays": 1009,
-      "eccentricity": 0.28,
-      "inclinationDeg": 34,
-      "retrograde": false
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2020-s-10",
-    "name": "S/2020 S 10",
-    "designation": "S/2020 S 10",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Inuit group",
-    "discovery": {
-      "year": 2020,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 19537000,
-      "periodDays": 1018,
-      "eccentricity": 0.29,
-      "inclinationDeg": 49,
-      "retrograde": false
-    },
-    "physical": {
-      "meanRadiusKm": 1.8,
-      "diameterKm": 3.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2004-s-11",
-    "name": "S/2004 S 11",
-    "designation": "S/2004 S 11",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2004,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 19650000,
-      "periodDays": 1027,
-      "eccentricity": 0.3,
-      "inclinationDeg": 150,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 2.3,
-      "diameterKm": 4.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2006-s-11",
-    "name": "S/2006 S 11",
-    "designation": "S/2006 S 11",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2006,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 19763000,
-      "periodDays": 1036,
-      "eccentricity": 0.31,
-      "inclinationDeg": 151,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2007-s-11",
-    "name": "S/2007 S 11",
-    "designation": "S/2007 S 11",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2007,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 19876000,
-      "periodDays": 1045,
-      "eccentricity": 0.32,
-      "inclinationDeg": 152,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.8,
-      "diameterKm": 3.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2019-s-11",
-    "name": "S/2019 S 11",
-    "designation": "S/2019 S 11",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2019,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 19989000,
-      "periodDays": 1054,
-      "eccentricity": 0.33,
-      "inclinationDeg": 153,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 2.3,
-      "diameterKm": 4.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2020-s-11",
-    "name": "S/2020 S 11",
-    "designation": "S/2020 S 11",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2020,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 20102000,
-      "periodDays": 1062,
-      "eccentricity": 0.34,
-      "inclinationDeg": 154,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2004-s-12",
-    "name": "S/2004 S 12",
-    "designation": "S/2004 S 12",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2004,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 20215000,
-      "periodDays": 1071,
-      "eccentricity": 0.35,
-      "inclinationDeg": 155,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.8,
-      "diameterKm": 3.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2006-s-12",
-    "name": "S/2006 S 12",
-    "designation": "S/2006 S 12",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2006,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 20328000,
-      "periodDays": 1080,
-      "eccentricity": 0.36,
-      "inclinationDeg": 156,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 2.3,
-      "diameterKm": 4.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2007-s-12",
-    "name": "S/2007 S 12",
-    "designation": "S/2007 S 12",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2007,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 20441000,
-      "periodDays": 1089,
-      "eccentricity": 0.37,
-      "inclinationDeg": 157,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2019-s-12",
-    "name": "S/2019 S 12",
-    "designation": "S/2019 S 12",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Gallic group",
-    "discovery": {
-      "year": 2019,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 20554000,
-      "periodDays": 1099,
-      "eccentricity": 0.38,
-      "inclinationDeg": 38,
-      "retrograde": false
-    },
-    "physical": {
-      "meanRadiusKm": 1.8,
-      "diameterKm": 3.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2020-s-12",
-    "name": "S/2020 S 12",
-    "designation": "S/2020 S 12",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Inuit group",
-    "discovery": {
-      "year": 2020,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 20667000,
-      "periodDays": 1108,
-      "eccentricity": 0.39,
-      "inclinationDeg": 49,
-      "retrograde": false
-    },
-    "physical": {
-      "meanRadiusKm": 2.3,
-      "diameterKm": 4.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2004-s-13",
-    "name": "S/2004 S 13",
-    "designation": "S/2004 S 13",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2004,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 20780000,
-      "periodDays": 1117,
-      "eccentricity": 0.4,
-      "inclinationDeg": 160,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2006-s-13",
-    "name": "S/2006 S 13",
-    "designation": "S/2006 S 13",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2006,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 20893000,
-      "periodDays": 1126,
-      "eccentricity": 0.41,
-      "inclinationDeg": 161,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.8,
-      "diameterKm": 3.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2007-s-13",
-    "name": "S/2007 S 13",
-    "designation": "S/2007 S 13",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2007,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 21006000,
-      "periodDays": 1135,
-      "eccentricity": 0.42,
-      "inclinationDeg": 162,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 2.3,
-      "diameterKm": 4.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2019-s-13",
-    "name": "S/2019 S 13",
-    "designation": "S/2019 S 13",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2019,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 21119000,
-      "periodDays": 1144,
-      "eccentricity": 0.43,
-      "inclinationDeg": 163,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2020-s-13",
-    "name": "S/2020 S 13",
-    "designation": "S/2020 S 13",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2020,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 21232000,
-      "periodDays": 1153,
-      "eccentricity": 0.44,
-      "inclinationDeg": 164,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.8,
-      "diameterKm": 3.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2004-s-14",
-    "name": "S/2004 S 14",
-    "designation": "S/2004 S 14",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2004,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 21345000,
-      "periodDays": 1163,
-      "eccentricity": 0.45,
-      "inclinationDeg": 165,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 2.3,
-      "diameterKm": 4.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2006-s-14",
-    "name": "S/2006 S 14",
-    "designation": "S/2006 S 14",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2006,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 21458000,
-      "periodDays": 1172,
-      "eccentricity": 0.46,
-      "inclinationDeg": 166,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2007-s-14",
-    "name": "S/2007 S 14",
-    "designation": "S/2007 S 14",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2007,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 21571000,
-      "periodDays": 1181,
-      "eccentricity": 0.47,
-      "inclinationDeg": 167,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.8,
-      "diameterKm": 3.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2019-s-14",
-    "name": "S/2019 S 14",
-    "designation": "S/2019 S 14",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Gallic group",
-    "discovery": {
-      "year": 2019,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 21684000,
-      "periodDays": 1190,
-      "eccentricity": 0.48,
-      "inclinationDeg": 36,
-      "retrograde": false
-    },
-    "physical": {
-      "meanRadiusKm": 2.3,
-      "diameterKm": 4.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2020-s-14",
-    "name": "S/2020 S 14",
-    "designation": "S/2020 S 14",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Inuit group",
-    "discovery": {
-      "year": 2020,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 21797000,
-      "periodDays": 1200,
-      "eccentricity": 0.49,
-      "inclinationDeg": 49,
-      "retrograde": false
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2004-s-15",
-    "name": "S/2004 S 15",
-    "designation": "S/2004 S 15",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2004,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 21910000,
-      "periodDays": 1209,
-      "eccentricity": 0.15,
-      "inclinationDeg": 170,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.8,
-      "diameterKm": 3.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2006-s-15",
-    "name": "S/2006 S 15",
-    "designation": "S/2006 S 15",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2006,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 22023000,
-      "periodDays": 1218,
-      "eccentricity": 0.16,
-      "inclinationDeg": 171,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 2.3,
-      "diameterKm": 4.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2007-s-15",
-    "name": "S/2007 S 15",
-    "designation": "S/2007 S 15",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2007,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 22136000,
-      "periodDays": 1228,
-      "eccentricity": 0.17,
-      "inclinationDeg": 172,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
       "albedo": 0.04
     },
     "sourceIds": [
@@ -8073,21 +10438,21 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "fidelity": "irregular",
     "named": false,
     "provisional": true,
-    "family": "Norse group",
+    "family": "Norse group (Mundilfari)",
     "discovery": {
       "year": 2019,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
+      "discoverer": "Ashton et al."
     },
     "orbit": {
-      "semiMajorAxisKm": 22249000,
-      "periodDays": 1237,
-      "eccentricity": 0.18,
-      "inclinationDeg": 173,
+      "semiMajorAxisKm": 21191100,
+      "periodDays": 1151.66,
+      "eccentricity": 0.257,
+      "inclinationDeg": 157.8,
       "retrograde": true
     },
     "physical": {
-      "meanRadiusKm": 1.8,
-      "diameterKm": 3.5,
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
       "albedo": 0.04
     },
     "sourceIds": [
@@ -8098,1756 +10463,28 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "asOf": "2026-08-15"
   },
   {
-    "id": "s-2020-s-15",
-    "name": "S/2020 S 15",
-    "designation": "S/2020 S 15",
+    "id": "s-2020-s-6",
+    "name": "S/2020 S 6",
+    "designation": "S/2020 S 6",
     "parentId": "saturn",
     "fidelity": "irregular",
     "named": false,
     "provisional": true,
-    "family": "Norse group",
+    "family": "Norse group (Mundilfari)",
     "discovery": {
       "year": 2020,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
+      "discoverer": "Ashton et al."
     },
     "orbit": {
-      "semiMajorAxisKm": 22362000,
-      "periodDays": 1247,
-      "eccentricity": 0.19,
-      "inclinationDeg": 174,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 2.3,
-      "diameterKm": 4.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2004-s-16",
-    "name": "S/2004 S 16",
-    "designation": "S/2004 S 16",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2004,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 22475000,
-      "periodDays": 1256,
-      "eccentricity": 0.2,
-      "inclinationDeg": 150,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2006-s-16",
-    "name": "S/2006 S 16",
-    "designation": "S/2006 S 16",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2006,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 22588000,
-      "periodDays": 1266,
-      "eccentricity": 0.21,
-      "inclinationDeg": 151,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.8,
-      "diameterKm": 3.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2007-s-16",
-    "name": "S/2007 S 16",
-    "designation": "S/2007 S 16",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2007,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 22701000,
-      "periodDays": 1275,
-      "eccentricity": 0.22,
-      "inclinationDeg": 152,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 2.3,
-      "diameterKm": 4.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2019-s-16",
-    "name": "S/2019 S 16",
-    "designation": "S/2019 S 16",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Gallic group",
-    "discovery": {
-      "year": 2019,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 22814000,
-      "periodDays": 1285,
-      "eccentricity": 0.23,
-      "inclinationDeg": 34,
-      "retrograde": false
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2020-s-16",
-    "name": "S/2020 S 16",
-    "designation": "S/2020 S 16",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Inuit group",
-    "discovery": {
-      "year": 2020,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 22927000,
-      "periodDays": 1294,
-      "eccentricity": 0.24,
-      "inclinationDeg": 49,
-      "retrograde": false
-    },
-    "physical": {
-      "meanRadiusKm": 1.8,
-      "diameterKm": 3.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2004-s-17",
-    "name": "S/2004 S 17",
-    "designation": "S/2004 S 17",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2004,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 23040000,
-      "periodDays": 1304,
-      "eccentricity": 0.25,
-      "inclinationDeg": 155,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 2.3,
-      "diameterKm": 4.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2006-s-17",
-    "name": "S/2006 S 17",
-    "designation": "S/2006 S 17",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2006,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 23153000,
-      "periodDays": 1313,
-      "eccentricity": 0.26,
-      "inclinationDeg": 156,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2007-s-17",
-    "name": "S/2007 S 17",
-    "designation": "S/2007 S 17",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2007,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 23266000,
-      "periodDays": 1323,
-      "eccentricity": 0.27,
-      "inclinationDeg": 157,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.8,
-      "diameterKm": 3.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2019-s-17",
-    "name": "S/2019 S 17",
-    "designation": "S/2019 S 17",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2019,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 23379000,
-      "periodDays": 1333,
-      "eccentricity": 0.28,
-      "inclinationDeg": 158,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 2.3,
-      "diameterKm": 4.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2020-s-17",
-    "name": "S/2020 S 17",
-    "designation": "S/2020 S 17",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2020,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 23492000,
-      "periodDays": 1342,
-      "eccentricity": 0.29,
-      "inclinationDeg": 159,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2004-s-18",
-    "name": "S/2004 S 18",
-    "designation": "S/2004 S 18",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2004,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 23605000,
-      "periodDays": 1352,
-      "eccentricity": 0.3,
-      "inclinationDeg": 160,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.8,
-      "diameterKm": 3.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2006-s-18",
-    "name": "S/2006 S 18",
-    "designation": "S/2006 S 18",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2006,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 23718000,
-      "periodDays": 1362,
-      "eccentricity": 0.31,
-      "inclinationDeg": 161,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 2.3,
-      "diameterKm": 4.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2007-s-18",
-    "name": "S/2007 S 18",
-    "designation": "S/2007 S 18",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2007,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 23831000,
-      "periodDays": 1371,
-      "eccentricity": 0.32,
-      "inclinationDeg": 162,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2019-s-18",
-    "name": "S/2019 S 18",
-    "designation": "S/2019 S 18",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Gallic group",
-    "discovery": {
-      "year": 2019,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 23944000,
-      "periodDays": 1381,
-      "eccentricity": 0.33,
-      "inclinationDeg": 38,
-      "retrograde": false
-    },
-    "physical": {
-      "meanRadiusKm": 1.8,
-      "diameterKm": 3.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2020-s-18",
-    "name": "S/2020 S 18",
-    "designation": "S/2020 S 18",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Inuit group",
-    "discovery": {
-      "year": 2020,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 24057000,
-      "periodDays": 1391,
-      "eccentricity": 0.34,
-      "inclinationDeg": 49,
-      "retrograde": false
-    },
-    "physical": {
-      "meanRadiusKm": 2.3,
-      "diameterKm": 4.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2004-s-19",
-    "name": "S/2004 S 19",
-    "designation": "S/2004 S 19",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2004,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 24170000,
-      "periodDays": 1401,
-      "eccentricity": 0.35,
-      "inclinationDeg": 165,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2006-s-19",
-    "name": "S/2006 S 19",
-    "designation": "S/2006 S 19",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2006,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 24283000,
-      "periodDays": 1411,
-      "eccentricity": 0.36,
-      "inclinationDeg": 166,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.8,
-      "diameterKm": 3.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2007-s-19",
-    "name": "S/2007 S 19",
-    "designation": "S/2007 S 19",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2007,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 24396000,
-      "periodDays": 1421,
-      "eccentricity": 0.37,
-      "inclinationDeg": 167,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 2.3,
-      "diameterKm": 4.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2019-s-19",
-    "name": "S/2019 S 19",
-    "designation": "S/2019 S 19",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2019,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 24509000,
-      "periodDays": 1430,
-      "eccentricity": 0.38,
-      "inclinationDeg": 168,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2020-s-19",
-    "name": "S/2020 S 19",
-    "designation": "S/2020 S 19",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2020,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 24622000,
-      "periodDays": 1440,
-      "eccentricity": 0.39,
-      "inclinationDeg": 169,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.8,
-      "diameterKm": 3.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2004-s-20",
-    "name": "S/2004 S 20",
-    "designation": "S/2004 S 20",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2004,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 24735000,
-      "periodDays": 1450,
-      "eccentricity": 0.4,
-      "inclinationDeg": 170,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 2.3,
-      "diameterKm": 4.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2006-s-20",
-    "name": "S/2006 S 20",
-    "designation": "S/2006 S 20",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2006,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 24848000,
-      "periodDays": 1460,
-      "eccentricity": 0.41,
-      "inclinationDeg": 171,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2007-s-20",
-    "name": "S/2007 S 20",
-    "designation": "S/2007 S 20",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2007,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 24961000,
-      "periodDays": 1470,
-      "eccentricity": 0.42,
-      "inclinationDeg": 172,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.8,
-      "diameterKm": 3.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2019-s-20",
-    "name": "S/2019 S 20",
-    "designation": "S/2019 S 20",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Gallic group",
-    "discovery": {
-      "year": 2019,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 25074000,
-      "periodDays": 1480,
-      "eccentricity": 0.43,
-      "inclinationDeg": 36,
-      "retrograde": false
-    },
-    "physical": {
-      "meanRadiusKm": 2.3,
-      "diameterKm": 4.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2020-s-20",
-    "name": "S/2020 S 20",
-    "designation": "S/2020 S 20",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Inuit group",
-    "discovery": {
-      "year": 2020,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 25187000,
-      "periodDays": 1490,
-      "eccentricity": 0.44,
-      "inclinationDeg": 49,
-      "retrograde": false
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2004-s-21",
-    "name": "S/2004 S 21",
-    "designation": "S/2004 S 21",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2004,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 25300000,
-      "periodDays": 1500,
-      "eccentricity": 0.45,
-      "inclinationDeg": 150,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.8,
-      "diameterKm": 3.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2006-s-21",
-    "name": "S/2006 S 21",
-    "designation": "S/2006 S 21",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2006,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 25413000,
-      "periodDays": 1510,
-      "eccentricity": 0.46,
-      "inclinationDeg": 151,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 2.3,
-      "diameterKm": 4.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2007-s-21",
-    "name": "S/2007 S 21",
-    "designation": "S/2007 S 21",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2007,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 25526000,
-      "periodDays": 1520,
-      "eccentricity": 0.47,
-      "inclinationDeg": 152,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2019-s-21",
-    "name": "S/2019 S 21",
-    "designation": "S/2019 S 21",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2019,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 25639000,
-      "periodDays": 1530,
+      "semiMajorAxisKm": 21253300,
+      "periodDays": 1156.81,
       "eccentricity": 0.48,
-      "inclinationDeg": 153,
+      "inclinationDeg": 166.9,
       "retrograde": true
     },
     "physical": {
-      "meanRadiusKm": 1.8,
-      "diameterKm": 3.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2020-s-21",
-    "name": "S/2020 S 21",
-    "designation": "S/2020 S 21",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2020,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 25752000,
-      "periodDays": 1541,
-      "eccentricity": 0.49,
-      "inclinationDeg": 154,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 2.3,
-      "diameterKm": 4.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2004-s-22",
-    "name": "S/2004 S 22",
-    "designation": "S/2004 S 22",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2004,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 25865000,
-      "periodDays": 1551,
-      "eccentricity": 0.15,
-      "inclinationDeg": 155,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2006-s-22",
-    "name": "S/2006 S 22",
-    "designation": "S/2006 S 22",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2006,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 25978000,
-      "periodDays": 1561,
-      "eccentricity": 0.16,
-      "inclinationDeg": 156,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.8,
-      "diameterKm": 3.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2007-s-22",
-    "name": "S/2007 S 22",
-    "designation": "S/2007 S 22",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2007,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 26091000,
-      "periodDays": 1571,
-      "eccentricity": 0.17,
-      "inclinationDeg": 157,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 2.3,
-      "diameterKm": 4.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2019-s-22",
-    "name": "S/2019 S 22",
-    "designation": "S/2019 S 22",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Gallic group",
-    "discovery": {
-      "year": 2019,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 26204000,
-      "periodDays": 1581,
-      "eccentricity": 0.18,
-      "inclinationDeg": 34,
-      "retrograde": false
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2020-s-22",
-    "name": "S/2020 S 22",
-    "designation": "S/2020 S 22",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Inuit group",
-    "discovery": {
-      "year": 2020,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 26317000,
-      "periodDays": 1592,
-      "eccentricity": 0.19,
-      "inclinationDeg": 49,
-      "retrograde": false
-    },
-    "physical": {
-      "meanRadiusKm": 1.8,
-      "diameterKm": 3.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2004-s-23",
-    "name": "S/2004 S 23",
-    "designation": "S/2004 S 23",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2004,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 26430000,
-      "periodDays": 1602,
-      "eccentricity": 0.2,
-      "inclinationDeg": 160,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 2.3,
-      "diameterKm": 4.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2006-s-23",
-    "name": "S/2006 S 23",
-    "designation": "S/2006 S 23",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2006,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 26543000,
-      "periodDays": 1612,
-      "eccentricity": 0.21,
-      "inclinationDeg": 161,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2007-s-23",
-    "name": "S/2007 S 23",
-    "designation": "S/2007 S 23",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2007,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 26656000,
-      "periodDays": 1622,
-      "eccentricity": 0.22,
-      "inclinationDeg": 162,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.8,
-      "diameterKm": 3.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2019-s-23",
-    "name": "S/2019 S 23",
-    "designation": "S/2019 S 23",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2019,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 26769000,
-      "periodDays": 1633,
-      "eccentricity": 0.23,
-      "inclinationDeg": 163,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 2.3,
-      "diameterKm": 4.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2020-s-23",
-    "name": "S/2020 S 23",
-    "designation": "S/2020 S 23",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2020,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 26882000,
-      "periodDays": 1643,
-      "eccentricity": 0.24,
-      "inclinationDeg": 164,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2004-s-24",
-    "name": "S/2004 S 24",
-    "designation": "S/2004 S 24",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2004,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 26995000,
-      "periodDays": 1653,
-      "eccentricity": 0.25,
-      "inclinationDeg": 165,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.8,
-      "diameterKm": 3.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2006-s-24",
-    "name": "S/2006 S 24",
-    "designation": "S/2006 S 24",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2006,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 14108000,
-      "periodDays": 625,
-      "eccentricity": 0.26,
-      "inclinationDeg": 166,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 2.3,
-      "diameterKm": 4.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2007-s-24",
-    "name": "S/2007 S 24",
-    "designation": "S/2007 S 24",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2007,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 14221000,
-      "periodDays": 632,
-      "eccentricity": 0.27,
-      "inclinationDeg": 167,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2019-s-24",
-    "name": "S/2019 S 24",
-    "designation": "S/2019 S 24",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Gallic group",
-    "discovery": {
-      "year": 2019,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 14334000,
-      "periodDays": 640,
-      "eccentricity": 0.28,
-      "inclinationDeg": 38,
-      "retrograde": false
-    },
-    "physical": {
-      "meanRadiusKm": 1.8,
-      "diameterKm": 3.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2020-s-24",
-    "name": "S/2020 S 24",
-    "designation": "S/2020 S 24",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Inuit group",
-    "discovery": {
-      "year": 2020,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 14447000,
-      "periodDays": 647,
-      "eccentricity": 0.29,
-      "inclinationDeg": 49,
-      "retrograde": false
-    },
-    "physical": {
-      "meanRadiusKm": 2.3,
-      "diameterKm": 4.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2004-s-25",
-    "name": "S/2004 S 25",
-    "designation": "S/2004 S 25",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2004,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 14560000,
-      "periodDays": 655,
-      "eccentricity": 0.3,
-      "inclinationDeg": 170,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2006-s-25",
-    "name": "S/2006 S 25",
-    "designation": "S/2006 S 25",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2006,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 14673000,
-      "periodDays": 663,
-      "eccentricity": 0.31,
-      "inclinationDeg": 171,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.8,
-      "diameterKm": 3.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2007-s-25",
-    "name": "S/2007 S 25",
-    "designation": "S/2007 S 25",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2007,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 14786000,
-      "periodDays": 670,
-      "eccentricity": 0.32,
-      "inclinationDeg": 172,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 2.3,
-      "diameterKm": 4.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2019-s-25",
-    "name": "S/2019 S 25",
-    "designation": "S/2019 S 25",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2019,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 14899000,
-      "periodDays": 678,
-      "eccentricity": 0.33,
-      "inclinationDeg": 173,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2020-s-25",
-    "name": "S/2020 S 25",
-    "designation": "S/2020 S 25",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2020,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 15012000,
-      "periodDays": 686,
-      "eccentricity": 0.34,
-      "inclinationDeg": 174,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.8,
-      "diameterKm": 3.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2004-s-26",
-    "name": "S/2004 S 26",
-    "designation": "S/2004 S 26",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2004,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 15125000,
-      "periodDays": 693,
-      "eccentricity": 0.35,
-      "inclinationDeg": 150,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 2.3,
-      "diameterKm": 4.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2006-s-26",
-    "name": "S/2006 S 26",
-    "designation": "S/2006 S 26",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2006,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 15238000,
-      "periodDays": 701,
-      "eccentricity": 0.36,
-      "inclinationDeg": 151,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2007-s-26",
-    "name": "S/2007 S 26",
-    "designation": "S/2007 S 26",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2007,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 15351000,
-      "periodDays": 709,
-      "eccentricity": 0.37,
-      "inclinationDeg": 152,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.8,
-      "diameterKm": 3.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2019-s-26",
-    "name": "S/2019 S 26",
-    "designation": "S/2019 S 26",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Gallic group",
-    "discovery": {
-      "year": 2019,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 15464000,
-      "periodDays": 717,
-      "eccentricity": 0.38,
-      "inclinationDeg": 36,
-      "retrograde": false
-    },
-    "physical": {
-      "meanRadiusKm": 2.3,
-      "diameterKm": 4.5,
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
       "albedo": 0.04
     },
     "sourceIds": [
@@ -9865,21 +10502,21 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "fidelity": "irregular",
     "named": false,
     "provisional": true,
-    "family": "Inuit group",
+    "family": "Norse group (Mundilfari)",
     "discovery": {
       "year": 2020,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
+      "discoverer": "Ashton et al."
     },
     "orbit": {
-      "semiMajorAxisKm": 15577000,
-      "periodDays": 725,
-      "eccentricity": 0.39,
-      "inclinationDeg": 49,
-      "retrograde": false
+      "semiMajorAxisKm": 21264400,
+      "periodDays": 1157.77,
+      "eccentricity": 0.273,
+      "inclinationDeg": 163.2,
+      "retrograde": true
     },
     "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
       "albedo": 0.04
     },
     "sourceIds": [
@@ -9890,28 +10527,60 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "asOf": "2026-08-15"
   },
   {
-    "id": "s-2004-s-27",
-    "name": "S/2004 S 27",
-    "designation": "S/2004 S 27",
+    "id": "s-2023-s-41",
+    "name": "S/2023 S 41",
+    "designation": "S/2023 S 41",
     "parentId": "saturn",
     "fidelity": "irregular",
     "named": false,
     "provisional": true,
-    "family": "Norse group",
+    "family": "Norse group (Phoebe)",
+    "discovery": {
+      "year": 2023,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 21286400,
+      "periodDays": 1159.52,
+      "eccentricity": 0.279,
+      "inclinationDeg": 172.1,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2004-s-7",
+    "name": "S/2004 S 7",
+    "designation": "Saturn LXVII",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
     "discovery": {
       "year": 2004,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
+      "discoverer": "Sheppard et al."
     },
     "orbit": {
-      "semiMajorAxisKm": 15690000,
-      "periodDays": 733,
-      "eccentricity": 0.4,
-      "inclinationDeg": 155,
+      "semiMajorAxisKm": 21327600,
+      "periodDays": 1162.93,
+      "eccentricity": 0.511,
+      "inclinationDeg": 164.8,
       "retrograde": true
     },
     "physical": {
-      "meanRadiusKm": 1.8,
-      "diameterKm": 3.5,
+      "meanRadiusKm": 2.5,
+      "diameterKm": 5,
       "albedo": 0.04
     },
     "sourceIds": [
@@ -9922,28 +10591,28 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "asOf": "2026-08-15"
   },
   {
-    "id": "s-2006-s-27",
-    "name": "S/2006 S 27",
-    "designation": "S/2006 S 27",
+    "id": "s-2006-s-3",
+    "name": "S/2006 S 3",
+    "designation": "S/2006 S 3",
     "parentId": "saturn",
     "fidelity": "irregular",
     "named": false,
     "provisional": true,
-    "family": "Norse group",
+    "family": "Norse group (Kari)",
     "discovery": {
       "year": 2006,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
+      "discoverer": "Sheppard et al."
     },
     "orbit": {
-      "semiMajorAxisKm": 15803000,
-      "periodDays": 741,
-      "eccentricity": 0.41,
-      "inclinationDeg": 156,
+      "semiMajorAxisKm": 21353100,
+      "periodDays": 1165.02,
+      "eccentricity": 0.432,
+      "inclinationDeg": 156.1,
       "retrograde": true
     },
     "physical": {
-      "meanRadiusKm": 2.3,
-      "diameterKm": 4.5,
+      "meanRadiusKm": 2.5,
+      "diameterKm": 5,
       "albedo": 0.04
     },
     "sourceIds": [
@@ -9954,28 +10623,28 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "asOf": "2026-08-15"
   },
   {
-    "id": "s-2007-s-27",
-    "name": "S/2007 S 27",
-    "designation": "S/2007 S 27",
+    "id": "s-2005-s-5",
+    "name": "S/2005 S 5",
+    "designation": "S/2005 S 5",
     "parentId": "saturn",
     "fidelity": "irregular",
     "named": false,
     "provisional": true,
-    "family": "Norse group",
+    "family": "Norse group (Mundilfari)",
     "discovery": {
-      "year": 2007,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
+      "year": 2005,
+      "discoverer": "Sheppard et al."
     },
     "orbit": {
-      "semiMajorAxisKm": 15916000,
-      "periodDays": 749,
-      "eccentricity": 0.42,
-      "inclinationDeg": 157,
+      "semiMajorAxisKm": 21364900,
+      "periodDays": 1165.96,
+      "eccentricity": 0.588,
+      "inclinationDeg": 169.5,
       "retrograde": true
     },
     "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
       "albedo": 0.04
     },
     "sourceIds": [
@@ -9986,60 +10655,28 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "asOf": "2026-08-15"
   },
   {
-    "id": "s-2019-s-27",
-    "name": "S/2019 S 27",
-    "designation": "S/2019 S 27",
+    "id": "s-2020-s-47",
+    "name": "S/2020 S 47",
+    "designation": "S/2020 S 47",
     "parentId": "saturn",
     "fidelity": "irregular",
     "named": false,
     "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2019,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 16029000,
-      "periodDays": 757,
-      "eccentricity": 0.43,
-      "inclinationDeg": 158,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.8,
-      "diameterKm": 3.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2020-s-27",
-    "name": "S/2020 S 27",
-    "designation": "S/2020 S 27",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
+    "family": "Norse group (low-inclination)",
     "discovery": {
       "year": 2020,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
+      "discoverer": "Ashton et al."
     },
     "orbit": {
-      "semiMajorAxisKm": 16142000,
-      "periodDays": 765,
-      "eccentricity": 0.44,
-      "inclinationDeg": 159,
+      "semiMajorAxisKm": 21397400,
+      "periodDays": 1168.58,
+      "eccentricity": 0.564,
+      "inclinationDeg": 146.1,
       "retrograde": true
     },
     "physical": {
-      "meanRadiusKm": 2.3,
-      "diameterKm": 4.5,
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
       "albedo": 0.04
     },
     "sourceIds": [
@@ -10050,28 +10687,28 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "asOf": "2026-08-15"
   },
   {
-    "id": "s-2004-s-28",
-    "name": "S/2004 S 28",
-    "designation": "S/2004 S 28",
+    "id": "skrymir",
+    "name": "Skrymir",
+    "designation": "Saturn LVI",
     "parentId": "saturn",
     "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
+    "named": true,
+    "provisional": false,
+    "family": "Norse group (Phoebe)",
     "discovery": {
       "year": 2004,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
+      "discoverer": "Sheppard et al."
     },
     "orbit": {
-      "semiMajorAxisKm": 16255000,
-      "periodDays": 773,
-      "eccentricity": 0.45,
-      "inclinationDeg": 160,
+      "semiMajorAxisKm": 21447400,
+      "periodDays": 1172.72,
+      "eccentricity": 0.437,
+      "inclinationDeg": 175.6,
       "retrograde": true
     },
     "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
+      "meanRadiusKm": 2,
+      "diameterKm": 4,
       "albedo": 0.04
     },
     "sourceIds": [
@@ -10082,28 +10719,60 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "asOf": "2026-08-15"
   },
   {
-    "id": "s-2006-s-28",
-    "name": "S/2006 S 28",
-    "designation": "S/2006 S 28",
+    "id": "s-2023-s-33",
+    "name": "S/2023 S 33",
+    "designation": "S/2023 S 33",
     "parentId": "saturn",
     "fidelity": "irregular",
     "named": false,
     "provisional": true,
-    "family": "Norse group",
+    "family": "Norse group (Kari)",
+    "discovery": {
+      "year": 2023,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 21621900,
+      "periodDays": 1187.07,
+      "eccentricity": 0.665,
+      "inclinationDeg": 155.8,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2006-s-16",
+    "name": "S/2006 S 16",
+    "designation": "S/2006 S 16",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
     "discovery": {
       "year": 2006,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
+      "discoverer": "Sheppard et al."
     },
     "orbit": {
-      "semiMajorAxisKm": 16368000,
-      "periodDays": 781,
-      "eccentricity": 0.46,
-      "inclinationDeg": 161,
+      "semiMajorAxisKm": 21721200,
+      "periodDays": 1195.13,
+      "eccentricity": 0.204,
+      "inclinationDeg": 164.1,
       "retrograde": true
     },
     "physical": {
-      "meanRadiusKm": 1.8,
-      "diameterKm": 3.5,
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
       "albedo": 0.04
     },
     "sourceIds": [
@@ -10114,380 +10783,28 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "asOf": "2026-08-15"
   },
   {
-    "id": "s-2007-s-28",
-    "name": "S/2007 S 28",
-    "designation": "S/2007 S 28",
+    "id": "s-2023-s-49",
+    "name": "S/2023 S 49",
+    "designation": "S/2023 S 49",
     "parentId": "saturn",
     "fidelity": "irregular",
     "named": false,
     "provisional": true,
-    "family": "Norse group",
+    "family": "Norse group (Mundilfari)",
     "discovery": {
-      "year": 2007,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
+      "year": 2023,
+      "discoverer": "Ashton et al."
     },
     "orbit": {
-      "semiMajorAxisKm": 16481000,
-      "periodDays": 789,
-      "eccentricity": 0.47,
-      "inclinationDeg": 162,
+      "semiMajorAxisKm": 21766500,
+      "periodDays": 1198.99,
+      "eccentricity": 0.026,
+      "inclinationDeg": 171.7,
       "retrograde": true
     },
     "physical": {
-      "meanRadiusKm": 2.3,
-      "diameterKm": 4.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2019-s-28",
-    "name": "S/2019 S 28",
-    "designation": "S/2019 S 28",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Gallic group",
-    "discovery": {
-      "year": 2019,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 16594000,
-      "periodDays": 797,
-      "eccentricity": 0.48,
-      "inclinationDeg": 34,
-      "retrograde": false
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2020-s-28",
-    "name": "S/2020 S 28",
-    "designation": "S/2020 S 28",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Inuit group",
-    "discovery": {
-      "year": 2020,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 16707000,
-      "periodDays": 805,
-      "eccentricity": 0.49,
-      "inclinationDeg": 49,
-      "retrograde": false
-    },
-    "physical": {
-      "meanRadiusKm": 1.8,
-      "diameterKm": 3.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2004-s-29",
-    "name": "S/2004 S 29",
-    "designation": "S/2004 S 29",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2004,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 16820000,
-      "periodDays": 813,
-      "eccentricity": 0.15,
-      "inclinationDeg": 165,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 2.3,
-      "diameterKm": 4.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2006-s-29",
-    "name": "S/2006 S 29",
-    "designation": "S/2006 S 29",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2006,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 16933000,
-      "periodDays": 821,
-      "eccentricity": 0.16,
-      "inclinationDeg": 166,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2007-s-29",
-    "name": "S/2007 S 29",
-    "designation": "S/2007 S 29",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2007,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 17046000,
-      "periodDays": 830,
-      "eccentricity": 0.17,
-      "inclinationDeg": 167,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.8,
-      "diameterKm": 3.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2019-s-29",
-    "name": "S/2019 S 29",
-    "designation": "S/2019 S 29",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2019,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 17159000,
-      "periodDays": 838,
-      "eccentricity": 0.18,
-      "inclinationDeg": 168,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 2.3,
-      "diameterKm": 4.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2020-s-29",
-    "name": "S/2020 S 29",
-    "designation": "S/2020 S 29",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2020,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 17272000,
-      "periodDays": 846,
-      "eccentricity": 0.19,
-      "inclinationDeg": 169,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2004-s-30",
-    "name": "S/2004 S 30",
-    "designation": "S/2004 S 30",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2004,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 17385000,
-      "periodDays": 855,
-      "eccentricity": 0.2,
-      "inclinationDeg": 170,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.8,
-      "diameterKm": 3.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2006-s-30",
-    "name": "S/2006 S 30",
-    "designation": "S/2006 S 30",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2006,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 17498000,
-      "periodDays": 863,
-      "eccentricity": 0.21,
-      "inclinationDeg": 171,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 2.3,
-      "diameterKm": 4.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2007-s-30",
-    "name": "S/2007 S 30",
-    "designation": "S/2007 S 30",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2007,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 17611000,
-      "periodDays": 871,
-      "eccentricity": 0.22,
-      "inclinationDeg": 172,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2019-s-30",
-    "name": "S/2019 S 30",
-    "designation": "S/2019 S 30",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Gallic group",
-    "discovery": {
-      "year": 2019,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 17724000,
-      "periodDays": 880,
-      "eccentricity": 0.23,
-      "inclinationDeg": 38,
-      "retrograde": false
-    },
-    "physical": {
-      "meanRadiusKm": 1.8,
-      "diameterKm": 3.5,
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
       "albedo": 0.04
     },
     "sourceIds": [
@@ -10505,53 +10822,21 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "fidelity": "irregular",
     "named": false,
     "provisional": true,
-    "family": "Inuit group",
+    "family": "Norse group (Kari)",
     "discovery": {
       "year": 2020,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
+      "discoverer": "Ashton et al."
     },
     "orbit": {
-      "semiMajorAxisKm": 17837000,
-      "periodDays": 888,
-      "eccentricity": 0.24,
-      "inclinationDeg": 49,
-      "retrograde": false
-    },
-    "physical": {
-      "meanRadiusKm": 2.3,
-      "diameterKm": 4.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2004-s-31",
-    "name": "S/2004 S 31",
-    "designation": "S/2004 S 31",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2004,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 17950000,
-      "periodDays": 897,
-      "eccentricity": 0.25,
-      "inclinationDeg": 150,
+      "semiMajorAxisKm": 21790700,
+      "periodDays": 1201.02,
+      "eccentricity": 0.601,
+      "inclinationDeg": 154.2,
       "retrograde": true
     },
     "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
       "albedo": 0.04
     },
     "sourceIds": [
@@ -10562,28 +10847,28 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "asOf": "2026-08-15"
   },
   {
-    "id": "s-2006-s-31",
-    "name": "S/2006 S 31",
-    "designation": "S/2006 S 31",
+    "id": "s-2006-s-15",
+    "name": "S/2006 S 15",
+    "designation": "S/2006 S 15",
     "parentId": "saturn",
     "fidelity": "irregular",
     "named": false,
     "provisional": true,
-    "family": "Norse group",
+    "family": "Norse group (Mundilfari)",
     "discovery": {
       "year": 2006,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
+      "discoverer": "Sheppard et al."
     },
     "orbit": {
-      "semiMajorAxisKm": 18063000,
-      "periodDays": 905,
-      "eccentricity": 0.26,
-      "inclinationDeg": 151,
+      "semiMajorAxisKm": 21799600,
+      "periodDays": 1201.69,
+      "eccentricity": 0.117,
+      "inclinationDeg": 161.1,
       "retrograde": true
     },
     "physical": {
-      "meanRadiusKm": 1.8,
-      "diameterKm": 3.5,
+      "meanRadiusKm": 2,
+      "diameterKm": 4,
       "albedo": 0.04
     },
     "sourceIds": [
@@ -10594,92 +10879,28 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "asOf": "2026-08-15"
   },
   {
-    "id": "s-2007-s-31",
-    "name": "S/2007 S 31",
-    "designation": "S/2007 S 31",
+    "id": "s-2020-s-27",
+    "name": "S/2020 S 27",
+    "designation": "S/2020 S 27",
     "parentId": "saturn",
     "fidelity": "irregular",
     "named": false,
     "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2007,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 18176000,
-      "periodDays": 914,
-      "eccentricity": 0.27,
-      "inclinationDeg": 152,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 2.3,
-      "diameterKm": 4.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2019-s-31",
-    "name": "S/2019 S 31",
-    "designation": "S/2019 S 31",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2019,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 18289000,
-      "periodDays": 922,
-      "eccentricity": 0.28,
-      "inclinationDeg": 153,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2020-s-31",
-    "name": "S/2020 S 31",
-    "designation": "S/2020 S 31",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
+    "family": "Norse group (low-inclination)",
     "discovery": {
       "year": 2020,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
+      "discoverer": "Ashton et al."
     },
     "orbit": {
-      "semiMajorAxisKm": 18402000,
-      "periodDays": 931,
-      "eccentricity": 0.29,
-      "inclinationDeg": 154,
+      "semiMajorAxisKm": 21802300,
+      "periodDays": 1202.02,
+      "eccentricity": 0.255,
+      "inclinationDeg": 145.3,
       "retrograde": true
     },
     "physical": {
-      "meanRadiusKm": 1.8,
-      "diameterKm": 3.5,
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
       "albedo": 0.04
     },
     "sourceIds": [
@@ -10690,124 +10911,60 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "asOf": "2026-08-15"
   },
   {
-    "id": "s-2004-s-32",
-    "name": "S/2004 S 32",
-    "designation": "S/2004 S 32",
+    "id": "s-2023-s-42",
+    "name": "S/2023 S 42",
+    "designation": "S/2023 S 42",
     "parentId": "saturn",
     "fidelity": "irregular",
     "named": false,
     "provisional": true,
-    "family": "Norse group",
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2023,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 21837000,
+      "periodDays": 1204.81,
+      "eccentricity": 0.059,
+      "inclinationDeg": 166.7,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2004-s-28",
+    "name": "S/2004 S 28",
+    "designation": "S/2004 S 28",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
     "discovery": {
       "year": 2004,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
+      "discoverer": "Sheppard et al."
     },
     "orbit": {
-      "semiMajorAxisKm": 18515000,
-      "periodDays": 939,
-      "eccentricity": 0.3,
-      "inclinationDeg": 155,
+      "semiMajorAxisKm": 21865900,
+      "periodDays": 1207.18,
+      "eccentricity": 0.159,
+      "inclinationDeg": 167.9,
       "retrograde": true
     },
     "physical": {
-      "meanRadiusKm": 2.3,
-      "diameterKm": 4.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2006-s-32",
-    "name": "S/2006 S 32",
-    "designation": "S/2006 S 32",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2006,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 18628000,
-      "periodDays": 948,
-      "eccentricity": 0.31,
-      "inclinationDeg": 156,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2007-s-32",
-    "name": "S/2007 S 32",
-    "designation": "S/2007 S 32",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2007,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 18741000,
-      "periodDays": 956,
-      "eccentricity": 0.32,
-      "inclinationDeg": 157,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.8,
-      "diameterKm": 3.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2019-s-32",
-    "name": "S/2019 S 32",
-    "designation": "S/2019 S 32",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Gallic group",
-    "discovery": {
-      "year": 2019,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 18854000,
-      "periodDays": 965,
-      "eccentricity": 0.33,
-      "inclinationDeg": 36,
-      "retrograde": false
-    },
-    "physical": {
-      "meanRadiusKm": 2.3,
-      "diameterKm": 4.5,
+      "meanRadiusKm": 2.5,
+      "diameterKm": 5,
       "albedo": 0.04
     },
     "sourceIds": [
@@ -10825,53 +10982,21 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "fidelity": "irregular",
     "named": false,
     "provisional": true,
-    "family": "Inuit group",
+    "family": "Norse group (Mundilfari)",
     "discovery": {
       "year": 2020,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
+      "discoverer": "Ashton et al."
     },
     "orbit": {
-      "semiMajorAxisKm": 18967000,
-      "periodDays": 974,
-      "eccentricity": 0.34,
-      "inclinationDeg": 49,
-      "retrograde": false
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2004-s-33",
-    "name": "S/2004 S 33",
-    "designation": "S/2004 S 33",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2004,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 19080000,
-      "periodDays": 982,
-      "eccentricity": 0.35,
-      "inclinationDeg": 160,
+      "semiMajorAxisKm": 21884100,
+      "periodDays": 1208.85,
+      "eccentricity": 0.502,
+      "inclinationDeg": 169.1,
       "retrograde": true
     },
     "physical": {
-      "meanRadiusKm": 1.8,
-      "diameterKm": 3.5,
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
       "albedo": 0.04
     },
     "sourceIds": [
@@ -10882,668 +11007,28 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "asOf": "2026-08-15"
   },
   {
-    "id": "s-2006-s-33",
-    "name": "S/2006 S 33",
-    "designation": "S/2006 S 33",
+    "id": "s-2006-s-28",
+    "name": "S/2006 S 28",
+    "designation": "S/2006 S 28",
     "parentId": "saturn",
     "fidelity": "irregular",
     "named": false,
     "provisional": true,
-    "family": "Norse group",
+    "family": "Norse group (Phoebe)",
     "discovery": {
       "year": 2006,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
+      "discoverer": "Sheppard et al."
     },
     "orbit": {
-      "semiMajorAxisKm": 19193000,
-      "periodDays": 991,
-      "eccentricity": 0.36,
-      "inclinationDeg": 161,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 2.3,
-      "diameterKm": 4.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2007-s-33",
-    "name": "S/2007 S 33",
-    "designation": "S/2007 S 33",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2007,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 19306000,
-      "periodDays": 1000,
-      "eccentricity": 0.37,
-      "inclinationDeg": 162,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2019-s-33",
-    "name": "S/2019 S 33",
-    "designation": "S/2019 S 33",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2019,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 19419000,
-      "periodDays": 1009,
-      "eccentricity": 0.38,
-      "inclinationDeg": 163,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.8,
-      "diameterKm": 3.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2020-s-33",
-    "name": "S/2020 S 33",
-    "designation": "S/2020 S 33",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2020,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 19532000,
-      "periodDays": 1018,
-      "eccentricity": 0.39,
-      "inclinationDeg": 164,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 2.3,
-      "diameterKm": 4.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2004-s-34",
-    "name": "S/2004 S 34",
-    "designation": "S/2004 S 34",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2004,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 19645000,
-      "periodDays": 1026,
-      "eccentricity": 0.4,
-      "inclinationDeg": 165,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2006-s-34",
-    "name": "S/2006 S 34",
-    "designation": "S/2006 S 34",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2006,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 19758000,
-      "periodDays": 1035,
-      "eccentricity": 0.41,
-      "inclinationDeg": 166,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.8,
-      "diameterKm": 3.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2007-s-34",
-    "name": "S/2007 S 34",
-    "designation": "S/2007 S 34",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2007,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 19871000,
-      "periodDays": 1044,
-      "eccentricity": 0.42,
-      "inclinationDeg": 167,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 2.3,
-      "diameterKm": 4.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2019-s-34",
-    "name": "S/2019 S 34",
-    "designation": "S/2019 S 34",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Gallic group",
-    "discovery": {
-      "year": 2019,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 19984000,
-      "periodDays": 1053,
-      "eccentricity": 0.43,
-      "inclinationDeg": 34,
-      "retrograde": false
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2020-s-34",
-    "name": "S/2020 S 34",
-    "designation": "S/2020 S 34",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Inuit group",
-    "discovery": {
-      "year": 2020,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 20097000,
-      "periodDays": 1062,
-      "eccentricity": 0.44,
-      "inclinationDeg": 49,
-      "retrograde": false
-    },
-    "physical": {
-      "meanRadiusKm": 1.8,
-      "diameterKm": 3.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2004-s-35",
-    "name": "S/2004 S 35",
-    "designation": "S/2004 S 35",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2004,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 20210000,
-      "periodDays": 1071,
-      "eccentricity": 0.45,
-      "inclinationDeg": 170,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 2.3,
-      "diameterKm": 4.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2006-s-35",
-    "name": "S/2006 S 35",
-    "designation": "S/2006 S 35",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2006,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 20323000,
-      "periodDays": 1080,
-      "eccentricity": 0.46,
-      "inclinationDeg": 171,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2007-s-35",
-    "name": "S/2007 S 35",
-    "designation": "S/2007 S 35",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2007,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 20436000,
-      "periodDays": 1089,
-      "eccentricity": 0.47,
-      "inclinationDeg": 172,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.8,
-      "diameterKm": 3.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2019-s-35",
-    "name": "S/2019 S 35",
-    "designation": "S/2019 S 35",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2019,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 20549000,
-      "periodDays": 1098,
-      "eccentricity": 0.48,
-      "inclinationDeg": 173,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 2.3,
-      "diameterKm": 4.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2020-s-35",
-    "name": "S/2020 S 35",
-    "designation": "S/2020 S 35",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2020,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 20662000,
-      "periodDays": 1107,
-      "eccentricity": 0.49,
-      "inclinationDeg": 174,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2004-s-36",
-    "name": "S/2004 S 36",
-    "designation": "S/2004 S 36",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2004,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 20775000,
-      "periodDays": 1116,
-      "eccentricity": 0.15,
-      "inclinationDeg": 150,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.8,
-      "diameterKm": 3.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2006-s-36",
-    "name": "S/2006 S 36",
-    "designation": "S/2006 S 36",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2006,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 20888000,
-      "periodDays": 1125,
-      "eccentricity": 0.16,
-      "inclinationDeg": 151,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 2.3,
-      "diameterKm": 4.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2007-s-36",
-    "name": "S/2007 S 36",
-    "designation": "S/2007 S 36",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2007,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 21001000,
-      "periodDays": 1135,
-      "eccentricity": 0.17,
-      "inclinationDeg": 152,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2019-s-36",
-    "name": "S/2019 S 36",
-    "designation": "S/2019 S 36",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Gallic group",
-    "discovery": {
-      "year": 2019,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 21114000,
-      "periodDays": 1144,
-      "eccentricity": 0.18,
-      "inclinationDeg": 38,
-      "retrograde": false
-    },
-    "physical": {
-      "meanRadiusKm": 1.8,
-      "diameterKm": 3.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2020-s-36",
-    "name": "S/2020 S 36",
-    "designation": "S/2020 S 36",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Inuit group",
-    "discovery": {
-      "year": 2020,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 21227000,
-      "periodDays": 1153,
-      "eccentricity": 0.19,
-      "inclinationDeg": 49,
-      "retrograde": false
-    },
-    "physical": {
-      "meanRadiusKm": 2.3,
-      "diameterKm": 4.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2004-s-37",
-    "name": "S/2004 S 37",
-    "designation": "S/2004 S 37",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2004,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 21340000,
-      "periodDays": 1162,
-      "eccentricity": 0.2,
-      "inclinationDeg": 155,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2006-s-37",
-    "name": "S/2006 S 37",
-    "designation": "S/2006 S 37",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2006,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 21453000,
-      "periodDays": 1171,
+      "semiMajorAxisKm": 21955100,
+      "periodDays": 1214.53,
       "eccentricity": 0.21,
-      "inclinationDeg": 156,
+      "inclinationDeg": 172.9,
       "retrograde": true
     },
     "physical": {
-      "meanRadiusKm": 1.8,
-      "diameterKm": 3.5,
+      "meanRadiusKm": 2,
+      "diameterKm": 4,
       "albedo": 0.04
     },
     "sourceIds": [
@@ -11554,92 +11039,28 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "asOf": "2026-08-15"
   },
   {
-    "id": "s-2007-s-37",
-    "name": "S/2007 S 37",
-    "designation": "S/2007 S 37",
+    "id": "s-2020-s-8",
+    "name": "S/2020 S 8",
+    "designation": "S/2020 S 8",
     "parentId": "saturn",
     "fidelity": "irregular",
     "named": false,
     "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2007,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 21566000,
-      "periodDays": 1181,
-      "eccentricity": 0.22,
-      "inclinationDeg": 157,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 2.3,
-      "diameterKm": 4.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2019-s-37",
-    "name": "S/2019 S 37",
-    "designation": "S/2019 S 37",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2019,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 21679000,
-      "periodDays": 1190,
-      "eccentricity": 0.23,
-      "inclinationDeg": 158,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2020-s-37",
-    "name": "S/2020 S 37",
-    "designation": "S/2020 S 37",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
+    "family": "Norse group (Mundilfari)",
     "discovery": {
       "year": 2020,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
+      "discoverer": "Ashton et al."
     },
     "orbit": {
-      "semiMajorAxisKm": 21792000,
-      "periodDays": 1199,
-      "eccentricity": 0.24,
-      "inclinationDeg": 159,
+      "semiMajorAxisKm": 21967200,
+      "periodDays": 1215.61,
+      "eccentricity": 0.252,
+      "inclinationDeg": 161.8,
       "retrograde": true
     },
     "physical": {
-      "meanRadiusKm": 1.8,
-      "diameterKm": 3.5,
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
       "albedo": 0.04
     },
     "sourceIds": [
@@ -11650,92 +11071,60 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "asOf": "2026-08-15"
   },
   {
-    "id": "s-2004-s-38",
-    "name": "S/2004 S 38",
-    "designation": "S/2004 S 38",
+    "id": "s-2020-s-28",
+    "name": "S/2020 S 28",
+    "designation": "S/2020 S 28",
     "parentId": "saturn",
     "fidelity": "irregular",
     "named": false,
     "provisional": true,
-    "family": "Norse group",
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2020,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 21993700,
+      "periodDays": 1217.81,
+      "eccentricity": 0.474,
+      "inclinationDeg": 160.1,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "alvaldi",
+    "name": "Alvaldi",
+    "designation": "Saturn LXV",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": true,
+    "provisional": false,
+    "family": "Norse group (Phoebe)",
     "discovery": {
       "year": 2004,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
+      "discoverer": "Sheppard et al."
     },
     "orbit": {
-      "semiMajorAxisKm": 21905000,
-      "periodDays": 1209,
-      "eccentricity": 0.25,
-      "inclinationDeg": 160,
+      "semiMajorAxisKm": 21993800,
+      "periodDays": 1217.8,
+      "eccentricity": 0.238,
+      "inclinationDeg": 177.4,
       "retrograde": true
     },
     "physical": {
-      "meanRadiusKm": 2.3,
-      "diameterKm": 4.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2006-s-38",
-    "name": "S/2006 S 38",
-    "designation": "S/2006 S 38",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2006,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 22018000,
-      "periodDays": 1218,
-      "eccentricity": 0.26,
-      "inclinationDeg": 161,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2007-s-38",
-    "name": "S/2007 S 38",
-    "designation": "S/2007 S 38",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2007,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 22131000,
-      "periodDays": 1227,
-      "eccentricity": 0.27,
-      "inclinationDeg": 162,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.8,
-      "diameterKm": 3.5,
+      "meanRadiusKm": 3,
+      "diameterKm": 6,
       "albedo": 0.04
     },
     "sourceIds": [
@@ -11753,21 +11142,21 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "fidelity": "irregular",
     "named": false,
     "provisional": true,
-    "family": "Gallic group",
+    "family": "Norse group (Mundilfari)",
     "discovery": {
       "year": 2019,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
+      "discoverer": "Ashton et al."
     },
     "orbit": {
-      "semiMajorAxisKm": 22244000,
-      "periodDays": 1237,
-      "eccentricity": 0.28,
-      "inclinationDeg": 36,
-      "retrograde": false
+      "semiMajorAxisKm": 21998400,
+      "periodDays": 1218.27,
+      "eccentricity": 0.399,
+      "inclinationDeg": 163,
+      "retrograde": true
     },
     "physical": {
-      "meanRadiusKm": 2.3,
-      "diameterKm": 4.5,
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
       "albedo": 0.04
     },
     "sourceIds": [
@@ -11778,28 +11167,796 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "asOf": "2026-08-15"
   },
   {
-    "id": "s-2020-s-38",
-    "name": "S/2020 S 38",
-    "designation": "S/2020 S 38",
+    "id": "kari",
+    "name": "Kari",
+    "designation": "Saturn XLV",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": true,
+    "provisional": false,
+    "family": "Norse group (Kari)",
+    "discovery": {
+      "year": 2006,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 22032100,
+      "periodDays": 1220.98,
+      "eccentricity": 0.469,
+      "inclinationDeg": 153,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 3,
+      "diameterKm": 6,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2004-s-48",
+    "name": "S/2004 S 48",
+    "designation": "S/2004 S 48",
     "parentId": "saturn",
     "fidelity": "irregular",
     "named": false,
     "provisional": true,
-    "family": "Inuit group",
+    "family": "Norse group (Mundilfari)",
     "discovery": {
-      "year": 2020,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
+      "year": 2004,
+      "discoverer": "Sheppard et al."
     },
     "orbit": {
-      "semiMajorAxisKm": 22357000,
-      "periodDays": 1246,
-      "eccentricity": 0.29,
-      "inclinationDeg": 49,
-      "retrograde": false
+      "semiMajorAxisKm": 22137400,
+      "periodDays": 1229.86,
+      "eccentricity": 0.374,
+      "inclinationDeg": 161.9,
+      "retrograde": true
     },
     "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
+      "meanRadiusKm": 2,
+      "diameterKm": 4,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2023-s-36",
+    "name": "S/2023 S 36",
+    "designation": "S/2023 S 36",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2023,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 22230600,
+      "periodDays": 1237.61,
+      "eccentricity": 0.359,
+      "inclinationDeg": 166.3,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "geirrod",
+    "name": "Geirrod",
+    "designation": "Saturn LXVI",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": true,
+    "provisional": false,
+    "family": "Norse group (Kari)",
+    "discovery": {
+      "year": 2004,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 22259400,
+      "periodDays": 1240.05,
+      "eccentricity": 0.539,
+      "inclinationDeg": 154.4,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 2,
+      "diameterKm": 4,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2023-s-35",
+    "name": "S/2023 S 35",
+    "designation": "S/2023 S 35",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2023,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 22269700,
+      "periodDays": 1240.76,
+      "eccentricity": 0.151,
+      "inclinationDeg": 168.5,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2020-s-29",
+    "name": "S/2020 S 29",
+    "designation": "S/2020 S 29",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2020,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 22301400,
+      "periodDays": 1243.45,
+      "eccentricity": 0.047,
+      "inclinationDeg": 169.1,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "fenrir",
+    "name": "Fenrir",
+    "designation": "Saturn XLI",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": true,
+    "provisional": false,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2004,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 22330800,
+      "periodDays": 1245.92,
+      "eccentricity": 0.137,
+      "inclinationDeg": 164.5,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 2,
+      "diameterKm": 4,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2004-s-50",
+    "name": "S/2004 S 50",
+    "designation": "S/2004 S 50",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2004,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 22345000,
+      "periodDays": 1247.19,
+      "eccentricity": 0.45,
+      "inclinationDeg": 164,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2006-s-17",
+    "name": "S/2006 S 17",
+    "designation": "S/2006 S 17",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2006,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 22384200,
+      "periodDays": 1250.46,
+      "eccentricity": 0.425,
+      "inclinationDeg": 168.7,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 2,
+      "diameterKm": 4,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2004-s-49",
+    "name": "S/2004 S 49",
+    "designation": "S/2004 S 49",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2004,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 22399400,
+      "periodDays": 1251.68,
+      "eccentricity": 0.453,
+      "inclinationDeg": 159.8,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 2,
+      "diameterKm": 4,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2020-s-34",
+    "name": "S/2020 S 34",
+    "designation": "S/2020 S 34",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2020,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 22435600,
+      "periodDays": 1254.61,
+      "eccentricity": 0.154,
+      "inclinationDeg": 160.6,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2020-s-31",
+    "name": "S/2020 S 31",
+    "designation": "S/2020 S 31",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2020,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 22457300,
+      "periodDays": 1256.5,
+      "eccentricity": 0.238,
+      "inclinationDeg": 163.8,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2023-s-52",
+    "name": "S/2023 S 52",
+    "designation": "S/2023 S 52",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (low-inclination)",
+    "discovery": {
+      "year": 2023,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 22528000,
+      "periodDays": 1262.34,
+      "eccentricity": 0.124,
+      "inclinationDeg": 146.2,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2023-s-43",
+    "name": "S/2023 S 43",
+    "designation": "S/2023 S 43",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2023,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 22563900,
+      "periodDays": 1265.57,
+      "eccentricity": 0.264,
+      "inclinationDeg": 170.3,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2019-s-17",
+    "name": "S/2019 S 17",
+    "designation": "S/2019 S 17",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Kari)",
+    "discovery": {
+      "year": 2019,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 22722700,
+      "periodDays": 1278.96,
+      "eccentricity": 0.546,
+      "inclinationDeg": 155.5,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 2,
+      "diameterKm": 4,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "surtur",
+    "name": "Surtur",
+    "designation": "Saturn XLVIII",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": true,
+    "provisional": false,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2006,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 22748000,
+      "periodDays": 1281.14,
+      "eccentricity": 0.448,
+      "inclinationDeg": 168.4,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 3,
+      "diameterKm": 6,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2006-s-18",
+    "name": "S/2006 S 18",
+    "designation": "S/2006 S 18",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2006,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 22760600,
+      "periodDays": 1282.09,
+      "eccentricity": 0.131,
+      "inclinationDeg": 169.5,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 2,
+      "diameterKm": 4,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2020-s-36",
+    "name": "S/2020 S 36",
+    "designation": "S/2020 S 36",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2020,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 22806200,
+      "periodDays": 1286.03,
+      "eccentricity": 0.336,
+      "inclinationDeg": 168.8,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "loge",
+    "name": "Loge",
+    "designation": "Saturn XLVI",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": true,
+    "provisional": false,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2006,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 22919200,
+      "periodDays": 1295.52,
+      "eccentricity": 0.191,
+      "inclinationDeg": 168.1,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 2.5,
+      "diameterKm": 5,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2020-s-33",
+    "name": "S/2020 S 33",
+    "designation": "S/2020 S 33",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2020,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 22922500,
+      "periodDays": 1295.85,
+      "eccentricity": 0.555,
+      "inclinationDeg": 162.8,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "ymir",
+    "name": "Ymir",
+    "designation": "Saturn XIX",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": true,
+    "provisional": false,
+    "family": "Norse group (Phoebe)",
+    "discovery": {
+      "year": 2000,
+      "discoverer": "Gladman et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 22955600,
+      "periodDays": 1298.68,
+      "eccentricity": 0.338,
+      "inclinationDeg": 172.3,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 9.5,
+      "diameterKm": 19,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2020-s-35",
+    "name": "S/2020 S 35",
+    "designation": "S/2020 S 35",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Phoebe)",
+    "discovery": {
+      "year": 2020,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 23030300,
+      "periodDays": 1304.97,
+      "eccentricity": 0.225,
+      "inclinationDeg": 174.9,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2019-s-19",
+    "name": "S/2019 S 19",
+    "designation": "S/2019 S 19",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Kari)",
+    "discovery": {
+      "year": 2019,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 23044400,
+      "periodDays": 1306.16,
+      "eccentricity": 0.458,
+      "inclinationDeg": 151.8,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2019-s-18",
+    "name": "S/2019 S 18",
+    "designation": "S/2019 S 18",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Kari)",
+    "discovery": {
+      "year": 2019,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 23139500,
+      "periodDays": 1314.27,
+      "eccentricity": 0.509,
+      "inclinationDeg": 154.6,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2004-s-21",
+    "name": "S/2004 S 21",
+    "designation": "S/2004 S 21",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Kari)",
+    "discovery": {
+      "year": 2004,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 23160900,
+      "periodDays": 1316.12,
+      "eccentricity": 0.394,
+      "inclinationDeg": 153.2,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 2,
+      "diameterKm": 4,
       "albedo": 0.04
     },
     "sourceIds": [
@@ -11812,26 +11969,26 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
   {
     "id": "s-2004-s-39",
     "name": "S/2004 S 39",
-    "designation": "S/2004 S 39",
+    "designation": "Saturn L",
     "parentId": "saturn",
     "fidelity": "irregular",
     "named": false,
     "provisional": true,
-    "family": "Norse group",
+    "family": "Norse group (Mundilfari)",
     "discovery": {
       "year": 2004,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
+      "discoverer": "Sheppard et al."
     },
     "orbit": {
-      "semiMajorAxisKm": 22470000,
-      "periodDays": 1256,
-      "eccentricity": 0.3,
-      "inclinationDeg": 165,
+      "semiMajorAxisKm": 23192400,
+      "periodDays": 1318.74,
+      "eccentricity": 0.1,
+      "inclinationDeg": 165.9,
       "retrograde": true
     },
     "physical": {
-      "meanRadiusKm": 1.8,
-      "diameterKm": 3.5,
+      "meanRadiusKm": 2,
+      "diameterKm": 4,
       "albedo": 0.04
     },
     "sourceIds": [
@@ -11842,700 +11999,28 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "asOf": "2026-08-15"
   },
   {
-    "id": "s-2006-s-39",
-    "name": "S/2006 S 39",
-    "designation": "S/2006 S 39",
+    "id": "s-2019-s-16",
+    "name": "S/2019 S 16",
+    "designation": "S/2019 S 16",
     "parentId": "saturn",
     "fidelity": "irregular",
     "named": false,
     "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2006,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 22583000,
-      "periodDays": 1265,
-      "eccentricity": 0.31,
-      "inclinationDeg": 166,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 2.3,
-      "diameterKm": 4.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2007-s-39",
-    "name": "S/2007 S 39",
-    "designation": "S/2007 S 39",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2007,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 22696000,
-      "periodDays": 1275,
-      "eccentricity": 0.32,
-      "inclinationDeg": 167,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2019-s-39",
-    "name": "S/2019 S 39",
-    "designation": "S/2019 S 39",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
+    "family": "Norse group (Mundilfari)",
     "discovery": {
       "year": 2019,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
+      "discoverer": "Ashton et al."
     },
     "orbit": {
-      "semiMajorAxisKm": 22809000,
-      "periodDays": 1284,
-      "eccentricity": 0.33,
-      "inclinationDeg": 168,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.8,
-      "diameterKm": 3.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2020-s-39",
-    "name": "S/2020 S 39",
-    "designation": "S/2020 S 39",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2020,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 22922000,
-      "periodDays": 1294,
-      "eccentricity": 0.34,
-      "inclinationDeg": 169,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 2.3,
-      "diameterKm": 4.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2004-s-40",
-    "name": "S/2004 S 40",
-    "designation": "S/2004 S 40",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2004,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 23035000,
-      "periodDays": 1303,
-      "eccentricity": 0.35,
-      "inclinationDeg": 170,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2006-s-40",
-    "name": "S/2006 S 40",
-    "designation": "S/2006 S 40",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2006,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 23148000,
-      "periodDays": 1313,
-      "eccentricity": 0.36,
-      "inclinationDeg": 171,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.8,
-      "diameterKm": 3.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2007-s-40",
-    "name": "S/2007 S 40",
-    "designation": "S/2007 S 40",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2007,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 23261000,
-      "periodDays": 1323,
-      "eccentricity": 0.37,
-      "inclinationDeg": 172,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 2.3,
-      "diameterKm": 4.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2019-s-40",
-    "name": "S/2019 S 40",
-    "designation": "S/2019 S 40",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Gallic group",
-    "discovery": {
-      "year": 2019,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 23374000,
-      "periodDays": 1332,
-      "eccentricity": 0.38,
-      "inclinationDeg": 34,
-      "retrograde": false
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2020-s-40",
-    "name": "S/2020 S 40",
-    "designation": "S/2020 S 40",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Inuit group",
-    "discovery": {
-      "year": 2020,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 23487000,
-      "periodDays": 1342,
-      "eccentricity": 0.39,
-      "inclinationDeg": 49,
-      "retrograde": false
-    },
-    "physical": {
-      "meanRadiusKm": 1.8,
-      "diameterKm": 3.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2004-s-41",
-    "name": "S/2004 S 41",
-    "designation": "S/2004 S 41",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2004,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 23600000,
-      "periodDays": 1352,
-      "eccentricity": 0.4,
-      "inclinationDeg": 150,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 2.3,
-      "diameterKm": 4.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2006-s-41",
-    "name": "S/2006 S 41",
-    "designation": "S/2006 S 41",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2006,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 23713000,
-      "periodDays": 1361,
-      "eccentricity": 0.41,
-      "inclinationDeg": 151,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2007-s-41",
-    "name": "S/2007 S 41",
-    "designation": "S/2007 S 41",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2007,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 23826000,
-      "periodDays": 1371,
-      "eccentricity": 0.42,
-      "inclinationDeg": 152,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.8,
-      "diameterKm": 3.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2019-s-41",
-    "name": "S/2019 S 41",
-    "designation": "S/2019 S 41",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2019,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 23939000,
-      "periodDays": 1381,
-      "eccentricity": 0.43,
-      "inclinationDeg": 153,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 2.3,
-      "diameterKm": 4.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2020-s-41",
-    "name": "S/2020 S 41",
-    "designation": "S/2020 S 41",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2020,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 24052000,
-      "periodDays": 1391,
-      "eccentricity": 0.44,
-      "inclinationDeg": 154,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2004-s-42",
-    "name": "S/2004 S 42",
-    "designation": "S/2004 S 42",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2004,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 24165000,
-      "periodDays": 1400,
-      "eccentricity": 0.45,
-      "inclinationDeg": 155,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.8,
-      "diameterKm": 3.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2006-s-42",
-    "name": "S/2006 S 42",
-    "designation": "S/2006 S 42",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2006,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 24278000,
-      "periodDays": 1410,
-      "eccentricity": 0.46,
-      "inclinationDeg": 156,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 2.3,
-      "diameterKm": 4.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2007-s-42",
-    "name": "S/2007 S 42",
-    "designation": "S/2007 S 42",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2007,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 24391000,
-      "periodDays": 1420,
-      "eccentricity": 0.47,
-      "inclinationDeg": 157,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2019-s-42",
-    "name": "S/2019 S 42",
-    "designation": "S/2019 S 42",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Gallic group",
-    "discovery": {
-      "year": 2019,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 24504000,
-      "periodDays": 1430,
-      "eccentricity": 0.48,
-      "inclinationDeg": 38,
-      "retrograde": false
-    },
-    "physical": {
-      "meanRadiusKm": 1.8,
-      "diameterKm": 3.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2020-s-42",
-    "name": "S/2020 S 42",
-    "designation": "S/2020 S 42",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Inuit group",
-    "discovery": {
-      "year": 2020,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 24617000,
-      "periodDays": 1440,
-      "eccentricity": 0.49,
-      "inclinationDeg": 49,
-      "retrograde": false
-    },
-    "physical": {
-      "meanRadiusKm": 2.3,
-      "diameterKm": 4.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2004-s-43",
-    "name": "S/2004 S 43",
-    "designation": "S/2004 S 43",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2004,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 24730000,
-      "periodDays": 1450,
-      "eccentricity": 0.15,
-      "inclinationDeg": 160,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2006-s-43",
-    "name": "S/2006 S 43",
-    "designation": "S/2006 S 43",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2006,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 24843000,
-      "periodDays": 1460,
-      "eccentricity": 0.16,
-      "inclinationDeg": 161,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.8,
-      "diameterKm": 3.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2007-s-43",
-    "name": "S/2007 S 43",
-    "designation": "S/2007 S 43",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2007,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 24956000,
-      "periodDays": 1470,
-      "eccentricity": 0.17,
+      "semiMajorAxisKm": 23265200,
+      "periodDays": 1324.95,
+      "eccentricity": 0.25,
       "inclinationDeg": 162,
       "retrograde": true
     },
     "physical": {
-      "meanRadiusKm": 2.3,
-      "diameterKm": 4.5,
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
       "albedo": 0.04
     },
     "sourceIds": [
@@ -12546,220 +12031,60 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "asOf": "2026-08-15"
   },
   {
-    "id": "s-2019-s-43",
-    "name": "S/2019 S 43",
-    "designation": "S/2019 S 43",
+    "id": "s-2004-s-53",
+    "name": "S/2004 S 53",
+    "designation": "S/2004 S 53",
     "parentId": "saturn",
     "fidelity": "irregular",
     "named": false,
     "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2019,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 25069000,
-      "periodDays": 1480,
-      "eccentricity": 0.18,
-      "inclinationDeg": 163,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2020-s-43",
-    "name": "S/2020 S 43",
-    "designation": "S/2020 S 43",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2020,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 25182000,
-      "periodDays": 1490,
-      "eccentricity": 0.19,
-      "inclinationDeg": 164,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.8,
-      "diameterKm": 3.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2004-s-44",
-    "name": "S/2004 S 44",
-    "designation": "S/2004 S 44",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
+    "family": "Norse group (Mundilfari)",
     "discovery": {
       "year": 2004,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
+      "discoverer": "Sheppard et al."
     },
     "orbit": {
-      "semiMajorAxisKm": 25295000,
-      "periodDays": 1500,
-      "eccentricity": 0.2,
-      "inclinationDeg": 165,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 2.3,
-      "diameterKm": 4.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2006-s-44",
-    "name": "S/2006 S 44",
-    "designation": "S/2006 S 44",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2006,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 25408000,
-      "periodDays": 1510,
-      "eccentricity": 0.21,
-      "inclinationDeg": 166,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2007-s-44",
-    "name": "S/2007 S 44",
-    "designation": "S/2007 S 44",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2007,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 25521000,
-      "periodDays": 1520,
-      "eccentricity": 0.22,
-      "inclinationDeg": 167,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.8,
-      "diameterKm": 3.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2019-s-44",
-    "name": "S/2019 S 44",
-    "designation": "S/2019 S 44",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Gallic group",
-    "discovery": {
-      "year": 2019,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 25634000,
-      "periodDays": 1530,
-      "eccentricity": 0.23,
-      "inclinationDeg": 36,
-      "retrograde": false
-    },
-    "physical": {
-      "meanRadiusKm": 2.3,
-      "diameterKm": 4.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2020-s-44",
-    "name": "S/2020 S 44",
-    "designation": "S/2020 S 44",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Inuit group",
-    "discovery": {
-      "year": 2020,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 25747000,
-      "periodDays": 1540,
+      "semiMajorAxisKm": 23279800,
+      "periodDays": 1326.18,
       "eccentricity": 0.24,
-      "inclinationDeg": 49,
+      "inclinationDeg": 162.6,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 2,
+      "diameterKm": 4,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2004-s-24",
+    "name": "S/2004 S 24",
+    "designation": "S/2004 S 24",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Gallic group{{refn|group=lower-alpha|The moon has a similar inclination, but a significantly larger semi-major axis. Therefore, it is uncertain whether it comes from the same parent body as the rest of the Gallic group.}}",
+    "discovery": {
+      "year": 2004,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 23338200,
+      "periodDays": 1331.32,
+      "eccentricity": 0.071,
+      "inclinationDeg": 37.4,
       "retrograde": false
     },
     "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
+      "meanRadiusKm": 2,
+      "diameterKm": 4,
       "albedo": 0.04
     },
     "sourceIds": [
@@ -12770,28 +12095,28 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "asOf": "2026-08-15"
   },
   {
-    "id": "s-2004-s-45",
-    "name": "S/2004 S 45",
-    "designation": "S/2004 S 45",
+    "id": "s-2004-s-36",
+    "name": "S/2004 S 36",
+    "designation": "S/2004 S 36",
     "parentId": "saturn",
     "fidelity": "irregular",
     "named": false,
     "provisional": true,
-    "family": "Norse group",
+    "family": "Norse group (Kari)",
     "discovery": {
       "year": 2004,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
+      "discoverer": "Sheppard et al."
     },
     "orbit": {
-      "semiMajorAxisKm": 25860000,
-      "periodDays": 1550,
-      "eccentricity": 0.25,
-      "inclinationDeg": 170,
+      "semiMajorAxisKm": 23390800,
+      "periodDays": 1335.8,
+      "eccentricity": 0.625,
+      "inclinationDeg": 153.3,
       "retrograde": true
     },
     "physical": {
-      "meanRadiusKm": 1.8,
-      "diameterKm": 3.5,
+      "meanRadiusKm": 2,
+      "diameterKm": 4,
       "albedo": 0.04
     },
     "sourceIds": [
@@ -12802,28 +12127,28 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "asOf": "2026-08-15"
   },
   {
-    "id": "s-2006-s-45",
-    "name": "S/2006 S 45",
-    "designation": "S/2006 S 45",
+    "id": "s-2023-s-51",
+    "name": "S/2023 S 51",
+    "designation": "S/2023 S 51",
     "parentId": "saturn",
     "fidelity": "irregular",
     "named": false,
     "provisional": true,
-    "family": "Norse group",
+    "family": "Norse group (Mundilfari)",
     "discovery": {
-      "year": 2006,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
+      "year": 2023,
+      "discoverer": "Ashton et al."
     },
     "orbit": {
-      "semiMajorAxisKm": 25973000,
-      "periodDays": 1560,
-      "eccentricity": 0.26,
-      "inclinationDeg": 171,
+      "semiMajorAxisKm": 23431500,
+      "periodDays": 1339.21,
+      "eccentricity": 0.191,
+      "inclinationDeg": 163.3,
       "retrograde": true
     },
     "physical": {
-      "meanRadiusKm": 2.3,
-      "diameterKm": 4.5,
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
       "albedo": 0.04
     },
     "sourceIds": [
@@ -12834,60 +12159,28 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "asOf": "2026-08-15"
   },
   {
-    "id": "s-2007-s-45",
-    "name": "S/2007 S 45",
-    "designation": "S/2007 S 45",
+    "id": "s-2023-s-45",
+    "name": "S/2023 S 45",
+    "designation": "S/2023 S 45",
     "parentId": "saturn",
     "fidelity": "irregular",
     "named": false,
     "provisional": true,
-    "family": "Norse group",
+    "family": "Norse group (Mundilfari)",
     "discovery": {
-      "year": 2007,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
+      "year": 2023,
+      "discoverer": "Ashton et al."
     },
     "orbit": {
-      "semiMajorAxisKm": 26086000,
-      "periodDays": 1571,
-      "eccentricity": 0.27,
-      "inclinationDeg": 172,
+      "semiMajorAxisKm": 23438400,
+      "periodDays": 1339.85,
+      "eccentricity": 0.633,
+      "inclinationDeg": 157.4,
       "retrograde": true
     },
     "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2019-s-45",
-    "name": "S/2019 S 45",
-    "designation": "S/2019 S 45",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2019,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 26199000,
-      "periodDays": 1581,
-      "eccentricity": 0.28,
-      "inclinationDeg": 173,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 1.8,
-      "diameterKm": 3.5,
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
       "albedo": 0.04
     },
     "sourceIds": [
@@ -12905,21 +12198,21 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "fidelity": "irregular",
     "named": false,
     "provisional": true,
-    "family": "Norse group",
+    "family": "Norse group (Phoebe)",
     "discovery": {
       "year": 2020,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
+      "discoverer": "Ashton et al."
     },
     "orbit": {
-      "semiMajorAxisKm": 26312000,
-      "periodDays": 1591,
-      "eccentricity": 0.29,
-      "inclinationDeg": 174,
+      "semiMajorAxisKm": 23507700,
+      "periodDays": 1345.79,
+      "eccentricity": 0.199,
+      "inclinationDeg": 172.8,
       "retrograde": true
     },
     "physical": {
-      "meanRadiusKm": 2.3,
-      "diameterKm": 4.5,
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
       "albedo": 0.04
     },
     "sourceIds": [
@@ -12930,28 +12223,28 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "asOf": "2026-08-15"
   },
   {
-    "id": "s-2004-s-46",
-    "name": "S/2004 S 46",
-    "designation": "S/2004 S 46",
+    "id": "thiazzi",
+    "name": "Thiazzi",
+    "designation": "Saturn LXIII",
     "parentId": "saturn",
     "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
+    "named": true,
+    "provisional": false,
+    "family": "Norse group (Mundilfari)",
     "discovery": {
       "year": 2004,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
+      "discoverer": "Sheppard et al."
     },
     "orbit": {
-      "semiMajorAxisKm": 26425000,
-      "periodDays": 1601,
-      "eccentricity": 0.3,
-      "inclinationDeg": 150,
+      "semiMajorAxisKm": 23577500,
+      "periodDays": 1351.83,
+      "eccentricity": 0.511,
+      "inclinationDeg": 158.8,
       "retrograde": true
     },
     "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
+      "meanRadiusKm": 2,
+      "diameterKm": 4,
       "albedo": 0.04
     },
     "sourceIds": [
@@ -12962,28 +12255,28 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "asOf": "2026-08-15"
   },
   {
-    "id": "s-2006-s-46",
-    "name": "S/2006 S 46",
-    "designation": "S/2006 S 46",
+    "id": "s-2020-s-38",
+    "name": "S/2020 S 38",
+    "designation": "S/2020 S 38",
     "parentId": "saturn",
     "fidelity": "irregular",
     "named": false,
     "provisional": true,
-    "family": "Norse group",
+    "family": "Norse group (Mundilfari)",
     "discovery": {
-      "year": 2006,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
+      "year": 2020,
+      "discoverer": "Ashton et al."
     },
     "orbit": {
-      "semiMajorAxisKm": 26538000,
-      "periodDays": 1612,
-      "eccentricity": 0.31,
-      "inclinationDeg": 151,
+      "semiMajorAxisKm": 23583900,
+      "periodDays": 1352.43,
+      "eccentricity": 0.513,
+      "inclinationDeg": 159.7,
       "retrograde": true
     },
     "physical": {
-      "meanRadiusKm": 1.8,
-      "diameterKm": 3.5,
+      "meanRadiusKm": 2,
+      "diameterKm": 4,
       "albedo": 0.04
     },
     "sourceIds": [
@@ -12994,156 +12287,28 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "asOf": "2026-08-15"
   },
   {
-    "id": "s-2007-s-46",
-    "name": "S/2007 S 46",
-    "designation": "S/2007 S 46",
+    "id": "s-2019-s-20",
+    "name": "S/2019 S 20",
+    "designation": "S/2019 S 20",
     "parentId": "saturn",
     "fidelity": "irregular",
     "named": false,
     "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2007,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 26651000,
-      "periodDays": 1622,
-      "eccentricity": 0.32,
-      "inclinationDeg": 152,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 2.3,
-      "diameterKm": 4.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2019-s-46",
-    "name": "S/2019 S 46",
-    "designation": "S/2019 S 46",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Gallic group",
+    "family": "Norse group (Kari)",
     "discovery": {
       "year": 2019,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
+      "discoverer": "Ashton et al."
     },
     "orbit": {
-      "semiMajorAxisKm": 26764000,
-      "periodDays": 1632,
-      "eccentricity": 0.33,
-      "inclinationDeg": 34,
-      "retrograde": false
-    },
-    "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2020-s-46",
-    "name": "S/2020 S 46",
-    "designation": "S/2020 S 46",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Inuit group",
-    "discovery": {
-      "year": 2020,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 26877000,
-      "periodDays": 1643,
-      "eccentricity": 0.34,
-      "inclinationDeg": 49,
-      "retrograde": false
-    },
-    "physical": {
-      "meanRadiusKm": 1.8,
-      "diameterKm": 3.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2004-s-47",
-    "name": "S/2004 S 47",
-    "designation": "S/2004 S 47",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2004,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 26990000,
-      "periodDays": 1653,
-      "eccentricity": 0.35,
-      "inclinationDeg": 155,
-      "retrograde": true
-    },
-    "physical": {
-      "meanRadiusKm": 2.3,
-      "diameterKm": 4.5,
-      "albedo": 0.04
-    },
-    "sourceIds": [
-      "nasa-solar-system-exploration",
-      "jpl-ssd",
-      "iau-mpc"
-    ],
-    "asOf": "2026-08-15"
-  },
-  {
-    "id": "s-2006-s-47",
-    "name": "S/2006 S 47",
-    "designation": "S/2006 S 47",
-    "parentId": "saturn",
-    "fidelity": "irregular",
-    "named": false,
-    "provisional": true,
-    "family": "Norse group",
-    "discovery": {
-      "year": 2006,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
-    },
-    "orbit": {
-      "semiMajorAxisKm": 14103000,
-      "periodDays": 624,
-      "eccentricity": 0.36,
+      "semiMajorAxisKm": 23677900,
+      "periodDays": 1360.47,
+      "eccentricity": 0.354,
       "inclinationDeg": 156,
       "retrograde": true
     },
     "physical": {
-      "meanRadiusKm": 1.3,
-      "diameterKm": 2.5,
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
       "albedo": 0.04
     },
     "sourceIds": [
@@ -13154,28 +12319,828 @@ export const SATELLITES: SatelliteCatalogueEntry[] = [
     "asOf": "2026-08-15"
   },
   {
-    "id": "s-2007-s-47",
-    "name": "S/2007 S 47",
-    "designation": "S/2007 S 47",
+    "id": "s-2020-s-37",
+    "name": "S/2020 S 37",
+    "designation": "S/2020 S 37",
     "parentId": "saturn",
     "fidelity": "irregular",
     "named": false,
     "provisional": true,
-    "family": "Norse group",
+    "family": "Norse group (Phoebe)",
     "discovery": {
-      "year": 2007,
-      "discoverer": "Edward Ashton, Brett Gladman et al."
+      "year": 2020,
+      "discoverer": "Ashton et al."
     },
     "orbit": {
-      "semiMajorAxisKm": 14216000,
-      "periodDays": 632,
-      "eccentricity": 0.37,
-      "inclinationDeg": 157,
+      "semiMajorAxisKm": 23751800,
+      "periodDays": 1366.82,
+      "eccentricity": 0.344,
+      "inclinationDeg": 174.8,
       "retrograde": true
     },
     "physical": {
-      "meanRadiusKm": 1.8,
-      "diameterKm": 3.5,
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2019-s-39",
+    "name": "S/2019 S 39",
+    "designation": "S/2019 S 39",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Phoebe)",
+    "discovery": {
+      "year": 2019,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 23784500,
+      "periodDays": 1369.64,
+      "eccentricity": 0.098,
+      "inclinationDeg": 174.5,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2020-s-40",
+    "name": "S/2020 S 40",
+    "designation": "S/2020 S 40",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2020,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 23785900,
+      "periodDays": 1369.76,
+      "eccentricity": 0.412,
+      "inclinationDeg": 167.3,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2006-s-19",
+    "name": "S/2006 S 19",
+    "designation": "S/2006 S 19",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Phoebe)",
+    "discovery": {
+      "year": 2006,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 23800500,
+      "periodDays": 1371.02,
+      "eccentricity": 0.467,
+      "inclinationDeg": 175.5,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 2,
+      "diameterKm": 4,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2019-s-40",
+    "name": "S/2019 S 40",
+    "designation": "S/2019 S 40",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2019,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 24087800,
+      "periodDays": 1395.88,
+      "eccentricity": 0.088,
+      "inclinationDeg": 161.8,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2019-s-42",
+    "name": "S/2019 S 42",
+    "designation": "S/2019 S 42",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2019,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 24111600,
+      "periodDays": 1397.98,
+      "eccentricity": 0.121,
+      "inclinationDeg": 163.2,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 2,
+      "diameterKm": 4,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2004-s-34",
+    "name": "S/2004 S 34",
+    "designation": "Saturn LXIV",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2004,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 24145800,
+      "periodDays": 1400.93,
+      "eccentricity": 0.279,
+      "inclinationDeg": 168.3,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 2,
+      "diameterKm": 4,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2020-s-39",
+    "name": "S/2020 S 39",
+    "designation": "S/2020 S 39",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2020,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 24262400,
+      "periodDays": 1411.15,
+      "eccentricity": 0.305,
+      "inclinationDeg": 160.1,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2019-s-41",
+    "name": "S/2019 S 41",
+    "designation": "S/2019 S 41",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2019,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 24493600,
+      "periodDays": 1431.3,
+      "eccentricity": 0.257,
+      "inclinationDeg": 157.1,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2023-s-46",
+    "name": "S/2023 S 46",
+    "designation": "S/2023 S 46",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (low-inclination)",
+    "discovery": {
+      "year": 2023,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 24708900,
+      "periodDays": 1450.27,
+      "eccentricity": 0.336,
+      "inclinationDeg": 143.2,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "fornjot",
+    "name": "Fornjot",
+    "designation": "Saturn XLII",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": true,
+    "provisional": false,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2004,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 24936800,
+      "periodDays": 1470.36,
+      "eccentricity": 0.213,
+      "inclinationDeg": 170,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 3,
+      "diameterKm": 6,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2023-s-47",
+    "name": "S/2023 S 47",
+    "designation": "S/2023 S 47",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2023,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 25102300,
+      "periodDays": 1485.04,
+      "eccentricity": 0.101,
+      "inclinationDeg": 162.5,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2004-s-51",
+    "name": "S/2004 S 51",
+    "designation": "S/2004 S 51",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2004,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 25207100,
+      "periodDays": 1494.41,
+      "eccentricity": 0.201,
+      "inclinationDeg": 171.2,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 2,
+      "diameterKm": 4,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2006-s-29",
+    "name": "S/2006 S 29",
+    "designation": "S/2006 S 29",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Kari)",
+    "discovery": {
+      "year": 2006,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 25212100,
+      "periodDays": 1494.78,
+      "eccentricity": 0.239,
+      "inclinationDeg": 156.2,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2020-s-10",
+    "name": "S/2020 S 10",
+    "designation": "S/2020 S 10",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2020,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 25315300,
+      "periodDays": 1503.97,
+      "eccentricity": 0.296,
+      "inclinationDeg": 165.6,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2020-s-42",
+    "name": "S/2020 S 42",
+    "designation": "S/2020 S 42",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2020,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 25329400,
+      "periodDays": 1505.31,
+      "eccentricity": 0.506,
+      "inclinationDeg": 157.5,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2020-s-9",
+    "name": "S/2020 S 9",
+    "designation": "S/2020 S 9",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2020,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 25408700,
+      "periodDays": 1512.38,
+      "eccentricity": 0.531,
+      "inclinationDeg": 161.4,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 2,
+      "diameterKm": 4,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2023-s-5",
+    "name": "S/2023 S 5",
+    "designation": "S/2023 S 5",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2023,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 25583500,
+      "periodDays": 1528.04,
+      "eccentricity": 0.599,
+      "inclinationDeg": 168.8,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2020-s-41",
+    "name": "S/2020 S 41",
+    "designation": "S/2020 S 41",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2020,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 25876400,
+      "periodDays": 1554.4,
+      "eccentricity": 0.402,
+      "inclinationDeg": 160.2,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2004-s-26",
+    "name": "S/2004 S 26",
+    "designation": "Saturn LVIII",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Phoebe){{refn|group=lower-alpha|name=\"Phoebe/Mundilfari\"}}",
+    "discovery": {
+      "year": 2004,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 26097500,
+      "periodDays": 1574.25,
+      "eccentricity": 0.147,
+      "inclinationDeg": 172.9,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 2.5,
+      "diameterKm": 5,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2019-s-21",
+    "name": "S/2019 S 21",
+    "designation": "S/2019 S 21",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2019,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 26439500,
+      "periodDays": 1605.28,
+      "eccentricity": 0.155,
+      "inclinationDeg": 171.9,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 2,
+      "diameterKm": 4,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2004-s-52",
+    "name": "S/2004 S 52",
+    "designation": "S/2004 S 52",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2004,
+      "discoverer": "Sheppard et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 26446400,
+      "periodDays": 1605.89,
+      "eccentricity": 0.291,
+      "inclinationDeg": 165.4,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2020-s-43",
+    "name": "S/2020 S 43",
+    "designation": "S/2020 S 43",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2020,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 26657400,
+      "periodDays": 1625.29,
+      "eccentricity": 0.203,
+      "inclinationDeg": 164.6,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2019-s-43",
+    "name": "S/2019 S 43",
+    "designation": "S/2019 S 43",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2019,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 26664100,
+      "periodDays": 1625.9,
+      "eccentricity": 0.277,
+      "inclinationDeg": 165.3,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2019-s-44",
+    "name": "S/2019 S 44",
+    "designation": "S/2019 S 44",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Phoebe)",
+    "discovery": {
+      "year": 2019,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 26796900,
+      "periodDays": 1638.11,
+      "eccentricity": 0.512,
+      "inclinationDeg": 172.6,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
+      "albedo": 0.04
+    },
+    "sourceIds": [
+      "nasa-solar-system-exploration",
+      "jpl-ssd",
+      "iau-mpc"
+    ],
+    "asOf": "2026-08-15"
+  },
+  {
+    "id": "s-2020-s-44",
+    "name": "S/2020 S 44",
+    "designation": "S/2020 S 44",
+    "parentId": "saturn",
+    "fidelity": "irregular",
+    "named": false,
+    "provisional": true,
+    "family": "Norse group (Mundilfari)",
+    "discovery": {
+      "year": 2020,
+      "discoverer": "Ashton et al."
+    },
+    "orbit": {
+      "semiMajorAxisKm": 27259400,
+      "periodDays": 1680.64,
+      "eccentricity": 0.199,
+      "inclinationDeg": 168.5,
+      "retrograde": true
+    },
+    "physical": {
+      "meanRadiusKm": 1.5,
+      "diameterKm": 3,
       "albedo": 0.04
     },
     "sourceIds": [

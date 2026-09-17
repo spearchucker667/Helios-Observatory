@@ -44,7 +44,8 @@ Verifies analytical celestial mechanics:
 - temporal domain boundary enforcement (1800-01-01 to 2050-12-31)
 - deep-link date parameter parsing and rejection of out-of-domain epochs
 - heliocentric Cartesian AU vector and distance calculations
-- multi-epoch reference fixtures for Earth, Mars, and Jupiter (1950, 2000, 2025)
+- multi-epoch reference fixtures for Earth, Mars, Jupiter, Ceres, and Pluto (1950, 2000, 2025)
+- distinct provenance verification (Standish 1992, JPL SBDB Solution #40) and accuracy tolerances
 
 ### 4. Distance Caliper & Coordinate Scales — `src/lib/distance.test.ts`, `src/lib/deep-space-scale.test.ts`
 

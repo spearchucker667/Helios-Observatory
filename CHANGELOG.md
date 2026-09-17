@@ -10,8 +10,8 @@ not yet use versioned releases, so entries are dated.
 
 - **Complete Natural Satellite Catalogue (461 Moons)** (`src/data/satellites/`):
   Official August 2026 IAU MPC & NASA/JPL baseline encompassing all 456 planetary moons
-  and 5 satellites of Pluto. Features 3-tier classification (21 major, 49 regular,
-  223 irregular), dynamical families (Galilean, Inuit, Norse, Gallic, etc.), and
+  and 5 satellites of Pluto. Features 3-tier classification (21 major, 38 regular,
+  402 irregular), dynamical families (Galilean, Inuit, Norse, Gallic, etc.), and
   automated validation suites.
 - **Natural Satellite Explorer UI** (`src/components/overlay/detail.tsx`):
   Filter by fidelity tier (All, Major, Regular, Irregular), fuzzy search by name or

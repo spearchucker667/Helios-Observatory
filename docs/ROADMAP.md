@@ -1,52 +1,38 @@
 # Roadmap
 
-## Shipped (this expansion)
+## Shipped (Current Release)
 
-- 20 Tier-1 moons as first-class selectable/renderable bodies
-- Ring systems for all four giants, data-driven
-- Tiered procedural textures (LOW/HIGH LOD with lazy generation)
-- Tabbed detail views with sources; event timeline (60+ sourced entries)
-- Search palette, comparison mode, unit systems, scale modes
-- Accessibility pass (DOM equivalents, keyboard, reduced motion)
-- Mobile bottom-sheet layout
-- Documentation set + data-integrity test suite
+- **21 Tier-1 Major Moons** as first-class selectable/renderable bodies (including Charon with New Horizons data).
+- **Comprehensive Natural Satellite Catalogue** (461 total moons: 21 major, 38 regular, 402 irregular) with IAU MPC & NASA/JPL provenance.
+- **Analytical J2000 Keplerian Ephemeris Engine** with 3D elliptical orbits and continuous 1800–2050 AD temporal propagation.
+- **Epoch-Based Date Control & Presets** (calendar date stepping, J2000.0, Apollo 11, Voyager 2, New Horizons).
+- **Interactive 3D Distance Measurement Calipers** with real-time Euclidean distance (AU, km) and light-travel time.
+- **Deep-Space Continuum**: Logarithmic coordinate mapping spanning 0 to 100,000 AU, rendering the Kuiper Belt and outer Oort Cloud.
+- **Dwarf Planet Architecture**: First-class support for Ceres and Pluto.
+- **Shareable Deep Links**: Exact camera target, moon hierarchy validation, and epoch date serialization in URLs.
+- **Interactive 3D Surface Feature Markers** on rotating planetary and lunar globes (lat/lon anchored pins).
+- **Scalable Vector Asset Suite** and automated manifest validation (`scripts/validate-assets.mjs`).
+- **Full Quality & Test Gates**: 114 passing automated tests, zero ESLint warnings (`--max-warnings=0`), strict TypeScript checking, and headless Playwright production browser smoke/interaction QA.
 
-## Near term
+## Near Term
 
-1. **Dwarf planets** — Ceres and Pluto as `kind: "dwarf-planet"` (the type
-   union and registry already support it; needs datasets, textures, and
-   belt/Kuiper placement).
-2. **Kuiper belt** — instanced ring population beyond Neptune in
-   distance mode.
-3. **Shareable deep links** — `/?body=jupiter&moon=europa` state serialised
-   to the URL on selection; restore on load.
-4. **Screenshot mode** — hide UI, clean capture of the canvas.
-5. **HIGH-texture eviction** — free unused inspection maps after N seconds.
+1. **Screenshot / Clean Capture Mode** — hide UI overlay and produce clean high-resolution canvas captures.
+2. **HIGH-Texture Memory Eviction** — dynamically free GPU inspection textures after inactive timeout.
+3. **Orbital Precession & Osculating Elements** — visualize nodal and apsidal precession effects on outer irregular orbits over multi-decade scales.
 
-## Mid term
+## Mid Term
 
-6. **Guided tours** — curated sequences (Inner Worlds, Galilean Moons,
-   Voyager's Grand Tour) driving the existing camera/selection store.
-7. **Eccentric orbits** — honour the recorded eccentricity/orientation in
-   the position update (still educational, closer to honest geometry).
-8. **Spacecraft layer** — historically significant trajectories (Voyager 1/2,
-   Cassini, Juno, New Horizons) only where real trajectory data exists.
-9. **Feature markers on globes** — render `SurfaceFeature` coordinates as
-   globe-anchored pins in inspection view (data already carries lat/lon).
+4. **Curated Guided Tours** — automated sequence paths (Inner Terrestrial Worlds, Galilean Moons, Voyager's Grand Tour) driving camera transitions.
+5. **Historical Spacecraft Trajectories** — render real mission flight paths (Voyager 1 & 2, Pioneer 10 & 11, Cassini, New Horizons, Juno) from SPICE trajectory data.
+6. **Solar & Lunar Eclipse Cones** — accurate geometric visualization of umbra and penumbra shadow cones during syzygy alignments.
 
-## Long term / speculative
+## Long Term / Speculative
 
-10. **Eclipse & transit geometry** — geometry-based demos (solar/lunar
-    eclipse angles, Galilean transits), clearly labelled as demonstrations.
-11. **Epoch dating** — optional mean-longitude propagation with an explicit
-    accuracy disclaimer; never presented as an ephemeris service.
-12. **Tier-2 moons** — inner shepherds (Amalthea, Hyperion, …) at low
-    fidelity.
-13. **I18n** — the data layer separates content from presentation well
-    enough to translate prose fields.
+7. **Internationalization (i18n)** — translate prose and educational content into additional languages.
+8. **Planetary Seismology & Magnetic Field Lines** — educational dipole field visualizations for Earth, Jupiter, and Saturn.
 
-## Explicitly out of scope
+## Explicitly Out of Scope
 
-- Real-time sky positions / telescope pointing
-- Photorealistic licensed textures (provenance cost outweighs benefit)
-- Multiplayer or accounts (no per-user data anywhere)
+- Real-time sky positions / telescope pointing service
+- Photorealistic licensed raster textures (provenance and licensing costs outweigh procedural benefits)
+- Multiplayer, user accounts, or cloud data persistence (remains 100% client-side and privacy-preserving)

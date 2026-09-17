@@ -58,14 +58,15 @@ export function getBodyHeliocentricAu(
     const periodDays = body.orbit?.periodDays ?? 27.322;
     const retrograde = body.orbit?.retrograde ?? false;
     const incRad = ((body.orbit?.inclinationDeg ?? 0) * Math.PI) / 180;
-
     const theta = (daysFromJ2000 / periodDays) * Math.PI * 2 * (retrograde ? -1 : 1);
     const semiMajorAu = semiMajorKm / KM_PER_AU;
+    const cosInc = Math.cos(incRad);
+    const sinInc = Math.sin(incRad);
 
     const moonOffsetAu: [number, number, number] = [
       Math.cos(theta) * semiMajorAu,
-      Math.sin(theta) * semiMajorAu,
-      Math.sin(theta) * Math.sin(incRad) * semiMajorAu,
+      Math.sin(theta) * cosInc * semiMajorAu,
+      Math.sin(theta) * sinInc * semiMajorAu,
     ];
 
     return [

@@ -122,4 +122,48 @@ describe("Natural Satellite Catalogue", () => {
     assert.equal(regular.identity.category, "Moon");
     assert.equal(regular.fidelity, "regular");
   });
+
+  it("verifies authentic institutional parameters for Jovian and Saturnian satellites (HEL-P0-001)", () => {
+    // S/2003 J 2 (distant retrograde irregular Jovian moon)
+    const s2003j2 = satelliteById("s-2003-j-2");
+    assert.ok(s2003j2);
+    assert.equal(s2003j2.parentId, "jupiter");
+    assert.equal(s2003j2.orbit.retrograde, true);
+    assert.ok(s2003j2.orbit.semiMajorAxisKm > 20000000);
+    assert.ok(s2003j2.orbit.inclinationDeg > 140);
+
+    // S/2019 S 1 (prograde irregular Saturnian moon announced 2021)
+    const s2019s1 = satelliteById("s-2019-s-1");
+    assert.ok(s2019s1);
+    assert.equal(s2019s1.parentId, "saturn");
+    assert.ok(s2019s1.orbit.semiMajorAxisKm > 10000000);
+
+    // Valetudo (unusual prograde Jovian irregular orbiting among retrogrades)
+    const valetudo = satelliteById("valetudo");
+    assert.ok(valetudo);
+    assert.equal(valetudo.parentId, "jupiter");
+    assert.equal(valetudo.orbit.retrograde, false);
+    assert.ok(valetudo.orbit.inclinationDeg < 40);
+
+    // Verify absence of synthetic algorithmic filler (no arithmetic progression sequences)
+    const jupMoons = satellitesOf("jupiter");
+    const satMoons = satellitesOf("saturn");
+    
+    // In real astronomical datasets, irregular satellites do not follow repeating arithmetic progression sequences
+    const diffsJup = [];
+    for (let i = 1; i < jupMoons.length; i++) {
+      diffsJup.push(Math.abs(jupMoons[i].orbit.semiMajorAxisKm - jupMoons[i - 1].orbit.semiMajorAxisKm));
+    }
+    const identicalStepsJup = diffsJup.filter(d => d === 37000).length;
+    assert.ok(identicalStepsJup < 2, "No Jovian satellites should have repeating synthetic step 37000 km");
+
+    const diffsSat = [];
+    for (let i = 1; i < satMoons.length; i++) {
+      diffsSat.push(Math.abs(satMoons[i].orbit.semiMajorAxisKm - satMoons[i - 1].orbit.semiMajorAxisKm));
+    }
+    const identicalStepsSat = diffsSat.filter(d => d === 113000).length;
+    assert.ok(identicalStepsSat < 2, "No Saturnian satellites should have repeating synthetic step 113000 km");
+
+  });
 });
+

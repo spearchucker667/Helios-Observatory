@@ -92,7 +92,7 @@ npm install
 # Start development server (bound to 0.0.0.0:8080)
 npm run dev
 
-# Run automated test suites (104 tests)
+# Run automated test suites (114 tests)
 npm test
 
 # Run strict zero-warning linter and typecheck

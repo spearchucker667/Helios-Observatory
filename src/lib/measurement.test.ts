@@ -59,6 +59,21 @@ describe("Scientific Distance Measurement Engine", () => {
     assert.ok(res.lightTimeSeconds > 1.0 && res.lightTimeSeconds < 1.6);
   });
 
+  it("conserves orbital radius for natural satellites across all orbital phases (HEL-P1-001)", () => {
+    // Moon around Earth has semiMajorAxisKm = 384,400
+    // At any phase of the orbit, distance from Earth center must strictly equal semiMajorAxisKm
+    const period = 27.322;
+    for (const fraction of [0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875]) {
+      const days = fraction * period;
+      const res = calculateDistance("earth", "moon", days);
+      assert.ok(res);
+      assert.ok(
+        Math.abs(res.distanceKm - 384400) < 1.0,
+        `Expected exact radius 384,400 km at fraction ${fraction}, got ${res.distanceKm}`,
+      );
+    }
+  });
+
   it("formats light travel time cleanly across magnitudes", () => {
     assert.equal(formatLightTime(0.5), "0.50 s");
     assert.equal(formatLightTime(75.5), "1m 15.5s");

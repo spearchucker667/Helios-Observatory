@@ -25,6 +25,7 @@ import {
   REGIONS,
   EVENTS,
   bodyById,
+  regionById,
 } from "@/data/registry";
 import { formatYearPace, sliderToSpeed, speedToSlider, YEAR_SECONDS } from "@/lib/planets";
 import {
@@ -52,6 +53,7 @@ import {
   trySupportedEphemerisDate,
 } from "@/lib/ephemeris";
 import { BodyDetail } from "@/components/overlay/detail";
+import { RegionDetail } from "@/components/overlay/region-detail";
 import { MeasurementPanel } from "@/components/overlay/measurement-panel";
 
 
@@ -123,7 +125,13 @@ function PlanetDot({ color, active }: { color: string; active?: boolean }) {
 /* Search palette                                                      */
 /* ------------------------------------------------------------------ */
 
-type SearchHit = { id: string; label: string; group: string; target: string };
+type SearchHit = {
+  id: string;
+  label: string;
+  group: string;
+  target: string;
+  kind: "body" | "moon" | "region" | "event";
+};
 
 function buildSearchIndex(): SearchHit[] {
   const hits: SearchHit[] = [];
@@ -140,6 +148,7 @@ function buildSearchIndex(): SearchHit[] {
               ? "Dwarf Planets"
               : "Planets",
       target: b.identity.id,
+      kind: b.identity.kind === "moon" ? "moon" : "body",
     });
     for (const f of b.features ?? []) {
       hits.push({
@@ -147,6 +156,7 @@ function buildSearchIndex(): SearchHit[] {
         label: `${f.name} (${f.kind})`,
         group: `Features · ${b.identity.name}`,
         target: b.identity.id,
+        kind: b.identity.kind === "moon" ? "moon" : "body",
       });
     }
   }
@@ -157,6 +167,7 @@ function buildSearchIndex(): SearchHit[] {
         label: `${s.name} (${s.parentId})`,
         group: "Natural Satellites",
         target: s.id,
+        kind: "moon",
       });
     }
   }
@@ -166,6 +177,7 @@ function buildSearchIndex(): SearchHit[] {
       label: `${e.title} (${e.year})`,
       group: "Events",
       target: e.bodyIds[0],
+      kind: "event",
     });
   }
   for (const r of REGIONS) {
@@ -174,6 +186,7 @@ function buildSearchIndex(): SearchHit[] {
       label: r.name,
       group: "Deep-Space Regions",
       target: r.id,
+      kind: "region",
     });
   }
   return hits;
@@ -181,6 +194,7 @@ function buildSearchIndex(): SearchHit[] {
 
 function SearchPalette({ open, onClose }: { open: boolean; onClose: () => void }) {
   const select = useSim((s) => s.select);
+  const selectRegion = useSim((s) => s.selectRegion);
   const index = useMemo(buildSearchIndex, []);
   const groups = useMemo(() => {
     const priority = [
@@ -239,12 +253,22 @@ function SearchPalette({ open, onClose }: { open: boolean; onClose: () => void }
                     key={h.id}
                     value={h.label}
                     onSelect={() => {
-                      select(h.target);
+                      if (h.kind === "region") {
+                        selectRegion(h.target);
+                      } else {
+                        select(h.target);
+                      }
                       onClose();
                     }}
                     className="flex cursor-pointer items-center gap-2.5 rounded-xl px-3 py-2 text-sm text-fg data-[selected=true]:bg-fg/10"
                   >
-                    <PlanetDot color={bodyById(h.target)?.identity.color ?? "#8e939e"} />
+                    <PlanetDot
+                      color={
+                        h.kind === "region"
+                          ? "#60a5fa"
+                          : bodyById(h.target)?.identity.color ?? "#8e939e"
+                      }
+                    />
                     {h.label}
                   </Command.Item>
                 ))}
@@ -739,6 +763,7 @@ export function ObservatoryHud() {
   const showLabels = useSim((s) => s.showLabels);
   const showOrbits = useSim((s) => s.showOrbits);
   const selectedId = useSim((s) => s.selectedId);
+  const selectedRegionId = useSim((s) => s.selectedRegionId);
   const togglePaused = useSim((s) => s.togglePaused);
   const setShowLabels = useSim((s) => s.setShowLabels);
   const setShowOrbits = useSim((s) => s.setShowOrbits);
@@ -755,6 +780,8 @@ export function ObservatoryHud() {
   const [headerCopied, setHeaderCopied] = useState(false);
   const days = useSimDays();
   const selected = selectedId ? bodyById(selectedId) : null;
+  const selectedRegion = selectedRegionId ? regionById(selectedRegionId) : null;
+  const hasDetail = Boolean(selected || selectedRegion);
 
   const starBody = useMemo(() => BODIES.find((b) => b.identity.kind === "star"), []);
   const planetBodies = useMemo(() => BODIES.filter((b) => b.identity.kind === "planet"), []);
@@ -790,7 +817,10 @@ export function ObservatoryHud() {
           s.clearMeasurement();
           return;
         }
-        if (!inInput) s.select(null);
+        if (!inInput) {
+          s.select(null);
+          s.selectRegion(null);
+        }
         return;
       }
       if (inInput) return;
@@ -840,6 +870,8 @@ export function ObservatoryHud() {
 
   const detailPanel = selected ? (
     <BodyDetail body={selected} onSelectBody={select} />
+  ) : selectedRegion ? (
+    <RegionDetail region={selectedRegion} />
   ) : null;
 
   return (
@@ -1028,11 +1060,11 @@ export function ObservatoryHud() {
         className={cn(
           "pointer-events-auto absolute top-24 right-4 bottom-36 hidden w-[22rem] md:block",
           "transition-[opacity,transform] duration-(--motion-fast) ease-(--ease-smooth-out)",
-          selected && detailOpen ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-2 opacity-0",
+          hasDetail && detailOpen ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-2 opacity-0",
         )}
         aria-live="polite"
       >
-        {selected ? (
+        {hasDetail ? (
           <Panel className="flex h-full max-h-full flex-col">
             <button
               type="button"
@@ -1052,10 +1084,10 @@ export function ObservatoryHud() {
         <div
           className={cn(
             "transition-[opacity,transform] duration-(--motion-fast) ease-(--ease-smooth-out)",
-            selected && detailOpen ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-6 opacity-0",
+            hasDetail && detailOpen ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-6 opacity-0",
           )}
         >
-          {selected ? (
+          {hasDetail ? (
             <div className="helios-scroll max-h-[46dvh] overflow-y-auto rounded-t-3xl bg-surface/95 px-4 pt-3 pb-[max(1rem,env(safe-area-inset-bottom))] shadow-[var(--shadow-border)] backdrop-blur-md">
               <div className="sticky -top-3 -mx-4 z-10 mb-1 flex justify-center bg-gradient-to-b from-surface/95 to-transparent pt-1 pb-2">
                 <button
@@ -1075,7 +1107,7 @@ export function ObservatoryHud() {
         className={cn(
           "pointer-events-auto absolute right-0 bottom-0 left-0 p-4 pb-[max(1rem,env(safe-area-inset-bottom))] md:p-5",
           // The mobile detail sheet owns the bottom edge when open.
-          selected && detailOpen && "invisible md:visible",
+          hasDetail && detailOpen && "invisible md:visible",
         )}
       >
         <div className="mx-auto flex max-w-3xl flex-col gap-3">

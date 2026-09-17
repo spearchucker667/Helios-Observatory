@@ -145,16 +145,22 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install --with-deps chromium
 
-      - name: Start dev server
+      - name: Build production bundle
+        run: npm run build
+
+      - name: Start preview server
         run: |
-          npm run dev &
+          npm run preview &
           for i in {1..30}; do
-            if curl -sf http://127.0.0.1:8080/ > /dev/null 2>&1; then
-              echo "Dev server ready on :8080"
+            if curl -sf http://127.0.0.1:8081/ > /dev/null 2>&1; then
+              echo "Preview server ready on :8081"
               break
             fi
             sleep 1
           done
 
-      - name: Run browser smoke tests
-        run: xvfb-run --auto-servernum -- node scripts/browser-smoke.mjs http://127.0.0.1:8080/ screenshots/app-builder-preview.png
+      - name: Run browser smoke tests on production preview
+        run: xvfb-run --auto-servernum -- node scripts/browser-smoke.mjs http://127.0.0.1:8081/ screenshots/app-builder-preview.png
+
+      - name: Run browser interaction tests on production preview
+        run: xvfb-run --auto-servernum -- node scripts/browser-interaction.mjs http://127.0.0.1:8081/

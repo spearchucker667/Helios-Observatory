@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { useSim, simClock } from "@/lib/sim-store";
 import { calculateDistance } from "@/lib/measurement";
 import { BODIES, MOONS } from "@/data/registry";
@@ -13,6 +13,15 @@ export function MeasurementPanel() {
   const clearMeasurement = useSim((s) => s.clearMeasurement);
 
   const { active, sourceId, targetId } = measurement;
+  const [clockDays, setClockDays] = useState(simClock.days);
+
+  useEffect(() => {
+    if (!active) return;
+    const id = window.setInterval(() => {
+      setClockDays(simClock.days);
+    }, 100);
+    return () => window.clearInterval(id);
+  }, [active, dateNonce]);
 
   const allSelectable = useMemo(() => {
     return [
@@ -23,9 +32,8 @@ export function MeasurementPanel() {
 
   const distance = useMemo(() => {
     if (!sourceId || !targetId) return null;
-    return calculateDistance(sourceId, targetId, simClock.days);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [sourceId, targetId, dateNonce]);
+    return calculateDistance(sourceId, targetId, clockDays);
+  }, [sourceId, targetId, clockDays]);
 
   if (!active) return null;
 
