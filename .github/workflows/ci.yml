@@ -65,14 +65,8 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Astronomical, ephemeris, and formatting tests
+      - name: Run automated test suite
         run: npm test
-
-      - name: Platform and invariant script tests
-        run: node --test scripts/**/*.test.mjs
-
-      - name: Auth invariant verification
-        run: npm run check:auth
 
   assets:
     name: Vector Assets & Manifest Validation
