@@ -12,7 +12,14 @@
 - **Shareable Deep Links**: Exact camera target, moon hierarchy validation, and epoch date serialization in URLs.
 - **Interactive 3D Surface Feature Markers** on rotating planetary and lunar globes (lat/lon anchored pins).
 - **Scalable Vector Asset Suite** and automated manifest validation (`scripts/validate-assets.mjs`).
-- **Full Quality & Test Gates**: 114 passing automated tests, zero ESLint warnings (`--max-warnings=0`), strict TypeScript checking, and headless Playwright production browser smoke/interaction QA.
+- **Interactive Astrophysical Sandbox (`/sandbox`)**: Mutable numerical experimentation environment with isolated N-body physics engine.
+- **Velocity Verlet (Leapfrog) Symplectic Integrator**: Second-order symplectic time integration conserving mechanical energy ($|\Delta E/E_0| < 10^{-5}$) and phase-space volume with zero secular momentum drift.
+- **Strict SI Dimensional Units**: Physical simulation operating exclusively in SI meters, seconds, and kilograms.
+- **Barycentric Center-of-Mass Frame**: Automated barycentric coordinate and momentum zeroing.
+- **Decoupled Timestep Scheduler**: Frame-rate independent substepping maintaining numerical stability during high-speed time warp.
+- **Dedicated Web Worker Pipeline**: Background physics worker streaming interpolated state vectors to React Three Fiber rendering layer.
+- **Scenario Persistence & Deterministic Replay**: Versioned JSON scenario schema, local IndexedDB persistence, and bit-identical deterministic command replay.
+- **Full Quality & Test Gates**: 154 passing automated tests across 22 suites, zero ESLint warnings (`--max-warnings=0`), strict TypeScript checking, and headless Playwright production browser smoke/interaction QA.
 
 ## Near Term
 

@@ -72,3 +72,22 @@ Click celestial chips to select up to four worlds simultaneously. The matrix com
 - **Worlds Carousel:** Swipe horizontally across the bottom bar to inspect and select celestial worlds.
 - **Detail Sheet:** Selecting a body slides up a touch-friendly bottom sheet. Dragging the top pill downward collapses the sheet.
 - **Touch Target Sizing:** All mobile buttons and tab buttons maintain a minimum $44\times44\text{ px}$ interactive touch area complying with WCAG 2.1 Success Criterion 2.5.5.
+
+---
+
+## 6. Sandbox Mode Shortcuts (`/sandbox`)
+
+When navigating the Interactive Astrophysical Sandbox, the following dedicated controls are active:
+
+| Shortcut | Action | Description |
+| :--- | :--- | :--- |
+| `Space` | Pause / Resume | Pauses or resumes authoritative N-body integration in the worker thread. |
+| `.` | Single Step | Steps the physics simulation forward by exactly one numerical step $\Delta t$. |
+| `[` / `]` | Time Warp | Halves (`[`) or doubles (`]`) time acceleration without changing integration $\Delta t$. |
+| `I` | Object Inspector | Toggles Cartesian state-vector telemetry and orbital element readout. |
+| `E` | Velocity Impulse | Opens 3D velocity vector manipulation inputs ($\Delta \mathbf{v}$ in $\text{km/s}$). |
+| `B` | Object Browser | Opens the searchable list of active celestial bodies and tracer particles. |
+| `P` | Spawn Presets | Opens the astrophysical preset spawning menu (Lagrange points, binary stars, black holes). |
+| `S` | Save Scenario | Prompts to save the current simulation state to local storage or export as JSON. |
+| `R` | Reset Simulation | Resets current scenario state vectors back to initial snapshot conditions. |
+

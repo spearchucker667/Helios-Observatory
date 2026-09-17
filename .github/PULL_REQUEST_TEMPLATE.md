@@ -7,18 +7,20 @@
 - [ ] Bug fix
 - [ ] Astronomical data (see provenance checklist)
 - [ ] Visual / rendering
-- [ ] Feature
+- [ ] Feature (Observatory Mode or Sandbox Mode)
 - [ ] Docs only
 - [ ] Tooling / tests
 
 ## Validation
 
-All four gates green:
+All quality gates green:
 
 - [ ] `npm run typecheck`
 - [ ] `npm run lint` (0 warnings)
-- [ ] `npm test`
+- [ ] `npm test` (154 passing tests)
 - [ ] `npm run build`
+- [ ] `node scripts/check-doc-consistency.mjs`
+- [ ] `node scripts/validate-assets.mjs`
 
 Browser checks:
 
@@ -27,13 +29,16 @@ Browser checks:
 - [ ] Keyboard path for any new UI
 - [ ] Screenshots regenerated if visuals changed
 
-## Astronomical data provenance (if applicable)
+## Scientific & Simulation Invariants (if applicable)
 
 - [ ] Institutional source cited per changed figure (NASA/JPL/ESA/USGS/IAU)
 - [ ] `retrieved` dates updated
 - [ ] New sources added to `src/data/sources.ts`
 - [ ] No scene constants in `src/data`, no data literals in components
 - [ ] Scale claims unchanged/honest (UI labels still accurate)
+- [ ] Sandbox operations strictly isolated from canonical registries (`src/data/**`)
+- [ ] Physics changes maintain symplectic energy & linear momentum conservation
+- [ ] Internal simulation calculations operate strictly in SI dimensional units
 
 ## Docs
 

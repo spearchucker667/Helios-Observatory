@@ -20,8 +20,9 @@ What should happen instead.
 2. Press/click '…'
 3. See error
 
-**Environment**
+**Environment & Mode**
 
+- Mode: [Observatory Mode (/) | Sandbox Mode (/sandbox)]
 - Browser + version:
 - OS:
 - Desktop or mobile viewport:

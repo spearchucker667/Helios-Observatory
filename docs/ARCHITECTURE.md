@@ -106,6 +106,22 @@ integrity suite lives in `src/data/data-validate.test.ts`.
 - Search (⌘K, cmdk) across bodies, features, events; compare dialog for
   2–4 bodies.
 
+### 5. Physics Sandbox (`src/simulation`)
+
+- **`initialization/canonical-adapter.ts`** — strictly clones canonical registry
+  records into mutable simulation bodies, computing SI state vectors and tagging
+  unmeasured mass bodies as tracers.
+- **`initialization/barycentric.ts`** — shifts state vectors into the center of
+  mass frame, zeroing net system momentum ($\sum m_i \mathbf{v}_i = \mathbf{0}$).
+- **`engine/integrator.ts`** — second-order Velocity Verlet symplectic
+  integrator preserving phase-space volume and mechanical energy.
+- **`engine/timestep.ts`** — deterministic timestep scheduler decoupling time
+  acceleration from integration $\Delta t$.
+- **`worker/physics.worker.ts`** — authoritative background worker executing
+  the N-body loop and streaming state snapshots to the main thread.
+- **`scenarios/`** — versioned JSON scenario serialization, schema migrations,
+  IndexedDB persistence, and deterministic replay logs.
+
 ## Selection hierarchy
 
 ```

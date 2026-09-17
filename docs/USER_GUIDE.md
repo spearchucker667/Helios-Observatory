@@ -85,3 +85,37 @@ Every view in Helios can be shared via URL:
 - Click the **Share icon** in the header or in any detail panel.
 - URLs preserve both the selected target world and the exact simulated epoch date (e.g., `/?body=jupiter&moon=europa&date=2026-09-16`).
 - Opening the link on any device restores the exact camera framing, world focus, and ephemeris date.
+
+---
+
+## 6. Interactive Astrophysical Sandbox (`/sandbox`)
+
+For interactive numerical experimentation, switch from the canonical reference into the **Interactive Sandbox**:
+- Click **Sandbox** in the top navigation or navigate directly to `/sandbox`.
+
+### 6.1 State Initialization & Canonical Safety
+When launched, the sandbox creates an isolated deep copy of the solar system at the currently viewed epoch date. Positions and velocities are converted into SI meters and meters per second, and transformed into the system barycentre. **Nothing you modify in the sandbox can ever alter or corrupt the underlying canonical reference data.**
+
+### 6.2 Physics Controls & Transport Bar
+- **Play / Pause (`Space`):** Freezes the N-body numerical solver while leaving camera navigation and object inspection fully active.
+- **Single Step (`.`):** Advances the simulation by exactly one fixed numerical timestep $\Delta t$ (default: 1 hour).
+- **Time Warp (`[` / `]`):** Accelerates simulation progression from $1\times$ to $100,000\times$ without altering numerical integration accuracy.
+- **Reset:** Restores the simulation to its initial state vector configuration.
+
+### 6.3 Body Telemetry & State Vector Editing
+Clicking any object in the sandbox opens the **Body Inspector**:
+- **Cartesian State Vectors:** View instantaneous positions $[x, y, z]$ and velocities $[v_x, v_y, v_z]$.
+- **Osculating Orbital Elements:** Real-time semi-major axis $a$, eccentricity $e$, and inclination $i$.
+- **Apply Velocity Impulse (`E`):** Apply delta-v boosts ($\Delta \mathbf{v}$) in $\text{km/s}$ to alter trajectories, establish transfer orbits, or perform gravitational slingshots.
+- **Mass & Dimension Adjustments:** Modify mass in Earth masses, Solar masses, or kilograms. Watch real-time surface gravity and tidal disruption boundaries adjust dynamically.
+
+### 6.4 Spawning Presets & Test Objects
+Open the **Object Browser** to inject additional celestial configurations:
+- **Inner Terrestrial System:** Sun, Mercury, Venus, Earth, Mars.
+- **Earth-Moon System with Lagrange Points:** Earth and Moon accompanied by test tracer particles stationed at L1–L5.
+- **Binary Star Encounter:** Dual-stellar system with crossing gravitational potentials.
+- **Black Hole Intrusion:** Stellar-mass black hole with a Schwarzschild event horizon and accretion disk visuals.
+
+### 6.5 Saving & Replaying Scenarios
+- Click **Save Scenario** (`S`) to store your scenario locally in IndexedDB or export it as a portable `.json` scenario file.
+- Replaying a saved scenario executes the recorded command stream deterministically, reproducing identical trajectories across sessions.

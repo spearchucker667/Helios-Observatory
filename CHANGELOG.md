@@ -4,7 +4,32 @@ All notable changes to Helios Observatory are documented here. Format based on
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); the project does
 not yet use versioned releases, so entries are dated.
 
-## [Unreleased] — 2026-09-16 Production expansion & release-readiness pass
+## [Unreleased] — 2026-09-17 Interactive Astrophysical Sandbox & Symplectic Engine
+
+### Added
+
+- **Second-Order Velocity Verlet (Leapfrog) Symplectic Integrator** (`src/simulation/engine/integrator.ts`):
+  Guarantees bounded mechanical energy oscillation ($|\Delta E / E_0| < 10^{-5}$) and phase-space volume conservation without secular orbital decay over simulated centuries.
+- **Strict SI Dimensional Unit Foundation** (`src/simulation/domain/units.ts`, `src/simulation/domain/constants.ts`):
+  Unified physical modeling in meters ($\text{m}$), seconds ($\text{s}$), and kilograms ($\text{kg}$) referenced to CODATA 2022 and IAU standards.
+- **Barycentric Center-of-Mass Frame Invariant** (`src/simulation/initialization/barycentric.ts`):
+  Automatically shifts heliocentric state vectors to the system barycentre, zeroing net linear momentum ($\sum m_i \mathbf{v}_i = \mathbf{0}$) to prevent system drift.
+- **Canonical Data Adapter & Strict Isolation** (`src/simulation/initialization/canonical-adapter.ts`):
+  Deep-clones canonical registry records into mutable simulation bodies, ensuring zero back-propagation to canonical data.
+- **Authoritative Web Worker Architecture** (`src/simulation/worker/`):
+  Runs N-body numerical integration on an isolated background thread, maintaining 60 FPS rendering and smooth camera transitions on the main thread.
+- **Deterministic Timestep Scheduler** (`src/simulation/engine/timestep.ts`):
+  Decouples presentation time-warp factors from integration step $\Delta t$, preventing numerical blowup during high-speed simulation.
+- **Tracer Particle Mechanics**:
+  Small bodies and test particles feel gravitational pull without exerting back-reaction on primary bodies.
+- **Astrophysical Simulation Test Suites** (`src/simulation/tests/`):
+  Expanded automated tests from 114 to 154 passing tests across 22 suites, covering canonical isolation, energy conservation, circular orbit stability, collision mechanics, and Schwarzschild horizon capture.
+- **Interactive Sandbox Route & UI Suite** (`src/routes/sandbox.tsx`, `src/components/simulation/`):
+  Added `/sandbox` route, simulation canvas, transport bar, body inspector, object browser, vector manipulator, and scenario manager.
+- **Comprehensive Technical Documentation**:
+  Published `docs/PHYSICS_ENGINE.md` and `docs/SIMULATION_SANDBOX.md`, updating `README.md`, `ARCHITECTURE.md`, `TESTING.md`, `USER_GUIDE.md`, and `CONTROLS.md`.
+
+## 2026-09-16 Production expansion & release-readiness pass
 
 ### Added
 

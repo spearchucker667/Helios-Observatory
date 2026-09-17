@@ -10,6 +10,12 @@ assignees: ""
 
 What can't a user do today?
 
+**Target Area**
+
+- [ ] Observatory Mode (`/`): Ephemeris, calipers, moons, 3D globes, surface markers
+- [ ] Sandbox Mode (`/sandbox`): N-body physics, integrators, body editor, scenarios
+- [ ] Cross-cutting: UI/UX, controls, accessibility, performance, documentation
+
 **Proposed behaviour**
 
 Keep it small and observable. Note whether it needs new astronomical data

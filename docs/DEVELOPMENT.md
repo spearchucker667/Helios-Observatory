@@ -22,7 +22,7 @@ The dev server binds `0.0.0.0:8080` (a preview proxy watches that port).
 | `npm run dev` | Vite dev server on `:8080` |
 | `npm run typecheck` | `tsc --noEmit` — strict, zero tolerance |
 | `npm run lint` | ESLint (flat config) — zero warnings expected |
-| `npm test` | `node:test` suites: platform scripts, data integrity, formatting |
+| `npm test` | `node:test` suites: 154 tests across data integrity, ephemeris, calipers, symplectic physics, and platform scripts |
 | `npm run build` | Production build (+ no-op migration step for platform parity) |
 | `npm run preview:restart` | Serve the built output on `:8081` (QA) |
 | `npm run format` | Prettier write |
@@ -33,13 +33,11 @@ All four gates must pass before any change lands:
 
 ```bash
 npm run typecheck && npm run lint && npm test && npm run build
+node scripts/check-doc-consistency.mjs
+node scripts/validate-assets.mjs
 ```
 
-Tests include the **astronomical data integrity suite**
-(`src/data/data-validate.test.ts`): unique ids, valid parent relations,
-positive physical quantities, resolvable source citations, unique event ids,
-and event/mission body references. If you add a body, moon, or event, this
-suite is the reviewer.
+Tests include the **astronomical data integrity suite** (`src/data/data-validate.test.ts`), the **satellite catalogue suite** (`src/data/satellites/catalogue.test.ts`), the **ephemeris and distance calipers suites** (`src/lib/*.test.ts`), and the **symplectic N-body physics engine suites** (`src/simulation/tests/*.test.ts`). If you modify data records, mathematical solvers, or numerical integrators, these suites are the authoritative reviewers.
 
 ## Browser QA
 
