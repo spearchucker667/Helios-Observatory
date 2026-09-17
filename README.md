@@ -1,15 +1,11 @@
 # Helios Observatory
 
 <p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="public/assets/miku-space/helios-miku-readme-header.svg" />
-    <source media="(prefers-color-scheme: light)" srcset="public/assets/miku-space/helios-miku-readme-header.svg" />
-    <img
-      src="public/assets/miku-space/helios-miku-readme-header.svg"
-      alt="Helios Observatory — Living 3D Orrery and Interactive Astrophysical Sandbox"
-      width="1200"
-    />
-  </picture>
+  <img
+    src="public/assets/branding/helios-readme-hero.jpg"
+    alt="Helios Observatory — Advanced Solar Data Platform, Living 3D Orrery and Interactive Astrophysical Sandbox"
+    width="1200"
+  />
 </p>
 
 <p align="center">
@@ -17,7 +13,7 @@
   <a href="./LICENSE"><img src="https://img.shields.io/badge/License-Apache_2.0-blue.svg" alt="License" /></a>
   <a href="https://www.typescriptlang.org/"><img src="https://img.shields.io/badge/TypeScript-5.7_Strict-3178C6.svg" alt="TypeScript" /></a>
   <a href="https://eslint.org/"><img src="https://img.shields.io/badge/ESLint-Zero_Warnings-4B32C3.svg" alt="ESLint" /></a>
-  <a href="./docs/TESTING.md"><img src="https://img.shields.io/badge/Tests-156_Passing-brightgreen.svg" alt="Tests" /></a>
+  <a href="./docs/TESTING.md"><img src="https://img.shields.io/badge/Tests-159_Passing-brightgreen.svg" alt="Tests" /></a>
   <a href="https://nodejs.org/"><img src="https://img.shields.io/badge/Node.js-22.x_LTS-339933.svg" alt="Node.js" /></a>
   <a href="./docs/EPHEMERIS_ENGINE.md"><img src="https://img.shields.io/badge/Ephemeris-J2000.0_JPL_DE405-orange.svg" alt="Ephemeris" /></a>
   <a href="./docs/SATELLITE_CATALOGUE.md"><img src="https://img.shields.io/badge/Satellites-461_Moons-informational.svg" alt="Satellites" /></a>
