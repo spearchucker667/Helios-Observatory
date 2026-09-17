@@ -11,8 +11,8 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  quality:
-    name: Quality & Verification Gates
+  typecheck:
+    name: TypeScript Strict Typecheck
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -30,24 +30,110 @@ jobs:
       - name: TypeScript typecheck
         run: npm run typecheck
 
-      - name: ESLint (Zero Warnings)
+  lint:
+    name: ESLint (Zero Warnings)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: ESLint
         run: npm run lint
 
-      - name: Run automated test suite
+  tests:
+    name: Automated Test Suites
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Astronomical, ephemeris, and formatting tests
         run: npm test
+
+      - name: Platform and invariant script tests
+        run: node --test scripts/**/*.test.mjs
+
+      - name: Auth invariant verification
+        run: npm run check:auth
+
+  assets:
+    name: Vector Assets & Manifest Validation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
 
       - name: Validate vector assets & manifest
         run: node scripts/validate-assets.mjs
 
+  docs:
+    name: Documentation Consistency & Integrity
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
       - name: Check documentation consistency
         run: node scripts/check-doc-consistency.mjs
+
+  build:
+    name: Production Bundle Compilation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
 
       - name: Compile production build
         run: npm run build
 
   browser-smoke:
     name: Headless Browser Smoke QA
-    needs: quality
+    needs: [build]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
