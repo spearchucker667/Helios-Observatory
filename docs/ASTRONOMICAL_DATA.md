@@ -3,16 +3,34 @@
 This document explains where Helios' numbers come from, how fresh they are,
 and which parts of the visualisation are **not** science.
 
-## The three registers
+## The registers and modes
 
 Every quantity in Helios belongs to exactly one of:
 
 | Register | Meaning | Lives in |
 | --- | --- | --- |
-| **Scientific data** | Canonical, source-cited astronomy | `src/data/**` (`physical`, `orbit`, `rotation`, `temperature`, …) |
-| **Analytical ephemeris** | J2000 Keplerian elliptical mechanics (1800–2050 AD) | `src/lib/ephemeris.ts` |
-| **Visualization scale** | Presentation compromises that make the system watchable | `src/lib/scene-scale.ts` |
-| **Simulation engine** | 3D numerical propagation, camera tracking, and real-time calipers | `bodies.tsx`, `caliper.tsx` |
+| **Canonical scientific data** | Source-backed reference astronomy | `src/data/**` |
+| **Analytical ephemeris** | J2000 Keplerian elliptical mechanics | `src/lib/ephemeris.ts` |
+| **Physics sandbox** | Newtonian N-body simulation | `src/simulation/**` |
+| **Derived simulation values** | Calculated environments and diagnostics | `src/simulation/environment/**` |
+| **Visualization scale** | Presentation compromises | `src/lib/scene-scale.ts` |
+
+The architecture strictly divides into two modes:
+
+**Observatory Mode (`/`)**:
+A source-backed reference combined with an analytical ephemeris.
+
+**Sandbox Mode (`/sandbox`)**:
+A mutable numerical experiment.
+
+### Provenance States
+
+Every scientific field explicitly declares its origin:
+- **Canonical value**: source-backed
+- **Calculated value**: direct model output
+- **Estimated value**: assumption/model-dependent
+- **Custom value**: user-provided
+- **Unsupported value**: intentionally unavailable
 
 The UI distinguishes these explicitly: the footer shows the active scale
 mode ("Presentation view — not to scale", "True size", "True distance") and

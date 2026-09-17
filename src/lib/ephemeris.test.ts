@@ -10,6 +10,7 @@ import {
   formatEpochIso,
   solveKepler,
   computeEphemerisPosition,
+  computeEphemerisStateVector,
   computeOrbitPath,
 } from "./ephemeris.ts";
 import { parseDeepLinkParams, useSim } from "./sim-store.ts";
@@ -237,6 +238,46 @@ describe("J2000 Ephemeris and Orbit Engine", () => {
     sim.resetView();
     assert.equal(useSim.getState().selectedId, null);
     assert.equal(useSim.getState().selectedRegionId, null);
+  });
+
+  it("calculates accurate state vectors with matching position and SI units", () => {
+    const state = computeEphemerisStateVector("earth", 0);
+    assert.ok(state);
+    assert.equal(state.epochDays, 0);
+    assert.equal(state.provenance.kind, "canonical");
+    assert.ok(state.position.length === 3);
+    assert.ok(state.velocity.length === 3);
+    
+    // Test position consistency
+    const pos = computeEphemerisPosition("earth", 0, "presentation");
+    assert.ok(pos);
+    const auToMeters = 149597870700;
+    assert.ok(Math.abs(state.position[0] - pos.science.heliocentricAu[0] * auToMeters) < 1e-4);
+    assert.ok(Math.abs(state.position[1] - pos.science.heliocentricAu[1] * auToMeters) < 1e-4);
+    assert.ok(Math.abs(state.position[2] - pos.science.heliocentricAu[2] * auToMeters) < 1e-4);
+  });
+
+  it("calculates velocity agreeing with finite-difference derivative", () => {
+    const id = "mars";
+    const days = 1000;
+    const dt = 1e-5;
+    
+    const state = computeEphemerisStateVector(id, days);
+    assert.ok(state);
+    
+    const posMinus = computeEphemerisPosition(id, days - dt, "presentation");
+    const posPlus = computeEphemerisPosition(id, days + dt, "presentation");
+    assert.ok(posMinus && posPlus);
+    
+    const auToMeters = 149597870700;
+    const secondsPerDay = 86400;
+    
+    for (let i = 0; i < 3; i++) {
+      const v_fd_au_day = (posPlus.science.heliocentricAu[i] - posMinus.science.heliocentricAu[i]) / (2 * dt);
+      const v_fd_m_s = v_fd_au_day * auToMeters / secondsPerDay;
+      assert.ok(Math.abs(state.velocity[i] - v_fd_m_s) < 1.0, 
+        `Velocity mismatch for ${id} coord ${i}: analytical ${state.velocity[i]}, FD ${v_fd_m_s}`);
+    }
   });
 });
 

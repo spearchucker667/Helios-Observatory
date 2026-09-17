@@ -15,30 +15,41 @@ flowchart TD
         S["sources.ts — citation registry"]
         V["validate.ts — invariant checks"]
     end
-    subgraph Sim["Simulation (src/lib)"]
+    subgraph ObservatorySim["Observatory Simulation (src/lib)"]
         ST["sim-store.ts — zustand state"]
         SC["scene-scale.ts — science → scene mapping"]
         F["format.ts — unit formatting"]
         CLK["simClock — accelerated days"]
     end
-    subgraph Scene["Three.js Scene (src/components/solar)"]
+    subgraph PhysicsSandbox["Physics Sandbox (src/simulation)"]
+        SW["worker/physics.worker.ts — authoritative N-body"]
+        SE["engine/world.ts — deterministic state"]
+        SP["physics/ — gravity, collisions, mechanics"]
+    end
+    subgraph Scene["Three.js Scene (src/components/solar & src/components/simulation)"]
         BODY["bodies.tsx — star + planets"]
         MOON["moons.tsx — moon systems"]
         RING["ring-systems.tsx — 4 ring systems"]
         CAM["camera-rig.tsx — focus hierarchy"]
         TEX["textures.ts — tiered procedural maps"]
     end
-    subgraph UI["Observatory UI (src/components/overlay)"]
-        HUD["hud.tsx — HUD shell"]
-        DET["detail.tsx — tabbed detail panel"]
-        SRCH["Search palette (cmdk)"]
-        CMP["Compare dialog"]
+    subgraph UI["DOM UI (src/components/overlay & src/components/simulation)"]
+        HUD["hud.tsx — Observatory shell"]
+        SANDBOX["sandbox-shell.tsx — Sandbox shell"]
+        DET["detail.tsx — progressive disclosure"]
     end
-    Data --> Sim
-    Sim --> Scene
+    Data --> ObservatorySim
+    Data -.->|deep copy only| PhysicsSandbox
+    ObservatorySim --> Scene
+    PhysicsSandbox --> Scene
     Scene --> UI
     S --> V
 ```
+
+## Modes
+
+- **Observatory Mode (`/`)**: Source-backed reference with analytical ephemeris.
+- **Sandbox Mode (`/sandbox`)**: Mutable numerical experiment using an isolated Newtonian physics engine.
 
 ## Layers
 

@@ -54,8 +54,12 @@ export function getBodyHeliocentricAu(
     if (!parentPos) return null;
 
     const parentAu = parentPos.science.heliocentricAu;
-    const semiMajorKm = body.orbit?.semiMajorAxisKm ?? 384400;
-    const periodDays = body.orbit?.periodDays ?? 27.322;
+    const semiMajorKm = body.orbit?.semiMajorAxisKm;
+    const periodDays = body.orbit?.periodDays;
+    
+    if (semiMajorKm === undefined || periodDays === undefined) {
+      return null;
+    }
     const retrograde = body.orbit?.retrograde ?? false;
     const incRad = ((body.orbit?.inclinationDeg ?? 0) * Math.PI) / 180;
     const theta = (daysFromJ2000 / periodDays) * Math.PI * 2 * (retrograde ? -1 : 1);

@@ -31,3 +31,6 @@ screenshots/*.json
 
 # Freebuff platform id
 .freebuff/
+
+# Task History and Current Work orders
+/tasks

@@ -435,6 +435,90 @@ export function computeEphemerisPosition(
   };
 }
 
+export type EphemerisStateVector = {
+  position: [number, number, number]; // meters [x, y, z] heliocentric ecliptic
+  velocity: [number, number, number]; // m/s [vx, vy, vz] heliocentric ecliptic
+  epochDays: number;
+  provenance: {
+    kind: "canonical";
+    source: string;
+    authority: string;
+  };
+};
+
+/**
+ * Computes the 3D position and velocity state vector of a planet or dwarf planet
+ * at a specific epoch, returning strict SI units (meters and meters/second) for
+ * the sandbox N-body initialization.
+ */
+export function computeEphemerisStateVector(
+  bodyId: string,
+  daysFromJ2000: number,
+): EphemerisStateVector | null {
+  const elem = KEPLER_TABLE[bodyId];
+  if (!elem) return null;
+
+  const T = daysFromJ2000 / DAYS_PER_CENTURY;
+
+  const a = elem.a + elem.aDot * T;
+  const e = elem.e + elem.eDot * T;
+  const I = (elem.I + elem.IDot * T) * DEG_TO_RAD;
+  const L = (elem.L + elem.LDot * T) % 360;
+  const longPeri = (elem.longPeri + elem.longPeriDot * T) % 360;
+  const longNode = (elem.longNode + elem.longNodeDot * T) * DEG_TO_RAD;
+
+  const omega = (longPeri - (elem.longNode + elem.longNodeDot * T)) * DEG_TO_RAD;
+  const M_deg = ((L - longPeri) % 360 + 360) % 360;
+  const M_rad = M_deg * DEG_TO_RAD;
+
+  const E = solveKepler(M_rad, e);
+
+  const xPrime = a * (Math.cos(E) - e);
+  const yPrime = a * Math.sqrt(Math.max(0, 1 - e * e)) * Math.sin(E);
+
+  const dM_dt_deg_century = elem.LDot - elem.longPeriDot;
+  const dM_dt_rad_day = (dM_dt_deg_century * DEG_TO_RAD) / DAYS_PER_CENTURY;
+  const dE_dt_rad_day = dM_dt_rad_day / (1 - e * Math.cos(E));
+
+  const dxPrime_dt_au_day = -a * Math.sin(E) * dE_dt_rad_day;
+  const dyPrime_dt_au_day = a * Math.sqrt(Math.max(0, 1 - e * e)) * Math.cos(E) * dE_dt_rad_day;
+
+  const cosOmega = Math.cos(omega);
+  const sinOmega = Math.sin(omega);
+  const cosNode = Math.cos(longNode);
+  const sinNode = Math.sin(longNode);
+  const cosI = Math.cos(I);
+  const sinI = Math.sin(I);
+
+  const xh = (cosOmega * cosNode - sinOmega * sinNode * cosI) * xPrime +
+             (-sinOmega * cosNode - cosOmega * sinNode * cosI) * yPrime;
+  const yh = (cosOmega * sinNode + sinOmega * cosNode * cosI) * xPrime +
+             (-sinOmega * sinNode + cosOmega * cosNode * cosI) * yPrime;
+  const zh = (sinOmega * sinI) * xPrime + (cosOmega * sinI) * yPrime;
+
+  const v_xh_au_day = (cosOmega * cosNode - sinOmega * sinNode * cosI) * dxPrime_dt_au_day +
+             (-sinOmega * cosNode - cosOmega * sinNode * cosI) * dyPrime_dt_au_day;
+  const v_yh_au_day = (cosOmega * sinNode + sinOmega * cosNode * cosI) * dxPrime_dt_au_day +
+             (-sinOmega * sinNode + cosOmega * cosNode * cosI) * dyPrime_dt_au_day;
+  const v_zh_au_day = (sinOmega * sinI) * dxPrime_dt_au_day + (cosOmega * sinI) * dyPrime_dt_au_day;
+
+  // 1 AU = 149597870700 meters
+  // 1 day = 86400 seconds
+  const auToMeters = 149597870700;
+  const auDayToMs = auToMeters / 86400;
+
+  return {
+    position: [xh * auToMeters, yh * auToMeters, zh * auToMeters],
+    velocity: [v_xh_au_day * auDayToMs, v_yh_au_day * auDayToMs, v_zh_au_day * auDayToMs],
+    epochDays: daysFromJ2000,
+    provenance: {
+      kind: "canonical",
+      source: elem.provenance?.source || "Standish (1992) Table 1 / NASA JPL SSD",
+      authority: elem.provenance?.authority || "NASA JPL",
+    },
+  };
+}
+
 
 /**
  * Computes a 3D polyline of the elliptical orbit for rendering.
