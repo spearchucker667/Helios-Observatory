@@ -17,9 +17,11 @@
     "preview:stop": "node scripts/preview.mjs stop",
     "typecheck": "tsc --noEmit",
     "check:auth": "node scripts/check-auth-invariant.mjs",
-    "test": "node --test 'scripts/**/*.test.mjs' && node --experimental-strip-types --test src/lib/app-data/app-data.test.ts src/lib/app-data/readiness-schedule.test.ts src/lib/auth/gate-identity.test.ts src/lib/auth/sign-in-gate.test.ts src/data/data-validate.test.ts src/lib/format.test.ts src/lib/ephemeris.test.ts src/data/satellites/catalogue.test.ts src/lib/deep-space-scale.test.ts src/lib/measurement.test.ts src/simulation/tests/*.test.ts",
+    "test": "node scripts/check-test-integrity.mjs && node --test 'scripts/**/*.test.mjs' && node --experimental-strip-types --test src/lib/app-data/app-data.test.ts src/lib/app-data/readiness-schedule.test.ts src/lib/auth/gate-identity.test.ts src/lib/auth/sign-in-gate.test.ts src/data/data-validate.test.ts src/lib/format.test.ts src/lib/ephemeris.test.ts src/data/satellites/catalogue.test.ts src/lib/deep-space-scale.test.ts src/lib/measurement.test.ts src/simulation/tests/*.test.ts",
 
 
+    "benchmark": "node --experimental-strip-types scripts/sim-benchmark.mjs",
+ "fuzz:collisions": "node --experimental-strip-types scripts/collision-fuzz.mjs",
     "lint": "eslint . --max-warnings=0",
     "format": "prettier --write ."
   },

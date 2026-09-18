@@ -68,6 +68,50 @@ jobs:
       - name: Run automated test suite
         run: npm test
 
+  simulation-integrity:
+    name: Simulation Test Integrity
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Reject placeholder assertions in simulation suites
+        run: node scripts/check-test-integrity.mjs
+
+  numerical-reference:
+    name: Numerical Reference & Sandbox Physics
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run sandbox numerical suites
+        run: node --experimental-strip-types --test src/simulation/tests/*.test.ts
+
+      - name: Fuzz the swept-sphere collision detector
+        run: node --experimental-strip-types scripts/collision-fuzz.mjs --solver-cases 20000 --world-cases 200
+
+      - name: Measure the simulation benchmark matrix
+        run: node --experimental-strip-types scripts/sim-benchmark.mjs --steps 40
+
   assets:
     name: Vector Assets & Manifest Validation
     runs-on: ubuntu-latest
@@ -124,6 +168,43 @@ jobs:
 
       - name: Compile production build
         run: npm run build
+
+  sandbox-browser:
+    name: Sandbox Browser Acceptance
+    needs: [build]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+
+      - name: Build production bundle
+        run: npm run build
+
+      - name: Start preview server
+        run: |
+          npm run preview &
+          for i in {1..30}; do
+            if curl -sf http://127.0.0.1:8081/ > /dev/null 2>&1; then
+              echo "Preview server ready on :8081"
+              break
+            fi
+            sleep 1
+          done
+
+      - name: Run simulation sandbox browser acceptance
+        run: xvfb-run --auto-servernum -- node scripts/browser-sandbox.mjs http://127.0.0.1:8081/sandbox
 
   browser-smoke:
     name: Headless Browser Smoke QA

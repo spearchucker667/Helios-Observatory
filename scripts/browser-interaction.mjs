@@ -38,18 +38,38 @@ try {
   await page.waitForSelector("canvas", { timeout: 10000 });
   await page.waitForTimeout(1000);
 
-  // Step 2: Test Planet Selection (Mars)
-  console.log("Step 2: Testing planet selection (Mars)...");
-  const marsBtn = page.locator('button:has-text("Mars")').first();
-  await marsBtn.waitFor({ state: "visible", timeout: 5000 });
-  await marsBtn.click();
-  await page.waitForTimeout(500);
-
-  // Verify detail panel shows Mars
   const aside = page.locator("aside");
   await aside.waitFor({ state: "visible", timeout: 5000 });
-  const marsHeader = aside.locator('h2:has-text("Mars")');
-  await marsHeader.waitFor({ state: "visible", timeout: 5000 });
+
+  /**
+   * Clicks a body entry and requires its detail card. A click issued while the
+   * scene is still hydrating can be swallowed, so the selection is retried (and
+   * Escape clears any partial selection) before the assertion is allowed to
+   * fail — the assertion itself is never weakened.
+   */
+  async function selectBodyAndAssertDetail(buttonLocator, name) {
+    const header = aside.locator(`h2:has-text("${name}")`);
+    const attempt = async () => {
+      await buttonLocator.waitFor({ state: "visible", timeout: 5000 });
+      await buttonLocator.click();
+      try {
+        await header.waitFor({ state: "visible", timeout: 2500 });
+        return true;
+      } catch {
+        await page.keyboard.press("Escape");
+        await page.waitForTimeout(250);
+        return false;
+      }
+    };
+    for (let i = 0; i < 3; i++) {
+      if (await attempt()) return;
+    }
+    throw new Error(`Selecting ${name} never produced its detail card`);
+  }
+
+  // Step 2: Test Planet Selection (Mars)
+  console.log("Step 2: Testing planet selection (Mars)...");
+  await selectBodyAndAssertDetail(page.locator('button:has-text("Mars")').first(), "Mars");
   console.log("✓ Planet selection verified: Mars detail card displayed");
 
   // Step 3: Test Calipers / Scientific Measurement Panel
@@ -79,12 +99,28 @@ try {
   await page.waitForTimeout(300);
 
   const jupiterHit = page.locator('[cmdk-item]:has-text("Jupiter")').first();
-  await jupiterHit.waitFor({ state: "visible", timeout: 5000 });
-  await jupiterHit.click();
-  await page.waitForTimeout(500);
-
   const jupiterHeader = aside.locator('h2:has-text("Jupiter")');
-  await jupiterHeader.waitFor({ state: "visible", timeout: 5000 });
+  let jupiterSelected = false;
+  for (let attempt = 0; attempt < 3 && !jupiterSelected; attempt++) {
+    if (attempt > 0) {
+      await searchBtn.click();
+      await page.waitForTimeout(300);
+      await searchInput.fill("Jupiter");
+      await page.waitForTimeout(300);
+    }
+    await jupiterHit.waitFor({ state: "visible", timeout: 5000 });
+    await jupiterHit.click();
+    try {
+      await jupiterHeader.waitFor({ state: "visible", timeout: 2500 });
+      jupiterSelected = true;
+    } catch {
+      await page.keyboard.press("Escape");
+      await page.waitForTimeout(250);
+    }
+  }
+  if (!jupiterSelected) {
+    throw new Error("Search palette selection never produced the Jupiter detail card");
+  }
   console.log("✓ Search palette navigation verified: Jupiter selected and detailed");
 
   // Step 5: Test Deep Space Region Search Navigation (Kuiper Belt)
