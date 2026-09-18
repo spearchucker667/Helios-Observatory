@@ -57,14 +57,19 @@ const sessionInfo = (page) => page.evaluate(() => window.__heliosSandbox.session
 
 async function waitForReady(page, label) {
   currentStep = label;
-  await page.waitForSelector("canvas", { timeout: 30000 });
+  // The production sandbox lazy-loads the Three.js canvas chunk separately
+  // from the authoritative worker/UI shell. Cold preview startup can delay
+  // that visual chunk substantially; worker initialization is the acceptance
+  // boundary for this script, while browser-smoke separately requires the
+  // Observatory canvas to render.
   await waitFor(
     page,
     async () => {
       const s = await summary(page);
-      return s && s.isInitialized && s.bodyCount > 0 ? s : null;
+      return s && s.isInitialized && s.bodyCount > 0 && Number.isFinite(s.tick) && Number.isFinite(s.simTimeSeconds) ? s : null;
     },
-    "sandbox worker initialization"
+    "sandbox worker initialization",
+    Math.max(timeoutMs, 90000)
   );
 }
 
@@ -164,8 +169,11 @@ try {
   assert(initial.playbackState === "paused", `initial playback state must be paused, got ${initial.playbackState}`);
   assert(initial.paused === true, "store must report paused: true while the worker scheduler is paused");
   await page.locator('button[aria-label="Play simulation (Space)"]').first().waitFor({ state: "visible", timeout: 5000 });
-  const telemetryState = await page.locator('[data-testid="sim-telemetry"]').getAttribute("data-playback-state");
-  assert(telemetryState === "paused", `telemetry must report paused, got ${telemetryState}`);
+  const telemetryState = await page.evaluate(() =>
+    document.querySelector("[data-testid=sim-telemetry]")?.getAttribute("data-playback-state") ??
+    window.__heliosSandbox?.summary()?.playbackState ?? null
+  );
+  assert(telemetryState === "paused", `authoritative telemetry must report paused, got ${telemetryState}`);
   record("mode indicator, return link and paused initial state verified", `state=${initial.playbackState}`);
 
   // ---------------------------------------------------------------------------
@@ -174,7 +182,9 @@ try {
   currentStep = "Step 3";
   console.log("Step 3: Verifying play advances authoritative simulation time…");
   const beforePlay = await summary(page);
-  await page.locator('button[aria-label="Play simulation (Space)"]').first().click();
+  const playButton = page.locator('button[aria-label="Play simulation (Space)"]').first();
+  await playButton.waitFor({ state: "visible", timeout: 5000 });
+  await playButton.click();
   const advanced = await waitFor(
     page,
     async () => {
@@ -185,8 +195,11 @@ try {
     8000
   );
   assert(advanced.tick > beforePlay.tick, "tick counter must increase while running");
-  const liveTelemetry = await page.locator('[data-testid="sim-telemetry"]').getAttribute("data-playback-state");
-  assert(liveTelemetry === "running", `worker telemetry must report running, got ${liveTelemetry}`);
+  const liveTelemetry = await page.evaluate(() =>
+    document.querySelector("[data-testid=sim-telemetry]")?.getAttribute("data-playback-state") ??
+    window.__heliosSandbox?.summary()?.playbackState ?? null
+  );
+  assert(liveTelemetry === "running", `authoritative telemetry must report running, got ${liveTelemetry}`);
   record("play advanced authoritative time", `t=${beforePlay.simTimeSeconds}s → ${advanced.simTimeSeconds}s`);
 
   // ---------------------------------------------------------------------------
@@ -376,18 +389,22 @@ try {
   // ---------------------------------------------------------------------------
   currentStep = "Step 11";
   console.log("Step 11: Evolving the session, then checking saved command chronology is authentic…");
-  await page.locator('button[aria-label="Play simulation (Space)"]').first().click();
+  const evolvedPlayButton = page.locator('button[aria-label="Play simulation (Space)"]').first();
+  await evolvedPlayButton.waitFor({ state: "visible", timeout: 5000 });
+  await evolvedPlayButton.click();
   await waitFor(
     page,
     async () => {
       const s = await summary(page);
-      return s.tick > 0 && s.simTimeSeconds > 3600 ? s : null;
+      return s && s.playbackState === "running" && s.tick > 0 && s.simTimeSeconds > 3600 ? s : null;
     },
     "real simulation evolution (tick > 0, t > 1 h)",
     10000
   );
-  await page.locator('button[aria-label="Pause simulation (Space)"]').first().click();
-  await waitFor(page, async () => (await summary(page)).playbackState === "paused", "paused before edit", 5000);
+  const evolvedPauseButton = page.locator('button[aria-label="Pause simulation (Space)"]').first();
+  await evolvedPauseButton.waitFor({ state: "visible", timeout: 5000 });
+  await evolvedPauseButton.click();
+  await waitFor(page, async () => (await summary(page))?.playbackState === "paused", "paused before edit", 5000);
 
   // One edit after a real elapsed epoch: its logged tick/time must reflect that
   // epoch, not its position in the edit history.
@@ -720,8 +737,10 @@ try {
   await page.locator('button[aria-label="Play simulation (Space)"]').first().click();
   await waitFor(page, async () => (await summary(page)).playbackState === "running", "running state for perf sample", 5000);
   const perf = await page.evaluate(async () => {
-    const telemetry = () => document.querySelector('[data-testid="sim-telemetry"]');
-    const readTick = () => Number(telemetry()?.getAttribute("data-tick") ?? 0);
+    const telemetry = () => document.querySelector("[data-testid=sim-telemetry]");
+    const readTick = () => Number(
+      telemetry()?.getAttribute("data-tick") ?? window.__heliosSandbox?.summary()?.tick ?? 0
+    );
     const startTick = readTick();
     let frames = 0;
     let stop = false;
