@@ -22,8 +22,9 @@ The dev server binds `0.0.0.0:8080` (a preview proxy watches that port).
 | `npm run dev` | Vite dev server on `:8080` |
 | `npm run typecheck` | `tsc --noEmit` — strict, zero tolerance |
 | `npm run lint` | ESLint (flat config) — zero warnings expected |
-| `npm test` | `node:test` suites: 154 tests across data integrity, ephemeris, calipers, symplectic physics, and platform scripts |
+| `npm test` | Assertion-integrity guard, then `node:test` suites (data integrity, ephemeris, calipers, sandbox physics, platform scripts). CI reports the current counts. |
 | `npm run build` | Production build (+ no-op migration step for platform parity) |
+| `npm run benchmark` | Sandbox benchmark matrix: steps/s, ms/step, snapshot cost and achieved warp per body count |
 | `npm run preview:restart` | Serve the built output on `:8081` (QA) |
 | `npm run format` | Prettier write |
 

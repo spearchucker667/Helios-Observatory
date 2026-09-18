@@ -13,7 +13,7 @@
   <a href="./LICENSE"><img src="https://img.shields.io/badge/License-Apache_2.0-blue.svg" alt="License" /></a>
   <a href="https://www.typescriptlang.org/"><img src="https://img.shields.io/badge/TypeScript-5.7_Strict-3178C6.svg" alt="TypeScript" /></a>
   <a href="https://eslint.org/"><img src="https://img.shields.io/badge/ESLint-Zero_Warnings-4B32C3.svg" alt="ESLint" /></a>
-  <a href="./docs/TESTING.md"><img src="https://img.shields.io/badge/Tests-159_Passing-brightgreen.svg" alt="Tests" /></a>
+  <a href="./docs/TESTING.md"><img src="https://img.shields.io/badge/Tests-CI_verified-brightgreen.svg" alt="Tests" /></a>
   <a href="https://nodejs.org/"><img src="https://img.shields.io/badge/Node.js-22.x_LTS-339933.svg" alt="Node.js" /></a>
   <a href="./docs/EPHEMERIS_ENGINE.md"><img src="https://img.shields.io/badge/Ephemeris-J2000.0_JPL_DE405-orange.svg" alt="Ephemeris" /></a>
   <a href="./docs/SATELLITE_CATALOGUE.md"><img src="https://img.shields.io/badge/Satellites-461_Moons-informational.svg" alt="Satellites" /></a>
@@ -23,7 +23,7 @@
 
 **Helios Observatory** is an open-source, scientifically rigorous 3D astronomical visualization platform and interactive N-body astrophysical sandbox for the Solar System. 
 
-Operating under a dual-mode architectural contract, Helios delivers both an **Observatory Mode** (`/`)—combining analytical Keplerian ephemerides, institutional NASA/JPL data registries, an exhaustive 461-moon natural satellite catalogue, geomorphic surface markers, real-time distance calipers, and a continuous logarithmic deep-space continuum—and an **Interactive Sandbox Mode** (`/sandbox`) powered by an isolated Newtonian N-body engine with a second-order Velocity Verlet (Leapfrog) symplectic integrator, strict SI dimensional units, barycentric momentum conservation, and deterministic scenario persistence.
+Operating under a dual-mode architectural contract, Helios delivers both an **Observatory Mode** (`/`)—combining analytical Keplerian ephemerides, institutional NASA/JPL data registries, an exhaustive 461-moon natural satellite catalogue, geomorphic surface markers, real-time distance calipers, and a continuous logarithmic deep-space continuum—and an **Interactive Sandbox Mode** (`/sandbox`) powered by an isolated Newtonian N-body engine with a second-order Velocity Verlet (Leapfrog) integrator that is symplectic in Newtonian mode, strict SI dimensional units, barycentric momentum conservation, provenance-aware editing, and tick-authentic scenario replay.
 
 > **Disclaimer:** Helios Observatory is an independent open-source project. Scientific telemetry is referenced to NASA, JPL, and IAU open-access data. Space-agency styling and Miku-inspired visual elements do not imply affiliation with or endorsement by NASA, Crypton Future Media, or Piapro.
 
@@ -113,13 +113,13 @@ flowchart TD
 - **Natural Satellite Explorer:** Filterable, searchable catalog integrated directly into the planetary detail sheet.
 
 ### 3. Interactive Astrophysical Sandbox (`/sandbox`) & Symplectic Engine
-- **Velocity Verlet (Leapfrog) Integrator:** Second-order symplectic numerical integration ensures bounded energy oscillation and preserves phase-space volume (Liouville's theorem), preventing artificial orbital decay over long-duration simulations.
+- **Velocity Verlet (Leapfrog) Integrator:** In Newtonian mode the second-order kick-drift-kick scheme is symplectic, bounding energy oscillation and preserving phase-space volume (Liouville's theorem). The optional pairwise 1PN correction is velocity-dependent, so it is presented as a second-order approximation with **no** symplectic guarantee.
 - **Strict SI Units:** Operates internally in SI units (meters, meters per second, kilograms, seconds, kelvins, watts), converting to astronomical units purely in the presentation layer.
 - **Center-of-Mass & Barycentric Momentum Conservation:** Initial ephemeris states are automatically shifted to the system center of mass with net momentum zeroed ($\sum m_i \mathbf{v}_i = \mathbf{0}$).
 - **Tracer Body Modeling:** Objects with negligible mass move according to external gravitational fields without exerting gravitational forces on massive primary bodies.
 - **Deterministic Timestep Scheduler:** Simulation time acceleration is completely decoupled from the integration timestep $\Delta t$, avoiding numerical instability during high time-warp rates.
-- **Dedicated Web Worker Pipeline:** Simulation updates run on an isolated worker thread, maintaining 60 FPS user-interface and camera transitions on the main thread.
-- **Scenario Persistence & Deterministic Replay:** Save and load customized scenario snapshots in versioned JSON structures.
+- **Dedicated Web Worker Pipeline:** Simulation updates run on an isolated worker thread that streams typed-array snapshots (~30 Hz) and authoritative domain patches, keeping the main thread free for camera and UI interaction. Snapshots are interpolated for rendering only, never fed back into physics. Measured throughput per body count is in [docs/PERFORMANCE.md](./docs/PERFORMANCE.md).
+- **Scenario Persistence & Deterministic Replay:** Scenarios are versioned JSON documents storing the session origin, every command with its authentic tick and simulated time, an explicit final state, and a restartable checkpoint. Loading replays through the same engine to that final tick; imports are re-validated and replayed rather than trusted.
 
 ### 4. Interactive Scientific Distance Caliper
 - **3D Laser Caliper:** Connect any two celestial bodies in 3D space with an interactive geometric caliper line.
@@ -175,7 +175,7 @@ npm install
 # Start development server (bound to 0.0.0.0:8080)
 npm run dev
 
-# Run automated test suites (154 passing tests across 22 suites)
+# Run automated test suites (counts are reported by CI, never hand-maintained)
 npm test
 
 # Run strict zero-warning linter and TypeScript strict check
@@ -218,9 +218,11 @@ npm run preview:restart
 | `Space` | Pause / Resume | Pauses or resumes the authoritative background physics worker. |
 | `.` | Single Step | Advances the physics simulation by exactly one numerical timestep $\Delta t$. |
 | `[` / `]` | Time Warp Factor | Adjusts time multiplier without altering integration $\Delta t$. |
-| `I` | Object Inspector | Toggles state-vector and orbital-elements inspector for selected body. |
-| `E` | Edit Velocity | Enables 3D impulse vector manipulators on the focused object. |
-| `S` | Save Scenario | Prompts to export the current simulation state as a versioned JSON scenario. |
+| `I` | Object Inspector | Focuses the inspector on the hovered (or selected) body and shows its State tab. |
+| `E` | Edit Object | Opens the object editor, which owns the position/velocity vector fields. |
+| `S` | Save Scenario | Opens the Scenario Manager (save, load, export JSON, import JSON). |
+
+Shortcuts edit physics only from a paused, checkpointed world: `E` pauses the authoritative worker before opening the editor so undo can restore exact state.
 
 See [docs/CONTROLS.md](./docs/CONTROLS.md) for full mouse gestures, touch interactions, and accessibility mappings.
 
@@ -246,8 +248,8 @@ The complete technical, mathematical, and astronomical documentation suite is ma
 | [docs/ASSET_PIPELINE.md](./docs/ASSET_PIPELINE.md) | Scalable vector SVG assets, manifest schema, and texture management. |
 | [docs/ASSET_ATTRIBUTION.md](./docs/ASSET_ATTRIBUTION.md) | Attribution for planetary textures, spacecraft imagery, and vector assets. |
 | [docs/ACCESSIBILITY.md](./docs/ACCESSIBILITY.md) | WCAG 2.1 AA compliance, keyboard focus trapping, ARIA roles, and contrast. |
-| [docs/PERFORMANCE.md](./docs/PERFORMANCE.md) | 60 FPS budget, GPU draw calls, LOD distance thresholds, and memory disposal. |
-| [docs/TESTING.md](./docs/TESTING.md) | Automated test runner (154 tests), integrity assertions, and smoke verification. |
+| [docs/PERFORMANCE.md](./docs/PERFORMANCE.md) | Frame-time budget, measured simulation matrix, draw calls, LOD thresholds, and memory disposal. |
+| [docs/TESTING.md](./docs/TESTING.md) | Automated test runner, assertion-integrity guard, and smoke verification. |
 | [docs/TROUBLESHOOTING.md](./docs/TROUBLESHOOTING.md) | WebGL context loss, port binding, and headless container troubleshooting. |
 | [docs/RELEASE_PROCESS.md](./docs/RELEASE_PROCESS.md) | Quality gates checklist, semantic versioning, and release workflow. |
 | [docs/LEGAL.md](./docs/LEGAL.md) | Apache-2.0 licensing, patent grants, trademark policy, and export compliance. |

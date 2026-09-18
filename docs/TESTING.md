@@ -7,8 +7,16 @@ Helios Observatory maintains a strict zero-tolerance testing policy. All tests a
 ## 1. Test Commands
 
 ```bash
-# Run complete test suite (159 tests across 22 suites)
+# Run the assertion-integrity guard, then the complete test suite.
+# Test counts are reported by CI and the guard output; this document never
+# hardcodes them, because hand-maintained counts drift.
 npm test
+
+# Reject trivially-true or conditional-only assertions in the sandbox suites
+node scripts/check-test-integrity.mjs
+
+# Measure the sandbox performance matrix (steps/s, ms/step, achieved warp)
+npm run benchmark
 
 # Run strict TypeScript typecheck
 npm run typecheck
@@ -28,7 +36,7 @@ node scripts/validate-assets.mjs
 
 ---
 
-## 2. Test Suites Overview (159 Tests / 22 Suites)
+## 2. Test Suites Overview
 
 ### 2.1 Astronomical Data Integrity — `src/data/data-validate.test.ts`
 Guarantees canonical data invariants across all primary celestial bodies:
@@ -99,27 +107,56 @@ Unit-precision tests for all formatters: diameter (metric/Earth), distance (AU/k
 - Checkpoint and reset request handling.
 - Immutability of main-thread state copies.
 
-### 2.12 Object Editor & Coordinate Roundtrip — `src/simulation/tests/editor.test.ts`
-- Cartesian state vector to Keplerian orbital element roundtrip conversions.
-- Input validation and unit conversion precision.
-- Rejection of unphysical compact-object configurations.
+### 2.12 Object Editor, Provenance & Coordinate Roundtrip — `src/simulation/tests/editor.test.ts`
+- SI to display-unit conversion and back for mass, radius, position and velocity.
+- Elliptic **and** hyperbolic Cartesian to Keplerian roundtrips (hyperbolic conics stay finite).
+- Editor validation: NaN/Infinity, negative mass, zero radius for massive bodies.
+- Editor commands move provenance from canonical to custom, and leave unrelated provenance untouched.
+- Black-hole mass/horizon invariants ($r_s = 2GM/c^2$ stays consistent with the mass).
+- Canonical registry isolation after a production editor command.
 
 ### 2.13 Scenario Persistence & Replay — `src/simulation/tests/scenario.test.ts`
 - Save/load and import/export serialization equality.
 - Rejection of malformed JSON, duplicate body IDs, and future schema versions.
-- Deterministic replay from command log history.
+- Replay reproduces command timestamps and stops at the stored final tick.
 
-### 2.14 Collision Resolution — `src/simulation/tests/collision.test.ts`
+### 2.14 Commands, Mutation Guard & Replay — `src/simulation/tests/commands.test.ts`, `src/simulation/tests/replay.test.ts`
+- Duplicate IDs are rejected instead of silently replacing a body.
+- The massive-body and total-body caps hold through **every** mutation path.
+- Every physical edit updates the affected provenance fields.
+- Replay of tick-stamped logs separated by thousands of ticks reaches the identical final state.
+
+### 2.15 Collision & Tidal Physics — `src/simulation/tests/collision.test.ts`
 - Linear momentum conservation across inelastic mergers ($\mathbf{P}_{\text{after}} = \mathbf{P}_{\text{before}}$).
 - Total mass conservation ($M_{\text{merged}} = M_A + M_B$).
+- Swept (continuous) detection: high-speed bodies cannot tunnel through a target.
+- Roche-limit crossing fires **outside** physical contact, and zero-mass tracers report `unsupported` diagnostics rather than a synthesized mass.
 
-### 2.15 Compact Objects & Relativistic Limits — `src/simulation/tests/compact.test.ts`
+### 2.16 Compact Objects & Relativistic Limits — `src/simulation/tests/compact.test.ts`
 - Exact Schwarzschild radius evaluation ($r_s = 2GM/c^2$).
 - Inelastic event horizon capture boundary verification.
 - Mass accumulation upon capture.
-- Presentation of explicit non-relativistic Newtonian limit disclaimers.
+- Mercury precession through the pairwise 1PN path, plus explicit strong-field limitations.
+- Magnetic dipole scaling ($r^{-3}$) and tidal-gradient scaling ($r^{-3}$) as separate, unconditional assertions.
 
-### 2.16 Platform Scripts & Tooling — `scripts/*.test.mjs`
+### 2.17 Environment, Events, Worker & Store — `environment.test.ts`, `events.test.ts`, `worker.test.ts`, `sandbox-store.test.ts`, `ephemeris-state-vector.test.ts`
+- Irradiance inverse-square law, multi-star summed flux, albedo/emissivity boundaries.
+- Equilibrium temperature provenance: a missing emissivity yields `estimated` (with the assumption recorded), never a silent default.
+- Event detectors: close encounter, Roche crossing, escape, ejection, accuracy warning.
+- Worker trust boundary: malformed/NaN/Infinity payloads rejected before touching the world; a throwing step halts cleanly.
+- Store semantics: undo restores an exact checkpoint, single-step advances exactly one dt and stays paused.
+- Ephemeris state vectors are `calculated` (the orbital element source is canonical) and unsupported epochs are rejected.
+
+### 2.18 Performance Envelope — `src/simulation/tests/performance.test.ts`
+- The 1024-body envelope (256 massive + 768 tracers) is admitted and stays finite.
+- 257 massive bodies are rejected at construction.
+- Conservative throughput floors that catch algorithmic regressions without being timing-flaky.
+
+### 2.19 Test Integrity Guard — `scripts/check-test-integrity.mjs`
+- Rejects trivially-true assertions (`assert.ok(true)`), assertion-free tests, tests whose assertions are all conditional, and skipped/todo markers.
+- Runs first inside `npm test` and as its own hosted CI job.
+
+### 2.20 Platform Scripts & Tooling — `scripts/*.test.mjs`
 Comprehensive test suites verifying:
 - Asset manifest integrity and vector SVG schemas.
 - Browser smoke test JSON output parsing.
@@ -143,9 +180,20 @@ node scripts/browser-smoke.mjs http://127.0.0.1:8081/ screenshots/built.png
 # Execute interactive UI assertion suite
 node scripts/browser-interaction.mjs http://127.0.0.1:8081/
 
-# Execute astrophysical sandbox interaction and accessibility suite
+# Execute the sandbox acceptance suite (fails on any unasserted step)
 node scripts/browser-sandbox.mjs http://127.0.0.1:8081/sandbox
 ```
+
+`scripts/browser-sandbox.mjs` runs as the hosted CI job **Sandbox Browser
+Acceptance**. It drives the production build and asserts, among others:
+initial paused state matches the worker, play/pause/step clock semantics, exact
+single-`dt` stepping, provenance transitions on edits, exact undo and reset
+world equality, authentic command chronology in saved scenarios,
+reload-and-replay equality, export then import equality in a fresh profile,
+canonical data deep equality after a full session, the documented keyboard
+shortcuts, mobile layout, and reduced-motion suppression. The sandbox exposes a
+read-only state bridge only when a page is opened with `?qa=1`; nothing is
+exposed in normal use.
 
 ### Smoke Test Invariants
 - HTTP 200 status on both desktop and mobile viewports.
@@ -170,5 +218,5 @@ node scripts/browser-sandbox.mjs http://127.0.0.1:8081/sandbox
 ## 5. Testing Invariants & Philosophy
 
 1. **Evidence Before Claims:** No test may be commented out, weakened, or bypassed to force a release gate to pass.
-2. **Deterministic Physics:** Numerical simulation tests run with fixed random seeds (Mulberry32) and fixed analytical epochs.
+2. **Deterministic Physics:** The physics step consumes **no** pseudo-random source, so no seed is required or persisted; benchmarks use a local Mulberry32 generator purely to build reproducible initial conditions, and simulation tests use fixed analytical epochs.
 3. **Institutional Provenance:** Every celestial constant asserted in test suites must link to NASA, JPL, or IAU peer-reviewed literature.

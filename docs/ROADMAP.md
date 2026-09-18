@@ -19,7 +19,7 @@
 - **Decoupled Timestep Scheduler**: Frame-rate independent substepping maintaining numerical stability during high-speed time warp.
 - **Dedicated Web Worker Pipeline**: Background physics worker streaming interpolated state vectors to React Three Fiber rendering layer.
 - **Scenario Persistence & Deterministic Replay**: Versioned JSON scenario schema, local IndexedDB persistence, and bit-identical deterministic command replay.
-- **Full Quality & Test Gates**: 154 passing automated tests across 22 suites, zero ESLint warnings (`--max-warnings=0`), strict TypeScript checking, and headless Playwright production browser smoke/interaction QA.
+- **Full Quality & Test Gates**: Automated `node:test` suites with an assertion-integrity guard, zero ESLint warnings (`--max-warnings=0`), strict TypeScript checking, hosted `Sandbox Browser Acceptance` against the production build, and headless Playwright production browser smoke/interaction QA. CI is the single source of truth for test counts.
 
 ## Near Term
 

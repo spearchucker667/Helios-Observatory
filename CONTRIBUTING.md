@@ -62,7 +62,7 @@ node scripts/browser-smoke.mjs http://127.0.0.1:8080/ screenshots/issue.png
 
 ## PR checklist
 
-- [ ] `npm run typecheck && npm run lint && npm test && npm run build` all green (154 tests passing)
+- [ ] `npm run typecheck && npm run lint && npm test && npm run build` all green
 - [ ] `node scripts/check-doc-consistency.mjs && node scripts/validate-assets.mjs` pass
 - [ ] New bodies/moons/events include sources + retrieved dates
 - [ ] No scene constants in `src/data`; no data literals in components
