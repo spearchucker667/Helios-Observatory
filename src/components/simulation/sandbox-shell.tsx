@@ -25,8 +25,8 @@ export function SandboxShell({ canvasElement }: SandboxShellProps) {
   const {
     scenarioName,
     openScenarioModal,
-    history,
-    future,
+    canUndo,
+    canRedo,
     undo,
     redo,
   } = useSandboxStore();
@@ -85,7 +85,7 @@ export function SandboxShell({ canvasElement }: SandboxShellProps) {
             <Button
               variant="ghost"
               size="icon"
-              disabled={history.length === 0}
+              disabled={!canUndo}
               onClick={undo}
               className="size-8"
               aria-label="Undo last action"
@@ -96,7 +96,7 @@ export function SandboxShell({ canvasElement }: SandboxShellProps) {
             <Button
               variant="ghost"
               size="icon"
-              disabled={future.length === 0}
+              disabled={!canRedo}
               onClick={redo}
               className="size-8"
               aria-label="Redo last action"

@@ -6,6 +6,20 @@ export const QUALITY_DT: Record<TimestepQuality, number> = {
   high: 120, // 2 minute steps
 };
 
+/**
+ * Authoritative playback state machine.
+ *
+ * The worker (see physics.worker.ts) owns this state; the UI must only ever
+ * *reflect* it. Zustand is not permitted to invent playback state of its own.
+ */
+export type PlaybackState =
+  | "uninitialized"
+  | "paused"
+  | "running"
+  | "stepping"
+  | "halted"
+  | "replaying";
+
 export interface TimestepStats {
   dtSeconds: number;
   timeMultiplier: number;
@@ -13,16 +27,38 @@ export interface TimestepStats {
   achievedRateDaysPerSec: number;
   isComputeLimited: boolean;
   quality: TimestepQuality;
+  /** Authoritative worker playback state. */
+  state: PlaybackState;
+  /** Derived convenience flag: state === "paused" */
   isPaused: boolean;
   currentTick: number;
   simTimeSeconds: number;
 }
 
+export const MAX_TIME_MULTIPLIER = 86400 * 365;
+export const MIN_TIME_MULTIPLIER = 0;
+export const MIN_DT_SECONDS = 0.001;
+export const MAX_DT_SECONDS = 86400 * 365;
+
+/** True only for values usable as simulation inputs (rejects NaN and ±Infinity). */
+export function isFiniteNumber(value: unknown): value is number {
+  return typeof value === "number" && Number.isFinite(value);
+}
+
+/**
+ * Plans fixed-size work budgets for the physics loop.
+ *
+ * IMPORTANT: this class deliberately does NOT advance its own tick/simulated
+ * time. `SimulationWorld` is the single clock authority; after each executed
+ * step the worker calls `syncClock(world.tick, world.simTime)`. That removes
+ * the class of bug where the scheduler raced ahead of the world because a
+ * world step threw part-way through a batch.
+ */
 export class TimestepScheduler {
   private dtSeconds: number = 900;
   private timeMultiplier: number = 86400; // 1 day per real second by default
   private accumulatedSimSeconds: number = 0;
-  private isPaused: boolean = true; // start paused
+  private state: PlaybackState = "uninitialized";
   private currentTick: number = 0;
   private simTimeSeconds: number = 0;
   private quality: TimestepQuality = "standard";
@@ -36,46 +72,77 @@ export class TimestepScheduler {
     this.quality = quality;
   }
 
-  setPaused(paused: boolean): void {
-    this.isPaused = paused;
-    if (paused) {
-      // do not drop fractional time, but reset compute-limited flag
+  /** Sets the playback state directly (used by the worker state machine). */
+  setState(state: PlaybackState): void {
+    this.state = state;
+    if (state !== "running") {
       this.isComputeLimited = false;
+      this.lastAchievedRate = 0;
     }
   }
 
-  togglePause(): boolean {
-    this.setPaused(!this.isPaused);
-    return this.isPaused;
+  getState(): PlaybackState {
+    return this.state;
   }
 
-  setTimeMultiplier(multiplier: number): void {
-    this.timeMultiplier = Math.max(0, multiplier);
-  }
-
-  setDt(dtSeconds: number): void {
-    this.dtSeconds = Math.max(1, dtSeconds);
-  }
-
-  setQuality(quality: TimestepQuality): void {
-    this.quality = quality;
-    this.dtSeconds = QUALITY_DT[quality];
+  /** True while the loop is allowed to execute automatic physics steps. */
+  get isAdvancing(): boolean {
+    return this.state === "running";
   }
 
   /**
-   * Advances real wall-clock time and returns how many fixed substeps to execute.
+   * @returns true when the multiplier was accepted. Non-finite or negative
+   * values are rejected outright — `Math.max(0, NaN)` is NaN, which would
+   * silently poison the scheduling state.
+   */
+  setTimeMultiplier(multiplier: number): boolean {
+    if (!isFiniteNumber(multiplier) || multiplier < MIN_TIME_MULTIPLIER) return false;
+    this.timeMultiplier = multiplier;
+    return true;
+  }
+
+  /** @returns true when the timestep was accepted (finite and > 0). */
+  setDt(dtSeconds: number): boolean {
+    if (!isFiniteNumber(dtSeconds) || dtSeconds < MIN_DT_SECONDS || dtSeconds > MAX_DT_SECONDS) {
+      return false;
+    }
+    this.dtSeconds = dtSeconds;
+    return true;
+  }
+
+  setQuality(quality: TimestepQuality): boolean {
+    if (!(quality in QUALITY_DT)) return false;
+    this.quality = quality;
+    this.dtSeconds = QUALITY_DT[quality];
+    return true;
+  }
+
+  /**
+   * Computes how many fixed dt steps should be executed for an elapsed real
+   * interval. Commits NOTHING: no tick, no simulated time.
+   *
    * @param deltaRealSeconds Real elapsed seconds since last update
    * @returns Number of fixed dt steps to run
    */
-  advanceRealTime(deltaRealSeconds: number): number {
-    if (this.isPaused || deltaRealSeconds <= 0) {
+  planSteps(deltaRealSeconds: number): number {
+    if (!isFiniteNumber(deltaRealSeconds) || deltaRealSeconds <= 0) {
       this.lastAchievedRate = 0;
-      this.isComputeLimited = false;
       return 0;
     }
 
-    // Accumulate simulated seconds
+    if (!this.isAdvancing) {
+      this.lastAchievedRate = 0;
+      return 0;
+    }
+
     const requestedSimSeconds = deltaRealSeconds * this.timeMultiplier;
+    if (!isFiniteNumber(requestedSimSeconds)) {
+      // Overflow guard: reject rather than propagate Infinity into the clock.
+      this.isComputeLimited = true;
+      this.accumulatedSimSeconds = 0;
+      return 0;
+    }
+
     this.accumulatedSimSeconds += requestedSimSeconds;
 
     let steps = Math.floor(this.accumulatedSimSeconds / this.dtSeconds);
@@ -91,17 +158,19 @@ export class TimestepScheduler {
     }
 
     const achievedSimSeconds = steps * this.dtSeconds;
-    this.lastAchievedRate = deltaRealSeconds > 0 ? (achievedSimSeconds / 86400) / deltaRealSeconds : 0;
-
-    this.currentTick += steps;
-    this.simTimeSeconds += achievedSimSeconds;
+    this.lastAchievedRate = (achievedSimSeconds / 86400) / deltaRealSeconds;
 
     return steps;
   }
 
-  stepOnce(): void {
-    this.currentTick++;
-    this.simTimeSeconds += this.dtSeconds;
+  /**
+   * Mirrors the authoritative world clock. This is the ONLY place scheduler
+   * tick/time move.
+   */
+  syncClock(tick: number, simTimeSeconds: number): void {
+    if (!isFiniteNumber(tick) || !isFiniteNumber(simTimeSeconds)) return;
+    this.currentTick = tick;
+    this.simTimeSeconds = simTimeSeconds;
   }
 
   reset(simTimeSeconds = 0, tick = 0): void {
@@ -109,6 +178,7 @@ export class TimestepScheduler {
     this.currentTick = tick;
     this.accumulatedSimSeconds = 0;
     this.isComputeLimited = false;
+    this.lastAchievedRate = 0;
   }
 
   getStats(): TimestepStats {
@@ -119,7 +189,8 @@ export class TimestepScheduler {
       achievedRateDaysPerSec: this.lastAchievedRate,
       isComputeLimited: this.isComputeLimited,
       quality: this.quality,
-      isPaused: this.isPaused,
+      state: this.state,
+      isPaused: this.state !== "running",
       currentTick: this.currentTick,
       simTimeSeconds: this.simTimeSeconds,
     };
@@ -137,7 +208,11 @@ export class TimestepScheduler {
     return this.simTimeSeconds;
   }
 
-  get paused(): boolean {
-    return this.isPaused;
+  get timeMultiplierValue(): number {
+    return this.timeMultiplier;
+  }
+
+  get qualityValue(): TimestepQuality {
+    return this.quality;
   }
 }

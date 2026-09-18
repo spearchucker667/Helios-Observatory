@@ -86,17 +86,23 @@ export function AccuracyIndicator({ className }: { className?: string }) {
             <div className="flex justify-between py-1 border-b border-fg/5">
               <span className="text-muted">Physics Model:</span>
               <span className={cn("font-medium", enableRelativity ? "text-amber-400" : "text-fg")}>
-                {enableRelativity ? "1PN Post-Newtonian (GR Precession)" : "Newtonian N-body O(N²)"}
+                {enableRelativity
+                  ? "Pairwise 1PN Schwarzschild-like correction"
+                  : "Newtonian all-pairs O(N²)"}
               </span>
             </div>
             <div className="flex justify-between py-1 border-b border-fg/5">
               <span className="text-muted">Integrator:</span>
-              <span className="text-fg font-medium">Symplectic Velocity Verlet (2nd)</span>
+              <span className={cn("font-medium", enableRelativity ? "text-amber-300" : "text-fg")}>
+                {enableRelativity
+                  ? "Velocity-dependent KDK (symplectic guarantee not claimed)"
+                  : "Velocity Verlet (KDK) — symplectic"}
+              </span>
             </div>
             <div className="flex justify-between py-1 border-b border-fg/5">
               <span className="text-muted">Dynamic Bodies:</span>
               <span className="text-fg font-medium">
-                {massiveCount} massive + {tracerCount} tracers / 1024
+                {massiveCount} massive + {tracerCount} tracers (cap 256 / 1024)
               </span>
             </div>
             <div className="flex justify-between py-1 border-b border-fg/5">
@@ -113,7 +119,7 @@ export function AccuracyIndicator({ className }: { className?: string }) {
             </div>
             <div className="flex justify-between py-1 border-b border-fg/5">
               <span className="text-muted">Collision Engine:</span>
-              <span className="text-fg font-medium">Inelastic / Tidal Disruption / BH</span>
+              <span className="text-fg font-medium">Swept contact / Roche tidal / BH capture</span>
             </div>
             <div className="flex justify-between py-1 border-b border-fg/5">
               <span className="text-muted">Environmental:</span>
@@ -123,7 +129,7 @@ export function AccuracyIndicator({ className }: { className?: string }) {
 
           <div className="pt-2 border-t border-fg/10 space-y-2">
             <div className="flex items-center justify-between">
-              <span className="text-[11px] font-medium text-muted">1PN Relativistic Corrections:</span>
+              <span className="text-[11px] font-medium text-muted">Pairwise 1PN correction:</span>
               <button
                 type="button"
                 onClick={() => setEnableRelativity(!enableRelativity)}
@@ -134,7 +140,7 @@ export function AccuracyIndicator({ className }: { className?: string }) {
                     : "bg-fg/5 border-fg/10 text-muted hover:text-fg"
                 )}
               >
-                {enableRelativity ? "Active (1PN)" : "Newtonian"}
+                {enableRelativity ? "Active (1PN pair)" : "Newtonian"}
               </button>
             </div>
 

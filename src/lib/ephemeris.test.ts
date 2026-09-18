@@ -244,7 +244,11 @@ describe("J2000 Ephemeris and Orbit Engine", () => {
     const state = computeEphemerisStateVector("earth", 0);
     assert.ok(state);
     assert.equal(state.epochDays, 0);
-    assert.equal(state.provenance.kind, "canonical");
+    // The orbital elements are canonical, but the Cartesian state vector is
+    // derived from them, so the state carries `calculated` provenance.
+    assert.equal(state.provenance.kind, "calculated");
+    assert.ok(state.provenance.source.length > 0);
+    assert.ok(state.provenance.method.length > 0);
     assert.ok(state.position.length === 3);
     assert.ok(state.velocity.length === 3);
     

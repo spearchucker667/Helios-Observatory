@@ -5,12 +5,15 @@ import { type Vector3, vec3Sub, vec3Mag, vec3Normalize, vec3Cross } from "../phy
 import { computeRocheDiagnostics } from "./disruption.ts";
 
 export interface CollisionDiagnostics {
+  /** False when the pair's masses cannot support the requested diagnostic. */
+  supported: boolean;
+  unsupportedReason?: string;
   relativeVelocityMs: number;
   reducedMassKg: number;
   kineticImpactEnergyJ: number;
-  mutualEscapeVelocityMs: number;
-  specificImpactEnergyJkg: number;
-  bindingEnergyApproximationJ: number;
+  mutualEscapeVelocityMs?: number;
+  specificImpactEnergyJkg?: number;
+  bindingEnergyApproximationJ?: number;
 }
 
 export interface CollisionResolution {
@@ -23,35 +26,60 @@ export interface CollisionResolution {
 
 /**
  * Calculates rigorous impact diagnostics for a collision pair.
+ *
+ * A zero/unknown mass is NEVER clamped up to a fabricated physical mass: a
+ * zero-mass tracer is a test particle, not a 1 kg body. Diagnostics that
+ * require a non-zero mass report `supported: false` instead.
  */
-export function computeCollisionDiagnostics(a: SimulationBody, b: SimulationBody, vRelMs: number): CollisionDiagnostics {
-  const m1 = Math.max(1, a.mass);
-  const m2 = Math.max(1, b.mass);
+export function computeCollisionDiagnostics(
+  a: SimulationBody,
+  b: SimulationBody,
+  vRelMs: number
+): CollisionDiagnostics {
+  const m1 = a.mass;
+  const m2 = b.mass;
   const totalM = m1 + m2;
-  const reducedMass = (m1 * m2) / totalM;
 
-  // Kinetic impact energy: 1/2 * mu * v_rel^2
+  if (!(totalM > 0)) {
+    return {
+      supported: false,
+      unsupportedReason:
+        "Both participants have zero (tracer) mass; impact energetics are undefined.",
+      relativeVelocityMs: vRelMs,
+      reducedMassKg: 0,
+      kineticImpactEnergyJ: 0,
+    };
+  }
+
+  const reducedMass = (m1 * m2) / totalM; // Exactly 0 when either body is a zero-mass tracer.
   const eImpact = 0.5 * reducedMass * vRelMs * vRelMs;
+  const contactR = a.radius + b.radius;
 
-  // Mutual escape velocity: sqrt(2 * G * (m1 + m2) / (r1 + r2))
-  const contactR = Math.max(1, a.radius + b.radius);
-  const vEscape = Math.sqrt((2 * G_CODATA_2022 * totalM) / contactR);
+  const tracerNote =
+    m1 <= 0 || m2 <= 0
+      ? "Zero-mass tracer participant: reduced mass, impact energy and specific energy are identically zero."
+      : undefined;
 
-  // Specific impact energy Q = E_impact / (m1 + m2)
-  const specificEnergy = eImpact / totalM;
+  const mutualEscapeVelocityMs =
+    contactR > 0
+      ? Math.sqrt((2 * G_CODATA_2022 * totalM) / contactR)
+      : undefined;
 
-  // Uniform sphere gravitational binding energy: U = 3/5 * G * M^2 / R
   const targetBody = a.mass >= b.mass ? a : b;
-  const targetR = Math.max(1, targetBody.radius);
-  const bindingEnergy = (3 * G_CODATA_2022 * targetBody.mass * targetBody.mass) / (5 * targetR);
+  const bindingEnergyApproximationJ =
+    targetBody.mass > 0 && targetBody.radius > 0
+      ? (3 * G_CODATA_2022 * targetBody.mass * targetBody.mass) / (5 * targetBody.radius)
+      : undefined;
 
   return {
+    supported: true,
+    unsupportedReason: tracerNote,
     relativeVelocityMs: vRelMs,
     reducedMassKg: reducedMass,
     kineticImpactEnergyJ: eImpact,
-    mutualEscapeVelocityMs: vEscape,
-    specificImpactEnergyJkg: specificEnergy,
-    bindingEnergyApproximationJ: bindingEnergy,
+    mutualEscapeVelocityMs,
+    specificImpactEnergyJkg: eImpact / totalM,
+    bindingEnergyApproximationJ,
   };
 }
 
@@ -85,9 +113,17 @@ export function resolveCollision(pair: CollisionPair): CollisionResolution {
       (m1 * bodyA.position[2] + m2 * bodyB.position[2]) / totalMass,
     ];
   } else {
-    // Both tracers
-    mergedVelocity = [(bodyA.velocity[0] + bodyB.velocity[0]) / 2, (bodyA.velocity[1] + bodyB.velocity[1]) / 2, (bodyA.velocity[2] + bodyB.velocity[2]) / 2];
-    mergedPosition = [(bodyA.position[0] + bodyB.position[0]) / 2, (bodyA.position[1] + bodyB.position[1]) / 2, (bodyA.position[2] + bodyB.position[2]) / 2];
+    // Both tracers: no mass, so position/velocity fall back to the midpoint.
+    mergedVelocity = [
+      (bodyA.velocity[0] + bodyB.velocity[0]) / 2,
+      (bodyA.velocity[1] + bodyB.velocity[1]) / 2,
+      (bodyA.velocity[2] + bodyB.velocity[2]) / 2,
+    ];
+    mergedPosition = [
+      (bodyA.position[0] + bodyB.position[0]) / 2,
+      (bodyA.position[1] + bodyB.position[1]) / 2,
+      (bodyA.position[2] + bodyB.position[2]) / 2,
+    ];
   }
 
   // Black hole capture: primary is the black hole
@@ -103,6 +139,7 @@ export function resolveCollision(pair: CollisionPair): CollisionResolution {
       ...bh,
       mass: newMass,
       radius: newRs,
+      density: newRs > 0 ? newMass / ((4 / 3) * Math.PI * Math.pow(newRs, 3)) : undefined,
       position: mergedPosition,
       velocity: mergedVelocity,
       compact: {
@@ -111,8 +148,13 @@ export function resolveCollision(pair: CollisionPair): CollisionResolution {
       },
       provenance: {
         ...bh.provenance,
-        mass: { kind: "calculated", method: "Mass accumulation from capture", note: `Absorbed ${captured.name}` },
+        mass: {
+          kind: "calculated",
+          method: "Mass accumulation from capture",
+          note: `Absorbed ${captured.name}`,
+        },
         radius: { kind: "calculated", method: "rs = 2GM/c^2", note: "Updated Schwarzschild radius" },
+        compact: { kind: "calculated", method: "rs = 2GM/c^2" },
         state: { kind: "calculated", method: "Linear momentum conservation" },
       },
     };
@@ -129,13 +171,29 @@ export function resolveCollision(pair: CollisionPair): CollisionResolution {
   const primary = bodyA.mass >= bodyB.mass ? bodyA : bodyB;
   const secondary = bodyA.mass >= bodyB.mass ? bodyB : bodyA;
 
-  // Tidal disruption check:
-  // If the secondary is significantly less massive (m_sec < 0.5 * m_prim), not a compact object,
-  // and inside the fluid Roche limit (or grazing collision):
+  // Tidal disruption check: the secondary is significantly less massive, is not
+  // a compact object, and lies inside the fluid Roche limit. This works for
+  // both physical contact and Roche-crossing (no contact) interactions.
   const roche = computeRocheDiagnostics(primary, secondary);
-  const isCompactSecondary = secondary.classification === "black-hole" || secondary.classification === "neutron-star";
+  const isCompactSecondary =
+    secondary.classification === "black-hole" ||
+    secondary.classification === "neutron-star" ||
+    secondary.classification === "pulsar" ||
+    secondary.classification === "magnetar";
   const isAsymmetric = primary.mass >= 2 * secondary.mass && secondary.mass > 0;
-  const isTidalShredding = !isCompactSecondary && isAsymmetric && (roche.isInsideFluidLimit || pair.separationM <= (roche.fluidRocheLimitM ?? primary.radius * 2.44));
+  // One-generation rule: debris remnants produced by an earlier tidal
+  // disruption are never re-shredded. Without this, remnants that spawn inside
+  // the primary's Roche limit are disrupted again on the next step, each
+  // spawning six more remnants — an exponential cascade that floods the world
+  // to the body cap and stalls the simulation. Physically, a debris stream
+  // does not repeatedly shred as discrete self-gravitating bodies: fragments
+  // either fall back and accrete (merge) or disperse.
+  const isDebrisRemnant =
+    secondary.provenance.mass?.kind === "calculated" &&
+    typeof secondary.provenance.mass.method === "string" &&
+    secondary.provenance.mass.method.startsWith("Tidal disruption");
+  const isTidalShredding =
+    !isCompactSecondary && !isDebrisRemnant && isAsymmetric && roche.isInsideFluidLimit;
 
   if (isTidalShredding) {
     const remnantCount = 6;
@@ -223,7 +281,11 @@ export function resolveCollision(pair: CollisionPair): CollisionResolution {
       gravityRole: "massive",
       provenance: {
         ...primary.provenance,
-        mass: { kind: "calculated", method: "Tidal disruption core accretion (75% retained)", note: `Accreted from ${secondary.name}` },
+        mass: {
+          kind: "calculated",
+          method: "Tidal disruption core accretion (75% retained)",
+          note: `Accreted from ${secondary.name}`,
+        },
         radius: { kind: "calculated", method: "Volume conservation with accreted core" },
         state: { kind: "calculated", method: "Linear momentum conservation" },
       },

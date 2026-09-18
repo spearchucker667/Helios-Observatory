@@ -3,11 +3,13 @@ import { useSandboxStore } from "@/simulation/state/sandbox-store";
 import { VectorEditor } from "./vector-editor";
 import { Button } from "@/components/ui/button";
 import {
-  EARTH_MASS_KG,
-  SOLAR_MASS_KG,
-  EARTH_RADIUS_M,
-  SOLAR_RADIUS_M,
-} from "@/simulation/domain/constants";
+  massToDisplay,
+  massFromDisplay,
+  radiusToDisplay,
+  radiusFromDisplay,
+  type MassDisplayUnit,
+  type RadiusDisplayUnit,
+} from "@/simulation/state/display-units";
 import { calculateSchwarzschildRadius } from "@/simulation/engine/compact-objects";
 import type { SimulationBodyClass, GravityRole } from "@/simulation/domain/types";
 import { cn } from "@/lib/utils";
@@ -52,36 +54,15 @@ export function BodyEditor({ className }: { className?: string }) {
     draftErrors,
   } = useSandboxStore();
 
-  const [massUnit, setMassUnit] = useState<"kg" | "earth" | "sun">("earth");
-  const [radiusUnit, setRadiusUnit] = useState<"km" | "m" | "earth" | "sun">("earth");
+  const [massUnit, setMassUnit] = useState<MassDisplayUnit>("earth");
+  const [radiusUnit, setRadiusUnit] = useState<RadiusDisplayUnit>("earth");
 
   if (!bodyDraft) return null;
 
-  // Mass display conversions
-  const toDisplayMass = (kg: number) => {
-    if (massUnit === "earth") return kg / EARTH_MASS_KG;
-    if (massUnit === "sun") return kg / SOLAR_MASS_KG;
-    return kg;
-  };
-  const fromDisplayMass = (val: number) => {
-    if (massUnit === "earth") return val * EARTH_MASS_KG;
-    if (massUnit === "sun") return val * SOLAR_MASS_KG;
-    return val;
-  };
-
-  // Radius display conversions
-  const toDisplayRadius = (m: number) => {
-    if (radiusUnit === "km") return m / 1000;
-    if (radiusUnit === "earth") return m / EARTH_RADIUS_M;
-    if (radiusUnit === "sun") return m / SOLAR_RADIUS_M;
-    return m;
-  };
-  const fromDisplayRadius = (val: number) => {
-    if (radiusUnit === "km") return val * 1000;
-    if (radiusUnit === "earth") return val * EARTH_RADIUS_M;
-    if (radiusUnit === "sun") return val * SOLAR_RADIUS_M;
-    return val;
-  };
+  const toDisplayMass = (kg: number) => massToDisplay(kg, massUnit);
+  const fromDisplayMass = (val: number) => massFromDisplay(val, massUnit);
+  const toDisplayRadius = (m: number) => radiusToDisplay(m, radiusUnit);
+  const fromDisplayRadius = (val: number) => radiusFromDisplay(val, radiusUnit);
 
   // Calculate density
   const volumeM3 = (4 / 3) * Math.PI * Math.pow(bodyDraft.radius, 3);

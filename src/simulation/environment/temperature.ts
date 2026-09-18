@@ -51,6 +51,10 @@ export function computeEquilibriumTemperature(
     };
   }
 
+  // Emissivity is an *assumption* when the user has not supplied one; the
+  // result is therefore reported as `estimated` rather than `calculated`, and
+  // the assumption is carried in the provenance record.
+  const assumedEmissivity = body.thermal?.emissivity === undefined;
   const emissivity = body.thermal?.emissivity ?? 0.95; // Standard planetary infrared emissivity
   // Teq = ( F * (1 - A) / (4 * eps * sigma) )^(1/4)
   const numerator = flux * (1 - albedo);
@@ -77,10 +81,14 @@ export function computeEquilibriumTemperature(
     albedoUsed: albedo,
     emissivityUsed: emissivity,
     provenance: {
-      kind: "calculated",
+      kind: assumedEmissivity ? "estimated" : "calculated",
       method: "Teq = [F(1 - A) / (4 * eps * sigma)]^(1/4)",
-      assumptions: `Emissivity eps = ${emissivity}, homogeneous redistribution factor = 4`,
-      note: "Radiative equilibrium without greenhouse atmosphere model",
+      assumptions: assumedEmissivity
+        ? `Assumed emissivity eps = ${emissivity} (no user-supplied value), homogeneous redistribution factor = 4`
+        : `Emissivity eps = ${emissivity}, homogeneous redistribution factor = 4`,
+      note: assumedEmissivity
+        ? "Estimated: the result depends on an assumed infrared emissivity, not a canonical measurement."
+        : "Radiative equilibrium without greenhouse atmosphere model",
     },
   };
 }

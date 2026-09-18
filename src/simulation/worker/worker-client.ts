@@ -1,32 +1,51 @@
 import type { SimulationBody } from "../domain/types.ts";
-import type { SimulationCommand } from "../engine/commands.ts";
+import type { SimulationCommand, LoggedCommand } from "../engine/commands.ts";
 import type { SimulationEvent } from "../engine/events.ts";
-import type { RenderSnapshot, WorldSnapshot } from "../engine/snapshot.ts";
-import type { TimestepQuality, TimestepStats } from "../engine/timestep.ts";
+import type { RenderSnapshot, SimulationCheckpoint, WorldSnapshot } from "../engine/snapshot.ts";
+import type { PlaybackState, TimestepQuality, TimestepStats } from "../engine/timestep.ts";
 import type { WorkerInboundMessage, WorkerOutboundMessage } from "./protocol.ts";
-import { SimulationWorld } from "../engine/world.ts";
-import { TimestepScheduler } from "../engine/timestep.ts";
+import { SimulationHost } from "./simulation-host.ts";
+
+export const CLIENT_REQUEST_TIMEOUT_MS = 20000;
+
+interface PendingRequest<T> {
+  resolve: (value: T) => void;
+  reject: (error: Error) => void;
+  timer: ReturnType<typeof setTimeout>;
+}
 
 export class WorkerClient {
   private worker: Worker | null = null;
   private isFallbackMode = false;
 
-  // In-process fallback instances (for Node.js or when Worker is unavailable)
-  private localWorld: SimulationWorld | null = null;
-  private localScheduler: TimestepScheduler = new TimestepScheduler();
-  private localTimer: any = null;
+  /**
+   * In-process host used when `Worker` is unavailable (Node tests, SSR) or when
+   * worker construction fails. It is the SAME SimulationHost the browser worker
+   * runs, so fallback semantics cannot diverge from browser semantics.
+   */
+  private host: SimulationHost | null = null;
 
-  // Listeners
   private snapshotListeners: ((snap: RenderSnapshot) => void)[] = [];
   private eventListeners: ((event: SimulationEvent) => void)[] = [];
   private trajectoryListeners: ((bodyId: string, points: [number, number, number][]) => void)[] = [];
   private performanceListeners: ((stats: TimestepStats) => void)[] = [];
   private readyListeners: (() => void)[] = [];
-  private errorListeners: ((err: string) => void)[] = [];
+  private errorListeners: ((err: string, code?: string) => void)[] = [];
+  private worldChangedListeners: ((bodies: SimulationBody[], removedIds: string[], reason: string) => void)[] = [];
+  private playbackStateListeners: ((state: PlaybackState) => void)[] = [];
+  private haltListeners: ((reason: string, lastGoodTick: number) => void)[] = [];
 
-  private checkpointResolvers: ((snapshot: WorldSnapshot) => void)[] = [];
+  private requestTimeoutMs: number = CLIENT_REQUEST_TIMEOUT_MS;
+  private checkpointRequests: PendingRequest<SimulationCheckpoint>[] = [];
+  private commandLogRequests: PendingRequest<{
+    commandLog: LoggedCommand[];
+    initialState: WorldSnapshot;
+  }>[] = [];
 
-  constructor() {
+  constructor(options?: { requestTimeoutMs?: number }) {
+    if (options?.requestTimeoutMs !== undefined) {
+      this.requestTimeoutMs = options.requestTimeoutMs;
+    }
     if (typeof Worker !== "undefined") {
       try {
         this.worker = new Worker(new URL("./physics.worker.ts", import.meta.url), {
@@ -38,22 +57,32 @@ export class WorkerClient {
         };
 
         this.worker.onerror = (err) => {
-          const msg = err.message ?? "Worker error";
-          for (const cb of this.errorListeners) cb(msg);
+          this.emitError(err.message ?? "Worker error", "WORKER_ERROR");
         };
-      } catch {
-        this.initFallback();
+      } catch (err) {
+        this.initFallback(err instanceof Error ? err.message : String(err));
       }
     } else {
-      this.initFallback();
+      this.initFallback("Worker unavailable in this environment");
     }
   }
 
-  private initFallback() {
+  /** True when running the in-process host instead of a real Web Worker. */
+  get fallbackMode(): boolean {
+    return this.isFallbackMode;
+  }
+
+  private initFallback(reason: string) {
     this.isFallbackMode = true;
+    this.host = new SimulationHost({
+      emit: (msg) => this.handleWorkerMessage(msg),
+    });
+    void reason;
   }
 
   private handleWorkerMessage(msg: WorkerOutboundMessage) {
+    if (!msg || typeof msg !== "object") return;
+
     switch (msg.type) {
       case "ready":
         for (const cb of this.readyListeners) cb();
@@ -70,140 +99,76 @@ export class WorkerClient {
       case "performance_status":
         for (const cb of this.performanceListeners) cb(msg.stats);
         break;
+      case "playback_state":
+        for (const cb of this.playbackStateListeners) cb(msg.state);
+        break;
+      case "world_changed":
+        for (const cb of this.worldChangedListeners) cb(msg.bodies, msg.removedIds, msg.reason);
+        break;
       case "checkpoint": {
-        const resolver = this.checkpointResolvers.shift();
-        if (resolver) resolver(msg.snapshot);
+        const pending = this.checkpointRequests.shift();
+        if (pending) {
+          clearTimeout(pending.timer);
+          pending.resolve(msg.checkpoint);
+        }
+        break;
+      }
+      case "command_log": {
+        const pending = this.commandLogRequests.shift();
+        if (pending) {
+          clearTimeout(pending.timer);
+          pending.resolve({ commandLog: msg.commandLog, initialState: msg.initialState });
+        }
         break;
       }
       case "error":
-        for (const cb of this.errorListeners) cb(msg.error);
+        this.emitError(msg.error, msg.code);
         break;
+      case "simulation_halted": {
+        this.rejectAllPending(`Simulation halted: ${msg.reason}`);
+        for (const cb of this.haltListeners) cb(msg.reason, msg.lastGoodTick);
+        break;
+      }
+    }
+  }
+
+  private emitError(error: string, code?: string) {
+    for (const cb of this.errorListeners) cb(error, code);
+  }
+
+  private rejectAllPending(reason: string) {
+    for (const pending of this.checkpointRequests.splice(0)) {
+      clearTimeout(pending.timer);
+      pending.reject(new Error(reason));
+    }
+    for (const pending of this.commandLogRequests.splice(0)) {
+      clearTimeout(pending.timer);
+      pending.reject(new Error(reason));
     }
   }
 
   private post(msg: WorkerInboundMessage) {
     if (this.worker && !this.isFallbackMode) {
       this.worker.postMessage(msg);
-    } else {
-      this.handleLocalMessage(msg);
+      return;
     }
+    this.host?.handleMessage(msg);
   }
 
-  private handleLocalMessage(msg: WorkerInboundMessage) {
-    try {
-      switch (msg.type) {
-        case "init": {
-          this.localScheduler = new TimestepScheduler(msg.dtSeconds ?? 900);
-          this.localWorld = new SimulationWorld({
-            dtSeconds: this.localScheduler.dt,
-            initialBodies: msg.bodies,
-            initialSimTime: msg.simTimeSeconds ?? 0,
-            initialTick: msg.tick ?? 0,
-          });
-
-          this.localWorld.eventBus.subscribe((evt) => {
-            for (const cb of this.eventListeners) cb(evt);
-          });
-
-          for (const cb of this.readyListeners) cb();
-          for (const cb of this.snapshotListeners) cb(this.localWorld.getRenderSnapshot());
-          break;
-        }
-
-        case "command": {
-          if (!this.localWorld) throw new Error("World not initialized");
-          this.localWorld.executeCommand(msg.command);
-          for (const cb of this.snapshotListeners) cb(this.localWorld.getRenderSnapshot());
-          break;
-        }
-
-        case "pause": {
-          this.localScheduler.setPaused(true);
-          if (this.localTimer) clearInterval(this.localTimer);
-          for (const cb of this.performanceListeners) cb(this.localScheduler.getStats());
-          break;
-        }
-
-        case "resume": {
-          this.localScheduler.setPaused(false);
-          for (const cb of this.performanceListeners) cb(this.localScheduler.getStats());
-          break;
-        }
-
-        case "step_once": {
-          if (!this.localWorld) throw new Error("World not initialized");
-          this.localScheduler.stepOnce();
-          this.localWorld.step(this.localScheduler.dt);
-          for (const cb of this.snapshotListeners) cb(this.localWorld.getRenderSnapshot());
-          for (const cb of this.performanceListeners) cb(this.localScheduler.getStats());
-          break;
-        }
-
-        case "set_time_multiplier": {
-          this.localScheduler.setTimeMultiplier(msg.multiplier);
-          for (const cb of this.performanceListeners) cb(this.localScheduler.getStats());
-          break;
-        }
-
-        case "set_dt": {
-          this.localScheduler.setDt(msg.dtSeconds);
-          if (this.localWorld) this.localWorld.setDt(msg.dtSeconds);
-          for (const cb of this.performanceListeners) cb(this.localScheduler.getStats());
-          break;
-        }
-
-        case "set_quality": {
-          this.localScheduler.setQuality(msg.quality);
-          if (this.localWorld) this.localWorld.setDt(this.localScheduler.dt);
-          for (const cb of this.performanceListeners) cb(this.localScheduler.getStats());
-          break;
-        }
-
-        case "set_relativity": {
-          if (this.localWorld) this.localWorld.enableRelativity = msg.enabled;
-          break;
-        }
-
-        case "request_snapshot": {
-          if (!this.localWorld) throw new Error("World not initialized");
-          for (const cb of this.snapshotListeners) cb(this.localWorld.getRenderSnapshot());
-          break;
-        }
-
-        case "request_trajectory": {
-          if (!this.localWorld) throw new Error("World not initialized");
-          const traj = this.localWorld.predictTrajectory(msg.bodyId, { steps: msg.steps, dt: msg.dt });
-          for (const cb of this.trajectoryListeners) cb(msg.bodyId, traj);
-          break;
-        }
-
-        case "request_checkpoint": {
-          if (!this.localWorld) throw new Error("World not initialized");
-          const cp = this.localWorld.getSnapshot();
-          const resolver = this.checkpointResolvers.shift();
-          if (resolver) resolver(cp);
-          break;
-        }
-
-        case "load_checkpoint": {
-          if (!this.localWorld) this.localWorld = new SimulationWorld();
-          this.localWorld.restoreSnapshot(msg.snapshot);
-          this.localScheduler.reset(msg.snapshot.simTimeSeconds, msg.snapshot.tick);
-          for (const cb of this.snapshotListeners) cb(this.localWorld.getRenderSnapshot());
-          break;
-        }
-
-        case "reset_to_initial": {
-          if (!this.localWorld) throw new Error("World not initialized");
-          this.localWorld.executeCommand({ type: "reset_to_initial" });
-          this.localScheduler.reset();
-          for (const cb of this.snapshotListeners) cb(this.localWorld.getRenderSnapshot());
-          break;
-        }
-      }
-    } catch (err: any) {
-      for (const cb of this.errorListeners) cb(err.message ?? String(err));
-    }
+  private request<T>(
+    queue: PendingRequest<T>[],
+    message: WorkerInboundMessage,
+    timeoutMs = this.requestTimeoutMs
+  ): Promise<T> {
+    return new Promise<T>((resolve, reject) => {
+      const timer = setTimeout(() => {
+        const index = queue.findIndex((entry) => entry.timer === timer);
+        if (index >= 0) queue.splice(index, 1);
+        reject(new Error(`Worker request timed out after ${timeoutMs} ms: ${message.type}`));
+      }, timeoutMs);
+      queue.push({ resolve, reject, timer });
+      this.post(message);
+    });
   }
 
   // Public client API
@@ -211,8 +176,14 @@ export class WorkerClient {
     this.post({ type: "init", bodies, dtSeconds });
   }
 
-  initialize(bodies: SimulationBody[], dtSeconds = 900, _simTimeSeconds?: number, _tick?: number) {
-    this.init(bodies, dtSeconds);
+  initialize(
+    bodies: SimulationBody[],
+    dtSeconds = 900,
+    simTimeSeconds?: number,
+    tick?: number,
+    enableRelativity?: boolean
+  ) {
+    this.post({ type: "init", bodies, dtSeconds, simTimeSeconds, tick, enableRelativity });
   }
 
   sendCommand(command: SimulationCommand) {
@@ -259,15 +230,38 @@ export class WorkerClient {
     this.post({ type: "request_trajectory", bodyId, steps, dt });
   }
 
-  requestCheckpoint(): Promise<WorldSnapshot> {
-    return new Promise<WorldSnapshot>((resolve) => {
-      this.checkpointResolvers.push(resolve);
-      this.post({ type: "request_checkpoint" });
-    });
+  requestCheckpoint(): Promise<SimulationCheckpoint> {
+    return this.request(this.checkpointRequests, { type: "request_checkpoint" });
   }
 
-  loadCheckpoint(snapshot: WorldSnapshot) {
-    this.post({ type: "load_checkpoint", snapshot });
+  requestCommandLog(): Promise<{ commandLog: LoggedCommand[]; initialState: WorldSnapshot }> {
+    return this.request(this.commandLogRequests, { type: "request_command_log" });
+  }
+
+  /**
+   * Fetches everything needed to persist a truthful scenario document: the
+   * authoritative command chronology, the session origin, and a complete
+   * restartable checkpoint.
+   */
+  async requestSession(): Promise<{
+    checkpoint: SimulationCheckpoint;
+    commandLog: LoggedCommand[];
+    initialState: WorldSnapshot;
+  }> {
+    const [checkpoint, log] = await Promise.all([this.requestCheckpoint(), this.requestCommandLog()]);
+    return { checkpoint, commandLog: log.commandLog, initialState: log.initialState };
+  }
+
+  loadCheckpoint(checkpoint: SimulationCheckpoint) {
+    this.post({ type: "load_checkpoint", checkpoint });
+  }
+
+  loadScenario(
+    initialState: WorldSnapshot,
+    commands: LoggedCommand[],
+    finalState: { tick: number; simTimeSeconds: number }
+  ) {
+    this.post({ type: "load_scenario", initialState, commands, finalState });
   }
 
   resetToInitial() {
@@ -310,21 +304,43 @@ export class WorkerClient {
     };
   }
 
-  onError(cb: (err: string) => void): () => void {
+  onError(cb: (err: string, code?: string) => void): () => void {
     this.errorListeners.push(cb);
     return () => {
       this.errorListeners = this.errorListeners.filter((l) => l !== cb);
     };
   }
 
+  onWorldChanged(
+    cb: (bodies: SimulationBody[], removedIds: string[], reason: string) => void
+  ): () => void {
+    this.worldChangedListeners.push(cb);
+    return () => {
+      this.worldChangedListeners = this.worldChangedListeners.filter((l) => l !== cb);
+    };
+  }
+
+  onPlaybackState(cb: (state: PlaybackState) => void): () => void {
+    this.playbackStateListeners.push(cb);
+    return () => {
+      this.playbackStateListeners = this.playbackStateListeners.filter((l) => l !== cb);
+    };
+  }
+
+  onHalt(cb: (reason: string, lastGoodTick: number) => void): () => void {
+    this.haltListeners.push(cb);
+    return () => {
+      this.haltListeners = this.haltListeners.filter((l) => l !== cb);
+    };
+  }
+
   terminate() {
+    this.rejectAllPending("Worker client terminated");
     if (this.worker) {
       this.worker.terminate();
       this.worker = null;
     }
-    if (this.localTimer) {
-      clearInterval(this.localTimer);
-      this.localTimer = null;
-    }
+    this.host?.dispose();
+    this.host = null;
   }
 }

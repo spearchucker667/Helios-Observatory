@@ -1,5 +1,6 @@
 import React, { lazy, Suspense, useEffect, useState } from "react";
 import { useSandboxStore } from "@/simulation/state/sandbox-store";
+import { installSandboxQaBridge } from "@/simulation/state/qa-bridge";
 import { SandboxShell } from "./sandbox-shell";
 
 type CanvasComponent = () => null | React.JSX.Element;
@@ -32,8 +33,14 @@ export function SimulationApp() {
     undo,
     redo,
     selectBody,
+    startEditing,
+    openScenarioModal,
+    setInspectorTab,
     closeScenarioModal,
     scenarioModalOpen,
+    hoverId,
+    selectedId,
+    bodies,
   } = useSandboxStore();
 
   const [mounted, setMounted] = useState(false);
@@ -41,7 +48,12 @@ export function SimulationApp() {
   useEffect(() => {
     init();
     setMounted(true);
-    return () => cleanup();
+    // Read-only acceptance-test hook; only installed for `?qa=1` loads.
+    const removeQaBridge = installSandboxQaBridge();
+    return () => {
+      removeQaBridge();
+      cleanup();
+    };
   }, [init, cleanup]);
 
   // Global Keyboard Shortcuts
@@ -79,6 +91,20 @@ export function SimulationApp() {
       } else if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "y") {
         e.preventDefault();
         redo();
+      } else if (e.key.toLowerCase() === "i" && !e.metaKey && !e.ctrlKey && !e.altKey) {
+        // I - focus the Object Inspector on the hovered (or first) body.
+        e.preventDefault();
+        const target = hoverId ?? selectedId ?? Object.keys(bodies)[0] ?? null;
+        if (target) selectBody(target);
+        setInspectorTab("state");
+      } else if (e.key.toLowerCase() === "e" && !e.metaKey && !e.ctrlKey && !e.altKey) {
+        // E - open the object editor (which owns the velocity vector fields).
+        e.preventDefault();
+        startEditing();
+      } else if (e.key.toLowerCase() === "s" && !e.metaKey && !e.ctrlKey && !e.altKey) {
+        // S - open the Scenario Manager (save / export / import).
+        e.preventDefault();
+        openScenarioModal();
       } else if (e.key === "Escape") {
         if (scenarioModalOpen) {
           closeScenarioModal();
@@ -98,6 +124,12 @@ export function SimulationApp() {
     undo,
     redo,
     selectBody,
+    startEditing,
+    openScenarioModal,
+    setInspectorTab,
+    hoverId,
+    selectedId,
+    bodies,
     closeScenarioModal,
     scenarioModalOpen,
   ]);

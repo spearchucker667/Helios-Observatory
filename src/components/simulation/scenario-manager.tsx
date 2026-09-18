@@ -41,15 +41,20 @@ export function ScenarioManager() {
     setTimeout(() => setSaveSuccess(false), 2000);
   };
 
-  const handleExport = () => {
-    const jsonStr = exportScenarioJson();
-    const blob = new Blob([jsonStr], { type: "application/json" });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = `${nameInput.toLowerCase().replace(/[^a-z0-9]+/g, "-")}-scenario.json`;
-    a.click();
-    URL.revokeObjectURL(url);
+  const handleExport = async () => {
+    try {
+      const jsonStr = await exportScenarioJson();
+      const blob = new Blob([jsonStr], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `${nameInput.toLowerCase().replace(/[^a-z0-9]+/g, "-")}-scenario.json`;
+      a.click();
+      URL.revokeObjectURL(url);
+      setImportError(null);
+    } catch (err) {
+      setImportError(err instanceof Error ? err.message : "Failed to export scenario");
+    }
   };
 
   const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {

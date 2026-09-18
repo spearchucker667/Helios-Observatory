@@ -145,8 +145,32 @@ export function cartesianToOrbitalElements(
   };
 }
 
+/** |1 - e^2| below this value is treated as the parabolic conic. */
+export const PARABOLIC_ECC_EXCESS = 1e-8;
+
+/**
+ * Semi-latus rectum for any conic section.
+ *
+ *   ellipse:      a > 0, e < 1  ->  p = a (1 - e^2)  > 0
+ *   parabola:     e = 1        ->  p = 2 |a|        (with a = q)
+ *   hyperbola:    a < 0, e > 1  ->  p = a (1 - e^2) > 0
+ *
+ * The signed expression a (1 - e^2) is already positive for hyperbolic orbits;
+ * the previous |1 - e^2| formulation flipped its sign and produced a negative
+ * semi-latus rectum (hence a NaN state vector) for every unbound orbit.
+ */
+export function semiLatusRectum(semiMajorAxisM: number, eccentricity: number): number {
+  const oneMinusESq = 1 - eccentricity * eccentricity;
+  if (Math.abs(oneMinusESq) <= PARABOLIC_ECC_EXCESS) return 2 * Math.abs(semiMajorAxisM);
+  return semiMajorAxisM * oneMinusESq;
+}
+
 /**
  * Converts Keplerian orbital elements to Cartesian relative state (r, v).
+ *
+ * Valid for elliptic (e < 1), parabolic (e = 1) and hyperbolic (e > 1) conics.
+ * Throws for a true anomaly outside the physically reachable cone of a
+ * hyperbolic orbit instead of returning a non-finite state.
  */
 export function orbitalElementsToCartesian(
   elements: OrbitalElements,
@@ -163,9 +187,22 @@ export function orbitalElementsToCartesian(
   const omegaRad = elements.argumentOfPeriapsisDeg * degToRad;
   const nuRad = elements.trueAnomalyDeg * degToRad;
 
-  // Semi-latus rectum p = a * (1 - e^2)
-  const p = a * Math.abs(1 - e * e);
-  const r = p / (1 + e * Math.cos(nuRad));
+  // Semi-latus rectum, valid for all three conic types.
+  const p = semiLatusRectum(a, e);
+  if (!Number.isFinite(p) || p <= 0) {
+    throw new Error(
+      `Undefined conic: semi-latus rectum ${p} for a=${a} m, e=${e}. ` +
+        "Elliptic (e<1), parabolic (e=1) and hyperbolic (e>1) orbits require a finite semi-major axis."
+    );
+  }
+
+  const radialDenominator = 1 + e * Math.cos(nuRad);
+  if (radialDenominator <= 0) {
+    throw new Error(
+      `True anomaly ${elements.trueAnomalyDeg} deg lies outside the reachable cone of a hyperbolic orbit (e=${e}).`
+    );
+  }
+  const r = p / radialDenominator;
 
   // Perifocal coordinates
   const r_perifocal: Vector3 = [r * Math.cos(nuRad), r * Math.sin(nuRad), 0];

@@ -22,7 +22,7 @@ export function mapSimPositionToScene(
     return [x * scale, z * scale, -y * scale]; // Astronomical Z-up to Three.js Y-up
   }
 
-  // Presentation & Physical-size modes use smooth logarithmic/power compression
+  // Presentation & relative-size modes use smooth logarithmic/power compression
   // so Mercury and Neptune both fit comfortably in the camera frustum.
   // 1 AU -> 11.6 scene units (matching canonical Earth)
   const sceneRadius = 11.6 * Math.pow(Math.max(0.01, distAu), 0.44);
@@ -42,7 +42,7 @@ export function mapSimRadiusToScene(
   const radiusKm = radiusM / 1000;
 
   if (classification === "star") {
-    return mode === "physical-size" ? 3.5 : 2.65;
+    return mode === "relative-size" ? 3.5 : 2.65;
   }
 
   if (classification === "black-hole" || classification === "neutron-star" || classification === "pulsar" || classification === "magnetar") {
@@ -50,8 +50,10 @@ export function mapSimRadiusToScene(
     return 0.18;
   }
 
-  if (mode === "physical-size") {
-    // Earth radius (6,371 km) = 0.34 scene units
+  if (mode === "relative-size") {
+    // Alternative size emphasis: Earth radius (6,371 km) = 0.34 scene units.
+    // NOTE: this is a deliberately compressed *presentation* scale, not a
+    // physically proportional radius scale across object classes.
     return Math.max(0.04, (radiusKm / 6371) * 0.34);
   }
 

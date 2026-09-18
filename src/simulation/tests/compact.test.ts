@@ -8,6 +8,7 @@ import { SOLAR_MASS_KG, AU_M } from "../domain/constants.ts";
 import { detectCollisions } from "../collisions/detect.ts";
 import { resolveCollision } from "../collisions/resolve.ts";
 import { calculateEinsteinPrecession } from "../environment/orbital-derived.ts";
+import { computeRocheDiagnostics } from "../collisions/disruption.ts";
 import { computeAccelerations } from "../physics/gravity.ts";
 import type { SimulationBody } from "../domain/types.ts";
 
@@ -99,30 +100,62 @@ test("compact-object collision routing and black-hole mass growth after capture"
   assert.equal(newBh.compact?.schwarzschildRadiusM, newBh.radius);
 });
 
-test("tidal scaling follows inverse cube law (1 / r^3)", () => {
-  const neutronStar: SimulationBody = {
-    id: "ns-1",
-    name: "Neutron Star",
-    classification: "neutron-star",
+test("magnetic dipole field scales as r^-3", () => {
+  const magnetar: SimulationBody = {
+    id: "mg-1",
+    name: "Magnetar",
+    classification: "magnetar",
     gravityRole: "massive",
     mass: 1.4 * SOLAR_MASS_KG,
     radius: 12000,
+    compact: { magneticFieldTesla: 1e10 },
     position: [0, 0, 0],
     velocity: [0, 0, 0],
     provenance: { mass: { kind: "custom" }, radius: { kind: "custom" }, state: { kind: "custom" } },
   };
 
-  // Evaluate field at distance R and distance 2R
   const d1 = 100000; // 100 km
   const d2 = 200000; // 200 km
-  const eval1 = evaluateCompactObjectField(neutronStar, d1);
-  const eval2 = evaluateCompactObjectField(neutronStar, d2);
+  const eval1 = evaluateCompactObjectField(magnetar, d1);
+  const eval2 = evaluateCompactObjectField(magnetar, d2);
 
-  // Dipole magnetic field scales as 1/r^3
-  if (eval1.localMagneticFieldTesla && eval2.localMagneticFieldTesla) {
-    const ratio = eval1.localMagneticFieldTesla / eval2.localMagneticFieldTesla;
-    assert.ok(Math.abs(ratio - 8.0) < 1e-4, "Magnetic field must scale as 1/r^3");
-  }
+  // The fixture supplies a magnetic field, so the assertion is unconditional.
+  assert.ok(eval1.localMagneticFieldTesla, "magnetic field must be evaluated when supplied");
+  assert.ok(eval2.localMagneticFieldTesla, "magnetic field must be evaluated when supplied");
+  const ratio = eval1.localMagneticFieldTesla! / eval2.localMagneticFieldTesla!;
+  assert.ok(Math.abs(ratio - 8.0) < 1e-12, `Magnetic dipole field must scale as r^-3, ratio ${ratio}`);
+});
+
+test("tidal gravity gradient scales as r^-3", () => {
+  const primary: SimulationBody = {
+    id: "p-1",
+    name: "Primary",
+    classification: "planet",
+    gravityRole: "massive",
+    mass: 1.898e27,
+    radius: 6.9911e7,
+    position: [0, 0, 0],
+    velocity: [0, 0, 0],
+    provenance: { mass: { kind: "custom" }, radius: { kind: "custom" }, state: { kind: "custom" } },
+  };
+  const satellite: SimulationBody = {
+    id: "s-1",
+    name: "Satellite",
+    classification: "moon",
+    gravityRole: "massive",
+    mass: 1e20,
+    radius: 1e5,
+    position: [1e9, 0, 0],
+    velocity: [0, 0, 0],
+    provenance: { mass: { kind: "custom" }, radius: { kind: "custom" }, state: { kind: "custom" } },
+  };
+
+  const far = computeRocheDiagnostics(primary, { ...satellite, position: [1e9, 0, 0] });
+  const near = computeRocheDiagnostics(primary, { ...satellite, position: [5e8, 0, 0] });
+
+  // Delta a / L = 2 G M / r^3 : halving r multiplies the gradient by 8.
+  const ratio = near.tidalGradientMs2PerM / far.tidalGradientMs2PerM;
+  assert.ok(Math.abs(ratio - 8.0) < 1e-9, `Tidal gradient must scale as r^-3, ratio ${ratio}`);
 });
 
 test("strong-field regime flag is set when GM / (r * c^2) > 0.01 without false GR claims", () => {

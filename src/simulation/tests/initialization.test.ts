@@ -12,8 +12,12 @@ test("creates simulation body with correct provenance and properties", () => {
   assert.equal(earth.gravityRole, "massive");
   assert.ok(earth.mass > 0);
   assert.ok(earth.radius > 0);
+  // Mass/radius come from canonical institutional records; the Cartesian state
+  // is a calculated transform of canonical orbital elements.
   assert.equal(earth.provenance.mass.kind, "canonical");
-  assert.equal(earth.provenance.state.kind, "canonical");
+  assert.equal(earth.provenance.radius.kind, "canonical");
+  assert.equal(earth.provenance.state.kind, "calculated");
+  assert.equal(earth.provenance.state.method, "J2000 secular Keplerian state-vector transformation");
 });
 
 test("transforms to barycentric frame correctly", () => {

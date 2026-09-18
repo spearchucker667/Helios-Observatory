@@ -5,6 +5,7 @@ import * as THREE from "three";
 import type { SimulationBody } from "@/simulation/domain/types";
 import { useSandboxStore } from "@/simulation/state/sandbox-store";
 import { mapSimPositionToScene, mapSimRadiusToScene } from "./render-adapter";
+import { sampleInterpolatedPosition } from "@/simulation/state/render-interpolation";
 import {
   BlackHoleVisual,
   PulsarVisual,
@@ -38,8 +39,10 @@ export function SimulationBodyMesh({ body }: SimulationBodyProps) {
 
   useFrame(() => {
     if (!mover.current) return;
-    const targetPos = mapSimPositionToScene(body.position, displayMode);
-    // Direct transform update
+    // Visual interpolation between the last two authoritative snapshots
+    // (view-only: never fed back into physics).
+    const interpolated = sampleInterpolatedPosition(body.id, Date.now(), body.position);
+    const targetPos = mapSimPositionToScene(interpolated, displayMode);
     mover.current.position.set(targetPos[0], targetPos[1], targetPos[2]);
   });
 

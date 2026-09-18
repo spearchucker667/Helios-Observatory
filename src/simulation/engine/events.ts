@@ -22,6 +22,30 @@ export type SimulationEventType =
   | "black_hole_horizon_crossing"
   | "accuracy_warning";
 
+/**
+ * Event kinds that are declared by the model but have NO detector wired up.
+ * They are reserved: nothing in the engine emits them, and no UI or API may
+ * claim they are observed.
+ */
+export const RESERVED_EVENT_TYPES = ["collision", "capture", "fragmentation"] as const;
+
+export type ReservedSimulationEventType = (typeof RESERVED_EVENT_TYPES)[number];
+
+/** Event kinds with a real, deterministic detector in SimulationWorld. */
+export const IMPLEMENTED_EVENT_TYPES = [
+  "body_added",
+  "body_removed",
+  "parameter_changed",
+  "close_encounter",
+  "roche_limit_crossing",
+  "merge",
+  "tidal_disruption",
+  "black_hole_horizon_crossing",
+  "escape",
+  "ejection",
+  "accuracy_warning",
+] as const;
+
 export interface SimulationEvent {
   eventId: string;
   simTimeSeconds: number;

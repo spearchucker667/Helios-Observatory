@@ -439,10 +439,18 @@ export type EphemerisStateVector = {
   position: [number, number, number]; // meters [x, y, z] heliocentric ecliptic
   velocity: [number, number, number]; // m/s [vx, vy, vz] heliocentric ecliptic
   epochDays: number;
+  /**
+   * The orbital elements are the canonical (institutionally sourced) input;
+   * the Cartesian state vector is a CALCULATED transform of them and must never
+   * be presented as an institutionally published quantity.
+   */
   provenance: {
-    kind: "canonical";
+    kind: "calculated";
     source: string;
     authority: string;
+    sourceIds: string[];
+    method: string;
+    note: string;
   };
 };
 
@@ -457,6 +465,10 @@ export function computeEphemerisStateVector(
 ): EphemerisStateVector | null {
   const elem = KEPLER_TABLE[bodyId];
   if (!elem) return null;
+
+  // The analytical secular model is only defensible across its documented
+  // validity window; outside it we refuse rather than extrapolate.
+  if (!isSupportedEphemerisDay(daysFromJ2000)) return null;
 
   const T = daysFromJ2000 / DAYS_PER_CENTURY;
 
@@ -512,9 +524,14 @@ export function computeEphemerisStateVector(
     velocity: [v_xh_au_day * auDayToMs, v_yh_au_day * auDayToMs, v_zh_au_day * auDayToMs],
     epochDays: daysFromJ2000,
     provenance: {
-      kind: "canonical",
+      kind: "calculated",
       source: elem.provenance?.source || "Standish (1992) Table 1 / NASA JPL SSD",
       authority: elem.provenance?.authority || "NASA JPL",
+      sourceIds: [elem.provenance?.authority ?? "NASA JPL"],
+      method: "J2000 secular Keplerian state-vector transformation",
+      note:
+        "Orbital elements are canonical; this Cartesian position/velocity pair is calculated from them " +
+        "(analytical secular model, 1800-2050 AD).",
     },
   };
 }

@@ -1,5 +1,10 @@
 import type { SimulationBody } from "../domain/types.ts";
-import { computeEphemerisStateVector } from "../../lib/ephemeris.ts";
+import {
+  computeEphemerisStateVector,
+  isSupportedEphemerisDay,
+  EPHEMERIS_VALID_MIN_DATE,
+  EPHEMERIS_VALID_MAX_DATE,
+} from "../../lib/ephemeris.ts";
 import { bodyById, BODIES } from "../../data/registry.ts";
 import { transformToBarycentric } from "./barycentric.ts";
 import { celsiusToKelvin } from "../domain/units.ts";
@@ -22,7 +27,14 @@ export function createSimulationBodyFromCanonical(
       position: [0, 0, 0] as [number, number, number],
       velocity: [0, 0, 0] as [number, number, number],
       epochDays: daysFromJ2000,
-      provenance: { kind: "canonical" as const, source: "Heliocentric Origin", authority: "System" }
+      provenance: {
+        kind: "calculated" as const,
+        source: "Heliocentric origin of the reference frame",
+        authority: "System definition",
+        sourceIds: ["heliocentric-origin"],
+        method: "Frame definition (origin by construction)",
+        note: "The Sun sits at the heliocentric origin; this is a frame convention, not an ephemeris fit.",
+      },
     };
   } else {
     stateVector = computeEphemerisStateVector(bodyId, daysFromJ2000);
@@ -86,11 +98,18 @@ export function createSimulationBodyFromCanonical(
       radius: hasRadius
         ? { kind: "canonical", sourceIds: canonicalSourceIds }
         : { kind: "unsupported", note: "Radius unknown" },
-      state: {
-        kind: stateVector.provenance.kind,
-        method: "computeEphemerisStateVector",
-        note: `${stateVector.provenance.source} via ${stateVector.provenance.authority}`
-      }
+      state: bodyId === "sun"
+        ? {
+            kind: "calculated",
+            method: stateVector.provenance.method,
+            note: stateVector.provenance.note,
+          }
+        : {
+            kind: "calculated",
+            method: stateVector.provenance.method,
+            sourceIds: stateVector.provenance.sourceIds,
+            note: `${stateVector.provenance.source} via ${stateVector.provenance.authority}`,
+          }
     }
   };
 }
@@ -103,6 +122,17 @@ export function createCanonicalSolarSystem(
   daysFromJ2000 = 0,
   options?: { barycentric?: boolean }
 ): SimulationBody[] {
+  // Canonical initialization must not present extrapolated state as
+  // institutionally backed ephemeris. Fictional/custom simulation time may
+  // extend arbitrarily AFTER initialization, but the epoch we start from must
+  // lie inside the documented analytical validity window.
+  if (!isSupportedEphemerisDay(daysFromJ2000)) {
+    throw new Error(
+      `Unsupported canonical ephemeris epoch: ${daysFromJ2000} days from J2000. ` +
+        `The analytical source model is validated only for ${EPHEMERIS_VALID_MIN_DATE} through ${EPHEMERIS_VALID_MAX_DATE} UTC.`
+    );
+  }
+
   const bodies: SimulationBody[] = [];
 
   // Order: Sun first, then planets and dwarf planets from PRIMARY_BODIES

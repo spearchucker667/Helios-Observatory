@@ -111,6 +111,16 @@ export function TransportBar({ className }: { className?: string }) {
 
       {/* Elapsed time & achieved warp */}
       <div className="flex items-center gap-4 px-2 py-1 rounded-xl bg-bg/50 border border-fg/5 text-xs font-mono shrink-0">
+        {/* Machine-readable authoritative telemetry (used by browser QA). */}
+        <output
+          data-testid="sim-telemetry"
+          data-tick={snapshot?.tick ?? 0}
+          data-sim-seconds={snapshot?.simTimeSeconds ?? 0}
+          data-dt-seconds={snapshot?.dtSeconds ?? stats?.dtSeconds ?? 0}
+          data-paused={paused ? "true" : "false"}
+          data-playback-state={stats?.state ?? "uninitialized"}
+          hidden
+        />
         <div className="flex items-center gap-1.5 text-fg">
           <Clock className="size-3.5 text-muted shrink-0" aria-hidden="true" />
           <span className="font-medium">{elapsedFormatted}</span>
@@ -159,7 +169,7 @@ export function TransportBar({ className }: { className?: string }) {
           {(
             [
               { mode: "presentation", label: "Visual" },
-              { mode: "physical-size", label: "Size" },
+              { mode: "relative-size", label: "Size emphasis" },
               { mode: "distance", label: "Dist" },
             ] as { mode: DisplayMode; label: string }[]
           ).map((m) => (
